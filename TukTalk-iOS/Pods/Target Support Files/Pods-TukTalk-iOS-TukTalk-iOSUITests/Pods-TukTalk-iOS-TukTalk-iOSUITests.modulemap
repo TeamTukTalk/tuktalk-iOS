@@ -1,0 +1,6 @@
+framework module Pods_TukTalk_iOS_TukTalk_iOSUITests {
+  umbrella header "Pods-TukTalk-iOS-TukTalk-iOSUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

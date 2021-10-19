@@ -1,0 +1,6 @@
+framework module Pods_TukTalk_iOS {
+  umbrella header "Pods-TukTalk-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

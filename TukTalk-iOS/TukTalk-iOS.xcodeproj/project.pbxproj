@@ -1,0 +1,930 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4011846D271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
+		4011846E271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
+		4011846F271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
+		40118470271C8E9C00A5657A /* SFProDisplay-BOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846B271C8E9C00A5657A /* SFProDisplay-BOLD.OTF */; };
+		40118471271C8E9C00A5657A /* SFProDisplay-BOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846B271C8E9C00A5657A /* SFProDisplay-BOLD.OTF */; };
+		40118472271C8E9C00A5657A /* SFProDisplay-BOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846B271C8E9C00A5657A /* SFProDisplay-BOLD.OTF */; };
+		40118473271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846C271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF */; };
+		40118474271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846C271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF */; };
+		40118475271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846C271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF */; };
+		40118477271C90D800A5657A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40118476271C90D800A5657A /* UIFontExtension.swift */; };
+		40118478271C90D800A5657A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40118476271C90D800A5657A /* UIFontExtension.swift */; };
+		40118479271C90D800A5657A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40118476271C90D800A5657A /* UIFontExtension.swift */; };
+		4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011847A271CA41E00A5657A /* CALayerExtension.swift */; };
+		4011847C271CA41E00A5657A /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011847A271CA41E00A5657A /* CALayerExtension.swift */; };
+		4011847D271CA41E00A5657A /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011847A271CA41E00A5657A /* CALayerExtension.swift */; };
+		40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011847F271D9ACB00A5657A /* ViewModelProtocol.swift */; };
+		40118481271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011847F271D9ACB00A5657A /* ViewModelProtocol.swift */; };
+		40118482271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011847F271D9ACB00A5657A /* ViewModelProtocol.swift */; };
+		403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */; };
+		403B2D30271B538D00B834A6 /* AgreeButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2F271B538D00B834A6 /* AgreeButtonViewModel.swift */; };
+		403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D33271B784800B834A6 /* UIColorExtension.swift */; };
+		403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */; };
+		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
+		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
+		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
+		4041C0EA27198806007D09E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E827198806007D09E7 /* LaunchScreen.storyboard */; };
+		4041C0F527198806007D09E7 /* TukTalk_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0F427198806007D09E7 /* TukTalk_iOSTests.swift */; };
+		4041C10027198806007D09E7 /* TukTalk_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0FF27198806007D09E7 /* TukTalk_iOSUITests.swift */; };
+		4041C11627198933007D09E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C11527198933007D09E7 /* LoginViewController.swift */; };
+		4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C1172719893E007D09E7 /* LoginViewModel.swift */; };
+		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
+		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
+		4088F171271AE4CE00527A77 /* SignUpMenteeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpMenteeViewController.swift */; };
+		4088F173271AE4D800527A77 /* SignUpMentorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F172271AE4D800527A77 /* SignUpMentorViewController.swift */; };
+		CB6689EEEEA5C4F487F913F3 /* Pods_TukTalk_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */; };
+		D946EC43736DAE80E1B92F11 /* Pods_TukTalk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */; };
+		FE47055C235FE7AE896976B1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77C77FD87FFB639D54A00E1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4041C0F127198806007D09E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4041C0D227198803007D09E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4041C0D927198803007D09E7;
+			remoteInfo = "TukTalk-iOS";
+		};
+		4041C0FC27198806007D09E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4041C0D227198803007D09E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4041C0D927198803007D09E7;
+			remoteInfo = "TukTalk-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		25FC350EF778AB1F6E37D05A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-MEDIUM.OTF"; sourceTree = "<group>"; };
+		4011846B271C8E9C00A5657A /* SFProDisplay-BOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-BOLD.OTF"; sourceTree = "<group>"; };
+		4011846C271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-REGULAR.OTF"; sourceTree = "<group>"; };
+		40118476271C90D800A5657A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		4011847A271CA41E00A5657A /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		4011847F271D9ACB00A5657A /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		403B2D2F271B538D00B834A6 /* AgreeButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeButtonViewModel.swift; sourceTree = "<group>"; };
+		403B2D33271B784800B834A6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4041C0E627198806007D09E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4041C0E927198806007D09E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4041C0EB27198806007D09E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4041C0F027198806007D09E7 /* TukTalk-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TukTalk-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4041C0F427198806007D09E7 /* TukTalk_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TukTalk_iOSTests.swift; sourceTree = "<group>"; };
+		4041C0F627198806007D09E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4041C0FB27198806007D09E7 /* TukTalk-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TukTalk-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4041C0FF27198806007D09E7 /* TukTalk_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TukTalk_iOSUITests.swift; sourceTree = "<group>"; };
+		4041C10127198806007D09E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4041C11527198933007D09E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4041C1172719893E007D09E7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
+		4088F170271AE4CE00527A77 /* SignUpMenteeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMenteeViewController.swift; sourceTree = "<group>"; };
+		4088F172271AE4D800527A77 /* SignUpMentorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMentorViewController.swift; sourceTree = "<group>"; };
+		55850F1025F11A787912F4AD /* Pods-TukTalk-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOSTests/Pods-TukTalk-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBC287C2FAB71ECDC1C4E5CA /* Pods-TukTalk-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOS.debug.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOS/Pods-TukTalk-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		CD9ABBC79C4E534AC174801B /* Pods-TukTalk-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOSTests/Pods-TukTalk-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D1089D46AF8DD4DAA72AC48B /* Pods-TukTalk-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOS.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOS/Pods-TukTalk-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		E5D944D4F9AD2B3757D2AD6A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOS-TukTalk-iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E77C77FD87FFB639D54A00E1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOS_TukTalk_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4041C0D727198803007D09E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D946EC43736DAE80E1B92F11 /* Pods_TukTalk_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4041C0ED27198806007D09E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB6689EEEEA5C4F487F913F3 /* Pods_TukTalk_iOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4041C0F827198806007D09E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE47055C235FE7AE896976B1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D2422B87AFCE486F63610F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CBC287C2FAB71ECDC1C4E5CA /* Pods-TukTalk-iOS.debug.xcconfig */,
+				D1089D46AF8DD4DAA72AC48B /* Pods-TukTalk-iOS.release.xcconfig */,
+				E5D944D4F9AD2B3757D2AD6A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.debug.xcconfig */,
+				25FC350EF778AB1F6E37D05A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig */,
+				CD9ABBC79C4E534AC174801B /* Pods-TukTalk-iOSTests.debug.xcconfig */,
+				55850F1025F11A787912F4AD /* Pods-TukTalk-iOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		40118469271C8DF100A5657A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4011846B271C8E9C00A5657A /* SFProDisplay-BOLD.OTF */,
+				4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */,
+				4011846C271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4011847E271D9AB700A5657A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4011847F271D9ACB00A5657A /* ViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		403B2D2C271B458F00B834A6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */,
+				403B2D33271B784800B834A6 /* UIColorExtension.swift */,
+				403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */,
+				40118476271C90D800A5657A /* UIFontExtension.swift */,
+				4011847A271CA41E00A5657A /* CALayerExtension.swift */,
+				40746D0B271EE94400B54CBB /* UILabelExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4041C0D127198803007D09E7 = {
+			isa = PBXGroup;
+			children = (
+				4041C0DC27198803007D09E7 /* TukTalk-iOS */,
+				4041C0F327198806007D09E7 /* TukTalk-iOSTests */,
+				4041C0FE27198806007D09E7 /* TukTalk-iOSUITests */,
+				4041C0DB27198803007D09E7 /* Products */,
+				3D2422B87AFCE486F63610F5 /* Pods */,
+				9238CF2D4D09587F33AF1237 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4041C0DB27198803007D09E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4041C0DA27198803007D09E7 /* TukTalk-iOS.app */,
+				4041C0F027198806007D09E7 /* TukTalk-iOSTests.xctest */,
+				4041C0FB27198806007D09E7 /* TukTalk-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4041C0DC27198803007D09E7 /* TukTalk-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4041C10D2719880F007D09E7 /* Applications */,
+				4041C10E27198820007D09E7 /* Resources */,
+				4041C10F27198889007D09E7 /* Sources */,
+			);
+			path = "TukTalk-iOS";
+			sourceTree = "<group>";
+		};
+		4041C0F327198806007D09E7 /* TukTalk-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				4041C0F427198806007D09E7 /* TukTalk_iOSTests.swift */,
+				4041C0F627198806007D09E7 /* Info.plist */,
+			);
+			path = "TukTalk-iOSTests";
+			sourceTree = "<group>";
+		};
+		4041C0FE27198806007D09E7 /* TukTalk-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4041C0FF27198806007D09E7 /* TukTalk_iOSUITests.swift */,
+				4041C10127198806007D09E7 /* Info.plist */,
+			);
+			path = "TukTalk-iOSUITests";
+			sourceTree = "<group>";
+		};
+		4041C10D2719880F007D09E7 /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+				4041C0E827198806007D09E7 /* LaunchScreen.storyboard */,
+				4041C0EB27198806007D09E7 /* Info.plist */,
+				4041C0DD27198803007D09E7 /* AppDelegate.swift */,
+				4041C0DF27198803007D09E7 /* SceneDelegate.swift */,
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		4041C10E27198820007D09E7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4011847E271D9AB700A5657A /* Protocols */,
+				40118469271C8DF100A5657A /* Fonts */,
+				403B2D2C271B458F00B834A6 /* Extensions */,
+				4041C0E627198806007D09E7 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4041C10F27198889007D09E7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4041C110271988A0007D09E7 /* Models */,
+				4041C111271988A4007D09E7 /* Views */,
+				4041C112271988B2007D09E7 /* ViewModels */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		4041C110271988A0007D09E7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4041C111271988A4007D09E7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4041C11327198917007D09E7 /* Login */,
+				4088F16A2719E15700527A77 /* SignUp */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4041C112271988B2007D09E7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4041C1142719891F007D09E7 /* Login */,
+				4088F16D271ADAE700527A77 /* SignUp */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4041C11327198917007D09E7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4041C11527198933007D09E7 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4041C1142719891F007D09E7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4041C1172719893E007D09E7 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4088F16A2719E15700527A77 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */,
+				4088F170271AE4CE00527A77 /* SignUpMenteeViewController.swift */,
+				4088F172271AE4D800527A77 /* SignUpMentorViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		4088F16D271ADAE700527A77 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				403B2D2F271B538D00B834A6 /* AgreeButtonViewModel.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		9238CF2D4D09587F33AF1237 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */,
+				E77C77FD87FFB639D54A00E1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework */,
+				66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4041C0D927198803007D09E7 /* TukTalk-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4041C10427198806007D09E7 /* Build configuration list for PBXNativeTarget "TukTalk-iOS" */;
+			buildPhases = (
+				EC74C66D6F7016D9B965372B /* [CP] Check Pods Manifest.lock */,
+				4041C0D627198803007D09E7 /* Sources */,
+				4041C0D727198803007D09E7 /* Frameworks */,
+				4041C0D827198803007D09E7 /* Resources */,
+				A2CE7EB48F65217BD3FF671D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TukTalk-iOS";
+			productName = "TukTalk-iOS";
+			productReference = 4041C0DA27198803007D09E7 /* TukTalk-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4041C0EF27198806007D09E7 /* TukTalk-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4041C10727198806007D09E7 /* Build configuration list for PBXNativeTarget "TukTalk-iOSTests" */;
+			buildPhases = (
+				ED6385FB9C439DB100EB85C1 /* [CP] Check Pods Manifest.lock */,
+				4041C0EC27198806007D09E7 /* Sources */,
+				4041C0ED27198806007D09E7 /* Frameworks */,
+				4041C0EE27198806007D09E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4041C0F227198806007D09E7 /* PBXTargetDependency */,
+			);
+			name = "TukTalk-iOSTests";
+			productName = "TukTalk-iOSTests";
+			productReference = 4041C0F027198806007D09E7 /* TukTalk-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4041C0FA27198806007D09E7 /* TukTalk-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4041C10A27198806007D09E7 /* Build configuration list for PBXNativeTarget "TukTalk-iOSUITests" */;
+			buildPhases = (
+				9A654C5E0BDFE4034B9E5BA8 /* [CP] Check Pods Manifest.lock */,
+				4041C0F727198806007D09E7 /* Sources */,
+				4041C0F827198806007D09E7 /* Frameworks */,
+				4041C0F927198806007D09E7 /* Resources */,
+				CA62D265A57E3FA373C49B89 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4041C0FD27198806007D09E7 /* PBXTargetDependency */,
+			);
+			name = "TukTalk-iOSUITests";
+			productName = "TukTalk-iOSUITests";
+			productReference = 4041C0FB27198806007D09E7 /* TukTalk-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4041C0D227198803007D09E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					4041C0D927198803007D09E7 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					4041C0EF27198806007D09E7 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 4041C0D927198803007D09E7;
+					};
+					4041C0FA27198806007D09E7 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 4041C0D927198803007D09E7;
+					};
+				};
+			};
+			buildConfigurationList = 4041C0D527198803007D09E7 /* Build configuration list for PBXProject "TukTalk-iOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4041C0D127198803007D09E7;
+			productRefGroup = 4041C0DB27198803007D09E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4041C0D927198803007D09E7 /* TukTalk-iOS */,
+				4041C0EF27198806007D09E7 /* TukTalk-iOSTests */,
+				4041C0FA27198806007D09E7 /* TukTalk-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4041C0D827198803007D09E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40118473271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF in Resources */,
+				4041C0EA27198806007D09E7 /* LaunchScreen.storyboard in Resources */,
+				4041C0E727198806007D09E7 /* Assets.xcassets in Resources */,
+				40118470271C8E9C00A5657A /* SFProDisplay-BOLD.OTF in Resources */,
+				4011846D271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4041C0EE27198806007D09E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40118474271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF in Resources */,
+				40118471271C8E9C00A5657A /* SFProDisplay-BOLD.OTF in Resources */,
+				4011846E271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4041C0F927198806007D09E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40118475271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF in Resources */,
+				40118472271C8E9C00A5657A /* SFProDisplay-BOLD.OTF in Resources */,
+				4011846F271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9A654C5E0BDFE4034B9E5BA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TukTalk-iOS-TukTalk-iOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2CE7EB48F65217BD3FF671D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TukTalk-iOS/Pods-TukTalk-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TukTalk-iOS/Pods-TukTalk-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TukTalk-iOS/Pods-TukTalk-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA62D265A57E3FA373C49B89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC74C66D6F7016D9B965372B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TukTalk-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED6385FB9C439DB100EB85C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TukTalk-iOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4041C0D627198803007D09E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4041C11627198933007D09E7 /* LoginViewController.swift in Sources */,
+				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
+				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
+				4088F173271AE4D800527A77 /* SignUpMentorViewController.swift in Sources */,
+				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
+				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
+				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
+				403B2D30271B538D00B834A6 /* AgreeButtonViewModel.swift in Sources */,
+				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
+				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
+				4088F171271AE4CE00527A77 /* SignUpMenteeViewController.swift in Sources */,
+				4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */,
+				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
+				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
+				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4041C0EC27198806007D09E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40118481271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
+				4011847C271CA41E00A5657A /* CALayerExtension.swift in Sources */,
+				40118478271C90D800A5657A /* UIFontExtension.swift in Sources */,
+				4041C0F527198806007D09E7 /* TukTalk_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4041C0F727198806007D09E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40118482271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
+				4011847D271CA41E00A5657A /* CALayerExtension.swift in Sources */,
+				40118479271C90D800A5657A /* UIFontExtension.swift in Sources */,
+				4041C10027198806007D09E7 /* TukTalk_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4041C0F227198806007D09E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4041C0D927198803007D09E7 /* TukTalk-iOS */;
+			targetProxy = 4041C0F127198806007D09E7 /* PBXContainerItemProxy */;
+		};
+		4041C0FD27198806007D09E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4041C0D927198803007D09E7 /* TukTalk-iOS */;
+			targetProxy = 4041C0FC27198806007D09E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4041C0E827198806007D09E7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4041C0E927198806007D09E7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4041C10227198806007D09E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4041C10327198806007D09E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4041C10527198806007D09E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBC287C2FAB71ECDC1C4E5CA /* Pods-TukTalk-iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TAJ2UVSWN;
+				INFOPLIST_FILE = "TukTalk-iOS/Applications/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SJHAN.TukTalk-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4041C10627198806007D09E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1089D46AF8DD4DAA72AC48B /* Pods-TukTalk-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TAJ2UVSWN;
+				INFOPLIST_FILE = "TukTalk-iOS/Applications/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SJHAN.TukTalk-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4041C10827198806007D09E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD9ABBC79C4E534AC174801B /* Pods-TukTalk-iOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TAJ2UVSWN;
+				INFOPLIST_FILE = "TukTalk-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SJHAN.TukTalk-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TukTalk-iOS.app/TukTalk-iOS";
+			};
+			name = Debug;
+		};
+		4041C10927198806007D09E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55850F1025F11A787912F4AD /* Pods-TukTalk-iOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TAJ2UVSWN;
+				INFOPLIST_FILE = "TukTalk-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SJHAN.TukTalk-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TukTalk-iOS.app/TukTalk-iOS";
+			};
+			name = Release;
+		};
+		4041C10B27198806007D09E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5D944D4F9AD2B3757D2AD6A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TAJ2UVSWN;
+				INFOPLIST_FILE = "TukTalk-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SJHAN.TukTalk-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "TukTalk-iOS";
+			};
+			name = Debug;
+		};
+		4041C10C27198806007D09E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25FC350EF778AB1F6E37D05A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TAJ2UVSWN;
+				INFOPLIST_FILE = "TukTalk-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SJHAN.TukTalk-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "TukTalk-iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4041C0D527198803007D09E7 /* Build configuration list for PBXProject "TukTalk-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4041C10227198806007D09E7 /* Debug */,
+				4041C10327198806007D09E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4041C10427198806007D09E7 /* Build configuration list for PBXNativeTarget "TukTalk-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4041C10527198806007D09E7 /* Debug */,
+				4041C10627198806007D09E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4041C10727198806007D09E7 /* Build configuration list for PBXNativeTarget "TukTalk-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4041C10827198806007D09E7 /* Debug */,
+				4041C10927198806007D09E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4041C10A27198806007D09E7 /* Build configuration list for PBXNativeTarget "TukTalk-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4041C10B27198806007D09E7 /* Debug */,
+				4041C10C27198806007D09E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4041C0D227198803007D09E7 /* Project object */;
+}
