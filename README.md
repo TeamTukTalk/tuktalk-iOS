@@ -29,7 +29,7 @@
 * RxCocoa
 * Moya
 * Firebase
-* Kignfisher
+* Kinfisher
 
 <br>
 
