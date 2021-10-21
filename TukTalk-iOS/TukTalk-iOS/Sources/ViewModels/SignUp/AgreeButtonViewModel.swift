@@ -6,20 +6,14 @@
 //
 
 struct AgreeButtonViewModel {
-    let dependency: Dependency
     let output: Output
     var toggle = false
-    
-    struct Dependency {
-        var isSelected: Bool?
-    }
     
     struct Output {
         var imgChange = false
     }
     
-    init(dependency: Dependency = Dependency(isSelected: nil)) {
-        self.dependency = dependency
+    init() {
         self.output = Output(imgChange: toggle)
     }
     

@@ -173,13 +173,17 @@ class SignUpChoiceViewController: UIViewController {
     private func binding() {
         signUpMentorBtn.rx.tap
             .bind {
-                self.navigationController?.pushViewController(SignUpMentorViewController(), animated: true)
+                let nextVC = WhichFieldInViewController()
+                nextVC.titleLabel.text = "어떤 분야에서\n일하고 계신가요?👀"
+                self.navigationController?.pushViewController(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
         
         signUpMenteeBtn.rx.tap
             .bind {
-                self.navigationController?.pushViewController(SignUpMenteeViewController(), animated: true)
+                let nextVC = WhichFieldInViewController()
+                nextVC.titleLabel.text = "어떤 분야에\n관심 있으신가요?👀"
+                self.navigationController?.pushViewController(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
         

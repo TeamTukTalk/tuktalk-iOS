@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4000F8A12721B14D0067C6B6 /* WhichFieldInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8A02721B14D0067C6B6 /* WhichFieldInViewController.swift */; };
 		4011846D271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
 		4011846E271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
 		4011846F271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		25FC350EF778AB1F6E37D05A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4000F8A02721B14D0067C6B6 /* WhichFieldInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichFieldInViewController.swift; sourceTree = "<group>"; };
 		4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-MEDIUM.OTF"; sourceTree = "<group>"; };
 		4011846B271C8E9C00A5657A /* SFProDisplay-BOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-BOLD.OTF"; sourceTree = "<group>"; };
 		4011846C271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-REGULAR.OTF"; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */,
+				4000F8A02721B14D0067C6B6 /* WhichFieldInViewController.swift */,
 				4088F170271AE4CE00527A77 /* SignUpMenteeViewController.swift */,
 				4088F172271AE4D800527A77 /* SignUpMentorViewController.swift */,
 			);
@@ -576,6 +579,7 @@
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
 				4088F173271AE4D800527A77 /* SignUpMentorViewController.swift in Sources */,
+				4000F8A12721B14D0067C6B6 /* WhichFieldInViewController.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
 				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
