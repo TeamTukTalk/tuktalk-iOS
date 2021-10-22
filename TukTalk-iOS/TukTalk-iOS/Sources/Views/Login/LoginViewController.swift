@@ -19,10 +19,8 @@ class LoginViewController: UIViewController {
     
     //MARK:- UI Components
     
-    private let tempLogo = UILabel().then {
-        $0.text = "로고 들어갈 곳"
-        $0.textColor = UIColor.Primary.primary
-        $0.font = UIFont.TTFont(type: .SDBold, size: 34)
+    private let logoImageView = UIImageView().then {
+        $0.image = UIImage(named: "logoImg")
     }
     
     private let emailLabel = UILabel().then {
@@ -111,15 +109,15 @@ class LoginViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
         
-        view.addSubview(tempLogo)
-        tempLogo.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(214)
+        view.addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(233)
             make.centerX.equalToSuperview()
         }
         
         view.addSubview(emailLabel)
         emailLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(291)
+            make.top.equalToSuperview().offset(310)
             make.leading.equalToSuperview().offset(16)
             make.height.equalTo(22)
         }
@@ -134,7 +132,7 @@ class LoginViewController: UIViewController {
         view.addSubview(errorIcon)
         errorIcon.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(16)
-            make.top.equalToSuperview().offset(324)
+            make.top.equalToSuperview().offset(343)
         }
         
         view.addSubview(emailErrorMsg)
@@ -219,7 +217,7 @@ class LoginViewController: UIViewController {
                         self.emailErrorMsg.isHidden = false
                         self.errorIcon.isHidden = false
                         self.errorIcon.snp.updateConstraints { make in
-                            make.top.equalToSuperview().offset(325)
+                            make.top.equalToSuperview().offset(343)
                         }
                     }).disposed(by: self.disposeBag)
                 self.loginViewModel.output.emailIsValid.take(1)
