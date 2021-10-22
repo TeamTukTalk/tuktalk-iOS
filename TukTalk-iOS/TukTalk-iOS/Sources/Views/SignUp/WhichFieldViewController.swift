@@ -9,7 +9,7 @@ import SnapKit
 import Then
 import RxSwift
 
-class WhichFieldInViewController: UIViewController {
+class WhichFieldViewController: UIViewController {
 
     //MARK:- Properties
 
@@ -30,17 +30,20 @@ class WhichFieldInViewController: UIViewController {
     }
     
     let titleLabel = UILabel().then {
+        $0.text = "어떤 분야에\n관심 있으신가요?👀"
         $0.font = UIFont.TTFont(type: .SDHeader, size: 20)
         $0.textColor = UIColor.GrayScale.normal
         $0.makeHeightSpacing(thisText: $0.text, fontSize: 20)
     }
     
-    private let netxBtn = UIButton().then {
+    private let nextBtn = UIButton().then {
         $0.setTitle("다음", for: .normal)
         $0.backgroundColor = UIColor.Primary.primary
         $0.layer.cornerRadius = 26
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
     }
+    
+    private let categoryView = CategoryView()
     
     
     //MARK:- Life Cycle
@@ -48,7 +51,6 @@ class WhichFieldInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        print("들어옴")
         setUI()
         binding()
     }
@@ -74,6 +76,20 @@ class WhichFieldInViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
+        view.addSubview(categoryView)
+        categoryView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(56)
+            make.leading.equalToSuperview().offset(16)
+            make.height.equalTo(228) /// 나중에 오토레이아웃 적용해야함
+            make.width.equalTo(343)
+        }
+        
+        view.addSubview(nextBtn)
+        nextBtn.snp.makeConstraints { make in
+            make.height.equalTo(52)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(42)
+        }
     }
     
     private func binding() {
@@ -85,7 +101,7 @@ class WhichFieldInViewController: UIViewController {
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: {_ in
+            .bind(onNext: { _ in
                 let popUpViewController = PopUpViewController()
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
                 naviVC.modalPresentationStyle = .overCurrentContext
@@ -95,6 +111,12 @@ class WhichFieldInViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        nextBtn.rx.tap
+            .bind(onNext: { _ in
+                self.navigationController?.pushViewController(SignUpViewController(), animated: true)
             })
             .disposed(by: disposeBag)
     }

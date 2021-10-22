@@ -105,7 +105,7 @@ class SignUpChoiceViewController: UIViewController {
         
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(122)
+            make.top.equalToSuperview().inset(120)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
@@ -173,7 +173,7 @@ class SignUpChoiceViewController: UIViewController {
     private func binding() {
         signUpMentorBtn.rx.tap
             .bind {
-                let nextVC = WhichFieldInViewController()
+                let nextVC = WhichFieldViewController()
                 nextVC.titleLabel.text = "어떤 분야에서\n일하고 계신가요?👀"
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
@@ -181,9 +181,7 @@ class SignUpChoiceViewController: UIViewController {
         
         signUpMenteeBtn.rx.tap
             .bind {
-                let nextVC = WhichFieldInViewController()
-                nextVC.titleLabel.text = "어떤 분야에\n관심 있으신가요?👀"
-                self.navigationController?.pushViewController(nextVC, animated: true)
+                self.navigationController?.pushViewController(WhichFieldViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         

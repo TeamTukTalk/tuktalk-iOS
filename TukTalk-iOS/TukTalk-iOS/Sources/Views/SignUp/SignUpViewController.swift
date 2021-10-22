@@ -1,5 +1,5 @@
 //
-//  SignUpMentoViewController.swift
+//  SignUpMentiViewController.swift
 //  TukTalk-iOS
 //
 //  Created by 한상진 on 2021/10/16.
@@ -10,7 +10,7 @@ import RxCocoa
 import SnapKit
 import Then
 
-class SignUpMentorViewController: UIViewController {
+class SignUpViewController: UIViewController {
     
     //MARK:- Properties
     
@@ -329,5 +329,4 @@ class SignUpMentorViewController: UIViewController {
     @objc private func dismissAlertController() {
         self.dismiss(animated: true, completion: nil)
     }
-
 }
