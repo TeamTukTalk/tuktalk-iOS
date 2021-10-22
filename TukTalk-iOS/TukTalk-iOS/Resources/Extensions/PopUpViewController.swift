@@ -15,7 +15,7 @@ final class PopUpViewController: UIViewController {
     
     private let popUpView = UIView().then {
         $0.backgroundColor = UIColor.white
-        $0.layer.cornerRadius = 4
+        $0.layer.cornerRadius = 8
     }
     
     private let popUpTitleLabel = UILabel().then {
