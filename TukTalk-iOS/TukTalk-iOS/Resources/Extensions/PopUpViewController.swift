@@ -18,7 +18,7 @@ final class PopUpViewController: UIViewController {
         $0.layer.cornerRadius = 8
     }
     
-    private let popUpTitleLabel = UILabel().then {
+    let popUpTitleLabel = UILabel().then {
         $0.text = "회원가입을 중단하시겠습니까?"
         $0.textColor = UIColor.GrayScale.normal
         $0.font = UIFont.TTFont(type: .SDMed, size: 14)

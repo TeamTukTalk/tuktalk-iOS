@@ -40,6 +40,11 @@
 		4041C10027198806007D09E7 /* TukTalk_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0FF27198806007D09E7 /* TukTalk_iOSUITests.swift */; };
 		4041C11627198933007D09E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C11527198933007D09E7 /* LoginViewController.swift */; };
 		4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C1172719893E007D09E7 /* LoginViewModel.swift */; };
+		404E68692724206D005AA5DD /* EnrollFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68682724206D005AA5DD /* EnrollFirstViewController.swift */; };
+		404E686D272439C7005AA5DD /* EnrollSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686C272439C7005AA5DD /* EnrollSecondViewController.swift */; };
+		404E6870272449B6005AA5DD /* EnrollFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686F272449B6005AA5DD /* EnrollFirstViewModel.swift */; };
+		404E687227245220005AA5DD /* EnrollSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E687127245220005AA5DD /* EnrollSecondViewModel.swift */; };
+		404E68742724541E005AA5DD /* EnrollThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* EnrollThirdViewController.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
@@ -94,6 +99,11 @@
 		4041C10127198806007D09E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4041C11527198933007D09E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4041C1172719893E007D09E7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		404E68682724206D005AA5DD /* EnrollFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollFirstViewController.swift; sourceTree = "<group>"; };
+		404E686C272439C7005AA5DD /* EnrollSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollSecondViewController.swift; sourceTree = "<group>"; };
+		404E686F272449B6005AA5DD /* EnrollFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollFirstViewModel.swift; sourceTree = "<group>"; };
+		404E687127245220005AA5DD /* EnrollSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollSecondViewModel.swift; sourceTree = "<group>"; };
+		404E68732724541E005AA5DD /* EnrollThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollThirdViewController.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +284,7 @@
 			children = (
 				4041C11327198917007D09E7 /* Login */,
 				4088F16A2719E15700527A77 /* SignUp */,
+				404E686727242017005AA5DD /* EnrollMentor */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,6 +294,7 @@
 			children = (
 				4041C1142719891F007D09E7 /* Login */,
 				4088F16D271ADAE700527A77 /* SignUp */,
+				404E686E272449A4005AA5DD /* EnrollMentor */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -301,6 +313,25 @@
 				4041C1172719893E007D09E7 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		404E686727242017005AA5DD /* EnrollMentor */ = {
+			isa = PBXGroup;
+			children = (
+				404E68682724206D005AA5DD /* EnrollFirstViewController.swift */,
+				404E686C272439C7005AA5DD /* EnrollSecondViewController.swift */,
+				404E68732724541E005AA5DD /* EnrollThirdViewController.swift */,
+			);
+			path = EnrollMentor;
+			sourceTree = "<group>";
+		};
+		404E686E272449A4005AA5DD /* EnrollMentor */ = {
+			isa = PBXGroup;
+			children = (
+				404E686F272449B6005AA5DD /* EnrollFirstViewModel.swift */,
+				404E687127245220005AA5DD /* EnrollSecondViewModel.swift */,
+			);
+			path = EnrollMentor;
 			sourceTree = "<group>";
 		};
 		4088F16A2719E15700527A77 /* SignUp */ = {
@@ -583,9 +614,12 @@
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
 				4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */,
+				404E686D272439C7005AA5DD /* EnrollSecondViewController.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
 				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
+				404E6870272449B6005AA5DD /* EnrollFirstViewModel.swift in Sources */,
+				404E68742724541E005AA5DD /* EnrollThirdViewController.swift in Sources */,
 				403B2D30271B538D00B834A6 /* AgreeButtonViewModel.swift in Sources */,
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
@@ -593,7 +627,9 @@
 				4000F8AD27220DA00067C6B6 /* CategoryDataModel.swift in Sources */,
 				4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */,
 				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
+				404E68692724206D005AA5DD /* EnrollFirstViewController.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
+				404E687227245220005AA5DD /* EnrollSecondViewModel.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
