@@ -118,13 +118,12 @@ class CategoryView: UIView {
     @objc func btnEvent(_ sender: UIButton) {
         let number = sender.tag
         if categoryTapped[number] {
-            categoryTapped[number] = false
             categoryBtn[number].setTitleColor(UIColor.GrayScale.sub2, for: .normal)
             categoryBtn[number].layer.borderColor = UIColor.GrayScale.gray3.cgColor
         } else {
-            categoryTapped[number] = true
             categoryBtn[number].setTitleColor(UIColor.Primary.primary, for: .normal)
             categoryBtn[number].layer.borderColor = UIColor.Primary.primary.cgColor
         }
+        categoryTapped[number].toggle()
     }
 }
