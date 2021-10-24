@@ -203,42 +203,42 @@ class LoginViewController: UIViewController {
             .disposed(by: disposeBag)
         
         emailTextField.rx.controlEvent(.editingDidBegin)
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.emailTextField.setUnderline(true)
-            })
+            }
             .disposed(by: disposeBag)
 
         emailTextField.rx.controlEvent(.editingDidEnd)
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.emailTextField.setUnderline(false)
                 self.loginViewModel.output.emailIsValid.take(1)
                     .filter {!$0}
-                    .bind(onNext: { _ in
-                        self.emailErrorMsg.isHidden = false
-                        self.errorIcon.isHidden = false
+                    .bind { status in
+                        self.emailErrorMsg.isHidden = status
+                        self.errorIcon.isHidden = status
                         self.errorIcon.snp.updateConstraints { make in
                             make.top.equalToSuperview().offset(343)
                         }
-                    }).disposed(by: self.disposeBag)
+                    }.disposed(by: self.disposeBag)
                 self.loginViewModel.output.emailIsValid.take(1)
                     .filter {$0}
-                    .bind(onNext: { _ in
-                        self.emailErrorMsg.isHidden = true
-                        self.errorIcon.isHidden = true
-                    }).disposed(by: self.disposeBag)
-            })
+                    .bind { status in
+                        self.emailErrorMsg.isHidden = status
+                        self.errorIcon.isHidden = status
+                    }.disposed(by: self.disposeBag)
+            }
             .disposed(by: disposeBag)
         
         passwordTextField.rx.controlEvent(.editingDidBegin)
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.passwordTextField.setUnderline(true)
-            })
+            }
             .disposed(by: disposeBag)
 
         passwordTextField.rx.controlEvent(.editingDidEnd)
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.passwordTextField.setUnderline(false)
-            })
+            }
             .disposed(by: disposeBag)
         
         signUpBtn.rx.tap

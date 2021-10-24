@@ -95,13 +95,13 @@ class WhichFieldViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.navigationController?.popViewController(animated: true)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 let popUpViewController = PopUpViewController()
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
                 naviVC.modalPresentationStyle = .overCurrentContext
@@ -111,13 +111,13 @@ class WhichFieldViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.navigationController?.pushViewController(SignUpViewController(), animated: true)
-            })
+            }
             .disposed(by: disposeBag)
     }
     

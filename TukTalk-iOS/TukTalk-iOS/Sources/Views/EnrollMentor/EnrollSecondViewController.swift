@@ -255,13 +255,13 @@ class EnrollSecondViewController: UIViewController {
     
     private func binding() {
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.navigationController?.popViewController(animated: false)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "멘토등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -272,13 +272,13 @@ class EnrollSecondViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         emailTextField.rx.controlEvent(.editingDidBegin)
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.emailTextField.setUnderline(true)
-            })
+            }
             .disposed(by: disposeBag)
         
         emailTextField.rx.text
@@ -292,24 +292,24 @@ class EnrollSecondViewController: UIViewController {
         
         enrollSecondViewModel.output.sendIsValid
             .filter {$0}
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.sendBtn.setTitleColor(.white, for: .normal)
                 self.sendBtn.backgroundColor = UIColor.Primary.primary
-            })
+            }
             .disposed(by: disposeBag)
         
         enrollSecondViewModel.output.sendIsValid
             .filter {!$0}
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.sendBtn.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
                 self.sendBtn.backgroundColor = UIColor.GrayScale.gray4
-            })
+            }
             .disposed(by: disposeBag)
         
         sendBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.navigationController?.pushViewController(EnrollThirdViewController(), animated: false)
-            })
+            }
             .disposed(by: disposeBag)
     }
     

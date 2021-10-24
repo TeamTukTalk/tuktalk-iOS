@@ -269,27 +269,27 @@ class EnrollFirstViewController: UIViewController {
     private func binding() {
         
         companyTextField.rx.controlEvent(.editingDidBegin)
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.companyTextField.setUnderline(true)
-            })
+            }
             .disposed(by: disposeBag)
         
         departmentTextField.rx.controlEvent(.editingDidBegin)
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.departmentTextField.setUnderline(true)
-            })
+            }
             .disposed(by: disposeBag)
         
         companyTextField.rx.controlEvent(.editingDidEnd)
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.companyTextField.setUnderline(false)
-            })
+            }
             .disposed(by: disposeBag)
         
         departmentTextField.rx.controlEvent(.editingDidEnd)
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.departmentTextField.setUnderline(false)
-            })
+            }
             .disposed(by: disposeBag)
         
         companyTextField.rx.text
@@ -304,18 +304,18 @@ class EnrollFirstViewController: UIViewController {
         
         enrollFirstViewModel.output.nextIsValid
             .filter {$0}
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.nextBtn.setTitleColor(.white, for: .normal)
                 self.nextBtn.backgroundColor = UIColor.Primary.primary
-            })
+            }
             .disposed(by: disposeBag)
         
         enrollFirstViewModel.output.nextIsValid
             .filter {!$0}
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.nextBtn.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
                 self.nextBtn.backgroundColor = UIColor.GrayScale.gray4
-            })
+            }
             .disposed(by: disposeBag)
         
         enrollFirstViewModel.output.nextIsValid
@@ -323,13 +323,13 @@ class EnrollFirstViewController: UIViewController {
             .disposed(by: disposeBag)
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.navigationController?.popViewController(animated: false)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "멘토등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -340,13 +340,13 @@ class EnrollFirstViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.navigationController?.pushViewController(EnrollSecondViewController(), animated: false)
-            })
+            }
             .disposed(by: disposeBag)
     }
     

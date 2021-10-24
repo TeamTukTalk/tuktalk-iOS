@@ -120,7 +120,7 @@ class SignUpViewController: UIViewController {
     }
     
     //MARK:- Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -183,7 +183,7 @@ class SignUpViewController: UIViewController {
             make.bottom.equalTo(emailTextField.snp.bottom)
             make.trailing.equalToSuperview().inset(16)
         }
-
+        
         view.addSubview(passwordLabel)
         passwordLabel.snp.makeConstraints { make in
             make.top.equalTo(emailTextField.snp.bottom).offset(40)
@@ -232,86 +232,73 @@ class SignUpViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(79)
         }
-
+        
     }
     
     private func binding() {
         nameTextField.rx.controlEvent(.editingDidBegin)
-            .asObservable()
-            .subscribe(onNext: { _ in
+            .subscribe { _ in
                 self.nameTextField.setUnderline(true)
-            })
+            }
             .disposed(by: disposeBag)
-
+        
         nameTextField.rx.controlEvent(.editingDidEnd)
-            .asObservable()
-            .subscribe(onNext: { _ in
+            .subscribe { _ in
                 self.nameTextField.setUnderline(false)
-            })
+            }
             .disposed(by: disposeBag)
         
         emailTextField.rx.controlEvent(.editingDidBegin)
-            .asObservable()
-            .subscribe(onNext: { _ in
+            .subscribe { _ in
                 self.emailTextField.setUnderline(true)
-            })
+            }
             .disposed(by: disposeBag)
         
         emailTextField.rx.controlEvent(.editingDidEnd)
-            .asObservable()
-            .subscribe(onNext: { _ in
+            .subscribe { _ in
                 self.emailTextField.setUnderline(false)
-            })
+            }
             .disposed(by: disposeBag)
         
         passwordTextField.rx.controlEvent(.editingDidBegin)
-            .asObservable()
-            .subscribe(onNext: { _ in
+            .subscribe { _ in
                 self.passwordTextField.setUnderline(true)
-            })
+            }
             .disposed(by: disposeBag)
         
         passwordTextField.rx.controlEvent(.editingDidEnd)
-            .asObservable()
-            .subscribe(onNext: { _ in
+            .subscribe { _ in
                 self.passwordTextField.setUnderline(false)
-            })
+            }
             .disposed(by: disposeBag)
         
         passwordCheckTextField.rx.controlEvent(.editingDidBegin)
-            .asObservable()
-            .subscribe(onNext: { _ in
+            .subscribe { _ in
                 self.passwordCheckTextField.setUnderline(true)
-            })
+            }
             .disposed(by: disposeBag)
         
         passwordCheckTextField.rx.controlEvent(.editingDidEnd)
-            .asObservable()
-            .subscribe(onNext: { _ in
+            .subscribe { _ in
                 self.passwordCheckTextField.setUnderline(false)
-            })
+            }
             .disposed(by: disposeBag)
         
         allAgreeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.agreeButtonViewModel.btnToggle()
-                switch self.agreeButtonViewModel.toggle {
-                case true:
-                    self.allAgreeBtn.setImage(UIImage(named: "allCheckOnImg"), for: .normal)
-                case false:
-                    self.allAgreeBtn.setImage(UIImage(named: "allCheckOffImg"), for: .normal)
-                }
-            })
+                self.agreeButtonViewModel.toggle ? self.allAgreeBtn.setImage(UIImage(named: "allCheckOnImg"), for: .normal) : self.allAgreeBtn.setImage(UIImage(named: "allCheckOffImg"), for: .normal)
+            }
             .disposed(by: disposeBag)
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.navigationController?.popViewController(animated: true)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: {_ in
+            .bind {_ in
                 let popUpViewController = PopUpViewController()
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
                 naviVC.modalPresentationStyle = .overCurrentContext
@@ -321,7 +308,7 @@ class SignUpViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
     }
     

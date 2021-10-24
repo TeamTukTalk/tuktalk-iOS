@@ -221,13 +221,13 @@ class EnrollThirdViewController: UIViewController {
     
     private func binding() {
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 self.navigationController?.popViewController(animated: false)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "멘토등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -238,13 +238,13 @@ class EnrollThirdViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 // TODO
-            })
+            }
             .disposed(by: disposeBag)
     }
     
