@@ -34,7 +34,8 @@ class SignUpChoiceViewController: UIViewController {
         $0.layer.borderColor = UIColor.GrayScale.gray3.cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 12
-        $0.layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 20, spread: 0)
+        $0.backgroundColor = .white
+        $0.layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 14, spread: 0)
     }
     
     private let signUpMenteeImg = UIImageView().then {
@@ -61,7 +62,8 @@ class SignUpChoiceViewController: UIViewController {
         $0.layer.borderColor = UIColor.GrayScale.gray3.cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 12
-        $0.layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 20, spread: 0)
+        $0.backgroundColor = .white
+        $0.layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 14, spread: 0)
     }
     
     private let signUpMentorImg = UIImageView().then {
