@@ -16,7 +16,7 @@ class TabBarViewController: UITabBarController {
         $0.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeOffImg"), selectedImage: UIImage(named: "homeOffImg")?.withRenderingMode(.alwaysOriginal))
         $0.navigationItem.largeTitleDisplayMode = .always
     }
-    let vc2 = SearchViewController().then {
+    let vc2 = SearchMainViewController().then {
         $0.tabBarItem = UITabBarItem(title: "탐색", image: UIImage(named: "searchOffImg"), selectedImage: UIImage(named: "searchOnImg")?.withRenderingMode(.alwaysOriginal))
         $0.navigationItem.largeTitleDisplayMode = .always
     }

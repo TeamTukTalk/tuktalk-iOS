@@ -9,13 +9,22 @@ import UIKit
 import RxSwift
 
 class SearchMainViewController: UIViewController {
+    
+    //MARK:- Properties
+    
+    private let disposeBag = DisposeBag()
 
     //MARK:- UI Components
     
-    private let searchTextField = UITextField().then {
-        $0.placeholder = "멘토, 직무 검색"
-        $0.font = UIFont.TTFont(type: .SDReg, size: 15)
-        $0.setUnderline(false)
+    private let searchTextBtn = UIButton().then {
+        $0.setTitle("멘토, 직무 검색", for: .normal)
+        $0.titleLabel?.font = UIFont.TTFont(type: .SDReg, size: 15)
+        $0.contentHorizontalAlignment = .left
+        $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
+    }
+    
+    private let searchTextUnderline = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray1
     }
     
     private let searchImg = UIImageView().then {
@@ -70,6 +79,7 @@ class SearchMainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUI()
+        binding()
     }
     
     //MARK:- Function
@@ -77,23 +87,30 @@ class SearchMainViewController: UIViewController {
     private func setUI() {
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
         
-        view.addSubview(searchTextField)
-        searchTextField.snp.makeConstraints { make in
+        view.addSubview(searchTextBtn)
+        searchTextBtn.snp.makeConstraints { make in
+            make.height.equalTo(22)
             make.top.equalToSuperview().offset(64)
-            make.height.equalTo(40)
             make.leading.trailing.equalToSuperview().inset(16)
         }
 
-        searchTextField.addSubview(searchImg)
+        searchTextBtn.addSubview(searchImg)
         searchImg.snp.makeConstraints { make in
             make.height.width.equalTo(20)
-            make.bottom.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview()
             make.trailing.equalToSuperview()
+        }
+        
+        view.addSubview(searchTextUnderline)
+        searchTextUnderline.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.top.equalTo(searchTextBtn.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(searchTextField.snp.bottom).offset(32)
+            make.top.equalTo(searchTextUnderline.snp.bottom).offset(32)
             make.leading.equalToSuperview().offset(16)
         }
         
@@ -136,5 +153,13 @@ class SearchMainViewController: UIViewController {
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+    }
+    
+    private func binding() {
+        searchTextBtn.rx.tap
+            .bind { _ in
+                self.navigationController?.pushViewController(SearchDirectViewController(), animated: false)
+            }
+            .disposed(by: disposeBag)
     }
 }
