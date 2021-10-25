@@ -13,7 +13,8 @@ class SearchDirectViewController: UIViewController {
     //MARK:- Properties
     
     private let disposeBag = DisposeBag()
-
+    var items = RecentSearchesDataModel().recentSearchesList
+    
     //MARK:- UI Components
     
     let searchTextField = UITextField().then {
@@ -40,6 +41,8 @@ class SearchDirectViewController: UIViewController {
         $0.textColor = UIColor.GrayScale.normal
     }
     
+    private let recentSearchCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
     private let subTitleLabel = UILabel().then {
         $0.text = "뚝딱이 추천하는 검색어"
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
@@ -52,6 +55,7 @@ class SearchDirectViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUI()
+        setCollectionView()
         binding()
     }
     
@@ -86,11 +90,33 @@ class SearchDirectViewController: UIViewController {
             make.leading.equalToSuperview().offset(16)
         }
         
+        view.addSubview(recentSearchCV)
+        recentSearchCV.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.top.equalTo(titleLabel.snp.bottom).offset(11)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         view.addSubview(subTitleLabel)
         subTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(92)
+            make.top.equalTo(recentSearchCV.snp.bottom).offset(35)
             make.leading.equalToSuperview().offset(16)
         }
+    }
+    
+    private func setCollectionView() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = .zero
+        flowLayout.minimumInteritemSpacing = 8
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.sectionInset = .init(top: 5, left: 4, bottom: 5, right: 4)
+        
+        recentSearchCV.setCollectionViewLayout(flowLayout, animated: false)
+        recentSearchCV.delegate = self
+        recentSearchCV.dataSource = self
+        recentSearchCV.backgroundColor = .white
+        recentSearchCV.showsHorizontalScrollIndicator = false
+        recentSearchCV.register(SearchDirectCollectionViewCell.self, forCellWithReuseIdentifier: "SearchDirectCollectionViewCell")
     }
     
     private func binding() {
@@ -105,5 +131,22 @@ class SearchDirectViewController: UIViewController {
                 self.navigationController?.popViewController(animated: false)
             }
             .disposed(by: disposeBag)
+    }
+}
+
+extension SearchDirectViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchDirectCollectionViewCell", for: indexPath) as! SearchDirectCollectionViewCell
+        cell.configure(name: items[indexPath.item])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return SearchDirectCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.item])
     }
 }
