@@ -13,7 +13,7 @@ class SearchDirectViewController: UIViewController {
     //MARK:- Properties
     
     private let disposeBag = DisposeBag()
-    var items = RecentSearchesDataModel().recentSearchesList
+    private let collectionViewModel = RecentSearchesViewModel()
     
     //MARK:- UI Components
     
@@ -55,8 +55,9 @@ class SearchDirectViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUI()
-        setCollectionView()
+        setCollectionViewUI()
         binding()
+        bindingCollectionView()
     }
     
     //MARK:- Function
@@ -104,16 +105,13 @@ class SearchDirectViewController: UIViewController {
         }
     }
     
-    private func setCollectionView() {
+    private func setCollectionViewUI() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = .zero
         flowLayout.minimumInteritemSpacing = 8
         flowLayout.scrollDirection = .horizontal
         flowLayout.sectionInset = .init(top: 5, left: 4, bottom: 5, right: 4)
-        
         recentSearchCV.setCollectionViewLayout(flowLayout, animated: false)
-        recentSearchCV.delegate = self
-        recentSearchCV.dataSource = self
         recentSearchCV.backgroundColor = .white
         recentSearchCV.showsHorizontalScrollIndicator = false
         recentSearchCV.register(SearchDirectCollectionViewCell.self, forCellWithReuseIdentifier: "SearchDirectCollectionViewCell")
@@ -132,21 +130,35 @@ class SearchDirectViewController: UIViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    private func bindingCollectionView() {
+        recentSearchCV.rx.setDelegate(self).disposed(by: disposeBag)
+        
+        collectionViewModel.output.collectionData
+            .bind(to: recentSearchCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.recentSearchCV.dequeueReusableCell(withReuseIdentifier: "SearchDirectCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchDirectCollectionViewCell {
+                    
+                    cell.configure(name: item.title)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
-extension SearchDirectViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchDirectCollectionViewCell", for: indexPath) as! SearchDirectCollectionViewCell
-        cell.configure(name: items[indexPath.item])
-        return cell
-    }
+extension SearchDirectViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return SearchDirectCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.item])
+        
+        var items: [RecentSearchesDataModel] = []
+        
+        collectionViewModel.output.collectionData
+            .subscribe(onNext: {data in
+                items = data
+            })
+            .disposed(by: disposeBag)
+        
+        return SearchDirectCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
     }
 }

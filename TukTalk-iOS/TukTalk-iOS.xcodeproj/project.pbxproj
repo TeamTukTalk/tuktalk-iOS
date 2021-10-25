@@ -38,6 +38,7 @@
 		402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */; };
 		402D65A52726F7D900F4ED8F /* RecentSearchesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A42726F7D900F4ED8F /* RecentSearchesDataModel.swift */; };
 		402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */; };
+		402D65AA272730A100F4ED8F /* RecentSearchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A9272730A100F4ED8F /* RecentSearchesViewModel.swift */; };
 		403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */; };
 		403B2D30271B538D00B834A6 /* AgreeButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2F271B538D00B834A6 /* AgreeButtonViewModel.swift */; };
 		403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D33271B784800B834A6 /* UIColorExtension.swift */; };
@@ -101,6 +102,7 @@
 		402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendDataModel.swift; sourceTree = "<group>"; };
 		402D65A42726F7D900F4ED8F /* RecentSearchesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchesDataModel.swift; sourceTree = "<group>"; };
 		402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDirectCollectionViewCell.swift; sourceTree = "<group>"; };
+		402D65A9272730A100F4ED8F /* RecentSearchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchesViewModel.swift; sourceTree = "<group>"; };
 		403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		403B2D2F271B538D00B834A6 /* AgreeButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeButtonViewModel.swift; sourceTree = "<group>"; };
 		403B2D33271B784800B834A6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -256,6 +258,14 @@
 			path = MyPage;
 			sourceTree = "<group>";
 		};
+		402D65A82727306E00F4ED8F /* SearchTab */ = {
+			isa = PBXGroup;
+			children = (
+				402D65A9272730A100F4ED8F /* RecentSearchesViewModel.swift */,
+			);
+			path = SearchTab;
+			sourceTree = "<group>";
+		};
 		403B2D2C271B458F00B834A6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +383,7 @@
 				4041C1142719891F007D09E7 /* Login */,
 				4088F16D271ADAE700527A77 /* SignUp */,
 				404E686E272449A4005AA5DD /* EnrollMentor */,
+				402D65A82727306E00F4ED8F /* SearchTab */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -716,6 +727,7 @@
 				402D659F272684B500F4ED8F /* MyPageViewController.swift in Sources */,
 				402D659B272684A600F4ED8F /* CommunityViewController.swift in Sources */,
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
+				402D65AA272730A100F4ED8F /* RecentSearchesViewModel.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
 				404E687227245220005AA5DD /* EnrollSecondViewModel.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,

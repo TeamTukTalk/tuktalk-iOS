@@ -11,12 +11,5 @@ struct RecentSearchesDataModel {
     
     // 추후 서버연동 후 변경 예정
 
-    let recentSearchesList = [
-        "로고/브랜딩",
-        "스타트업",
-        "디자이너",
-        "대기업",
-        "카카오",
-        "개발"
-    ]
+    var title: String
 }
