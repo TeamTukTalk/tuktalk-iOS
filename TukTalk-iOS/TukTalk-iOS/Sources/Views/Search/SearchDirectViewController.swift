@@ -111,6 +111,7 @@ class SearchDirectViewController: UIViewController {
         flowLayout.minimumInteritemSpacing = 8
         flowLayout.scrollDirection = .horizontal
         flowLayout.sectionInset = .init(top: 5, left: 4, bottom: 5, right: 4)
+        recentSearchCV.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
         recentSearchCV.setCollectionViewLayout(flowLayout, animated: false)
         recentSearchCV.backgroundColor = .white
         recentSearchCV.showsHorizontalScrollIndicator = false
