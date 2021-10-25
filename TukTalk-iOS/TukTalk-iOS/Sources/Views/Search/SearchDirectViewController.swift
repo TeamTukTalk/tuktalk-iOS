@@ -41,7 +41,7 @@ class SearchDirectViewController: UIViewController {
     }
     
     private let subTitleLabel = UILabel().then {
-        $0.text = "뚝닥이 추천하는 검색어"
+        $0.text = "뚝딱이 추천하는 검색어"
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
         $0.textColor = UIColor.GrayScale.normal
     }
