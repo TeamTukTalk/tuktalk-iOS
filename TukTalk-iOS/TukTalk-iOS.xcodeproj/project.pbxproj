@@ -30,7 +30,7 @@
 		40118482271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011847F271D9ACB00A5657A /* ViewModelProtocol.swift */; };
 		402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D658F272683FC00F4ED8F /* TabBarViewController.swift */; };
 		402D65972726848800F4ED8F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65962726848800F4ED8F /* HomeViewController.swift */; };
-		402D65992726849E00F4ED8F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65982726849E00F4ED8F /* SearchViewController.swift */; };
+		402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65982726849E00F4ED8F /* SearchMainViewController.swift */; };
 		402D659B272684A600F4ED8F /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D659A272684A600F4ED8F /* CommunityViewController.swift */; };
 		402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D659C272684AE00F4ED8F /* ConsultingViewController.swift */; };
 		402D659F272684B500F4ED8F /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D659E272684B500F4ED8F /* MyPageViewController.swift */; };
@@ -89,7 +89,7 @@
 		4011847F271D9ACB00A5657A /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		402D658F272683FC00F4ED8F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		402D65962726848800F4ED8F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		402D65982726849E00F4ED8F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		402D65982726849E00F4ED8F /* SearchMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainViewController.swift; sourceTree = "<group>"; };
 		402D659A272684A600F4ED8F /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		402D659C272684AE00F4ED8F /* ConsultingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultingViewController.swift; sourceTree = "<group>"; };
 		402D659E272684B500F4ED8F /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		402D65922726845E00F4ED8F /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				402D65982726849E00F4ED8F /* SearchViewController.swift */,
+				402D65982726849E00F4ED8F /* SearchMainViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -691,7 +691,7 @@
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
-				402D65992726849E00F4ED8F /* SearchViewController.swift in Sources */,
+				402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */,
 				4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */,
 				402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */,
 				4000F8AD27220DA00067C6B6 /* CategoryDataModel.swift in Sources */,

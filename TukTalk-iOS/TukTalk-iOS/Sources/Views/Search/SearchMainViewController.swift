@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class SearchViewController: UIViewController {
+class SearchMainViewController: UIViewController {
 
     //MARK:- UI Components
     
