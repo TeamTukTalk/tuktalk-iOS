@@ -229,10 +229,10 @@
 		402D65922726845E00F4ED8F /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				402D65AE2727D55900F4ED8F /* Cell */,
+				402D65AD2727D55300F4ED8F /* UIView */,
 				402D65982726849E00F4ED8F /* SearchMainViewController.swift */,
 				402D65A02726D64400F4ED8F /* SearchDirectViewController.swift */,
-				402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */,
-				402D65AB2727C4D500F4ED8F /* RecommendView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -267,6 +267,30 @@
 				402D65A9272730A100F4ED8F /* RecentSearchesViewModel.swift */,
 			);
 			path = SearchTab;
+			sourceTree = "<group>";
+		};
+		402D65AD2727D55300F4ED8F /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				402D65AB2727C4D500F4ED8F /* RecommendView.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		402D65AE2727D55900F4ED8F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		402D65AF2727D57300F4ED8F /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				4000F8AE2722E8580067C6B6 /* CategoryView.swift */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		403B2D2C271B458F00B834A6 /* Extensions */ = {
@@ -429,9 +453,9 @@
 		4088F16A2719E15700527A77 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				402D65AF2727D57300F4ED8F /* UIView */,
 				4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */,
 				4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */,
-				4000F8AE2722E8580067C6B6 /* CategoryView.swift */,
 				4088F170271AE4CE00527A77 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
