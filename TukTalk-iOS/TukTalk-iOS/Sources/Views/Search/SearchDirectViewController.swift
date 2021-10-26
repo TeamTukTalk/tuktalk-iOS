@@ -13,7 +13,7 @@ class SearchDirectViewController: UIViewController {
     //MARK:- Properties
     
     private let disposeBag = DisposeBag()
-    private let collectionViewModel = RecentSearchesViewModel()
+    private let collectionViewModel = SearchesViewModel()
     private let viewModel = SearchDirectViewModel()
     private var nextText = ""
     
@@ -183,7 +183,7 @@ class SearchDirectViewController: UIViewController {
     private func bindingCollectionView() {
         recentSearchCV.rx.setDelegate(self).disposed(by: disposeBag)
         
-        collectionViewModel.output.collectionData
+        collectionViewModel.output.recentSearchesData
             .bind(to: recentSearchCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.recentSearchCV.dequeueReusableCell(withReuseIdentifier: "SearchDirectCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchDirectCollectionViewCell {
                     
@@ -200,9 +200,9 @@ extension SearchDirectViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var items: [RecentSearchesDataModel] = []
+        var items: [SearchesDataModel] = []
         
-        collectionViewModel.output.collectionData
+        collectionViewModel.output.recentSearchesData
             .subscribe(onNext: {data in
                 items = data
             })

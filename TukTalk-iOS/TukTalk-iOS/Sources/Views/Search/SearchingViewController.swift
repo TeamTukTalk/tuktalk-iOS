@@ -12,6 +12,7 @@ class SearchingViewController: UIViewController {
     
     //MARK:- Properties
     
+    private let searchingViewModel = SearchesViewModel()
     private let disposeBag = DisposeBag()
 
     //MARK:- UI Components
@@ -26,6 +27,8 @@ class SearchingViewController: UIViewController {
         $0.backgroundColor = UIColor.GrayScale.gray1
     }
     
+    private let categoryCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
     private let clearBtn = UIButton().then {
         $0.setImage(UIImage(named: "clearImg"), for: .normal)
     }
@@ -36,7 +39,9 @@ class SearchingViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUI()
+        setCollectionViewUI()
         binding()
+        bindingCollectionView()
     }
     
     //MARK:- Function
@@ -65,12 +70,32 @@ class SearchingViewController: UIViewController {
             make.top.equalTo(searchTextBtn.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(16)
         }
+        
+        view.addSubview(categoryCV)
+        categoryCV.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.top.equalTo(searchTextUnderline.snp.bottom).offset(15)
+            make.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    private func setCollectionViewUI() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = .zero
+        flowLayout.minimumInteritemSpacing = 8
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.sectionInset = .init(top: 5, left: 4, bottom: 5, right: 4)
+        categoryCV.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+        categoryCV.setCollectionViewLayout(flowLayout, animated: false)
+        categoryCV.backgroundColor = .white
+        categoryCV.showsHorizontalScrollIndicator = false
+        categoryCV.register(SearchingCollectionViewCell.self, forCellWithReuseIdentifier: "SearchingCollectionViewCell")
     }
     
     private func binding() {
         searchTextBtn.rx.tap
             .bind { _ in
-                self.navigationController?.popViewController(animated: false)
+                self.navigationController?.pushViewController(SearchDirectViewController(), animated: false)
             }
             .disposed(by: disposeBag)
         
@@ -79,5 +104,57 @@ class SearchingViewController: UIViewController {
                 self.navigationController?.popToRootViewController(animated: false)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func bindingCollectionView() {
+        categoryCV.rx.setDelegate(self).disposed(by: disposeBag)
+
+        if searchTextBtn.titleLabel?.text == "디자인" {
+            searchingViewModel.output.designCategoryData
+                .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                    if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
+
+                        cell.configure(name: item.title)
+                        return cell
+                    }
+                    return UICollectionViewCell()
+                }
+                .disposed(by: disposeBag)
+        } else if searchTextBtn.titleLabel?.text == "IT/개발" {
+            searchingViewModel.output.itDevCategoryData
+                .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                    if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
+
+                        cell.configure(name: item.title)
+                        return cell
+                    }
+                    return UICollectionViewCell()
+                }
+                .disposed(by: disposeBag)
+        }
+    }
+}
+
+extension SearchingViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        var items: [SearchesDataModel] = []
+
+        if searchTextBtn.titleLabel?.text == "디자인" {
+            searchingViewModel.output.designCategoryData
+                .subscribe(onNext: {data in
+                    items = data
+                })
+                .disposed(by: disposeBag)
+        } else if searchTextBtn.titleLabel?.text == "IT/개발" {
+            searchingViewModel.output.itDevCategoryData
+                .subscribe(onNext: {data in
+                    items = data
+                })
+                .disposed(by: disposeBag)
+        }
+        
+        return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
     }
 }
