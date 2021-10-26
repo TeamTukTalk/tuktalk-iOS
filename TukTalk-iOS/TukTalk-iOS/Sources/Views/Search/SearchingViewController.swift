@@ -27,10 +27,46 @@ class SearchingViewController: UIViewController {
         $0.backgroundColor = UIColor.GrayScale.gray1
     }
     
-    private let categoryCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let categoryCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        $0.allowsMultipleSelection = true
+    }
     
     private let clearBtn = UIButton().then {
         $0.setImage(UIImage(named: "clearImg"), for: .normal)
+    }
+    
+    private let companyCategoryBtn = UIButton().then {
+        $0.setTitle("기업", for: .normal)
+        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
+        $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
+        $0.setImage(UIImage(named: "dropDownImg"), for: .normal)
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.GrayScale.gray2.cgColor
+        $0.layer.cornerRadius = 6
+        $0.titleEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 32)
+        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 45, bottom: 10, right: 12)
+    }
+    
+    private let careerCategoryBtn = UIButton().then {
+        $0.setTitle("경력", for: .normal)
+        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
+        $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
+        $0.setImage(UIImage(named: "dropDownImg"), for: .normal)
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.GrayScale.gray2.cgColor
+        $0.layer.cornerRadius = 6
+        $0.titleEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 32)
+        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 45, bottom: 10, right: 12)
+    }
+    
+    private let devideLineView = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray5
+    }
+    
+    private let titleLabel = UILabel().then {
+        $0.text = "관심 분야의 멘토와 포트폴리오를 찾아보세요!"
+        $0.font = UIFont.TTFont(type: .SDBold, size: 14)
+        $0.textColor = UIColor.GrayScale.normal
     }
     
     //MARK:- Life cycle
@@ -76,6 +112,35 @@ class SearchingViewController: UIViewController {
             make.height.equalTo(50)
             make.top.equalTo(searchTextUnderline.snp.bottom).offset(15)
             make.leading.trailing.equalToSuperview()
+        }
+        
+        view.addSubview(companyCategoryBtn)
+        companyCategoryBtn.snp.makeConstraints { make in
+            make.height.equalTo(36)
+            make.width.equalTo(73)
+            make.top.equalTo(categoryCV.snp.bottom).offset(11)
+            make.leading.equalToSuperview().offset(16)
+        }
+        
+        view.addSubview(careerCategoryBtn)
+        careerCategoryBtn.snp.makeConstraints { make in
+            make.height.equalTo(36)
+            make.width.equalTo(73)
+            make.top.equalTo(categoryCV.snp.bottom).offset(11)
+            make.leading.equalTo(companyCategoryBtn.snp.trailing).offset(8)
+        }
+        
+        view.addSubview(devideLineView)
+        devideLineView.snp.makeConstraints { make in
+            make.height.equalTo(6)
+            make.top.equalTo(companyCategoryBtn.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        view.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(devideLineView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(16)
         }
     }
     

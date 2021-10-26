@@ -13,6 +13,14 @@ class SearchingCollectionViewCell: UICollectionViewCell {
         $0.font = UIFont.TTFont(type: .SDMed, size: 14)
         $0.textAlignment = .center
         $0.textColor = UIColor.GrayScale.sub2
+        $0.clipsToBounds = true
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            self.backgroundColor = isSelected ? UIColor.Primary.primary : UIColor.GrayScale.gray5
+            self.titleLabel.textColor = isSelected ? .white : UIColor.GrayScale.sub2
+        }
     }
     
     override init(frame: CGRect) {
