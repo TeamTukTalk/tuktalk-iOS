@@ -49,6 +49,8 @@ class SearchDirectViewController: UIViewController {
         $0.textColor = UIColor.GrayScale.normal
     }
     
+    private let recommendView = RecommendView()
+    
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
@@ -102,6 +104,12 @@ class SearchDirectViewController: UIViewController {
         subTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(recentSearchCV.snp.bottom).offset(35)
             make.leading.equalToSuperview().offset(16)
+        }
+        
+        view.addSubview(recommendView)
+        recommendView.snp.makeConstraints { make in
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
     }
     

@@ -16,6 +16,7 @@ extension UIColor {
         static let primaryDark = UIColor(red: 90/255, green: 55/255, blue: 251/255, alpha: 1)
         static let primaryLight1 = UIColor(red: 162/255, green: 167/255, blue: 254/255, alpha: 1)
         static let primaryLight2 = UIColor(red: 234/255, green: 236/255, blue: 255/255, alpha: 1)
+        static let primaryLight3 = UIColor(red: 234/255, green: 236/255, blue: 255/255, alpha: 1)
     }
     
     //MARK:- SubColor

@@ -39,6 +39,7 @@
 		402D65A52726F7D900F4ED8F /* RecentSearchesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A42726F7D900F4ED8F /* RecentSearchesDataModel.swift */; };
 		402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */; };
 		402D65AA272730A100F4ED8F /* RecentSearchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A9272730A100F4ED8F /* RecentSearchesViewModel.swift */; };
+		402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65AB2727C4D500F4ED8F /* RecommendView.swift */; };
 		403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */; };
 		403B2D30271B538D00B834A6 /* AgreeButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2F271B538D00B834A6 /* AgreeButtonViewModel.swift */; };
 		403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D33271B784800B834A6 /* UIColorExtension.swift */; };
@@ -103,6 +104,7 @@
 		402D65A42726F7D900F4ED8F /* RecentSearchesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchesDataModel.swift; sourceTree = "<group>"; };
 		402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDirectCollectionViewCell.swift; sourceTree = "<group>"; };
 		402D65A9272730A100F4ED8F /* RecentSearchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchesViewModel.swift; sourceTree = "<group>"; };
+		402D65AB2727C4D500F4ED8F /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		403B2D2F271B538D00B834A6 /* AgreeButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeButtonViewModel.swift; sourceTree = "<group>"; };
 		403B2D33271B784800B834A6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				402D65982726849E00F4ED8F /* SearchMainViewController.swift */,
 				402D65A02726D64400F4ED8F /* SearchDirectViewController.swift */,
 				402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */,
+				402D65AB2727C4D500F4ED8F /* RecommendView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
 				402D65AA272730A100F4ED8F /* RecentSearchesViewModel.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
+				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
 				404E687227245220005AA5DD /* EnrollSecondViewModel.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
 			);
