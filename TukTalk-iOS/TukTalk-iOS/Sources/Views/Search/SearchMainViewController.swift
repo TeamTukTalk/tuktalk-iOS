@@ -161,5 +161,21 @@ class SearchMainViewController: UIViewController {
                 self.navigationController?.pushViewController(SearchDirectViewController(), animated: false)
             }
             .disposed(by: disposeBag)
+        
+        designBtn.rx.tap
+            .bind { _ in
+                let nextVC = SearchingViewController()
+                nextVC.searchTextBtn.setTitle("디자인", for: .normal)
+                self.navigationController?.pushViewController(nextVC, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+        itDevBtn.rx.tap
+            .bind { _ in
+                let nextVC = SearchingViewController()
+                nextVC.searchTextBtn.setTitle("IT/개발", for: .normal)
+                self.navigationController?.pushViewController(nextVC, animated: false)
+            }
+            .disposed(by: disposeBag)
     }
 }
