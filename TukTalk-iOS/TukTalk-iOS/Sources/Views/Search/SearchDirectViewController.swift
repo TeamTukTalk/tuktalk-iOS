@@ -14,21 +14,23 @@ class SearchDirectViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     private let collectionViewModel = RecentSearchesViewModel()
+    private let viewModel = SearchDirectViewModel()
+    private var nextText = ""
     
     //MARK:- UI Components
     
     let searchTextField = UITextField().then {
         $0.placeholder = "멘토, 직무 검색"
-        $0.setLeftPaddingPoints(32)
         $0.font = UIFont.TTFont(type: .SDReg, size: 15)
-        $0.setUnderline(false)
-        $0.becomeFirstResponder()
+        $0.textColor = UIColor.GrayScale.normal
+    }
+    
+    private let searchTextUnderline = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray1
     }
     
     private let backBtn = UIButton().then {
         $0.setImage(UIImage(named: "backBtnImg"), for: .normal)
-        $0.frame.size.height = 24
-        $0.frame.size.width = 24
     }
     
     private let searchBtn = UIButton().then {
@@ -62,29 +64,43 @@ class SearchDirectViewController: UIViewController {
         bindingCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        searchTextField.becomeFirstResponder()
+    }
+    
     //MARK:- Function
     
     private func setUI() {
         self.navigationController?.navigationBar.isHidden = true
         
-        view.addSubview(searchTextField)
-        searchTextField.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(56)
-            make.height.equalTo(40)
-            make.leading.trailing.equalToSuperview().inset(16)
-        }
-
-        searchTextField.addSubview(searchBtn)
-        searchTextField.addSubview(backBtn)
+        view.addSubview(searchBtn)
         searchBtn.snp.makeConstraints { make in
             make.height.width.equalTo(20)
-            make.bottom.equalToSuperview().inset(10)
-            make.trailing.equalToSuperview()
+            make.top.equalToSuperview().offset(66)
+            make.trailing.equalToSuperview().inset(16)
         }
+
+        view.addSubview(backBtn)
         backBtn.snp.makeConstraints { make in
             make.height.width.equalTo(12)
-            make.bottom.equalToSuperview().inset(14)
-            make.leading.equalToSuperview().offset(6)
+            make.leading.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(68)
+        }
+        
+        view.addSubview(searchTextField)
+        searchTextField.snp.makeConstraints { make in
+            make.height.equalTo(22)
+            make.top.equalToSuperview().offset(64)
+            make.leading.equalTo(backBtn.snp.trailing).offset(8)
+            make.trailing.equalTo(searchBtn.snp.leading)
+        }
+        
+        view.addSubview(searchTextUnderline)
+        searchTextUnderline.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.top.equalTo(searchTextField.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(titleLabel)
@@ -127,9 +143,33 @@ class SearchDirectViewController: UIViewController {
     }
     
     private func binding() {
+        
         searchTextField.rx.text
+            .orEmpty
+            .bind(to: viewModel.input.searchText)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.resultText
             .bind { text in
-                print(text!)
+                self.nextText = text
+            }
+            .disposed(by: disposeBag)
+        
+        searchTextField.rx.controlEvent(.editingDidEndOnExit)
+            .bind { _ in
+                let nextVC = SearchingViewController()
+                nextVC.searchTextBtn.setTitle(self.nextText, for: .normal)
+                nextVC.searchTextBtn.setTitleColor(UIColor.GrayScale.normal, for: .normal)
+                self.navigationController?.pushViewController(nextVC, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+        searchBtn.rx.tap
+            .bind { _ in
+                let nextVC = SearchingViewController()
+                nextVC.searchTextBtn.setTitle(self.nextText, for: .normal)
+                nextVC.searchTextBtn.setTitleColor(UIColor.GrayScale.normal, for: .normal)
+                self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)
         
