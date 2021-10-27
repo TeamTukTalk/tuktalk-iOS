@@ -11,9 +11,6 @@
 		4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */; };
 		4000F8AF2722E8580067C6B6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8AE2722E8580067C6B6 /* CategoryView.swift */; };
 		400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */; };
-		400A3D3A272970B000921BE0 /* SearchCategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D39272970B000921BE0 /* SearchCategoryDataModel.swift */; };
-		400A3D3C2729AD5C00921BE0 /* TagCompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3B2729AD5C00921BE0 /* TagCompanyView.swift */; };
-		400A3D3E2729B13F00921BE0 /* TagCareerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3D2729B13F00921BE0 /* TagCareerView.swift */; };
 		4011846D271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
 		4011846E271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
 		4011846F271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
@@ -42,7 +39,7 @@
 		402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */; };
 		402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */; };
 		402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */; };
-		402D65AA272730A100F4ED8F /* SearchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A9272730A100F4ED8F /* SearchesViewModel.swift */; };
+		402D65AA272730A100F4ED8F /* SearchesCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A9272730A100F4ED8F /* SearchesCollectionViewModel.swift */; };
 		402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65AB2727C4D500F4ED8F /* RecommendView.swift */; };
 		402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65B02727D64400F4ED8F /* SearchingViewController.swift */; };
 		402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */; };
@@ -64,6 +61,8 @@
 		404E687227245220005AA5DD /* EnrollSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E687127245220005AA5DD /* EnrollSecondViewModel.swift */; };
 		404E68742724541E005AA5DD /* EnrollThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* EnrollThirdViewController.swift */; };
 		4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A9572729BFF90087E98C /* TagBottomSheetView.swift */; };
+		4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */; };
+		4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
@@ -95,9 +94,6 @@
 		4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCategoryDataModel.swift; sourceTree = "<group>"; };
 		4000F8AE2722E8580067C6B6 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCollectionViewCell.swift; sourceTree = "<group>"; };
-		400A3D39272970B000921BE0 /* SearchCategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryDataModel.swift; sourceTree = "<group>"; };
-		400A3D3B2729AD5C00921BE0 /* TagCompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCompanyView.swift; sourceTree = "<group>"; };
-		400A3D3D2729B13F00921BE0 /* TagCareerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCareerView.swift; sourceTree = "<group>"; };
 		4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-MEDIUM.OTF"; sourceTree = "<group>"; };
 		4011846B271C8E9C00A5657A /* SFProDisplay-BOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-BOLD.OTF"; sourceTree = "<group>"; };
 		4011846C271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-REGULAR.OTF"; sourceTree = "<group>"; };
@@ -114,7 +110,7 @@
 		402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendDataModel.swift; sourceTree = "<group>"; };
 		402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchesDataModel.swift; sourceTree = "<group>"; };
 		402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDirectCollectionViewCell.swift; sourceTree = "<group>"; };
-		402D65A9272730A100F4ED8F /* SearchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchesViewModel.swift; sourceTree = "<group>"; };
+		402D65A9272730A100F4ED8F /* SearchesCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchesCollectionViewModel.swift; sourceTree = "<group>"; };
 		402D65AB2727C4D500F4ED8F /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		402D65B02727D64400F4ED8F /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
 		402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDirectViewModel.swift; sourceTree = "<group>"; };
@@ -142,6 +138,8 @@
 		404E687127245220005AA5DD /* EnrollSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollSecondViewModel.swift; sourceTree = "<group>"; };
 		404E68732724541E005AA5DD /* EnrollThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollThirdViewController.swift; sourceTree = "<group>"; };
 		4060A9572729BFF90087E98C /* TagBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetView.swift; sourceTree = "<group>"; };
+		4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewModel.swift; sourceTree = "<group>"; };
+		4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewCell.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 			children = (
 				402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */,
 				402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */,
-				400A3D39272970B000921BE0 /* SearchCategoryDataModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -296,8 +293,9 @@
 		402D65A82727306E00F4ED8F /* SearchTab */ = {
 			isa = PBXGroup;
 			children = (
+				402D65A9272730A100F4ED8F /* SearchesCollectionViewModel.swift */,
 				402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */,
-				402D65A9272730A100F4ED8F /* SearchesViewModel.swift */,
+				4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -307,8 +305,6 @@
 			children = (
 				402D65AB2727C4D500F4ED8F /* RecommendView.swift */,
 				4060A9572729BFF90087E98C /* TagBottomSheetView.swift */,
-				400A3D3B2729AD5C00921BE0 /* TagCompanyView.swift */,
-				400A3D3D2729B13F00921BE0 /* TagCareerView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -318,6 +314,7 @@
 			children = (
 				402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */,
 				400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */,
+				4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -770,7 +767,6 @@
 				404E686D272439C7005AA5DD /* EnrollSecondViewController.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */,
-				400A3D3E2729B13F00921BE0 /* TagCareerView.swift in Sources */,
 				400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */,
 				4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
@@ -781,10 +777,11 @@
 				402D65A12726D64400F4ED8F /* SearchDirectViewController.swift in Sources */,
 				402D65972726848800F4ED8F /* HomeViewController.swift in Sources */,
 				403B2D30271B538D00B834A6 /* AgreeButtonViewModel.swift in Sources */,
+				4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */,
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,
 				402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */,
-				400A3D3A272970B000921BE0 /* SearchCategoryDataModel.swift in Sources */,
+				4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
 				402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */,
 				4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */,
@@ -797,10 +794,9 @@
 				402D659F272684B500F4ED8F /* MyPageViewController.swift in Sources */,
 				402D659B272684A600F4ED8F /* CommunityViewController.swift in Sources */,
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
-				402D65AA272730A100F4ED8F /* SearchesViewModel.swift in Sources */,
+				402D65AA272730A100F4ED8F /* SearchesCollectionViewModel.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
 				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
-				400A3D3C2729AD5C00921BE0 /* TagCompanyView.swift in Sources */,
 				404E687227245220005AA5DD /* EnrollSecondViewModel.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
 			);

@@ -6,10 +6,16 @@
 //
 
 import UIKit
+import RxSwift
 
 final class TagBottomSheetView: UIViewController {
-
+    
     //MARK:- Properties
+    
+    private let collectionViewModel = BottomSheetCollectionViewModel()
+    private let disposeBag = DisposeBag()
+    
+    //MARK:- UI Components
 
     private let bottomSheetView = UIView().then {
         $0.backgroundColor = UIColor.white
@@ -41,7 +47,7 @@ final class TagBottomSheetView: UIViewController {
         $0.textColor = UIColor.GrayScale.sub1
     }
     
-    private let tagCompanyView = TagCompanyView()
+    private let companyCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private let careerLabel = UILabel().then {
         $0.text = "경력"
@@ -49,7 +55,7 @@ final class TagBottomSheetView: UIViewController {
         $0.textColor = UIColor.GrayScale.sub1
     }
     
-    private let tagCareerView = TagCareerView()
+    private let careerCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private let applyBtn = UIButton().then {
         $0.setTitle("적용하기", for: .normal)
@@ -69,6 +75,8 @@ final class TagBottomSheetView: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         setUI()
+        setCollectionViewUI()
+        bindingCollectionView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -111,25 +119,23 @@ final class TagBottomSheetView: UIViewController {
             make.top.equalTo(closeBtn.snp.bottom).offset(40)
         }
         
-        bottomSheetView.addSubview(tagCompanyView)
-        tagCompanyView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
+        bottomSheetView.addSubview(companyCV)
+        companyCV.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(companyLabel.snp.bottom).offset(12)
-            make.width.equalTo(336)
             make.height.equalTo(84)
         }
         
         bottomSheetView.addSubview(careerLabel)
         careerLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.top.equalTo(tagCompanyView.snp.bottom).offset(32)
+            make.top.equalTo(companyCV.snp.bottom).offset(32)
         }
         
-        bottomSheetView.addSubview(tagCareerView)
-        tagCareerView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
+        bottomSheetView.addSubview(careerCV)
+        careerCV.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(careerLabel.snp.bottom).offset(12)
-            make.width.equalTo(292)
             make.height.equalTo(84)
         }
         
@@ -148,6 +154,54 @@ final class TagBottomSheetView: UIViewController {
         }
     }
     
+    private func setCollectionViewUI() {
+        let companyCVLayout = UICollectionViewFlowLayout()
+        companyCVLayout.minimumLineSpacing = 12
+        companyCVLayout.minimumInteritemSpacing = 8
+        companyCVLayout.scrollDirection = .vertical
+        companyCV.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 23)
+        companyCV.setCollectionViewLayout(companyCVLayout, animated: false)
+        companyCV.backgroundColor = .white
+        companyCV.showsHorizontalScrollIndicator = false
+        companyCV.register(BottomSheetCollectionViewCell.self, forCellWithReuseIdentifier: "BottomSheetCollectionViewCell")
+        
+        let careerCVLayout = UICollectionViewFlowLayout()
+        careerCVLayout.minimumLineSpacing = 12
+        careerCVLayout.minimumInteritemSpacing = 8
+        careerCVLayout.scrollDirection = .vertical
+        careerCV.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 67)
+        careerCV.setCollectionViewLayout(careerCVLayout, animated: false)
+        careerCV.backgroundColor = .white
+        careerCV.showsHorizontalScrollIndicator = false
+        careerCV.register(BottomSheetCollectionViewCell.self, forCellWithReuseIdentifier: "BottomSheetCollectionViewCell")
+    }
+    
+    private func bindingCollectionView() {
+        companyCV.rx.setDelegate(self).disposed(by: disposeBag)
+        careerCV.rx.setDelegate(self).disposed(by: disposeBag)
+        collectionViewModel.output.companyListData
+            .bind(to: companyCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.companyCV.dequeueReusableCell(withReuseIdentifier: "BottomSheetCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? BottomSheetCollectionViewCell {
+                    
+                    cell.configure(name: item.title)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: disposeBag)
+        
+        collectionViewModel.output.careerListData
+            .bind(to: careerCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.careerCV.dequeueReusableCell(withReuseIdentifier: "BottomSheetCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? BottomSheetCollectionViewCell {
+                    
+                    cell.configure(name: item.title)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: disposeBag)
+    }
+    
     private func applyAnimation() {
         UIView.animate(withDuration: 0.5, animations: {
             self.bottomSheetView.transform = CGAffineTransform(translationX: 0, y: (-UIScreen.main.bounds.height)+230)
@@ -159,4 +213,28 @@ final class TagBottomSheetView: UIViewController {
         self.dismiss(animated: false)
     }
     
+}
+
+extension TagBottomSheetView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        var items: [SearchesDataModel] = []
+        
+        if collectionView == companyCV {
+            collectionViewModel.output.companyListData
+                .subscribe(onNext: {data in
+                    items = data
+                })
+                .disposed(by: disposeBag)
+        } else {
+            collectionViewModel.output.careerListData
+                .subscribe(onNext: {data in
+                    items = data
+                })
+                .disposed(by: disposeBag)
+        }
+        
+        return BottomSheetCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
+    }
 }

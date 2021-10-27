@@ -13,7 +13,7 @@ class SearchDirectViewController: UIViewController {
     //MARK:- Properties
     
     private let disposeBag = DisposeBag()
-    private let collectionViewModel = SearchesViewModel()
+    private let collectionViewModel = SearchesCollectionViewModel()
     private let viewModel = SearchDirectViewModel()
     private var nextText = ""
     

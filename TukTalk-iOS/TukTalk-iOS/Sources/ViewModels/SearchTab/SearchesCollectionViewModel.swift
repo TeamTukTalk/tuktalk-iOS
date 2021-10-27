@@ -5,10 +5,9 @@
 //  Created by 한상진 on 2021/10/26.
 //
 
-import Foundation
 import RxSwift
 
-final class SearchesViewModel: ViewModelType {
+final class SearchesCollectionViewModel: ViewModelType {
     var dependency: Dependency
     var disposeBag: DisposeBag = DisposeBag()
     var input: Input

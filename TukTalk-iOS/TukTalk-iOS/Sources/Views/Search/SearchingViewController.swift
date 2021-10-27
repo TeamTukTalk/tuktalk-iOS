@@ -12,7 +12,7 @@ class SearchingViewController: UIViewController {
     
     //MARK:- Properties
     
-    private let searchingViewModel = SearchesViewModel()
+    private let searchingViewModel = SearchesCollectionViewModel()
     private let disposeBag = DisposeBag()
 
     //MARK:- UI Components
