@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */; };
-		4000F8AD27220DA00067C6B6 /* CategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8AC27220DA00067C6B6 /* CategoryDataModel.swift */; };
+		4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */; };
 		4000F8AF2722E8580067C6B6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8AE2722E8580067C6B6 /* CategoryView.swift */; };
 		400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */; };
+		400A3D3A272970B000921BE0 /* SearchCategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D39272970B000921BE0 /* SearchCategoryDataModel.swift */; };
+		400A3D3C2729AD5C00921BE0 /* TagCompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3B2729AD5C00921BE0 /* TagCompanyView.swift */; };
+		400A3D3E2729B13F00921BE0 /* TagCareerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3D2729B13F00921BE0 /* TagCareerView.swift */; };
 		4011846D271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
 		4011846E271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
 		4011846F271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
@@ -60,6 +63,7 @@
 		404E6870272449B6005AA5DD /* EnrollFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686F272449B6005AA5DD /* EnrollFirstViewModel.swift */; };
 		404E687227245220005AA5DD /* EnrollSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E687127245220005AA5DD /* EnrollSecondViewModel.swift */; };
 		404E68742724541E005AA5DD /* EnrollThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* EnrollThirdViewController.swift */; };
+		4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A9572729BFF90087E98C /* TagBottomSheetView.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
@@ -88,9 +92,12 @@
 /* Begin PBXFileReference section */
 		25FC350EF778AB1F6E37D05A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichFieldViewController.swift; sourceTree = "<group>"; };
-		4000F8AC27220DA00067C6B6 /* CategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataModel.swift; sourceTree = "<group>"; };
+		4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCategoryDataModel.swift; sourceTree = "<group>"; };
 		4000F8AE2722E8580067C6B6 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCollectionViewCell.swift; sourceTree = "<group>"; };
+		400A3D39272970B000921BE0 /* SearchCategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryDataModel.swift; sourceTree = "<group>"; };
+		400A3D3B2729AD5C00921BE0 /* TagCompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCompanyView.swift; sourceTree = "<group>"; };
+		400A3D3D2729B13F00921BE0 /* TagCareerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCareerView.swift; sourceTree = "<group>"; };
 		4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-MEDIUM.OTF"; sourceTree = "<group>"; };
 		4011846B271C8E9C00A5657A /* SFProDisplay-BOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-BOLD.OTF"; sourceTree = "<group>"; };
 		4011846C271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-REGULAR.OTF"; sourceTree = "<group>"; };
@@ -134,6 +141,7 @@
 		404E686F272449B6005AA5DD /* EnrollFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollFirstViewModel.swift; sourceTree = "<group>"; };
 		404E687127245220005AA5DD /* EnrollSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollSecondViewModel.swift; sourceTree = "<group>"; };
 		404E68732724541E005AA5DD /* EnrollThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollThirdViewController.swift; sourceTree = "<group>"; };
+		4060A9572729BFF90087E98C /* TagBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetView.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -191,11 +199,28 @@
 		4000F8AB27220D8C0067C6B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4000F8AC27220DA00067C6B6 /* CategoryDataModel.swift */,
-				402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */,
-				402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */,
+				400A3D372729704A00921BE0 /* SignUp */,
+				400A3D382729705600921BE0 /* Search */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		400A3D372729704A00921BE0 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		400A3D382729705600921BE0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */,
+				402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */,
+				400A3D39272970B000921BE0 /* SearchCategoryDataModel.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		40118469271C8DF100A5657A /* Fonts */ = {
@@ -281,6 +306,9 @@
 			isa = PBXGroup;
 			children = (
 				402D65AB2727C4D500F4ED8F /* RecommendView.swift */,
+				4060A9572729BFF90087E98C /* TagBottomSheetView.swift */,
+				400A3D3B2729AD5C00921BE0 /* TagCompanyView.swift */,
+				400A3D3D2729B13F00921BE0 /* TagCareerView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -742,7 +770,9 @@
 				404E686D272439C7005AA5DD /* EnrollSecondViewController.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */,
+				400A3D3E2729B13F00921BE0 /* TagCareerView.swift in Sources */,
 				400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */,
+				4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
 				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
 				404E6870272449B6005AA5DD /* EnrollFirstViewModel.swift in Sources */,
@@ -754,11 +784,12 @@
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,
 				402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */,
+				400A3D3A272970B000921BE0 /* SearchCategoryDataModel.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
 				402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */,
 				4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */,
 				402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */,
-				4000F8AD27220DA00067C6B6 /* CategoryDataModel.swift in Sources */,
+				4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */,
 				4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */,
 				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
 				402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */,
@@ -769,6 +800,7 @@
 				402D65AA272730A100F4ED8F /* SearchesViewModel.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
 				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
+				400A3D3C2729AD5C00921BE0 /* TagCompanyView.swift in Sources */,
 				404E687227245220005AA5DD /* EnrollSecondViewModel.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
 			);

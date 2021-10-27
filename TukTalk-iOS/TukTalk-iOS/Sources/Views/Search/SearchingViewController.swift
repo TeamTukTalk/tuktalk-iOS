@@ -169,6 +169,16 @@ class SearchingViewController: UIViewController {
                 self.navigationController?.popToRootViewController(animated: false)
             }
             .disposed(by: disposeBag)
+        
+        companyCategoryBtn.rx.tap
+            .bind { _ in
+                let bottomSheet = TagBottomSheetView()
+                let naviVC = UINavigationController(rootViewController: bottomSheet)
+                naviVC.modalPresentationStyle = .overCurrentContext
+                naviVC.navigationBar.isHidden = true
+                self.present(naviVC, animated: false)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindingCollectionView() {

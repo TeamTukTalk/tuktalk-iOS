@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CategoryDataModel {
+struct FieldCategoryDataModel {
     let categoryDataList = [
         "로고/브랜딩",
         "UXUI 디자인",
