@@ -83,6 +83,11 @@ final class TagBottomSheetView: UIViewController {
         super.viewDidAppear(false)
         applyAnimation()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        self.presentingViewController?.tabBarController?.tabBar.isHidden = false
+    }
 
     //MARK:- Functions
 
@@ -143,7 +148,7 @@ final class TagBottomSheetView: UIViewController {
         applyBtn.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(52)
-            make.bottom.equalToSuperview().inset(12)
+            make.bottom.equalToSuperview().inset(46)
         }
         
         bottomSheetView.addSubview(devideView)

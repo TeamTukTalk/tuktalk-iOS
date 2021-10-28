@@ -172,6 +172,7 @@ class SearchingViewController: UIViewController {
         
         companyCategoryBtn.rx.tap
             .bind { _ in
+                self.tabBarController?.tabBar.isHidden = true
                 let bottomSheet = TagBottomSheetView()
                 let naviVC = UINavigationController(rootViewController: bottomSheet)
                 naviVC.modalPresentationStyle = .overCurrentContext
