@@ -180,6 +180,17 @@ class SearchingViewController: UIViewController {
                 self.present(naviVC, animated: false)
             }
             .disposed(by: disposeBag)
+        
+        careerCategoryBtn.rx.tap
+            .bind { _ in
+                self.tabBarController?.tabBar.isHidden = true
+                let bottomSheet = TagBottomSheetView()
+                let naviVC = UINavigationController(rootViewController: bottomSheet)
+                naviVC.modalPresentationStyle = .overCurrentContext
+                naviVC.navigationBar.isHidden = true
+                self.present(naviVC, animated: false)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindingCollectionView() {

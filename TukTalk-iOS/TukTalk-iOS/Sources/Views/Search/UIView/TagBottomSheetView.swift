@@ -208,7 +208,7 @@ final class TagBottomSheetView: UIViewController {
     }
     
     private func applyAnimation() {
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.bottomSheetView.transform = CGAffineTransform(translationX: 0, y: (-UIScreen.main.bounds.height)+230)
             self.bottomSheetView.layoutIfNeeded()
         }, completion: nil)
