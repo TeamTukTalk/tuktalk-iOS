@@ -13,7 +13,11 @@ final class TagBottomSheetView: UIViewController {
     //MARK:- Properties
     
     private let collectionViewModel = BottomSheetCollectionViewModel()
+    private let tagViewModel = TagBottomSheetViewModel()
     private let disposeBag = DisposeBag()
+    
+    let companyTagTitle = BehaviorSubject(value: "")
+    let careerTagTitle = BehaviorSubject(value: "")
     
     //MARK:- UI Components
 
@@ -76,6 +80,7 @@ final class TagBottomSheetView: UIViewController {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         setUI()
         setCollectionViewUI()
+        binding()
         bindingCollectionView()
     }
     
@@ -181,6 +186,20 @@ final class TagBottomSheetView: UIViewController {
         careerCV.register(BottomSheetCollectionViewCell.self, forCellWithReuseIdentifier: "BottomSheetCollectionViewCell")
     }
     
+    private func binding() {
+        applyBtn.rx.tap
+            .bind { _ in
+                self.tagViewModel.output.companyText
+                    .bind(to: self.companyTagTitle)
+                    .disposed(by: self.disposeBag)
+                self.tagViewModel.output.careerText
+                    .bind(to: self.careerTagTitle)
+                    .disposed(by: self.disposeBag)
+                self.dismiss(animated: false)
+            }
+            .disposed(by: disposeBag)
+    }
+    
     private func bindingCollectionView() {
         companyCV.rx.setDelegate(self).disposed(by: disposeBag)
         careerCV.rx.setDelegate(self).disposed(by: disposeBag)
@@ -204,6 +223,18 @@ final class TagBottomSheetView: UIViewController {
                 }
                 return UICollectionViewCell()
             }
+            .disposed(by: disposeBag)
+        
+        companyCV.rx.modelSelected(SearchesDataModel.self)
+            .bind(onNext: {model in
+                self.tagViewModel.input.companyTitle.onNext(model.title)
+            })
+            .disposed(by: disposeBag)
+        
+        careerCV.rx.modelSelected(SearchesDataModel.self)
+            .bind(onNext: {model in
+                self.tagViewModel.input.careerTitle.onNext(model.title)
+            })
             .disposed(by: disposeBag)
     }
     
