@@ -215,36 +215,13 @@ class SearchingViewController: UIViewController {
         
         companyCategoryBtn.rx.tap
             .bind { _ in
-                self.tabBarController?.tabBar.isHidden = true
-                let bottomSheet = TagBottomSheetView()
-                let naviVC = UINavigationController(rootViewController: bottomSheet)
-                naviVC.modalPresentationStyle = .overCurrentContext
-                naviVC.navigationBar.isHidden = true
-                bottomSheet.companyTagTitle
-                    .filter {!$0.isEmpty}
-                    .bind { text in
-                        self.companyExtraLabel.text = text
-                        self.companyCategoryBtn.snp.updateConstraints { make in
-                            _ = text.count == 3 ? make.width.equalTo(118) : make.width.equalTo(130)
-                        }
-                        self.companyCategoryBtn.titleEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
-                        self.companyCategoryBtn.imageEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
-                        self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
-                    }
-                    .disposed(by: self.disposeBag)
-                bottomSheet.careerTagTitle
-                    .filter {!$0.isEmpty}
-                    .bind { text in
-                        self.careerExtraLabel.text = text
-                        self.careerCategoryBtn.snp.updateConstraints { make in
-                            _ = text.count == 4 ? make.width.equalTo(118) : make.width.equalTo(130)
-                        }
-                        self.careerCategoryBtn.titleEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
-                        self.careerCategoryBtn.imageEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
-                        self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
-                    }
-                    .disposed(by: self.disposeBag)
-                self.present(naviVC, animated: false)
+                self.openBottomSheet()
+            }
+            .disposed(by: disposeBag)
+        
+        careerCategoryBtn.rx.tap
+            .bind { _ in
+                self.openBottomSheet()
             }
             .disposed(by: disposeBag)
         
@@ -258,6 +235,39 @@ class SearchingViewController: UIViewController {
                 self.present(naviVC, animated: false)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func openBottomSheet() {
+        self.tabBarController?.tabBar.isHidden = true
+        let bottomSheet = TagBottomSheetView()
+        let naviVC = UINavigationController(rootViewController: bottomSheet)
+        naviVC.modalPresentationStyle = .overCurrentContext
+        naviVC.navigationBar.isHidden = true
+        bottomSheet.companyTagTitle
+            .filter {!$0.isEmpty}
+            .bind { text in
+                self.companyExtraLabel.text = text
+                self.companyCategoryBtn.snp.updateConstraints { make in
+                    _ = text.count == 3 ? make.width.equalTo(118) : make.width.equalTo(130)
+                }
+                self.companyCategoryBtn.titleEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
+                self.companyCategoryBtn.imageEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
+                self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
+            }
+            .disposed(by: self.disposeBag)
+        bottomSheet.careerTagTitle
+            .filter {!$0.isEmpty}
+            .bind { text in
+                self.careerExtraLabel.text = text
+                self.careerCategoryBtn.snp.updateConstraints { make in
+                    _ = text.count == 4 ? make.width.equalTo(118) : make.width.equalTo(130)
+                }
+                self.careerCategoryBtn.titleEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
+                self.careerCategoryBtn.imageEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
+                self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
+            }
+            .disposed(by: self.disposeBag)
+        self.present(naviVC, animated: false)
     }
     
     private func bindingCollectionView() {
