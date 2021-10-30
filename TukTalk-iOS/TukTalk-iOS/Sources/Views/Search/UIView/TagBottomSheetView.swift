@@ -198,6 +198,15 @@ final class TagBottomSheetView: UIViewController {
                 self.dismiss(animated: false)
             }
             .disposed(by: disposeBag)
+        
+        resetBtn.rx.tap
+            .bind { _ in
+                self.companyCV.allowsSelection = false
+                self.companyCV.allowsSelection = true
+                self.careerCV.allowsSelection = false
+                self.careerCV.allowsSelection = true
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindingCollectionView() {
