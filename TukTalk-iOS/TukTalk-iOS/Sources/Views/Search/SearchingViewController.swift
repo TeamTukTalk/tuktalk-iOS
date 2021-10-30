@@ -13,6 +13,7 @@ class SearchingViewController: UIViewController {
     //MARK:- Properties
     
     private let searchingViewModel = SearchesCollectionViewModel()
+    private let mentorListViewModel = MentorListCollectionViewModel()
     private let disposeBag = DisposeBag()
 
     //MARK:- UI Components
@@ -68,6 +69,8 @@ class SearchingViewController: UIViewController {
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
         $0.textColor = UIColor.Primary.primary
     }
+    
+    private let mentorListCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private let devideLineView = UIView().then {
         $0.backgroundColor = UIColor.GrayScale.gray5
@@ -152,31 +155,49 @@ class SearchingViewController: UIViewController {
             make.leading.equalToSuperview().offset(49)
         }
         
-        view.addSubview(devideLineView)
-        devideLineView.snp.makeConstraints { make in
-            make.height.equalTo(6)
+        view.addSubview(mentorListCV)
+        mentorListCV.snp.makeConstraints { make in
             make.top.equalTo(companyCategoryBtn.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview()
         }
         
-        view.addSubview(titleLabel)
+        mentorListCV.addSubview(devideLineView)
+        devideLineView.snp.makeConstraints { make in
+            make.height.equalTo(6)
+            make.width.equalTo(UIScreen.main.bounds.width)
+            make.top.equalToSuperview()
+            make.leading.equalTo(mentorListCV.snp.leading)
+            make.trailing.equalTo(mentorListCV.snp.trailing)
+        }
+        
+        mentorListCV.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(devideLineView.snp.bottom).offset(20)
+            make.top.equalToSuperview().offset(26)
             make.leading.equalToSuperview().offset(16)
         }
     }
     
     private func setCollectionViewUI() {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = .zero
-        flowLayout.minimumInteritemSpacing = 8
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.sectionInset = .init(top: 5, left: 4, bottom: 5, right: 4)
+        let categoryCVLayout = UICollectionViewFlowLayout()
+        categoryCVLayout.minimumLineSpacing = .zero
+        categoryCVLayout.minimumInteritemSpacing = 8
+        categoryCVLayout.scrollDirection = .horizontal
+        categoryCVLayout.sectionInset = .init(top: 5, left: 4, bottom: 5, right: 4)
         categoryCV.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
-        categoryCV.setCollectionViewLayout(flowLayout, animated: false)
+        categoryCV.setCollectionViewLayout(categoryCVLayout, animated: false)
         categoryCV.backgroundColor = .white
         categoryCV.showsHorizontalScrollIndicator = false
         categoryCV.register(SearchingCollectionViewCell.self, forCellWithReuseIdentifier: "SearchingCollectionViewCell")
+        
+        let mentorListCVLayout = UICollectionViewFlowLayout()
+        mentorListCVLayout.minimumLineSpacing = 8
+        mentorListCVLayout.minimumInteritemSpacing = .zero
+        mentorListCVLayout.scrollDirection = .vertical
+        mentorListCVLayout.sectionInset = .init(top: 62, left: 0, bottom: 0, right: 0)
+        mentorListCV.setCollectionViewLayout(mentorListCVLayout, animated: false)
+        mentorListCV.backgroundColor = .white
+        mentorListCV.showsVerticalScrollIndicator = false
+        mentorListCV.register(MentorListCollectionViewCell.self, forCellWithReuseIdentifier: "MentorListCollectionViewCell")
     }
     
     private func binding() {
@@ -208,6 +229,7 @@ class SearchingViewController: UIViewController {
                         }
                         self.companyCategoryBtn.titleEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
                         self.companyCategoryBtn.imageEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
+                        self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
                     }
                     .disposed(by: self.disposeBag)
                 bottomSheet.careerTagTitle
@@ -219,6 +241,7 @@ class SearchingViewController: UIViewController {
                         }
                         self.careerCategoryBtn.titleEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
                         self.careerCategoryBtn.imageEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
+                        self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
                     }
                     .disposed(by: self.disposeBag)
                 self.present(naviVC, animated: false)
@@ -239,6 +262,7 @@ class SearchingViewController: UIViewController {
     
     private func bindingCollectionView() {
         categoryCV.rx.setDelegate(self).disposed(by: disposeBag)
+        mentorListCV.rx.setDelegate(self).disposed(by: disposeBag)
 
         if searchTextBtn.titleLabel?.text == "디자인" {
             searchingViewModel.output.designCategoryData
@@ -263,10 +287,39 @@ class SearchingViewController: UIViewController {
                 }
                 .disposed(by: disposeBag)
         }
+        
+        mentorListViewModel.output.mentorListData
+            .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
+                    
+                    cell.setData(mentor: item)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: disposeBag)
     }
 }
 
 extension SearchingViewController: UICollectionViewDelegateFlowLayout {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == mentorListCV {
+            if scrollView.contentOffset.y > 0 {
+                devideLineView.snp.updateConstraints { make in
+                    make.top.equalTo(scrollView.contentOffset.y)
+                    make.height.equalTo(max(6-scrollView.contentOffset.y, 1))
+                }
+                devideLineView.backgroundColor = UIColor.GrayScale.gray3
+            } else {
+                devideLineView.snp.updateConstraints { make in
+                    make.top.equalTo(0)
+                    make.height.equalTo(6)
+                }
+                devideLineView.backgroundColor = UIColor.GrayScale.gray5
+            }
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -286,6 +339,10 @@ extension SearchingViewController: UICollectionViewDelegateFlowLayout {
                 .disposed(by: disposeBag)
         }
         
-        return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
+        if collectionView == mentorListCV {
+            return CGSize(width: 343, height: 135)
+        } else {
+            return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
+        }
     }
 }

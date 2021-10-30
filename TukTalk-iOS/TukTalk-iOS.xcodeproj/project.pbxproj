@@ -43,6 +43,10 @@
 		402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65AB2727C4D500F4ED8F /* RecommendView.swift */; };
 		402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65B02727D64400F4ED8F /* SearchingViewController.swift */; };
 		402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */; };
+		403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013B272D9AFD0093160D /* MentorListDataModel.swift */; };
+		403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */; };
+		403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013F272DAAE80093160D /* HashTagCollectionViewCell.swift */; };
+		403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */; };
 		403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */; };
 		403B2D30271B538D00B834A6 /* AgreeButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2F271B538D00B834A6 /* AgreeButtonViewModel.swift */; };
 		403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D33271B784800B834A6 /* UIColorExtension.swift */; };
@@ -67,6 +71,7 @@
 		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
 		40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */; };
+		40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */; };
 		CB6689EEEEA5C4F487F913F3 /* Pods_TukTalk_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */; };
 		D946EC43736DAE80E1B92F11 /* Pods_TukTalk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */; };
 		FE47055C235FE7AE896976B1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77C77FD87FFB639D54A00E1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework */; };
@@ -115,6 +120,10 @@
 		402D65AB2727C4D500F4ED8F /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		402D65B02727D64400F4ED8F /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
 		402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDirectViewModel.swift; sourceTree = "<group>"; };
+		403B013B272D9AFD0093160D /* MentorListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListDataModel.swift; sourceTree = "<group>"; };
+		403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewModel.swift; sourceTree = "<group>"; };
+		403B013F272DAAE80093160D /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewModel.swift; sourceTree = "<group>"; };
 		403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		403B2D2F271B538D00B834A6 /* AgreeButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeButtonViewModel.swift; sourceTree = "<group>"; };
 		403B2D33271B784800B834A6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -145,6 +154,7 @@
 		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetViewModel.swift; sourceTree = "<group>"; };
+		40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewCell.swift; sourceTree = "<group>"; };
 		55850F1025F11A787912F4AD /* Pods-TukTalk-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOSTests/Pods-TukTalk-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +228,7 @@
 			children = (
 				402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */,
 				402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */,
+				403B013B272D9AFD0093160D /* MentorListDataModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -299,6 +310,8 @@
 				402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */,
 				4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */,
 				40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */,
+				403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */,
+				403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -318,6 +331,8 @@
 				402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */,
 				400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */,
 				4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */,
+				40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */,
+				403B013F272DAAE80093160D /* HashTagCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -764,6 +779,7 @@
 			files = (
 				4041C11627198933007D09E7 /* LoginViewController.swift in Sources */,
 				4000F8AF2722E8580067C6B6 /* CategoryView.swift in Sources */,
+				403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */,
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
 				4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */,
@@ -777,12 +793,16 @@
 				404E6870272449B6005AA5DD /* EnrollFirstViewModel.swift in Sources */,
 				402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */,
 				404E68742724541E005AA5DD /* EnrollThirdViewController.swift in Sources */,
+				403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */,
 				402D65A12726D64400F4ED8F /* SearchDirectViewController.swift in Sources */,
 				402D65972726848800F4ED8F /* HomeViewController.swift in Sources */,
+				40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */,
 				403B2D30271B538D00B834A6 /* AgreeButtonViewModel.swift in Sources */,
 				4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */,
+				403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */,
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,
+				403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */,
 				402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */,
 				4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
