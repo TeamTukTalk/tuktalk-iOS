@@ -99,7 +99,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewWillDisappear(animated)
         [emailTextField, passwordTextField].forEach { $0.text = ""}
     }
     
