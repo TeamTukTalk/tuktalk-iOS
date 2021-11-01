@@ -50,4 +50,7 @@ extension UIColor {
         static let gray4 = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         static let gray5 = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1)
     }
+    
+    //MARK:- MyPage
+    static let myPageColor = UIColor(red: 251/255, green: 251/255, blue: 251/255, alpha: 1)
 }

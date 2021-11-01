@@ -34,7 +34,7 @@
 		402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65982726849E00F4ED8F /* SearchMainViewController.swift */; };
 		402D659B272684A600F4ED8F /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D659A272684A600F4ED8F /* CommunityViewController.swift */; };
 		402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D659C272684AE00F4ED8F /* ConsultingViewController.swift */; };
-		402D659F272684B500F4ED8F /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D659E272684B500F4ED8F /* MyPageViewController.swift */; };
+		402D659F272684B500F4ED8F /* MentorMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D659E272684B500F4ED8F /* MentorMyPageViewController.swift */; };
 		402D65A12726D64400F4ED8F /* SearchDirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A02726D64400F4ED8F /* SearchDirectViewController.swift */; };
 		402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */; };
 		402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */; };
@@ -111,7 +111,7 @@
 		402D65982726849E00F4ED8F /* SearchMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainViewController.swift; sourceTree = "<group>"; };
 		402D659A272684A600F4ED8F /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		402D659C272684AE00F4ED8F /* ConsultingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultingViewController.swift; sourceTree = "<group>"; };
-		402D659E272684B500F4ED8F /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		402D659E272684B500F4ED8F /* MentorMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorMyPageViewController.swift; sourceTree = "<group>"; };
 		402D65A02726D64400F4ED8F /* SearchDirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDirectViewController.swift; sourceTree = "<group>"; };
 		402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendDataModel.swift; sourceTree = "<group>"; };
 		402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchesDataModel.swift; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 		402D65952726846C00F4ED8F /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				402D659E272684B500F4ED8F /* MyPageViewController.swift */,
+				402D659E272684B500F4ED8F /* MentorMyPageViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -814,7 +814,7 @@
 				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
 				402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */,
 				404E68692724206D005AA5DD /* EnrollFirstViewController.swift in Sources */,
-				402D659F272684B500F4ED8F /* MyPageViewController.swift in Sources */,
+				402D659F272684B500F4ED8F /* MentorMyPageViewController.swift in Sources */,
 				402D659B272684A600F4ED8F /* CommunityViewController.swift in Sources */,
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
 				402D65AA272730A100F4ED8F /* SearchesCollectionViewModel.swift in Sources */,

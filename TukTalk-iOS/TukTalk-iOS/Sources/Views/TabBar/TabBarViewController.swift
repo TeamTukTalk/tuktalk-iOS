@@ -28,8 +28,10 @@ class TabBarViewController: UITabBarController {
         $0.tabBarItem = UITabBarItem(title: "상담", image: UIImage(named: "consultingOffImg"), selectedImage: UIImage(named: "consultingOffImg")?.withRenderingMode(.alwaysOriginal))
         $0.navigationItem.largeTitleDisplayMode = .always
     }
-    let vc5 = MyPageViewController().then {
-        $0.tabBarItem = UITabBarItem(title: "마이뚝딱", image: UIImage(named: "mypageOffImg"), selectedImage: UIImage(named: "mypageOffImg")?.withRenderingMode(.alwaysOriginal))
+    
+    // 서버연동 후 변경 예정
+    let vc5 = MentorMyPageViewController().then {
+        $0.tabBarItem = UITabBarItem(title: "마이뚝딱", image: UIImage(named: "mypageOffImg"), selectedImage: UIImage(named: "mypageOnImg")?.withRenderingMode(.alwaysOriginal))
         $0.navigationItem.largeTitleDisplayMode = .always
     }
 
