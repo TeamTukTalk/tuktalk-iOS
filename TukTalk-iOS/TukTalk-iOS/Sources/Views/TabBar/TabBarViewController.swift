@@ -30,7 +30,7 @@ class TabBarViewController: UITabBarController {
     }
     
     // 서버연동 후 변경 예정
-    let vc5 = MentorMyPageViewController().then {
+    let vc5 = MyPageViewController().then {
         $0.tabBarItem = UITabBarItem(title: "마이뚝딱", image: UIImage(named: "mypageOffImg"), selectedImage: UIImage(named: "mypageOnImg")?.withRenderingMode(.alwaysOriginal))
         $0.navigationItem.largeTitleDisplayMode = .always
     }

@@ -96,6 +96,7 @@ class SearchingViewController: UIViewController {
     //MARK:- Function
     
     private func setUI() {
+        self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
         
         view.addSubview(searchTextBtn)

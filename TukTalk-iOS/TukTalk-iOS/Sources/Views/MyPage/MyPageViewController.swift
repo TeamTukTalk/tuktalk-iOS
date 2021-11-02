@@ -8,11 +8,13 @@
 import UIKit
 import RxSwift
 
-class MentorMyPageViewController: UIViewController {
+class MyPageViewController: UIViewController {
     
     //MARK:- Properties
     
     private let disposeBag = DisposeBag()
+    private let tableViewModel = MyPageTableViewModel()
+    private let verification = "mentor" /// 서버 연동 후 변경 예정
     
     //MARK:- UI Components
     
@@ -33,6 +35,10 @@ class MentorMyPageViewController: UIViewController {
         $0.layer.cornerRadius = 35
         $0.contentMode = .scaleAspectFill
         $0.image = UIImage(named: "tempProfileImg")
+    }
+    
+    private let profileEditBtn = UIButton().then {
+        $0.setImage(UIImage(named: "profileEditBtn"), for: .normal)
     }
     
     private let nameLabel = UILabel().then {
@@ -146,6 +152,8 @@ class MentorMyPageViewController: UIViewController {
     private let myActivityTV = UITableView()
     private let etcServiceTV = UITableView()
     
+    private let activityHeaderView = MyPageTableHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 56), user: "mentor", section: 0)
+    private let serviceHeaderView = MyPageTableHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 56), user: "mentor", section: 1)
     
     //MARK:- Life Cycle
     
@@ -153,11 +161,21 @@ class MentorMyPageViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUI()
+        setTableViewUI()
+        binding()
+        bindingTableView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        mainScrollView.delegate = self
+        mainScrollView.bounces = false
+        mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1270)
     }
     
     //MARK:- Function
     
     private func setUI() {
+        self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
         
         view.addSubview(mainScrollView)
@@ -183,6 +201,11 @@ class MentorMyPageViewController: UIViewController {
             make.width.height.equalTo(70)
             make.top.equalToSuperview().offset(88)
             make.leading.equalToSuperview().offset(16)
+        }
+        
+        mainContentView.addSubview(profileEditBtn)
+        profileEditBtn.snp.makeConstraints { make in
+            make.trailing.bottom.equalTo(profileImg)
         }
         
         mainContentView.addSubview(nameLabel)
@@ -262,6 +285,76 @@ class MentorMyPageViewController: UIViewController {
             make.top.equalTo(myServiceView.snp.bottom).offset(24)
         }
         
+        mainContentView.addSubview(myActivityTV)
+        myActivityTV.snp.makeConstraints { make in
+            make.top.equalTo(secondDevideView.snp.bottom)
+            make.height.equalTo(240)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        mainContentView.addSubview(thirdDevideView)
+        thirdDevideView.snp.makeConstraints { make in
+            make.height.equalTo(6)
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(myActivityTV.snp.bottom)
+        }
+        
+        mainContentView.addSubview(etcServiceTV)
+        etcServiceTV.snp.makeConstraints { make in
+            make.top.equalTo(thirdDevideView.snp.bottom)
+            make.height.equalTo(370)
+            make.leading.trailing.equalToSuperview()
+        }
     }
     
+    private func setTableViewUI() {
+        myActivityTV.separatorStyle = .none
+        myActivityTV.isScrollEnabled = false
+        myActivityTV.bounces = false
+        etcServiceTV.separatorStyle = .none
+        etcServiceTV.isScrollEnabled = false
+        etcServiceTV.bounces = false
+    }
+    
+    private func binding() {
+        //TODO
+    }
+    
+    private func bindingTableView() {
+        myActivityTV.register(MyPageTableViewCell.self,
+                              forCellReuseIdentifier: MyPageTableViewCell.identifier)
+        myActivityTV.rx.setDelegate(self).disposed(by: disposeBag)
+        myActivityTV.tableHeaderView = activityHeaderView
+        tableViewModel.output.mentorActivityData
+            .bind(to: myActivityTV.rx.items){( tv, row, item) -> UITableViewCell in
+                if let cell = self.myActivityTV.dequeueReusableCell(withIdentifier: MyPageTableViewCell.identifier, for: IndexPath.init(row: row, section: 0)) as? MyPageTableViewCell {
+                    cell.setData(data: item)
+                    cell.selectionStyle = .none
+                    return cell
+                }
+                return UITableViewCell()
+            }
+            .disposed(by: disposeBag)
+        
+        etcServiceTV.register(MyPageTableViewCell.self,
+                              forCellReuseIdentifier: MyPageTableViewCell.identifier)
+        etcServiceTV.rx.setDelegate(self).disposed(by: disposeBag)
+        etcServiceTV.tableHeaderView = serviceHeaderView
+        tableViewModel.output.mentorServiceData
+            .bind(to: etcServiceTV.rx.items){( tv, row, item) -> UITableViewCell in
+                if let cell = self.etcServiceTV.dequeueReusableCell(withIdentifier: MyPageTableViewCell.identifier, for: IndexPath.init(row: row, section: 0)) as? MyPageTableViewCell {
+                    cell.setData(data: item)
+                    cell.selectionStyle = .none
+                    return cell
+                }
+                return UITableViewCell()
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
+extension MyPageViewController : UITableViewDelegate {
+    func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 46
+    }
 }
