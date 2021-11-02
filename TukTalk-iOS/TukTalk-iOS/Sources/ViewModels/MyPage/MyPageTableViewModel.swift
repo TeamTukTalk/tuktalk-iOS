@@ -5,7 +5,6 @@
 //  Created by 한상진 on 2021/11/02.
 //
 
-import Foundation
 import RxSwift
 
 final class MyPageTableViewModel:ViewModelType{

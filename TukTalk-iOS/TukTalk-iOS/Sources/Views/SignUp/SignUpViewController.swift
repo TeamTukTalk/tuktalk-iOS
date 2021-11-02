@@ -6,9 +6,6 @@
 //
 
 import RxSwift
-import RxCocoa
-import SnapKit
-import Then
 
 class SignUpViewController: UIViewController {
     

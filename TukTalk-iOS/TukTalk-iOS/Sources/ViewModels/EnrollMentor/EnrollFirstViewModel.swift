@@ -6,7 +6,6 @@
 //
 
 import RxSwift
-import RxCocoa
 
 struct EnrollFirstViewModel: ViewModelType {
     

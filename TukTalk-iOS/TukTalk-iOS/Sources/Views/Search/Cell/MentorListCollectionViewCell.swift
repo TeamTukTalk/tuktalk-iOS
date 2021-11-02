@@ -5,7 +5,6 @@
 //  Created by 한상진 on 2021/10/29.
 //
 
-import UIKit
 import RxSwift
 
 class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate {
