@@ -34,67 +34,67 @@ class CategoryView: UIView {
     private func setUI() {
         for i in Range(0...11) {
             self.addSubview(categoryBtn[i])
-            categoryBtn[i].snp.makeConstraints({ make in make.height.equalTo(36)})
+            categoryBtn[i].snp.makeConstraints({ $0.height.equalTo(36)})
         }
-        categoryBtn[0].snp.makeConstraints { make in
-            make.width.equalTo(98)
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview()
+        categoryBtn[0].snp.makeConstraints {
+            $0.width.equalTo(98)
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
         }
-        categoryBtn[1].snp.makeConstraints { make in
-            make.width.equalTo(103)
-            make.top.equalToSuperview()
-            make.leading.equalTo(categoryBtn[0].snp.trailing).offset(8)
+        categoryBtn[1].snp.makeConstraints {
+            $0.width.equalTo(103)
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(categoryBtn[0].snp.trailing).offset(8)
         }
-        categoryBtn[2].snp.makeConstraints { make in
-            make.width.equalTo(85)
-            make.top.equalToSuperview()
-            make.leading.equalTo(categoryBtn[1].snp.trailing).offset(8)
+        categoryBtn[2].snp.makeConstraints {
+            $0.width.equalTo(85)
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(categoryBtn[1].snp.trailing).offset(8)
         }
-        categoryBtn[3].snp.makeConstraints { make in
-            make.width.equalTo(97)
-            make.top.equalTo(categoryBtn[2].snp.bottom).offset(12)
-            make.leading.equalToSuperview()
+        categoryBtn[3].snp.makeConstraints {
+            $0.width.equalTo(97)
+            $0.top.equalTo(categoryBtn[2].snp.bottom).offset(12)
+            $0.leading.equalToSuperview()
         }
-        categoryBtn[4].snp.makeConstraints { make in
-            make.width.equalTo(162)
-            make.top.equalTo(categoryBtn[1].snp.bottom).offset(12)
-            make.leading.equalTo(categoryBtn[3].snp.trailing).offset(8)
+        categoryBtn[4].snp.makeConstraints {
+            $0.width.equalTo(162)
+            $0.top.equalTo(categoryBtn[1].snp.bottom).offset(12)
+            $0.leading.equalTo(categoryBtn[3].snp.trailing).offset(8)
         }
-        categoryBtn[5].snp.makeConstraints { make in
-            make.width.equalTo(122)
-            make.top.equalTo(categoryBtn[3].snp.bottom).offset(12)
-            make.leading.equalToSuperview()
+        categoryBtn[5].snp.makeConstraints {
+            $0.width.equalTo(122)
+            $0.top.equalTo(categoryBtn[3].snp.bottom).offset(12)
+            $0.leading.equalToSuperview()
         }
-        categoryBtn[6].snp.makeConstraints { make in
-            make.width.equalTo(73)
-            make.top.equalTo(categoryBtn[5].snp.bottom).offset(12)
-            make.leading.equalToSuperview()
+        categoryBtn[6].snp.makeConstraints {
+            $0.width.equalTo(73)
+            $0.top.equalTo(categoryBtn[5].snp.bottom).offset(12)
+            $0.leading.equalToSuperview()
         }
-        categoryBtn[7].snp.makeConstraints { make in
-            make.width.equalTo(73)
-            make.top.equalTo(categoryBtn[5].snp.bottom).offset(12)
-            make.leading.equalTo(categoryBtn[6].snp.trailing).offset(8)
+        categoryBtn[7].snp.makeConstraints {
+            $0.width.equalTo(73)
+            $0.top.equalTo(categoryBtn[5].snp.bottom).offset(12)
+            $0.leading.equalTo(categoryBtn[6].snp.trailing).offset(8)
         }
-        categoryBtn[8].snp.makeConstraints { make in
-            make.width.equalTo(85)
-            make.top.equalTo(categoryBtn[5].snp.bottom).offset(12)
-            make.leading.equalTo(categoryBtn[7].snp.trailing).offset(8)
+        categoryBtn[8].snp.makeConstraints {
+            $0.width.equalTo(85)
+            $0.top.equalTo(categoryBtn[5].snp.bottom).offset(12)
+            $0.leading.equalTo(categoryBtn[7].snp.trailing).offset(8)
         }
-        categoryBtn[9].snp.makeConstraints { make in
-            make.width.equalTo(72)
-            make.top.equalTo(categoryBtn[5].snp.bottom).offset(12)
-            make.leading.equalTo(categoryBtn[8].snp.trailing).offset(8)
+        categoryBtn[9].snp.makeConstraints {
+            $0.width.equalTo(72)
+            $0.top.equalTo(categoryBtn[5].snp.bottom).offset(12)
+            $0.leading.equalTo(categoryBtn[8].snp.trailing).offset(8)
         }
-        categoryBtn[10].snp.makeConstraints { make in
-            make.width.equalTo(57)
-            make.top.equalTo(categoryBtn[6].snp.bottom).offset(12)
-            make.leading.equalToSuperview()
+        categoryBtn[10].snp.makeConstraints {
+            $0.width.equalTo(57)
+            $0.top.equalTo(categoryBtn[6].snp.bottom).offset(12)
+            $0.leading.equalToSuperview()
         }
-        categoryBtn[11].snp.makeConstraints { make in
-            make.width.equalTo(122)
-            make.top.equalTo(categoryBtn[6].snp.bottom).offset(12)
-            make.leading.equalTo(categoryBtn[10].snp.trailing).offset(8)
+        categoryBtn[11].snp.makeConstraints {
+            $0.width.equalTo(122)
+            $0.top.equalTo(categoryBtn[6].snp.bottom).offset(12)
+            $0.leading.equalTo(categoryBtn[10].snp.trailing).offset(8)
         }
     }
     

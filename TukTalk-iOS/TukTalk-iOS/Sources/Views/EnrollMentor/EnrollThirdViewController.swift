@@ -126,96 +126,96 @@ class EnrollThirdViewController: UIViewController {
     
     private func setUI() {
         view.addSubview(topView)
-        topView.snp.makeConstraints { make in
-            make.height.equalTo(88)
-            make.top.equalToSuperview()
-            make.leading.trailing.equalToSuperview()
+        topView.snp.makeConstraints {
+            $0.height.equalTo(88)
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
         }
         
         view.addSubview(backBtn)
-        backBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(59)
-            make.leading.equalToSuperview().offset(14)
+        backBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(59)
+            $0.leading.equalToSuperview().offset(14)
         }
         
         view.addSubview(closeBtn)
-        closeBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(56)
-            make.trailing.equalToSuperview().inset(16)
+        closeBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(56)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(firstLabelIcon)
-        firstLabelIcon.snp.makeConstraints { make in
-            make.height.width.equalTo(20)
-            make.leading.equalToSuperview().offset(35)
-            make.top.equalTo(topView.snp.bottom).offset(20)
+        firstLabelIcon.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.leading.equalToSuperview().offset(35)
+            $0.top.equalTo(topView.snp.bottom).offset(20)
         }
         
         view.addSubview(firstLabel)
-        firstLabel.snp.makeConstraints { make in
-            make.leading.equalTo(firstLabelIcon.snp.trailing).offset(4)
-            make.centerY.equalTo(firstLabelIcon)
+        firstLabel.snp.makeConstraints {
+            $0.leading.equalTo(firstLabelIcon.snp.trailing).offset(4)
+            $0.centerY.equalTo(firstLabelIcon)
         }
         
         view.addSubview(secondLabelIcon)
-        secondLabelIcon.snp.makeConstraints { make in
-            make.height.width.equalTo(20)
-            make.leading.equalTo(firstLabel.snp.trailing).offset(43)
-            make.top.equalTo(firstLabelIcon.snp.top)
+        secondLabelIcon.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.leading.equalTo(firstLabel.snp.trailing).offset(43)
+            $0.top.equalTo(firstLabelIcon.snp.top)
         }
         
         view.addSubview(secondLabel)
-        secondLabel.snp.makeConstraints { make in
-            make.leading.equalTo(secondLabelIcon.snp.trailing).offset(4)
-            make.top.equalTo(firstLabel.snp.top)
+        secondLabel.snp.makeConstraints {
+            $0.leading.equalTo(secondLabelIcon.snp.trailing).offset(4)
+            $0.top.equalTo(firstLabel.snp.top)
         }
         
         view.addSubview(thirdLabelIcon)
-        thirdLabelIcon.snp.makeConstraints { make in
-            make.height.width.equalTo(20)
-            make.leading.equalTo(secondLabel.snp.trailing).offset(43)
-            make.top.equalTo(secondLabelIcon.snp.top)
+        thirdLabelIcon.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.leading.equalTo(secondLabel.snp.trailing).offset(43)
+            $0.top.equalTo(secondLabelIcon.snp.top)
         }
         
         view.addSubview(thirdLabel)
-        thirdLabel.snp.makeConstraints { make in
-            make.leading.equalTo(thirdLabelIcon.snp.trailing).offset(4)
-            make.top.equalTo(firstLabel.snp.top)
+        thirdLabel.snp.makeConstraints {
+            $0.leading.equalTo(thirdLabelIcon.snp.trailing).offset(4)
+            $0.top.equalTo(firstLabel.snp.top)
         }
         
         view.addSubview(backgroundView)
-        backgroundView.snp.makeConstraints { make in
-            make.height.equalTo(380)
-            make.top.equalTo(firstLabelIcon.snp.bottom).offset(22)
-            make.leading.trailing.equalToSuperview().inset(16)
+        backgroundView.snp.makeConstraints {
+            $0.height.equalTo(380)
+            $0.top.equalTo(firstLabelIcon.snp.bottom).offset(22)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(centerImageView)
-        centerImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(150)
-            make.top.equalTo(backgroundView).offset(49)
-            make.centerX.equalTo(backgroundView)
+        centerImageView.snp.makeConstraints {
+            $0.width.height.equalTo(150)
+            $0.top.equalTo(backgroundView).offset(49)
+            $0.centerX.equalTo(backgroundView)
         }
         
         view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.height.equalTo(24)
-            make.top.equalTo(backgroundView.snp.top).offset(195)
-            make.centerX.equalTo(backgroundView)
+        titleLabel.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.top.equalTo(backgroundView.snp.top).offset(195)
+            $0.centerX.equalTo(backgroundView)
         }
         
         view.addSubview(subTitleLabel)
-        subTitleLabel.snp.makeConstraints { make in
-            make.height.equalTo(18)
-            make.top.equalTo(titleLabel.snp.bottom).offset(4)
-            make.centerX.equalTo(backgroundView)
+        subTitleLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
+            $0.centerX.equalTo(backgroundView)
         }
         
         view.addSubview(nextBtn)
-        nextBtn.snp.makeConstraints { make in
-            make.height.equalTo(48)
-            make.bottom.equalTo(backgroundView).inset(32)
-            make.leading.trailing.equalTo(backgroundView).inset(20)
+        nextBtn.snp.makeConstraints {
+            $0.height.equalTo(48)
+            $0.bottom.equalTo(backgroundView).inset(32)
+            $0.leading.trailing.equalTo(backgroundView).inset(20)
         }
     }
     

@@ -100,75 +100,75 @@ class SignUpChoiceViewController: UIViewController {
     
     private func setUI() {
         view.addSubview(backBtn)
-        backBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(59)
-            make.leading.equalToSuperview().offset(14)
+        backBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(59)
+            $0.leading.equalToSuperview().offset(14)
         }
         
         view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(120)
-            make.leading.trailing.equalToSuperview().inset(16)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(120)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(signUpMenteeBtn)
-        signUpMenteeBtn.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(56)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(90)
+        signUpMenteeBtn.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(56)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(90)
         }
         
         signUpMenteeBtn.addSubview(signUpMenteeTitleLabel)
         signUpMenteeBtn.addSubview(signUpMenteeImg)
         signUpMenteeBtn.addSubview(signUpMenteeLabel)
         signUpMenteeBtn.addSubview(signUpMenteeArrow)
-        signUpMenteeImg.snp.makeConstraints { make in
-            make.top.equalTo(signUpMenteeBtn.snp.top).offset(24)
-            make.leading.equalTo(signUpMenteeBtn.snp.leading).offset(24)
+        signUpMenteeImg.snp.makeConstraints {
+            $0.top.equalTo(signUpMenteeBtn.snp.top).offset(24)
+            $0.leading.equalTo(signUpMenteeBtn.snp.leading).offset(24)
         }
-        signUpMenteeTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(signUpMenteeBtn.snp.top).offset(24)
-            make.leading.equalTo(signUpMenteeImg.snp.trailing).offset(12)
-            make.height.equalTo(22)
+        signUpMenteeTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(signUpMenteeBtn.snp.top).offset(24)
+            $0.leading.equalTo(signUpMenteeImg.snp.trailing).offset(12)
+            $0.height.equalTo(22)
         }
-        signUpMenteeLabel.snp.makeConstraints { make in
-            make.leading.equalTo(signUpMenteeTitleLabel.snp.leading)
-            make.top.equalTo(signUpMenteeTitleLabel.snp.bottom).offset(2)
-            make.height.equalTo(18)
+        signUpMenteeLabel.snp.makeConstraints {
+            $0.leading.equalTo(signUpMenteeTitleLabel.snp.leading)
+            $0.top.equalTo(signUpMenteeTitleLabel.snp.bottom).offset(2)
+            $0.height.equalTo(18)
         }
-        signUpMenteeArrow.snp.makeConstraints { make in
-            make.top.equalTo(signUpMenteeBtn.snp.top).offset(33)
-            make.trailing.equalTo(signUpMenteeBtn.snp.trailing).inset(24)
+        signUpMenteeArrow.snp.makeConstraints {
+            $0.top.equalTo(signUpMenteeBtn.snp.top).offset(33)
+            $0.trailing.equalTo(signUpMenteeBtn.snp.trailing).inset(24)
         }
         
         view.addSubview(signUpMentorBtn)
-        signUpMentorBtn.snp.makeConstraints { make in
-            make.top.equalTo(signUpMenteeBtn.snp.bottom).offset(12)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(90)
+        signUpMentorBtn.snp.makeConstraints {
+            $0.top.equalTo(signUpMenteeBtn.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(90)
         }
         
         signUpMentorBtn.addSubview(signUpMentorTitleLabel)
         signUpMentorBtn.addSubview(signUpMentorImg)
         signUpMentorBtn.addSubview(signUpMentorLabel)
         signUpMentorBtn.addSubview(signUpMentorArrow)
-        signUpMentorImg.snp.makeConstraints { make in
-            make.top.equalTo(signUpMentorBtn.snp.top).offset(24)
-            make.leading.equalTo(signUpMentorBtn.snp.leading).offset(24)
+        signUpMentorImg.snp.makeConstraints {
+            $0.top.equalTo(signUpMentorBtn.snp.top).offset(24)
+            $0.leading.equalTo(signUpMentorBtn.snp.leading).offset(24)
         }
-        signUpMentorTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(signUpMentorBtn.snp.top).offset(24)
-            make.leading.equalTo(signUpMentorImg.snp.trailing).offset(12)
-            make.height.equalTo(22)
+        signUpMentorTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(signUpMentorBtn.snp.top).offset(24)
+            $0.leading.equalTo(signUpMentorImg.snp.trailing).offset(12)
+            $0.height.equalTo(22)
         }
-        signUpMentorLabel.snp.makeConstraints { make in
-            make.leading.equalTo(signUpMentorTitleLabel.snp.leading)
-            make.top.equalTo(signUpMentorTitleLabel.snp.bottom).offset(2)
-            make.height.equalTo(18)
+        signUpMentorLabel.snp.makeConstraints {
+            $0.leading.equalTo(signUpMentorTitleLabel.snp.leading)
+            $0.top.equalTo(signUpMentorTitleLabel.snp.bottom).offset(2)
+            $0.height.equalTo(18)
         }
-        signUpMentorArrow.snp.makeConstraints { make in
-            make.top.equalTo(signUpMentorBtn.snp.top).offset(33)
-            make.trailing.equalTo(signUpMentorBtn.snp.trailing).inset(24)
+        signUpMentorArrow.snp.makeConstraints {
+            $0.top.equalTo(signUpMentorBtn.snp.top).offset(33)
+            $0.trailing.equalTo(signUpMentorBtn.snp.trailing).inset(24)
         }
     }
     

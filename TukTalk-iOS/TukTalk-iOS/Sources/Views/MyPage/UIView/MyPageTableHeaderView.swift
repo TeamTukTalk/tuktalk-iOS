@@ -38,22 +38,22 @@ class MyPageTableHeaderView: UIView {
     
     private func setUI() {
         addSubview(titleImg)
-        titleImg.snp.makeConstraints { make in
-            make.top.leading.bottom.equalToSuperview().inset(16)
+        titleImg.snp.makeConstraints {
+            $0.top.leading.bottom.equalToSuperview().inset(16)
         }
         
         addSubview(title)
-        title.snp.makeConstraints { make in
-            make.centerY.equalTo(titleImg)
-            make.leading.equalTo(titleImg.snp.trailing).offset(8)
+        title.snp.makeConstraints {
+            $0.centerY.equalTo(titleImg)
+            $0.leading.equalTo(titleImg.snp.trailing).offset(8)
         }
         
         addSubview(devideView)
-        devideView.snp.makeConstraints { make in
-            make.height.equalTo(1)
-            make.width.equalTo(UIScreen.main.bounds.width - 32)
-            make.top.equalTo(titleImg.snp.bottom).offset(16)
-            make.centerX.equalToSuperview()
+        devideView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.width.equalTo(UIScreen.main.bounds.width - 32)
+            $0.top.equalTo(titleImg.snp.bottom).offset(16)
+            $0.centerX.equalToSuperview()
         }
     }
     

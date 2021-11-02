@@ -53,14 +53,14 @@ class SearchDirectCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(deleteBtn)
 
-        titleLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(8)
-            make.leading.equalToSuperview().offset(16)
+        titleLabel.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(8)
+            $0.leading.equalToSuperview().offset(16)
         }
-        deleteBtn.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalTo(titleLabel.snp.trailing).offset(4)
-            make.trailing.equalToSuperview().inset(10)
+        deleteBtn.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(titleLabel.snp.trailing).offset(4)
+            $0.trailing.equalToSuperview().inset(10)
         }
     }
 }

@@ -110,83 +110,83 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(logoImageView)
-        logoImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(233)
-            make.centerX.equalToSuperview()
+        logoImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(233)
+            $0.centerX.equalToSuperview()
         }
         
         view.addSubview(emailLabel)
-        emailLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(310)
-            make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(22)
+        emailLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(310)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(22)
         }
         
         view.addSubview(emailTextField)
-        emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(emailLabel.snp.bottom).offset(8)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(30)
+        emailTextField.snp.makeConstraints {
+            $0.top.equalTo(emailLabel.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(30)
         }
         
         view.addSubview(errorIcon)
-        errorIcon.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(16)
-            make.top.equalToSuperview().offset(343)
+        errorIcon.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(16)
+            $0.top.equalToSuperview().offset(343)
         }
         
         view.addSubview(emailErrorMsg)
-        emailErrorMsg.snp.makeConstraints { make in
-            make.top.equalTo(emailTextField.snp.bottom).offset(8)
-            make.leading.equalToSuperview().inset(16)
+        emailErrorMsg.snp.makeConstraints {
+            $0.top.equalTo(emailTextField.snp.bottom).offset(8)
+            $0.leading.equalToSuperview().inset(16)
         }
         
         view.addSubview(passwordLabel)
-        passwordLabel.snp.makeConstraints { make in
-            make.top.equalTo(emailTextField.snp.bottom).offset(46)
-            make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(22)
+        passwordLabel.snp.makeConstraints {
+            $0.top.equalTo(emailTextField.snp.bottom).offset(46)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(22)
         }
         
         view.addSubview(passwordTextField)
-        passwordTextField.snp.makeConstraints { make in
-            make.top.equalTo(passwordLabel.snp.bottom).offset(8)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(30)
+        passwordTextField.snp.makeConstraints {
+            $0.top.equalTo(passwordLabel.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(30)
         }
         
         view.addSubview(passwordErrorMsg)
-        passwordErrorMsg.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(8)
-            make.leading.equalToSuperview().inset(16)
+        passwordErrorMsg.snp.makeConstraints {
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(8)
+            $0.leading.equalToSuperview().inset(16)
         }
         
         view.addSubview(loginBtn)
-        loginBtn.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(40)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(52)
+        loginBtn.snp.makeConstraints {
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(40)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(52)
         }
         
         view.addSubview(signUpLabel)
-        signUpLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(40)
-            make.leading.equalToSuperview().offset(77)
+        signUpLabel.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(40)
+            $0.leading.equalToSuperview().offset(77)
         }
         
         view.addSubview(signUpBtn)
         let attribute = NSMutableAttributedString(string: "회원가입")
         attribute.addAttribute(NSMutableAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: NSRange(location: 0, length: 4))
         signUpBtn.setAttributedTitle(attribute, for: .normal)
-        signUpBtn.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(35)
-            make.leading.equalTo(signUpLabel.snp.trailing).offset(8)
+        signUpBtn.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(35)
+            $0.leading.equalTo(signUpLabel.snp.trailing).offset(8)
         }
         
         view.addSubview(findBtn)
-        findBtn.snp.makeConstraints { make in
-            make.top.equalTo(loginBtn.snp.bottom).offset(20)
-            make.centerX.equalTo(view)
+        findBtn.snp.makeConstraints {
+            $0.top.equalTo(loginBtn.snp.bottom).offset(20)
+            $0.centerX.equalTo(view)
         }
     }
 
@@ -216,8 +216,8 @@ class LoginViewController: UIViewController {
                     .bind { status in
                         self.emailErrorMsg.isHidden = status
                         self.errorIcon.isHidden = status
-                        self.errorIcon.snp.updateConstraints { make in
-                            make.top.equalToSuperview().offset(343)
+                        self.errorIcon.snp.updateConstraints {
+                            $0.top.equalToSuperview().offset(343)
                         }
                     }.disposed(by: self.disposeBag)
                 self.loginViewModel.output.emailIsValid.take(1)

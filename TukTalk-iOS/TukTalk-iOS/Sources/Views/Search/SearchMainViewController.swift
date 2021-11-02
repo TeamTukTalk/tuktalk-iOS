@@ -88,70 +88,70 @@ class SearchMainViewController: UIViewController {
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
         
         view.addSubview(searchTextBtn)
-        searchTextBtn.snp.makeConstraints { make in
-            make.height.equalTo(22)
-            make.top.equalToSuperview().offset(64)
-            make.leading.trailing.equalToSuperview().inset(16)
+        searchTextBtn.snp.makeConstraints {
+            $0.height.equalTo(22)
+            $0.top.equalToSuperview().offset(64)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
 
         searchTextBtn.addSubview(searchImg)
-        searchImg.snp.makeConstraints { make in
-            make.height.width.equalTo(20)
-            make.bottom.equalToSuperview()
-            make.trailing.equalToSuperview()
+        searchImg.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.bottom.equalToSuperview()
+            $0.trailing.equalToSuperview()
         }
         
         view.addSubview(searchTextUnderline)
-        searchTextUnderline.snp.makeConstraints { make in
-            make.height.equalTo(1)
-            make.top.equalTo(searchTextBtn.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(16)
+        searchTextUnderline.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.top.equalTo(searchTextBtn.snp.bottom).offset(10)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(searchTextUnderline.snp.bottom).offset(32)
-            make.leading.equalToSuperview().offset(16)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(searchTextUnderline.snp.bottom).offset(32)
+            $0.leading.equalToSuperview().offset(16)
         }
         
         view.addSubview(designBtn)
-        designBtn.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(16)
-            make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(144)
-            make.width.equalTo(164)
+        designBtn.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(144)
+            $0.width.equalTo(164)
         }
         
         designBtn.addSubview(designLabel)
-        designLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.leading.equalToSuperview().offset(20)
+        designLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.equalToSuperview().offset(20)
         }
         
         designBtn.addSubview(designImg)
-        designImg.snp.makeConstraints { make in
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+        designImg.snp.makeConstraints {
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         view.addSubview(itDevBtn)
-        itDevBtn.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(16)
-            make.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(144)
-            make.width.equalTo(164)
+        itDevBtn.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(144)
+            $0.width.equalTo(164)
         }
         
         itDevBtn.addSubview(itDevLabel)
-        itDevLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.leading.equalToSuperview().offset(20)
+        itDevLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.equalToSuperview().offset(20)
         }
         
         itDevBtn.addSubview(itDevImg)
-        itDevImg.snp.makeConstraints { make in
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+        itDevImg.snp.makeConstraints {
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     

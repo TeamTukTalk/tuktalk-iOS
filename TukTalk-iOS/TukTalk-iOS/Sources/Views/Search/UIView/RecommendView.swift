@@ -33,44 +33,44 @@ class RecommendView: UIView {
     private func setUI() {
         for i in Range(0...6) {
             self.addSubview(recommendLabel[i])
-            recommendLabel[i].snp.makeConstraints({ make in make.height.equalTo(36)})
+            recommendLabel[i].snp.makeConstraints({ $0.height.equalTo(36)})
             recommendLabel[i].textAlignment = .center
             recommendLabel[i].layer.cornerRadius = 18
         }
-        recommendLabel[0].snp.makeConstraints { make in
-            make.width.equalTo(105)
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview()
+        recommendLabel[0].snp.makeConstraints {
+            $0.width.equalTo(105)
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
         }
-        recommendLabel[1].snp.makeConstraints { make in
-            make.width.equalTo(69)
-            make.top.equalToSuperview()
-            make.leading.equalTo(recommendLabel[0].snp.trailing).offset(8)
+        recommendLabel[1].snp.makeConstraints {
+            $0.width.equalTo(69)
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(recommendLabel[0].snp.trailing).offset(8)
         }
-        recommendLabel[2].snp.makeConstraints { make in
-            make.width.equalTo(133)
-            make.top.equalToSuperview()
-            make.leading.equalTo(recommendLabel[1].snp.trailing).offset(8)
+        recommendLabel[2].snp.makeConstraints {
+            $0.width.equalTo(133)
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(recommendLabel[1].snp.trailing).offset(8)
         }
-        recommendLabel[3].snp.makeConstraints { make in
-            make.width.equalTo(69)
-            make.top.equalTo(recommendLabel[0].snp.bottom).offset(12)
-            make.leading.equalToSuperview()
+        recommendLabel[3].snp.makeConstraints {
+            $0.width.equalTo(69)
+            $0.top.equalTo(recommendLabel[0].snp.bottom).offset(12)
+            $0.leading.equalToSuperview()
         }
-        recommendLabel[4].snp.makeConstraints { make in
-            make.width.equalTo(69)
-            make.top.equalTo(recommendLabel[1].snp.bottom).offset(12)
-            make.leading.equalTo(recommendLabel[3].snp.trailing).offset(8)
+        recommendLabel[4].snp.makeConstraints {
+            $0.width.equalTo(69)
+            $0.top.equalTo(recommendLabel[1].snp.bottom).offset(12)
+            $0.leading.equalTo(recommendLabel[3].snp.trailing).offset(8)
         }
-        recommendLabel[5].snp.makeConstraints { make in
-            make.width.equalTo(57)
-            make.top.equalTo(recommendLabel[1].snp.bottom).offset(12)
-            make.leading.equalTo(recommendLabel[4].snp.trailing).offset(8)
+        recommendLabel[5].snp.makeConstraints {
+            $0.width.equalTo(57)
+            $0.top.equalTo(recommendLabel[1].snp.bottom).offset(12)
+            $0.leading.equalTo(recommendLabel[4].snp.trailing).offset(8)
         }
-        recommendLabel[6].snp.makeConstraints { make in
-            make.width.equalTo(57)
-            make.top.equalTo(recommendLabel[2].snp.bottom).offset(12)
-            make.leading.equalTo(recommendLabel[5].snp.trailing).offset(8)
+        recommendLabel[6].snp.makeConstraints {
+            $0.width.equalTo(57)
+            $0.top.equalTo(recommendLabel[2].snp.bottom).offset(12)
+            $0.leading.equalTo(recommendLabel[5].snp.trailing).offset(8)
         }
     }
     

@@ -100,80 +100,80 @@ class SearchingViewController: UIViewController {
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
         
         view.addSubview(searchTextBtn)
-        searchTextBtn.snp.makeConstraints { make in
-            make.height.equalTo(22)
-            make.top.equalToSuperview().offset(64)
-            make.leading.trailing.equalToSuperview().inset(16)
+        searchTextBtn.snp.makeConstraints {
+            $0.height.equalTo(22)
+            $0.top.equalToSuperview().offset(64)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
 
         searchTextBtn.addSubview(clearBtn)
-        clearBtn.snp.makeConstraints { make in
-            make.height.width.equalTo(20)
-            make.bottom.equalToSuperview()
-            make.trailing.equalToSuperview()
+        clearBtn.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.bottom.equalToSuperview()
+            $0.trailing.equalToSuperview()
         }
         
         view.addSubview(searchTextUnderline)
-        searchTextUnderline.snp.makeConstraints { make in
-            make.height.equalTo(1)
-            make.top.equalTo(searchTextBtn.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(16)
+        searchTextUnderline.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.top.equalTo(searchTextBtn.snp.bottom).offset(10)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(categoryCV)
-        categoryCV.snp.makeConstraints { make in
-            make.height.equalTo(50)
-            make.top.equalTo(searchTextUnderline.snp.bottom).offset(15)
-            make.leading.trailing.equalToSuperview()
+        categoryCV.snp.makeConstraints {
+            $0.height.equalTo(50)
+            $0.top.equalTo(searchTextUnderline.snp.bottom).offset(15)
+            $0.leading.trailing.equalToSuperview()
         }
         
         view.addSubview(companyCategoryBtn)
-        companyCategoryBtn.snp.makeConstraints { make in
-            make.height.equalTo(36)
-            make.width.equalTo(73)
-            make.top.equalTo(categoryCV.snp.bottom).offset(11)
-            make.leading.equalToSuperview().offset(16)
+        companyCategoryBtn.snp.makeConstraints {
+            $0.height.equalTo(36)
+            $0.width.equalTo(73)
+            $0.top.equalTo(categoryCV.snp.bottom).offset(11)
+            $0.leading.equalToSuperview().offset(16)
         }
         
         companyCategoryBtn.addSubview(companyExtraLabel)
-        companyExtraLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(49)
+        companyExtraLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(49)
         }
         
         view.addSubview(careerCategoryBtn)
-        careerCategoryBtn.snp.makeConstraints { make in
-            make.height.equalTo(36)
-            make.width.equalTo(73)
-            make.top.equalTo(categoryCV.snp.bottom).offset(11)
-            make.leading.equalTo(companyCategoryBtn.snp.trailing).offset(8)
+        careerCategoryBtn.snp.makeConstraints {
+            $0.height.equalTo(36)
+            $0.width.equalTo(73)
+            $0.top.equalTo(categoryCV.snp.bottom).offset(11)
+            $0.leading.equalTo(companyCategoryBtn.snp.trailing).offset(8)
         }
         
         careerCategoryBtn.addSubview(careerExtraLabel)
-        careerExtraLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(49)
+        careerExtraLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(49)
         }
         
         view.addSubview(mentorListCV)
-        mentorListCV.snp.makeConstraints { make in
-            make.top.equalTo(companyCategoryBtn.snp.bottom).offset(16)
-            make.leading.trailing.bottom.equalToSuperview()
+        mentorListCV.snp.makeConstraints {
+            $0.top.equalTo(companyCategoryBtn.snp.bottom).offset(16)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
         
         mentorListCV.addSubview(devideLineView)
-        devideLineView.snp.makeConstraints { make in
-            make.height.equalTo(6)
-            make.width.equalTo(UIScreen.main.bounds.width)
-            make.top.equalToSuperview()
-            make.leading.equalTo(mentorListCV.snp.leading)
-            make.trailing.equalTo(mentorListCV.snp.trailing)
+        devideLineView.snp.makeConstraints {
+            $0.height.equalTo(6)
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(mentorListCV.snp.leading)
+            $0.trailing.equalTo(mentorListCV.snp.trailing)
         }
         
         mentorListCV.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(26)
-            make.leading.equalToSuperview().offset(16)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(26)
+            $0.leading.equalToSuperview().offset(16)
         }
     }
     
@@ -247,8 +247,8 @@ class SearchingViewController: UIViewController {
             .filter {!$0.isEmpty}
             .bind { text in
                 self.companyExtraLabel.text = text
-                self.companyCategoryBtn.snp.updateConstraints { make in
-                    _ = text.count == 3 ? make.width.equalTo(118) : make.width.equalTo(130)
+                self.companyCategoryBtn.snp.updateConstraints {
+                    _ = text.count == 3 ? $0.width.equalTo(118) : $0.width.equalTo(130)
                 }
                 self.companyCategoryBtn.titleEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
                 self.companyCategoryBtn.imageEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
@@ -259,8 +259,8 @@ class SearchingViewController: UIViewController {
             .filter {!$0.isEmpty}
             .bind { text in
                 self.careerExtraLabel.text = text
-                self.careerCategoryBtn.snp.updateConstraints { make in
-                    _ = text.count == 4 ? make.width.equalTo(118) : make.width.equalTo(130)
+                self.careerCategoryBtn.snp.updateConstraints {
+                    _ = text.count == 4 ? $0.width.equalTo(118) : $0.width.equalTo(130)
                 }
                 self.careerCategoryBtn.titleEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
                 self.careerCategoryBtn.imageEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
@@ -316,15 +316,15 @@ extension SearchingViewController: UICollectionViewDelegateFlowLayout {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == mentorListCV {
             if scrollView.contentOffset.y > 0 {
-                devideLineView.snp.updateConstraints { make in
-                    make.top.equalTo(scrollView.contentOffset.y)
-                    make.height.equalTo(max(6-scrollView.contentOffset.y, 1))
+                devideLineView.snp.updateConstraints {
+                    $0.top.equalTo(scrollView.contentOffset.y)
+                    $0.height.equalTo(max(6-scrollView.contentOffset.y, 1))
                 }
                 devideLineView.backgroundColor = UIColor.GrayScale.gray3
             } else {
-                devideLineView.snp.updateConstraints { make in
-                    make.top.equalTo(0)
-                    make.height.equalTo(6)
+                devideLineView.snp.updateConstraints {
+                    $0.top.equalTo(0)
+                    $0.height.equalTo(6)
                 }
                 devideLineView.backgroundColor = UIColor.GrayScale.gray5
             }

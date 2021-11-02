@@ -38,9 +38,9 @@ class HashTagCollectionViewCell: UICollectionViewCell {
     
     private func setUI() {
         contentView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.leading.trailing.equalToSuperview()
+        titleLabel.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
         }
     }
 }

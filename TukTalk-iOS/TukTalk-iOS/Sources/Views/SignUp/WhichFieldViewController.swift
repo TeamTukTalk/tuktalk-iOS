@@ -59,36 +59,36 @@ class WhichFieldViewController: UIViewController {
     
     private func setUI() {
         view.addSubview(backBtn)
-        backBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(59)
-            make.leading.equalToSuperview().offset(14)
+        backBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(59)
+            $0.leading.equalToSuperview().offset(14)
         }
         
         view.addSubview(closeBtn)
-        closeBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(56)
-            make.trailing.equalToSuperview().inset(16)
+        closeBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(56)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(120)
-            make.leading.trailing.equalToSuperview().inset(16)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(120)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(categoryView)
-        categoryView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(56)
-            make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(228) /// 나중에 오토레이아웃 적용해야함
-            make.width.equalTo(343)
+        categoryView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(56)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(228) /// 나중에 오토레이아웃 적용해야함
+            $0.width.equalTo(343)
         }
         
         view.addSubview(nextBtn)
-        nextBtn.snp.makeConstraints { make in
-            make.height.equalTo(52)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(42)
+        nextBtn.snp.makeConstraints {
+            $0.height.equalTo(52)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(42)
         }
     }
     

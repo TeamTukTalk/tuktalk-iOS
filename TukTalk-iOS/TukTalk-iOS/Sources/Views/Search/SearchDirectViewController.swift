@@ -75,57 +75,57 @@ class SearchDirectViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         
         view.addSubview(searchBtn)
-        searchBtn.snp.makeConstraints { make in
-            make.height.width.equalTo(20)
-            make.top.equalToSuperview().offset(66)
-            make.trailing.equalToSuperview().inset(16)
+        searchBtn.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.top.equalToSuperview().offset(66)
+            $0.trailing.equalToSuperview().inset(16)
         }
 
         view.addSubview(backBtn)
-        backBtn.snp.makeConstraints { make in
-            make.height.width.equalTo(12)
-            make.leading.equalToSuperview().offset(16)
-            make.top.equalToSuperview().offset(68)
+        backBtn.snp.makeConstraints {
+            $0.height.width.equalTo(12)
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(68)
         }
         
         view.addSubview(searchTextField)
-        searchTextField.snp.makeConstraints { make in
-            make.height.equalTo(22)
-            make.top.equalToSuperview().offset(64)
-            make.leading.equalTo(backBtn.snp.trailing).offset(8)
-            make.trailing.equalTo(searchBtn.snp.leading)
+        searchTextField.snp.makeConstraints {
+            $0.height.equalTo(22)
+            $0.top.equalToSuperview().offset(64)
+            $0.leading.equalTo(backBtn.snp.trailing).offset(8)
+            $0.trailing.equalTo(searchBtn.snp.leading)
         }
         
         view.addSubview(searchTextUnderline)
-        searchTextUnderline.snp.makeConstraints { make in
-            make.height.equalTo(1)
-            make.top.equalTo(searchTextField.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(16)
+        searchTextUnderline.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.top.equalTo(searchTextField.snp.bottom).offset(10)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(searchTextField.snp.bottom).offset(32)
-            make.leading.equalToSuperview().offset(16)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(searchTextField.snp.bottom).offset(32)
+            $0.leading.equalToSuperview().offset(16)
         }
         
         view.addSubview(recentSearchCV)
-        recentSearchCV.snp.makeConstraints { make in
-            make.height.equalTo(50)
-            make.top.equalTo(titleLabel.snp.bottom).offset(11)
-            make.leading.trailing.equalToSuperview()
+        recentSearchCV.snp.makeConstraints {
+            $0.height.equalTo(50)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(11)
+            $0.leading.trailing.equalToSuperview()
         }
         
         view.addSubview(subTitleLabel)
-        subTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(recentSearchCV.snp.bottom).offset(35)
-            make.leading.equalToSuperview().offset(16)
+        subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(recentSearchCV.snp.bottom).offset(35)
+            $0.leading.equalToSuperview().offset(16)
         }
         
         view.addSubview(recommendView)
-        recommendView.snp.makeConstraints { make in
-            make.top.equalTo(subTitleLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(16)
+        recommendView.snp.makeConstraints {
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
     

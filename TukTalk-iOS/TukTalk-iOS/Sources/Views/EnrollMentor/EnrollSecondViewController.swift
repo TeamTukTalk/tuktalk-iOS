@@ -147,109 +147,109 @@ class EnrollSecondViewController: UIViewController {
     
     private func setUI() {
         view.addSubview(topView)
-        topView.snp.makeConstraints { make in
-            make.height.equalTo(88)
-            make.top.equalToSuperview()
-            make.leading.trailing.equalToSuperview()
+        topView.snp.makeConstraints {
+            $0.height.equalTo(88)
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
         }
         
         view.addSubview(backBtn)
-        backBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(59)
-            make.leading.equalToSuperview().offset(14)
+        backBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(59)
+            $0.leading.equalToSuperview().offset(14)
         }
         
         view.addSubview(closeBtn)
-        closeBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(56)
-            make.trailing.equalToSuperview().inset(16)
+        closeBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(56)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(firstLabelIcon)
-        firstLabelIcon.snp.makeConstraints { make in
-            make.height.width.equalTo(20)
-            make.leading.equalToSuperview().offset(35)
-            make.top.equalTo(topView.snp.bottom).offset(20)
+        firstLabelIcon.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.leading.equalToSuperview().offset(35)
+            $0.top.equalTo(topView.snp.bottom).offset(20)
         }
         
         view.addSubview(firstLabel)
-        firstLabel.snp.makeConstraints { make in
-            make.leading.equalTo(firstLabelIcon.snp.trailing).offset(4)
-            make.centerY.equalTo(firstLabelIcon)
+        firstLabel.snp.makeConstraints {
+            $0.leading.equalTo(firstLabelIcon.snp.trailing).offset(4)
+            $0.centerY.equalTo(firstLabelIcon)
         }
         
         view.addSubview(secondLabelIcon)
-        secondLabelIcon.snp.makeConstraints { make in
-            make.height.width.equalTo(20)
-            make.leading.equalTo(firstLabel.snp.trailing).offset(43)
-            make.top.equalTo(firstLabelIcon.snp.top)
+        secondLabelIcon.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.leading.equalTo(firstLabel.snp.trailing).offset(43)
+            $0.top.equalTo(firstLabelIcon.snp.top)
         }
         
         view.addSubview(secondLabel)
-        secondLabel.snp.makeConstraints { make in
-            make.leading.equalTo(secondLabelIcon.snp.trailing).offset(4)
-            make.top.equalTo(firstLabel.snp.top)
+        secondLabel.snp.makeConstraints {
+            $0.leading.equalTo(secondLabelIcon.snp.trailing).offset(4)
+            $0.top.equalTo(firstLabel.snp.top)
         }
         
         view.addSubview(thirdLabelIcon)
-        thirdLabelIcon.snp.makeConstraints { make in
-            make.height.width.equalTo(20)
-            make.leading.equalTo(secondLabel.snp.trailing).offset(43)
-            make.top.equalTo(secondLabelIcon.snp.top)
+        thirdLabelIcon.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.leading.equalTo(secondLabel.snp.trailing).offset(43)
+            $0.top.equalTo(secondLabelIcon.snp.top)
         }
         
         view.addSubview(thirdLabel)
-        thirdLabel.snp.makeConstraints { make in
-            make.leading.equalTo(thirdLabelIcon.snp.trailing).offset(4)
-            make.top.equalTo(firstLabel.snp.top)
+        thirdLabel.snp.makeConstraints {
+            $0.leading.equalTo(thirdLabelIcon.snp.trailing).offset(4)
+            $0.top.equalTo(firstLabel.snp.top)
         }
         
         view.addSubview(backgroundView)
-        backgroundView.snp.makeConstraints { make in
-            make.height.equalTo(345)
-            make.top.equalTo(firstLabelIcon.snp.bottom).offset(22)
-            make.leading.trailing.equalToSuperview().inset(16)
+        backgroundView.snp.makeConstraints {
+            $0.height.equalTo(345)
+            $0.top.equalTo(firstLabelIcon.snp.bottom).offset(22)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.height.equalTo(24)
-            make.top.equalTo(backgroundView.snp.top).offset(32)
-            make.centerX.equalTo(backgroundView)
+        titleLabel.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.top.equalTo(backgroundView.snp.top).offset(32)
+            $0.centerX.equalTo(backgroundView)
         }
         
         view.addSubview(subTitleLabel)
-        subTitleLabel.snp.makeConstraints { make in
-            make.height.equalTo(18)
-            make.top.equalTo(titleLabel.snp.bottom).offset(4)
-            make.centerX.equalTo(backgroundView)
+        subTitleLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
+            $0.centerX.equalTo(backgroundView)
         }
         
         view.addSubview(emailLabel)
-        emailLabel.snp.makeConstraints { make in
-            make.height.equalTo(20)
-            make.top.equalTo(subTitleLabel.snp.bottom).offset(40)
-            make.leading.equalTo(backgroundView).offset(20)
+        emailLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(40)
+            $0.leading.equalTo(backgroundView).offset(20)
         }
         
         view.addSubview(emailTextField)
-        emailTextField.snp.makeConstraints { make in
-            make.height.equalTo(30)
-            make.top.equalTo(emailLabel.snp.bottom).offset(12)
-            make.leading.trailing.equalTo(backgroundView).inset(20)
+        emailTextField.snp.makeConstraints {
+            $0.height.equalTo(30)
+            $0.top.equalTo(emailLabel.snp.bottom).offset(12)
+            $0.leading.trailing.equalTo(backgroundView).inset(20)
         }
         
         view.addSubview(sendBtn)
-        sendBtn.snp.makeConstraints { make in
-            make.height.equalTo(48)
-            make.top.equalTo(emailTextField.snp.bottom).offset(32)
-            make.leading.trailing.equalTo(backgroundView).inset(20)
+        sendBtn.snp.makeConstraints {
+            $0.height.equalTo(48)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(32)
+            $0.leading.trailing.equalTo(backgroundView).inset(20)
         }
         
         view.addSubview(informLabel)
-        informLabel.snp.makeConstraints { make in
-            make.top.equalTo(sendBtn.snp.bottom).offset(16)
-            make.leading.trailing.equalTo(backgroundView).inset(20)
+        informLabel.snp.makeConstraints {
+            $0.top.equalTo(sendBtn.snp.bottom).offset(16)
+            $0.leading.trailing.equalTo(backgroundView).inset(20)
         }
     }
     

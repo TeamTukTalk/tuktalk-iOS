@@ -21,8 +21,8 @@ class BottomSheetCollectionViewCell: UICollectionViewCell {
             self.layer.borderColor = isSelected ? UIColor.Primary.primary.cgColor : UIColor.GrayScale.gray3.cgColor
             self.element.textColor = isSelected ? UIColor.Primary.primary : UIColor.GrayScale.sub2
             self.element.font = isSelected ? UIFont.TTFont(type: .SDBold, size: 14) : UIFont.TTFont(type: .SDMed, size: 14)
-            self.element.snp.updateConstraints { make in
-                make.leading.trailing.equalToSuperview().inset(isSelected ? 10 : 14)
+            self.element.snp.updateConstraints {
+                $0.leading.trailing.equalToSuperview().inset(isSelected ? 10 : 14)
             }
         }
     }
@@ -59,9 +59,9 @@ class BottomSheetCollectionViewCell: UICollectionViewCell {
         layer.borderColor = UIColor.GrayScale.gray3.cgColor
         contentView.addSubview(element)
 
-        element.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(8)
-            make.leading.trailing.equalToSuperview().inset(16)
+        element.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(8)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
 }

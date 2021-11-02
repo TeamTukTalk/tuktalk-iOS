@@ -79,43 +79,43 @@ class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelega
         contentView.addSubview(devideView)
         contentView.addSubview(hashTagCV)
         
-        profileImg.snp.makeConstraints { make in
-            make.width.height.equalTo(44)
-            make.top.leading.equalToSuperview().inset(20)
+        profileImg.snp.makeConstraints {
+            $0.width.height.equalTo(44)
+            $0.top.leading.equalToSuperview().inset(20)
         }
-        nameLabel.snp.makeConstraints { make in
-            make.leading.equalTo(profileImg.snp.trailing).offset(16)
-            make.top.equalTo(profileImg.snp.top)
+        nameLabel.snp.makeConstraints {
+            $0.leading.equalTo(profileImg.snp.trailing).offset(16)
+            $0.top.equalTo(profileImg.snp.top)
         }
-        mentorConfirmImg.snp.makeConstraints { make in
-            make.width.height.equalTo(16)
-            make.centerY.equalTo(nameLabel)
-            make.leading.equalTo(nameLabel.snp.trailing)
+        mentorConfirmImg.snp.makeConstraints {
+            $0.width.height.equalTo(16)
+            $0.centerY.equalTo(nameLabel)
+            $0.leading.equalTo(nameLabel.snp.trailing)
         }
-        companyLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(2)
-            make.leading.equalTo(profileImg.snp.trailing).offset(16)
+        companyLabel.snp.makeConstraints {
+            $0.top.equalTo(nameLabel.snp.bottom).offset(2)
+            $0.leading.equalTo(profileImg.snp.trailing).offset(16)
         }
-        devideDot.snp.makeConstraints { make in
-            make.height.equalTo(10)
-            make.top.equalTo(companyLabel.snp.top)
-            make.leading.equalTo(companyLabel.snp.trailing).offset(6)
+        devideDot.snp.makeConstraints {
+            $0.height.equalTo(10)
+            $0.top.equalTo(companyLabel.snp.top)
+            $0.leading.equalTo(companyLabel.snp.trailing).offset(6)
         }
-        jobLabel.snp.makeConstraints { make in
-            make.leading.equalTo(devideDot.snp.trailing).offset(6)
-            make.top.equalTo(companyLabel)
+        jobLabel.snp.makeConstraints {
+            $0.leading.equalTo(devideDot.snp.trailing).offset(6)
+            $0.top.equalTo(companyLabel)
         }
-        devideView.snp.makeConstraints { make in
-            make.height.equalTo(1)
-            make.leading.equalTo(profileImg.snp.trailing).offset(16)
-            make.top.equalTo(companyLabel.snp.bottom).offset(8)
-            make.trailing.equalToSuperview().inset(20)
+        devideView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.leading.equalTo(profileImg.snp.trailing).offset(16)
+            $0.top.equalTo(companyLabel.snp.bottom).offset(8)
+            $0.trailing.equalToSuperview().inset(20)
         }
-        hashTagCV.snp.makeConstraints { make in
-            make.top.equalTo(devideView.snp.bottom).offset(8)
-            make.leading.equalTo(profileImg.snp.trailing).offset(16)
-            make.trailing.equalToSuperview().inset(37)
-            make.bottom.equalToSuperview().inset(20)
+        hashTagCV.snp.makeConstraints {
+            $0.top.equalTo(devideView.snp.bottom).offset(8)
+            $0.leading.equalTo(profileImg.snp.trailing).offset(16)
+            $0.trailing.equalToSuperview().inset(37)
+            $0.bottom.equalToSuperview().inset(20)
         }
     }
     private func setCollectionViewUI() {

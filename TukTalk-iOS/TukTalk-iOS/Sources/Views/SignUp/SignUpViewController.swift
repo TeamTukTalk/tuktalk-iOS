@@ -132,105 +132,105 @@ class SignUpViewController: UIViewController {
     
     private func setUI() {
         view.addSubview(backBtn)
-        backBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(59)
-            make.leading.equalToSuperview().offset(14)
+        backBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(59)
+            $0.leading.equalToSuperview().offset(14)
         }
         
         view.addSubview(closeBtn)
-        closeBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(56)
-            make.trailing.equalToSuperview().inset(16)
+        closeBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(56)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(120)
-            make.leading.trailing.equalToSuperview().inset(16)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(120)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(nameLabel)
-        nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(40)
-            make.leading.trailing.equalToSuperview().inset(16)
+        nameLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(40)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(nameTextField)
-        nameTextField.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(12)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(30)
+        nameTextField.snp.makeConstraints {
+            $0.top.equalTo(nameLabel.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(30)
         }
         
         view.addSubview(emailLabel)
-        emailLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameTextField.snp.bottom).offset(40)
-            make.leading.trailing.equalToSuperview().inset(16)
+        emailLabel.snp.makeConstraints {
+            $0.top.equalTo(nameTextField.snp.bottom).offset(40)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(emailTextField)
-        emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(emailLabel.snp.bottom).offset(12)
-            make.leading.equalToSuperview().offset(16)
-            make.width.equalTo(247)
-            make.height.equalTo(30)
+        emailTextField.snp.makeConstraints {
+            $0.top.equalTo(emailLabel.snp.bottom).offset(12)
+            $0.leading.equalToSuperview().offset(16)
+            $0.width.equalTo(247)
+            $0.height.equalTo(30)
         }
         
         view.addSubview(emailCheckBtn)
-        emailCheckBtn.snp.makeConstraints { make in
-            make.width.equalTo(84)
-            make.height.equalTo(32)
-            make.bottom.equalTo(emailTextField.snp.bottom)
-            make.trailing.equalToSuperview().inset(16)
+        emailCheckBtn.snp.makeConstraints {
+            $0.width.equalTo(84)
+            $0.height.equalTo(32)
+            $0.bottom.equalTo(emailTextField.snp.bottom)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(passwordLabel)
-        passwordLabel.snp.makeConstraints { make in
-            make.top.equalTo(emailTextField.snp.bottom).offset(40)
-            make.leading.trailing.equalToSuperview().inset(16)
+        passwordLabel.snp.makeConstraints {
+            $0.top.equalTo(emailTextField.snp.bottom).offset(40)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(passwordTextField)
-        passwordTextField.snp.makeConstraints { make in
-            make.top.equalTo(passwordLabel.snp.bottom).offset(12)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(30)
+        passwordTextField.snp.makeConstraints {
+            $0.top.equalTo(passwordLabel.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(30)
         }
         
         view.addSubview(passwordCheckLabel)
-        passwordCheckLabel.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(40)
-            make.leading.trailing.equalToSuperview().inset(16)
+        passwordCheckLabel.snp.makeConstraints {
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(40)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(passwordCheckTextField)
-        passwordCheckTextField.snp.makeConstraints { make in
-            make.top.equalTo(passwordCheckLabel.snp.bottom).offset(12)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(30)
+        passwordCheckTextField.snp.makeConstraints {
+            $0.top.equalTo(passwordCheckLabel.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(30)
         }
         
         view.addSubview(allAgreeBtn)
         allAgreeBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 0)
-        allAgreeBtn.snp.makeConstraints { make in
-            make.top.equalTo(passwordCheckTextField.snp.bottom).offset(35)
-            make.leading.equalToSuperview().offset(16)
+        allAgreeBtn.snp.makeConstraints {
+            $0.top.equalTo(passwordCheckTextField.snp.bottom).offset(35)
+            $0.leading.equalToSuperview().offset(16)
         }
         
         view.addSubview(checkBtn)
         let attribute = NSMutableAttributedString(string: "확인하기")
         attribute.addAttribute(NSMutableAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: NSRange(location: 0, length: 4))
         checkBtn.setAttributedTitle(attribute, for: .normal)
-        checkBtn.snp.makeConstraints { make in
-            make.top.equalTo(allAgreeBtn.snp.top)
-            make.trailing.equalToSuperview().inset(16)
+        checkBtn.snp.makeConstraints {
+            $0.top.equalTo(allAgreeBtn.snp.top)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(signUpBtn)
-        signUpBtn.snp.makeConstraints { make in
-            make.height.equalTo(52)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(79)
+        signUpBtn.snp.makeConstraints {
+            $0.height.equalTo(52)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(79)
         }
         
     }

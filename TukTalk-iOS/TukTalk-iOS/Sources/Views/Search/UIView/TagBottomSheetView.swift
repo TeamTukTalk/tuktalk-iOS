@@ -98,69 +98,69 @@ final class TagBottomSheetView: UIViewController {
 
     private func setUI() {
         view.addSubview(bottomSheetView)
-        bottomSheetView.snp.makeConstraints { make in
-            make.height.equalTo(UIScreen.main.bounds.height-230)
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(UIScreen.main.bounds.height)
+        bottomSheetView.snp.makeConstraints {
+            $0.height.equalTo(UIScreen.main.bounds.height-230)
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(UIScreen.main.bounds.height)
         }
 
         bottomSheetView.addSubview(closeBtn)
-        closeBtn.snp.makeConstraints { make in
-            make.width.height.equalTo(24)
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview().offset(16)
+        closeBtn.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.top.equalToSuperview().offset(20)
+            $0.leading.equalToSuperview().offset(16)
         }
         
         bottomSheetView.addSubview(closeLabel)
-        closeLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(closeBtn)
-            make.leading.equalTo(closeBtn.snp.trailing).offset(12)
+        closeLabel.snp.makeConstraints {
+            $0.bottom.equalTo(closeBtn)
+            $0.leading.equalTo(closeBtn.snp.trailing).offset(12)
         }
         
         bottomSheetView.addSubview(resetBtn)
-        resetBtn.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(16)
-            make.top.equalToSuperview().offset(22)
+        resetBtn.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(16)
+            $0.top.equalToSuperview().offset(22)
         }
         
         bottomSheetView.addSubview(companyLabel)
-        companyLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.top.equalTo(closeBtn.snp.bottom).offset(40)
+        companyLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalTo(closeBtn.snp.bottom).offset(40)
         }
         
         bottomSheetView.addSubview(companyCV)
-        companyCV.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(companyLabel.snp.bottom).offset(12)
-            make.height.equalTo(84)
+        companyCV.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(companyLabel.snp.bottom).offset(12)
+            $0.height.equalTo(84)
         }
         
         bottomSheetView.addSubview(careerLabel)
-        careerLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.top.equalTo(companyCV.snp.bottom).offset(32)
+        careerLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalTo(companyCV.snp.bottom).offset(32)
         }
         
         bottomSheetView.addSubview(careerCV)
-        careerCV.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(careerLabel.snp.bottom).offset(12)
-            make.height.equalTo(84)
+        careerCV.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(careerLabel.snp.bottom).offset(12)
+            $0.height.equalTo(84)
         }
         
         bottomSheetView.addSubview(applyBtn)
-        applyBtn.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(52)
-            make.bottom.equalToSuperview().inset(46)
+        applyBtn.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(52)
+            $0.bottom.equalToSuperview().inset(46)
         }
         
         bottomSheetView.addSubview(devideView)
-        devideView.snp.makeConstraints { make in
-            make.height.equalTo(1)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(applyBtn.snp.top).offset(-12)
+        devideView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(applyBtn.snp.top).offset(-12)
         }
     }
     

@@ -53,9 +53,9 @@ class SearchingCollectionViewCell: UICollectionViewCell {
         backgroundColor = UIColor.GrayScale.gray5
         contentView.addSubview(titleLabel)
 
-        titleLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(8)
-            make.leading.trailing.equalToSuperview().inset(16)
+        titleLabel.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(8)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
 }

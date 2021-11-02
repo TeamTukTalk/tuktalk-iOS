@@ -179,131 +179,131 @@ class MyPageViewController: UIViewController {
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
         
         view.addSubview(mainScrollView)
-        mainScrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        mainScrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
         mainScrollView.addSubview(mainContentView)
-        mainContentView.snp.makeConstraints { make in
-            make.width.height.equalToSuperview()
-            make.edges.equalToSuperview()
+        mainContentView.snp.makeConstraints {
+            $0.width.height.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
         
         mainContentView.addSubview(settingBtn)
-        settingBtn.snp.makeConstraints { make in
-            make.width.height.equalTo(24)
-            make.top.equalToSuperview().offset(54)
-            make.trailing.equalToSuperview().inset(16)
+        settingBtn.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.top.equalToSuperview().offset(54)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         mainContentView.addSubview(profileImg)
-        profileImg.snp.makeConstraints { make in
-            make.width.height.equalTo(70)
-            make.top.equalToSuperview().offset(88)
-            make.leading.equalToSuperview().offset(16)
+        profileImg.snp.makeConstraints {
+            $0.width.height.equalTo(70)
+            $0.top.equalToSuperview().offset(88)
+            $0.leading.equalToSuperview().offset(16)
         }
         
         mainContentView.addSubview(profileEditBtn)
-        profileEditBtn.snp.makeConstraints { make in
-            make.trailing.bottom.equalTo(profileImg)
+        profileEditBtn.snp.makeConstraints {
+            $0.trailing.bottom.equalTo(profileImg)
         }
         
         mainContentView.addSubview(nameLabel)
-        nameLabel.snp.makeConstraints { make in
-            make.height.equalTo(24)
-            make.top.equalToSuperview().offset(99)
-            make.leading.equalTo(profileImg.snp.trailing).offset(20)
+        nameLabel.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.top.equalToSuperview().offset(99)
+            $0.leading.equalTo(profileImg.snp.trailing).offset(20)
         }
         
         mainContentView.addSubview(welcomeLabel)
-        welcomeLabel.snp.makeConstraints { make in
-            make.height.equalTo(24)
-            make.top.equalTo(nameLabel.snp.bottom)
-            make.leading.equalTo(nameLabel.snp.leading)
+        welcomeLabel.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.top.equalTo(nameLabel.snp.bottom)
+            $0.leading.equalTo(nameLabel.snp.leading)
         }
         
         mainContentView.addSubview(notiBtn)
-        notiBtn.snp.makeConstraints { make in
-            make.height.equalTo(44)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.top.equalTo(profileImg.snp.bottom).offset(20)
+        notiBtn.snp.makeConstraints {
+            $0.height.equalTo(44)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(profileImg.snp.bottom).offset(20)
         }
         
         mainContentView.addSubview(manageStackView)
-        manageStackView.snp.makeConstraints { make in
-            make.height.equalTo(100)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.top.equalTo(notiBtn.snp.bottom).offset(20)
+        manageStackView.snp.makeConstraints {
+            $0.height.equalTo(100)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(notiBtn.snp.bottom).offset(20)
         }
         manageStackView.addArrangedSubview(manageProfitBtn)
         manageStackView.addArrangedSubview(manageBookingBtn)
         manageStackView.addArrangedSubview(manageMyServiceBtn)
         
         mainContentView.addSubview(devideView)
-        devideView.snp.makeConstraints { make in
-            make.height.equalTo(6)
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(manageStackView.snp.bottom).offset(24)
+        devideView.snp.makeConstraints {
+            $0.height.equalTo(6)
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(manageStackView.snp.bottom).offset(24)
         }
         
         mainContentView.addSubview(myServiceLabel)
-        myServiceLabel.snp.makeConstraints { make in
-            make.top.equalTo(devideView.snp.bottom).offset(16)
-            make.leading.equalToSuperview().offset(16)
+        myServiceLabel.snp.makeConstraints {
+            $0.top.equalTo(devideView.snp.bottom).offset(16)
+            $0.leading.equalToSuperview().offset(16)
         }
         
         mainContentView.addSubview(myServiceBtn)
-        myServiceBtn.snp.makeConstraints { make in
-            make.width.height.equalTo(16)
-            make.top.equalTo(devideView.snp.bottom).offset(19)
-            make.trailing.equalToSuperview().inset(16)
+        myServiceBtn.snp.makeConstraints {
+            $0.width.height.equalTo(16)
+            $0.top.equalTo(devideView.snp.bottom).offset(19)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         mainContentView.addSubview(myServiceView)
-        myServiceView.snp.makeConstraints { make in
-            make.height.equalTo(135)
-            make.top.equalTo(myServiceBtn.snp.bottom).offset(19)
-            make.leading.trailing.equalToSuperview().inset(16)
+        myServiceView.snp.makeConstraints {
+            $0.height.equalTo(135)
+            $0.top.equalTo(myServiceBtn.snp.bottom).offset(19)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         myServiceView.addSubview(myServiceNilImg)
-        myServiceNilImg.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(43)
+        myServiceNilImg.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(43)
         }
         
         myServiceView.addSubview(myServiceNilLabel)
-        myServiceNilLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(75)
+        myServiceNilLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(75)
         }
         
         mainContentView.addSubview(secondDevideView)
-        secondDevideView.snp.makeConstraints { make in
-            make.height.equalTo(6)
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(myServiceView.snp.bottom).offset(24)
+        secondDevideView.snp.makeConstraints {
+            $0.height.equalTo(6)
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(myServiceView.snp.bottom).offset(24)
         }
         
         mainContentView.addSubview(myActivityTV)
-        myActivityTV.snp.makeConstraints { make in
-            make.top.equalTo(secondDevideView.snp.bottom)
-            make.height.equalTo(240)
-            make.leading.trailing.equalToSuperview()
+        myActivityTV.snp.makeConstraints {
+            $0.top.equalTo(secondDevideView.snp.bottom)
+            $0.height.equalTo(240)
+            $0.leading.trailing.equalToSuperview()
         }
         
         mainContentView.addSubview(thirdDevideView)
-        thirdDevideView.snp.makeConstraints { make in
-            make.height.equalTo(6)
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(myActivityTV.snp.bottom)
+        thirdDevideView.snp.makeConstraints {
+            $0.height.equalTo(6)
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(myActivityTV.snp.bottom)
         }
         
         mainContentView.addSubview(etcServiceTV)
-        etcServiceTV.snp.makeConstraints { make in
-            make.top.equalTo(thirdDevideView.snp.bottom)
-            make.height.equalTo(370)
-            make.leading.trailing.equalToSuperview()
+        etcServiceTV.snp.makeConstraints {
+            $0.top.equalTo(thirdDevideView.snp.bottom)
+            $0.height.equalTo(370)
+            $0.leading.trailing.equalToSuperview()
         }
     }
     

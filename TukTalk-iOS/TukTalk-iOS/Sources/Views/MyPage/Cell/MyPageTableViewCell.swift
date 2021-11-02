@@ -39,8 +39,8 @@ class MyPageTableViewCell: UITableViewCell {
     
     func setUI(){
         addSubview(title)
-        title.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().offset(16)
+        title.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().offset(16)
         }
     }
 
