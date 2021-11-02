@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import SnapKit
-import Then
 
 final class PopUpViewController: UIViewController {
     
@@ -43,36 +41,42 @@ final class PopUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         setUI()
     }
     
     //MARK:- Functions
     
     private func setUI() {
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        
         view.addSubview(popUpView)
         popUpView.addSubview(popUpTitleLabel)
         popUpView.addSubview(dismissBtn)
         popUpView.addSubview(acceptBtn)
-        popUpView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(33)
-            make.top.equalToSuperview().offset(321)
-            make.height.equalTo(171)
+        
+        popUpView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(33)
+            $0.top.equalToSuperview().offset(321)
+            $0.height.equalTo(171)
         }
-        popUpTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(popUpView).offset(57)
-            make.centerX.equalTo(popUpView)
+        
+        popUpTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(popUpView).offset(57)
+            $0.centerX.equalTo(popUpView)
         }
-        dismissBtn.snp.makeConstraints { make in
-            make.leading.bottom.equalTo(popUpView)
-            make.height.equalTo(62)
-            make.width.equalTo(154)
+        
+        dismissBtn.snp.makeConstraints {
+            $0.leading.bottom.equalTo(popUpView)
+            $0.height.equalTo(62)
+            $0.width.equalTo(154)
         }
-        acceptBtn.snp.makeConstraints { make in
-            make.trailing.bottom.equalTo(popUpView)
-            make.height.equalTo(62)
-            make.width.equalTo(154)
+        
+        acceptBtn.snp.makeConstraints {
+            $0.trailing.bottom.equalTo(popUpView)
+            $0.height.equalTo(62)
+            $0.width.equalTo(154)
         }
+        
     }
     
     @objc func dismissBtnAction() {
