@@ -12,8 +12,8 @@ class SearchDirectViewController: UIViewController {
     //MARK:- Properties
     
     private let disposeBag = DisposeBag()
-    private let collectionViewModel = SearchesCollectionViewModel()
-    private let viewModel = SearchDirectViewModel()
+    private lazy var collectionViewModel = SearchesCollectionViewModel()
+    private lazy var viewModel = SearchDirectViewModel()
     private var nextText = ""
     
     //MARK:- UI Components

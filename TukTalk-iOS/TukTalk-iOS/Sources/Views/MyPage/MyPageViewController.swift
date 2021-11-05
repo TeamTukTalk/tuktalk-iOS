@@ -12,7 +12,7 @@ class MyPageViewController: UIViewController {
     //MARK:- Properties
     
     private let disposeBag = DisposeBag()
-    private let tableViewModel = MyPageTableViewModel()
+    private lazy var tableViewModel = MyPageTableViewModel()
     private let verification = "mentor" /// 서버 연동 후 변경 예정
     
     //MARK:- UI Components

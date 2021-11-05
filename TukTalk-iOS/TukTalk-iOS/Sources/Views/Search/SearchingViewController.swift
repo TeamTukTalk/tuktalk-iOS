@@ -11,8 +11,8 @@ class SearchingViewController: UIViewController {
     
     //MARK:- Properties
     
-    private let searchingViewModel = SearchesCollectionViewModel()
-    private let mentorListViewModel = MentorListCollectionViewModel()
+    private lazy var searchingViewModel = SearchesCollectionViewModel()
+    private lazy var mentorListViewModel = MentorListCollectionViewModel()
     private let disposeBag = DisposeBag()
 
     //MARK:- UI Components
