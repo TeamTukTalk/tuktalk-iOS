@@ -245,9 +245,5 @@ class EnrollThirdViewController: UIViewController {
             }
             .disposed(by: disposeBag)
     }
-    
-    @objc private func dismissAlertController() {
-        self.dismiss(animated: true, completion: nil)
-    }
 
 }

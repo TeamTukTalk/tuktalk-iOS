@@ -301,16 +301,12 @@ class SignUpViewController: UIViewController {
                 naviVC.modalPresentationStyle = .overCurrentContext
                 naviVC.modalTransitionStyle = .crossDissolve
                 naviVC.navigationBar.isHidden = true
+                self.view.endEditing(true)
                 self.present(naviVC, animated: true) {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
             }
             .disposed(by: disposeBag)
-    }
-    
-    
-    @objc private func dismissAlertController() {
-        self.dismiss(animated: true, completion: nil)
     }
 }
