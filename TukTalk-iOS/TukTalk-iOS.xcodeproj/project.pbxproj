@@ -318,7 +318,7 @@
 			path = MyPage;
 			sourceTree = "<group>";
 		};
-		402D65A82727306E00F4ED8F /* SearchTab */ = {
+		402D65A82727306E00F4ED8F /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				402D65A9272730A100F4ED8F /* SearchesCollectionViewModel.swift */,
@@ -328,7 +328,7 @@
 				403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */,
 				403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */,
 			);
-			path = SearchTab;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		402D65AD2727D55300F4ED8F /* UIView */ = {
@@ -487,7 +487,7 @@
 				4041C1142719891F007D09E7 /* Login */,
 				4088F16D271ADAE700527A77 /* SignUp */,
 				404E686E272449A4005AA5DD /* EnrollMentor */,
-				402D65A82727306E00F4ED8F /* SearchTab */,
+				402D65A82727306E00F4ED8F /* Search */,
 				40D0CE6A2731158D003AB9A7 /* MyPage */,
 			);
 			path = ViewModels;
