@@ -27,9 +27,7 @@ class SearchingViewController: UIViewController {
         $0.backgroundColor = UIColor.GrayScale.gray1
     }
     
-    private let categoryCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
-        $0.allowsMultipleSelection = true
-    }
+    private let categoryCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private let clearBtn = UIButton().then {
         $0.setImage(UIImage(named: "clearImg"), for: .normal)
