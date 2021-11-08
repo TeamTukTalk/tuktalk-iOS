@@ -23,7 +23,7 @@ final class SearchesCollectionViewModel: ViewModelType {
         var recentSearchesData: Observable<[SearchesDataModel]>
         var designCategoryData: Observable<[SearchesDataModel]>
         var itDevCategoryData: Observable<[SearchesDataModel]>
-        
+        var jobCategoryData: Observable<[SearchesDataModel]>
     }
     
     var recentSearchesList: [SearchesDataModel] = [
@@ -55,6 +55,10 @@ final class SearchesCollectionViewModel: ViewModelType {
         SearchesDataModel(title: "기타")
     ]
     
+    var jobCategoryList: [SearchesDataModel] = [
+        SearchesDataModel(title: "디자인"),
+        SearchesDataModel(title: "IT/개발")
+    ]
     
     
     init(dependency: Dependency = Dependency()) {
@@ -62,8 +66,9 @@ final class SearchesCollectionViewModel: ViewModelType {
         let recentSearchesData$ = Observable<[SearchesDataModel]>.just(recentSearchesList)
         let designCategoryData$ = Observable<[SearchesDataModel]>.just(designCategoryList)
         let itDevCategoryData$ = Observable<[SearchesDataModel]>.just(itDevCategoryList)
+        let jobCategoryData$ = Observable<[SearchesDataModel]>.just(jobCategoryList)
         
         self.input = Input()
-        self.output = Output(recentSearchesData: recentSearchesData$, designCategoryData: designCategoryData$, itDevCategoryData: itDevCategoryData$)
+        self.output = Output(recentSearchesData: recentSearchesData$, designCategoryData: designCategoryData$, itDevCategoryData: itDevCategoryData$, jobCategoryData: jobCategoryData$)
     }
 }

@@ -78,6 +78,11 @@
 		40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */; };
 		40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */; };
 		40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */; };
+		40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF336273831B900A82CC6 /* BannerCollectionViewCell.swift */; };
+		40DCF33A273832F100A82CC6 /* BannerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF339273832F100A82CC6 /* BannerDataModel.swift */; };
+		40DCF33D273833C000A82CC6 /* BannerCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF33C273833C000A82CC6 /* BannerCollectionViewModel.swift */; };
+		40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF33E27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift */; };
+		40DCF34127390F1C00A82CC6 /* TopMentorCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF34027390F1C00A82CC6 /* TopMentorCollectionViewModel.swift */; };
 		CB6689EEEEA5C4F487F913F3 /* Pods_TukTalk_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */; };
 		D946EC43736DAE80E1B92F11 /* Pods_TukTalk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */; };
 		FE47055C235FE7AE896976B1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77C77FD87FFB639D54A00E1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework */; };
@@ -167,6 +172,11 @@
 		40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewModel.swift; sourceTree = "<group>"; };
 		40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetViewModel.swift; sourceTree = "<group>"; };
 		40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewCell.swift; sourceTree = "<group>"; };
+		40DCF336273831B900A82CC6 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		40DCF339273832F100A82CC6 /* BannerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerDataModel.swift; sourceTree = "<group>"; };
+		40DCF33C273833C000A82CC6 /* BannerCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewModel.swift; sourceTree = "<group>"; };
+		40DCF33E27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMentorCollectionViewCell.swift; sourceTree = "<group>"; };
+		40DCF34027390F1C00A82CC6 /* TopMentorCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMentorCollectionViewModel.swift; sourceTree = "<group>"; };
 		55850F1025F11A787912F4AD /* Pods-TukTalk-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOSTests/Pods-TukTalk-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				400A3D372729704A00921BE0 /* SignUp */,
+				40DCF338273832B600A82CC6 /* Home */,
 				400A3D382729705600921BE0 /* Search */,
 				40D0CE6D273115B9003AB9A7 /* MyPage */,
 			);
@@ -275,6 +286,7 @@
 		402D65912726845500F4ED8F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				40DCF3352738313200A82CC6 /* Cell */,
 				402D65962726848800F4ED8F /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -487,6 +499,7 @@
 				4041C1142719891F007D09E7 /* Login */,
 				4088F16D271ADAE700527A77 /* SignUp */,
 				404E686E272449A4005AA5DD /* EnrollMentor */,
+				40DCF33B273833A900A82CC6 /* Home */,
 				402D65A82727306E00F4ED8F /* Search */,
 				40D0CE6A2731158D003AB9A7 /* MyPage */,
 			);
@@ -577,6 +590,32 @@
 				40384BF5273199FA00605246 /* MyPageTVDataModel.swift */,
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		40DCF3352738313200A82CC6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				40DCF336273831B900A82CC6 /* BannerCollectionViewCell.swift */,
+				40DCF33E27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		40DCF338273832B600A82CC6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				40DCF339273832F100A82CC6 /* BannerDataModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		40DCF33B273833A900A82CC6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				40DCF33C273833C000A82CC6 /* BannerCollectionViewModel.swift */,
+				40DCF34027390F1C00A82CC6 /* TopMentorCollectionViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		9238CF2D4D09587F33AF1237 /* Frameworks */ = {
@@ -836,13 +875,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4041C11627198933007D09E7 /* LoginViewController.swift in Sources */,
+				40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */,
 				4000F8AF2722E8580067C6B6 /* CategoryView.swift in Sources */,
 				403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */,
+				40DCF33A273832F100A82CC6 /* BannerDataModel.swift in Sources */,
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
 				4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */,
 				404E686D272439C7005AA5DD /* EnrollSecondViewController.swift in Sources */,
+				40DCF34127390F1C00A82CC6 /* TopMentorCollectionViewModel.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
+				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
 				40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */,
 				402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */,
 				400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */,
@@ -886,6 +929,7 @@
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40AFDE0227354B9000422930 /* ProfileFirstViewController.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
+				40DCF33D273833C000A82CC6 /* BannerCollectionViewModel.swift in Sources */,
 				40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
