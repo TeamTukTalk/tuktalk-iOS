@@ -192,6 +192,11 @@ class HomeViewController: UIViewController {
         let jobMentorCVLayout = UICollectionViewFlowLayout()
         jobMentorCVLayout.minimumInteritemSpacing = 8
         jobMentorCVLayout.scrollDirection = .horizontal
+        jobMentorCV.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        jobMentorCV.setCollectionViewLayout(jobMentorCVLayout, animated: false)
+        jobMentorCV.backgroundColor = .white
+        jobMentorCV.showsHorizontalScrollIndicator = false
+        
         
     }
     
