@@ -190,7 +190,7 @@ class SearchingViewController: UIViewController {
         mentorListCVLayout.minimumLineSpacing = 8
         mentorListCVLayout.minimumInteritemSpacing = .zero
         mentorListCVLayout.scrollDirection = .vertical
-        mentorListCVLayout.sectionInset = .init(top: 62, left: 0, bottom: 0, right: 0)
+        mentorListCVLayout.sectionInset = .init(top: 62, left: 0, bottom: 16, right: 0)
         mentorListCV.setCollectionViewLayout(mentorListCVLayout, animated: false)
         mentorListCV.backgroundColor = .white
         mentorListCV.showsVerticalScrollIndicator = false

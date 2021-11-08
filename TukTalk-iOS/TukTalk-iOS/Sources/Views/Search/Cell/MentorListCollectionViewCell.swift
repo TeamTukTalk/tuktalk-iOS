@@ -12,7 +12,10 @@ class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelega
     private let disposeBag = DisposeBag()
     
     var profileImg = UIImageView().then {
-        $0.layer.cornerRadius = $0.frame.height / 2
+        $0.backgroundColor = UIColor.GrayScale.gray4
+        $0.layer.masksToBounds = true
+        $0.layer.cornerRadius = 22
+        $0.contentMode = .scaleAspectFill
     }
     var nameLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
@@ -66,7 +69,7 @@ class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelega
     private func setUI() {
         backgroundColor = .white
         layer.borderWidth = 1
-        layer.borderColor = UIColor.GrayScale.gray3.cgColor
+        layer.borderColor = UIColor.GrayScale.gray4.cgColor
         layer.cornerRadius = 8
         layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 14, spread: 0)
         contentView.addSubview(profileImg)
@@ -83,6 +86,7 @@ class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelega
             $0.top.leading.equalToSuperview().inset(20)
         }
         nameLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
             $0.leading.equalTo(profileImg.snp.trailing).offset(16)
             $0.top.equalTo(profileImg.snp.top)
         }
@@ -92,6 +96,7 @@ class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelega
             $0.leading.equalTo(nameLabel.snp.trailing)
         }
         companyLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
             $0.top.equalTo(nameLabel.snp.bottom).offset(2)
             $0.leading.equalTo(profileImg.snp.trailing).offset(16)
         }
@@ -101,6 +106,7 @@ class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelega
             $0.leading.equalTo(companyLabel.snp.trailing).offset(6)
         }
         jobLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
             $0.leading.equalTo(devideDot.snp.trailing).offset(6)
             $0.top.equalTo(companyLabel)
         }

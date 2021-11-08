@@ -28,13 +28,13 @@ final class MentorListCollectionViewModel: ViewModelType {
     
     // 서버 연동 후 변경 예정
     var searchingMentorList: [MentorListDataModel] = [
-        MentorListDataModel(image: UIImage(named: "mypageOffImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
-        MentorListDataModel(image: UIImage(named: "mypageOffImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
-        MentorListDataModel(image: UIImage(named: "mypageOffImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
-        MentorListDataModel(image: UIImage(named: "mypageOffImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
-        MentorListDataModel(image: UIImage(named: "mypageOffImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
-        MentorListDataModel(image: UIImage(named: "mypageOffImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
-        MentorListDataModel(image: UIImage(named: "mypageOffImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
+        MentorListDataModel(image: UIImage(named: "tempProfileImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
+        MentorListDataModel(image: UIImage(named: "tempProfileImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
+        MentorListDataModel(image: UIImage(named: "tempProfileImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
+        MentorListDataModel(image: UIImage(named: "tempProfileImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
+        MentorListDataModel(image: UIImage(named: "tempProfileImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
+        MentorListDataModel(image: UIImage(named: "tempProfileImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너"),
+        MentorListDataModel(image: UIImage(named: "tempProfileImg") ?? UIImage(), name: "제이슨", company: "네이버", job: "UXUI 디자이너")
     ]
     var topMentorList: [MentorListDataModel] = [
         MentorListDataModel(image: UIImage(named: "tempProfileImg") ?? UIImage(), name: "리즈", company: "네이버", job: "UXUI 디자인"),
