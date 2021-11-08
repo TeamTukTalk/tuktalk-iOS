@@ -25,6 +25,12 @@ class EnrollThirdViewController: UIViewController {
         $0.frame.size.width = 12
     }
     
+    private let backLabel = UILabel().then {
+        $0.text = "멘토등록"
+        $0.font = UIFont.TTFont(type: .SDBold, size: 16)
+        $0.textColor = UIColor.GrayScale.normal
+    }
+    
     private let closeBtn = UIButton().then {
         $0.setImage(UIImage(named: "closeBtnImg"), for: .normal)
         $0.frame.size.height = 20
@@ -132,13 +138,21 @@ class EnrollThirdViewController: UIViewController {
         
         view.addSubview(backBtn)
         backBtn.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(59)
-            $0.leading.equalToSuperview().offset(14)
+            $0.width.height.equalTo(24)
+            $0.bottom.equalTo(topView.snp.bottom).inset(10)
+            $0.leading.equalToSuperview().offset(8)
+        }
+        
+        view.addSubview(backLabel)
+        backLabel.snp.makeConstraints {
+            $0.bottom.equalTo(topView.snp.bottom).inset(10)
+            $0.leading.equalTo(backBtn.snp.trailing).offset(4)
         }
         
         view.addSubview(closeBtn)
         closeBtn.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(56)
+            $0.width.height.equalTo(20)
+            $0.bottom.equalTo(topView.snp.bottom).inset(12)
             $0.trailing.equalToSuperview().inset(16)
         }
         
