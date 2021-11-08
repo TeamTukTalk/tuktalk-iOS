@@ -84,7 +84,7 @@ class JobMentorCollectionViewCell: UICollectionViewCell {
             $0.leading.equalToSuperview().offset(20)
         }
         devideDot.snp.makeConstraints {
-            $0.height.equalTo(10)
+            $0.height.equalTo(13)
             $0.top.equalTo(companyLabel.snp.top)
             $0.leading.equalTo(companyLabel.snp.trailing).offset(6)
         }
