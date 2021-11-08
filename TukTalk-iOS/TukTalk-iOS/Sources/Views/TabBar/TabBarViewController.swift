@@ -12,7 +12,7 @@ class TabBarViewController: UITabBarController {
     //MARK:- Properties
     
     let vc1 = HomeViewController().then {
-        $0.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeOffImg"), selectedImage: UIImage(named: "homeOffImg")?.withRenderingMode(.alwaysOriginal))
+        $0.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeOffImg"), selectedImage: UIImage(named: "homeOnImg")?.withRenderingMode(.alwaysOriginal))
         $0.navigationItem.largeTitleDisplayMode = .always
     }
     let vc2 = SearchMainViewController().then {

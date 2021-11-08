@@ -13,6 +13,7 @@ extension UILabel {
         numberOfLines = 0
         let attrString = NSMutableAttributedString(string: thisText ?? "")
         let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = .byTruncatingTail
         
         switch fontSize {
         case 32:

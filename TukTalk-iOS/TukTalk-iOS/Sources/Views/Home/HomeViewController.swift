@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     private lazy var bannerViewModel = BannerCollectionViewModel()
     private lazy var mentorListViewModel = MentorListCollectionViewModel()
     private lazy var categoryViewModel = SearchesCollectionViewModel()
+    private lazy var reviewListViewModel = ReviewCollectionViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -58,24 +59,66 @@ class HomeViewController: UIViewController {
     private let categoryCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private let jobMentorCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    private let grayBackgroundView = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray5
+    }
+    
+    private let reviewLabel = UILabel().then {
+        $0.text = "뚝딱멘티들의 실시간 후기 📋"
+        $0.font = UIFont.TTFont(type: .SDBold, size: 16)
+        $0.textColor = UIColor.GrayScale.normal
+    }
+    
+    private let reviewViewAllBtn = UIButton().then {
+        $0.setTitle("전체보기", for: .normal)
+        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 13)
+        $0.setTitleColor(UIColor.GrayScale.sub3, for: .normal)
+    }
+    
+    private let reviewCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    private let bottomTitleLabel = UILabel().then {
+        $0.text = "뚝딱멘토 활동을 시작해보세요!"
+        $0.font = UIFont.TTFont(type: .SDBold, size: 16)
+        $0.textColor = UIColor.GrayScale.normal
+    }
+    
+    private let bottomSubLabel = UILabel().then {
+        $0.text = "여러분이 열심히 쌓아온 경험의 가치를 환산해보세요."
+        $0.font = UIFont.TTFont(type: .SDReg, size: 12)
+        $0.textColor = UIColor.GrayScale.sub2
+    }
+    
+    private let bottomFirstBannerBtn = UIButton().then {
+        $0.setImage(UIImage(named: "bottomBanner1"), for: .normal)
+        $0.layer.cornerRadius = 8
+        $0.layer.applyShadow(color: .black, alpha: 0.12, x: 4, y: 4, blur: 20, spread: 0)
+    }
+    private let bottomSecondBannerBtn = UIButton().then {
+        $0.setImage(UIImage(named: "bottomBanner2"), for: .normal)
+        $0.layer.cornerRadius = 8
+        $0.layer.applyShadow(color: .black, alpha: 0.12, x: 4, y: 4, blur: 20, spread: 0)
+    }
 
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScrollView()
         setUI()
         setCollectionViewUI()
         binding()
         bindingCollectionView()
     }
     
-    override func viewDidLayoutSubviews() {
+    //MARK:- Function
+    
+    private func setScrollView() {
         mainScrollView.delegate = self
         mainScrollView.bounces = false
         mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1600)
     }
-    
-    //MARK:- Function
     
     private func setUI() {
         self.navigationController?.navigationBar.isHidden = true
@@ -89,8 +132,8 @@ class HomeViewController: UIViewController {
         
         mainScrollView.addSubview(mainContentView)
         mainContentView.snp.makeConstraints {
-            $0.width.height.equalToSuperview()
-            $0.edges.equalToSuperview()
+            $0.width.height.equalTo(mainScrollView.contentSize)
+            $0.edges.equalTo(mainScrollView.contentSize)
         }
         
         mainContentView.addSubview(logoImg)
@@ -155,6 +198,60 @@ class HomeViewController: UIViewController {
             $0.top.equalTo(categoryCV.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
         }
+        
+        mainContentView.addSubview(grayBackgroundView)
+        grayBackgroundView.snp.makeConstraints {
+            $0.height.equalTo(362)
+            $0.top.equalTo(jobMentorCV.snp.bottom).offset(22)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        grayBackgroundView.addSubview(reviewLabel)
+        reviewLabel.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.top.equalToSuperview().offset(40)
+            $0.leading.equalToSuperview().offset(40)
+        }
+        
+        grayBackgroundView.addSubview(reviewViewAllBtn)
+        reviewViewAllBtn.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.centerY.equalTo(reviewLabel)
+            $0.trailing.equalToSuperview().inset(16)
+        }
+        
+        grayBackgroundView.addSubview(reviewCV)
+        reviewCV.snp.makeConstraints {
+            $0.height.equalTo(262)
+            $0.top.equalTo(reviewLabel.snp.bottom).offset(24)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        mainContentView.addSubview(bottomTitleLabel)
+        bottomTitleLabel.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.top.equalTo(grayBackgroundView.snp.bottom).offset(40)
+            $0.leading.equalToSuperview().offset(91)
+        }
+        
+        mainContentView.addSubview(bottomSubLabel)
+        bottomSubLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.top.equalTo(bottomTitleLabel.snp.bottom).offset(2)
+            $0.leading.equalToSuperview().offset(64)
+        }
+        
+        mainContentView.addSubview(bottomFirstBannerBtn)
+        bottomFirstBannerBtn.snp.makeConstraints {
+            $0.top.equalTo(bottomSubLabel.snp.bottom).offset(24)
+            $0.leading.equalToSuperview().offset(16)
+        }
+        
+        mainContentView.addSubview(bottomSecondBannerBtn)
+        bottomSecondBannerBtn.snp.makeConstraints {
+            $0.top.equalTo(bottomSubLabel.snp.bottom).offset(24)
+            $0.trailing.equalToSuperview().inset(16)
+        }
     }
     
     private func binding() {
@@ -197,6 +294,15 @@ class HomeViewController: UIViewController {
         jobMentorCV.backgroundColor = .white
         jobMentorCV.showsHorizontalScrollIndicator = false
         jobMentorCV.register(JobMentorCollectionViewCell.self, forCellWithReuseIdentifier: "JobMentorCollectionViewCell")
+        
+        let reviewCVLayout = UICollectionViewFlowLayout()
+        reviewCVLayout.minimumLineSpacing = 12
+        reviewCVLayout.scrollDirection = .horizontal
+        reviewCVLayout.sectionInset = UIEdgeInsets(top: 0, left: 40, bottom: 28, right: 40)
+        reviewCV.setCollectionViewLayout(reviewCVLayout, animated: false)
+        reviewCV.backgroundColor = UIColor.GrayScale.gray5
+        reviewCV.showsHorizontalScrollIndicator = false
+        reviewCV.register(ReviewCollectionViewCell.self, forCellWithReuseIdentifier: "ReviewCollectionViewCell")
     }
     
     private func bindingCollectionView() {
@@ -204,6 +310,7 @@ class HomeViewController: UIViewController {
         topMentorCV.rx.setDelegate(self).disposed(by: disposeBag)
         categoryCV.rx.setDelegate(self).disposed(by: disposeBag)
         jobMentorCV.rx.setDelegate(self).disposed(by: disposeBag)
+        reviewCV.rx.setDelegate(self).disposed(by: disposeBag)
 
         bannerViewModel.output.bannerListData
             .bind(to: bannerCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
@@ -250,6 +357,16 @@ class HomeViewController: UIViewController {
                 return UICollectionViewCell()
             }
             .disposed(by: disposeBag)
+        
+        reviewListViewModel.output.reviewListData
+            .bind(to: reviewCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.reviewCV.dequeueReusableCell(withReuseIdentifier: "ReviewCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? ReviewCollectionViewCell {
+                    cell.setData(model: item)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: disposeBag)
     }
     
 }
@@ -274,6 +391,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
         } else if collectionView == jobMentorCV {
             return CGSize(width: 156, height: 140)
+        } else if collectionView == reviewCV {
+            return CGSize(width: 230, height: 234)
         } else {
             return CGSize()
         }
