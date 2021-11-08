@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     //MARK:- Properties
     
     private lazy var bannerViewModel = BannerCollectionViewModel()
-    private lazy var topMentorViewModel = MentorListCollectionViewModel()
+    private lazy var mentorListViewModel = MentorListCollectionViewModel()
     private lazy var categoryViewModel = SearchesCollectionViewModel()
     private let disposeBag = DisposeBag()
     
@@ -190,20 +190,20 @@ class HomeViewController: UIViewController {
         categoryCV.register(SearchingCollectionViewCell.self, forCellWithReuseIdentifier: "SearchingCollectionViewCell")
         
         let jobMentorCVLayout = UICollectionViewFlowLayout()
-        jobMentorCVLayout.minimumInteritemSpacing = 8
+        jobMentorCVLayout.minimumLineSpacing = 8
         jobMentorCVLayout.scrollDirection = .horizontal
-        jobMentorCV.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        jobMentorCVLayout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 18, right: 16)
         jobMentorCV.setCollectionViewLayout(jobMentorCVLayout, animated: false)
         jobMentorCV.backgroundColor = .white
         jobMentorCV.showsHorizontalScrollIndicator = false
-        
-        
+        jobMentorCV.register(JobMentorCollectionViewCell.self, forCellWithReuseIdentifier: "JobMentorCollectionViewCell")
     }
     
     private func bindingCollectionView() {
         bannerCV.rx.setDelegate(self).disposed(by: disposeBag)
         topMentorCV.rx.setDelegate(self).disposed(by: disposeBag)
         categoryCV.rx.setDelegate(self).disposed(by: disposeBag)
+        jobMentorCV.rx.setDelegate(self).disposed(by: disposeBag)
 
         bannerViewModel.output.bannerListData
             .bind(to: bannerCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
@@ -216,7 +216,7 @@ class HomeViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        topMentorViewModel.output.topMentorListData
+        mentorListViewModel.output.topMentorListData
             .bind(to: topMentorCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.topMentorCV.dequeueReusableCell(withReuseIdentifier: "TopMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? TopMentorCollectionViewCell {
                     
@@ -230,8 +230,21 @@ class HomeViewController: UIViewController {
         categoryViewModel.output.jobCategoryData
             .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
-
+                    if row == 0 {
+                        cell.isSelected = true
+                        self.categoryCV.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .init())
+                    }
                     cell.configure(name: item.title)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: disposeBag)
+        
+        mentorListViewModel.output.jobMentorListData
+            .bind(to: jobMentorCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.jobMentorCV.dequeueReusableCell(withReuseIdentifier: "JobMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? JobMentorCollectionViewCell {
+                    cell.setData(mentor: item)
                     return cell
                 }
                 return UICollectionViewCell()
@@ -259,6 +272,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: 276, height: 135)
         } else if collectionView == categoryCV {
             return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
+        } else if collectionView == jobMentorCV {
+            return CGSize(width: 156, height: 140)
         } else {
             return CGSize()
         }
