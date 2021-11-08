@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     //MARK:- Properties
     
     private lazy var bannerViewModel = BannerCollectionViewModel()
-    private lazy var topMentorViewModel = TopMentorCollectionViewModel()
+    private lazy var topMentorViewModel = MentorListCollectionViewModel()
     private lazy var categoryViewModel = SearchesCollectionViewModel()
     private let disposeBag = DisposeBag()
     

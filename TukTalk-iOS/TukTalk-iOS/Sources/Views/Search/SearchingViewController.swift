@@ -295,7 +295,7 @@ class SearchingViewController: UIViewController {
                 .disposed(by: disposeBag)
         }
         
-        mentorListViewModel.output.mentorListData
+        mentorListViewModel.output.searchingMentorListData
             .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
                     
