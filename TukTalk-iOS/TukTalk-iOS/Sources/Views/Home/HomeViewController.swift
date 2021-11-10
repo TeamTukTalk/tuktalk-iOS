@@ -255,7 +255,11 @@ class HomeViewController: UIViewController {
     }
     
     private func binding() {
-        //TODO
+        jobViewAllBtn.rx.tap
+            .bind(onNext: { _ in
+                self.navigationController?.pushViewController(JobMentorListViewController(), animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setCollectionViewUI() {
