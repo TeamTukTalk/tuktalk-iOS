@@ -137,7 +137,6 @@ class EnrollSecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.GrayScale.gray5
         setUI()
         binding()
     }
@@ -150,6 +149,8 @@ class EnrollSecondViewController: UIViewController {
     //MARK:- Function
     
     private func setUI() {
+        view.backgroundColor = UIColor.GrayScale.gray5
+        
         view.addSubview(topView)
         topView.snp.makeConstraints {
             $0.height.equalTo(88)

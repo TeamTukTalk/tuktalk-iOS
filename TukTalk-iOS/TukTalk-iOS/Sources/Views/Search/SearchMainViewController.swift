@@ -76,7 +76,6 @@ class SearchMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setUI()
         binding()
     }
@@ -84,7 +83,8 @@ class SearchMainViewController: UIViewController {
     //MARK:- Function
     
     private func setUI() {
-        self.tabBarController?.navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = .white
+        tabBarController?.navigationController?.navigationBar.isHidden = true
         
         view.addSubview(searchTextBtn)
         searchTextBtn.snp.makeConstraints {

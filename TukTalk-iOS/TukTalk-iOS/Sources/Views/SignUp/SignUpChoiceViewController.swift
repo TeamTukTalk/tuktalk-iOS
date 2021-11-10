@@ -89,7 +89,6 @@ class SignUpChoiceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setUI()
         binding()
     }
@@ -97,6 +96,8 @@ class SignUpChoiceViewController: UIViewController {
     //MARK:- Function
     
     private func setUI() {
+        view.backgroundColor = .white
+        
         view.addSubview(backBtn)
         backBtn.snp.makeConstraints {
             $0.top.equalToSuperview().inset(59)

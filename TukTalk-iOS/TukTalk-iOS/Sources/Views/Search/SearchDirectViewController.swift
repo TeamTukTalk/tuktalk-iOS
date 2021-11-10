@@ -56,7 +56,6 @@ class SearchDirectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setUI()
         setCollectionViewUI()
         binding()
@@ -71,7 +70,8 @@ class SearchDirectViewController: UIViewController {
     //MARK:- Function
     
     private func setUI() {
-        self.navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = .white
+        navigationController?.navigationBar.isHidden = true
         
         view.addSubview(searchBtn)
         searchBtn.snp.makeConstraints {

@@ -141,8 +141,6 @@ class EnrollFirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.GrayScale.gray5
-        self.navigationController?.navigationBar.isHidden = true
         setUI()
         binding()
     }
@@ -155,6 +153,9 @@ class EnrollFirstViewController: UIViewController {
     //MARK:- Function
     
     private func setUI() {
+        view.backgroundColor = UIColor.GrayScale.gray5
+        navigationController?.navigationBar.isHidden = true
+        
         view.addSubview(topView)
         topView.snp.makeConstraints {
             $0.height.equalTo(88)

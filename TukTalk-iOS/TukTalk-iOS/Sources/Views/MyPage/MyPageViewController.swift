@@ -158,7 +158,6 @@ class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setUI()
         setTableViewUI()
         binding()
@@ -174,8 +173,9 @@ class MyPageViewController: UIViewController {
     //MARK:- Function
     
     private func setUI() {
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = .white
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.navigationController?.navigationBar.isHidden = true
         
         view.addSubview(mainScrollView)
         mainScrollView.snp.makeConstraints {

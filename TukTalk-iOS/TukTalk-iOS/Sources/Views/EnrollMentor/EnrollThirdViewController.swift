@@ -121,7 +121,6 @@ class EnrollThirdViewController: UIViewController {
     //MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.GrayScale.gray5
         setUI()
         binding()
     }
@@ -129,6 +128,8 @@ class EnrollThirdViewController: UIViewController {
     //MARK:- Function
     
     private func setUI() {
+        view.backgroundColor = UIColor.GrayScale.gray5
+        
         view.addSubview(topView)
         topView.snp.makeConstraints {
             $0.height.equalTo(88)
