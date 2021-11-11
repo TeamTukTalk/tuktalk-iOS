@@ -325,7 +325,7 @@ class MyPageViewController: UIViewController {
     private func binding() {
         profileBtn.rx.tap
             .bind(onNext: { _ in
-                print(123)
+                self.navigationController?.pushViewController(RegistProfileViewController(), animated: true)
             })
             .disposed(by: disposeBag)
     }
