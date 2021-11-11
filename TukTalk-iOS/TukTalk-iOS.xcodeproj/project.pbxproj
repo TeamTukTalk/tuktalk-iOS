@@ -60,11 +60,11 @@
 		4041C10027198806007D09E7 /* TukTalk_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0FF27198806007D09E7 /* TukTalk_iOSUITests.swift */; };
 		4041C11627198933007D09E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C11527198933007D09E7 /* LoginViewController.swift */; };
 		4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C1172719893E007D09E7 /* LoginViewModel.swift */; };
-		404E68692724206D005AA5DD /* EnrollFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68682724206D005AA5DD /* EnrollFirstViewController.swift */; };
-		404E686D272439C7005AA5DD /* EnrollSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686C272439C7005AA5DD /* EnrollSecondViewController.swift */; };
-		404E6870272449B6005AA5DD /* EnrollFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686F272449B6005AA5DD /* EnrollFirstViewModel.swift */; };
-		404E687227245220005AA5DD /* EnrollSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E687127245220005AA5DD /* EnrollSecondViewModel.swift */; };
-		404E68742724541E005AA5DD /* EnrollThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* EnrollThirdViewController.swift */; };
+		404E68692724206D005AA5DD /* RegistFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68682724206D005AA5DD /* RegistFirstViewController.swift */; };
+		404E686D272439C7005AA5DD /* RegistSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686C272439C7005AA5DD /* RegistSecondViewController.swift */; };
+		404E6870272449B6005AA5DD /* RegistFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686F272449B6005AA5DD /* RegistFirstViewModel.swift */; };
+		404E687227245220005AA5DD /* RegistSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E687127245220005AA5DD /* RegistSecondViewModel.swift */; };
+		404E68742724541E005AA5DD /* RegistThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* RegistThirdViewController.swift */; };
 		4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A9572729BFF90087E98C /* TagBottomSheetView.swift */; };
 		4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */; };
 		4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */; };
@@ -159,11 +159,11 @@
 		4041C10127198806007D09E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4041C11527198933007D09E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4041C1172719893E007D09E7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		404E68682724206D005AA5DD /* EnrollFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollFirstViewController.swift; sourceTree = "<group>"; };
-		404E686C272439C7005AA5DD /* EnrollSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollSecondViewController.swift; sourceTree = "<group>"; };
-		404E686F272449B6005AA5DD /* EnrollFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollFirstViewModel.swift; sourceTree = "<group>"; };
-		404E687127245220005AA5DD /* EnrollSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollSecondViewModel.swift; sourceTree = "<group>"; };
-		404E68732724541E005AA5DD /* EnrollThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollThirdViewController.swift; sourceTree = "<group>"; };
+		404E68682724206D005AA5DD /* RegistFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistFirstViewController.swift; sourceTree = "<group>"; };
+		404E686C272439C7005AA5DD /* RegistSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistSecondViewController.swift; sourceTree = "<group>"; };
+		404E686F272449B6005AA5DD /* RegistFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistFirstViewModel.swift; sourceTree = "<group>"; };
+		404E687127245220005AA5DD /* RegistSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistSecondViewModel.swift; sourceTree = "<group>"; };
+		404E68732724541E005AA5DD /* RegistThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistThirdViewController.swift; sourceTree = "<group>"; };
 		4060A9572729BFF90087E98C /* TagBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetView.swift; sourceTree = "<group>"; };
 		4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewModel.swift; sourceTree = "<group>"; };
 		4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -492,7 +492,7 @@
 			children = (
 				4041C11327198917007D09E7 /* Login */,
 				4088F16A2719E15700527A77 /* SignUp */,
-				404E686727242017005AA5DD /* EnrollMentor */,
+				404E686727242017005AA5DD /* RegistMentor */,
 				402D658E272683DA00F4ED8F /* TabBar */,
 				402D65912726845500F4ED8F /* Home */,
 				402D65922726845E00F4ED8F /* Search */,
@@ -509,7 +509,7 @@
 			children = (
 				4041C1142719891F007D09E7 /* Login */,
 				4088F16D271ADAE700527A77 /* SignUp */,
-				404E686E272449A4005AA5DD /* EnrollMentor */,
+				404E686E272449A4005AA5DD /* RegistMentor */,
 				40DCF33B273833A900A82CC6 /* Home */,
 				402D65A82727306E00F4ED8F /* Search */,
 				40D0CE6A2731158D003AB9A7 /* MyPage */,
@@ -533,23 +533,23 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		404E686727242017005AA5DD /* EnrollMentor */ = {
+		404E686727242017005AA5DD /* RegistMentor */ = {
 			isa = PBXGroup;
 			children = (
-				404E68682724206D005AA5DD /* EnrollFirstViewController.swift */,
-				404E686C272439C7005AA5DD /* EnrollSecondViewController.swift */,
-				404E68732724541E005AA5DD /* EnrollThirdViewController.swift */,
+				404E68682724206D005AA5DD /* RegistFirstViewController.swift */,
+				404E686C272439C7005AA5DD /* RegistSecondViewController.swift */,
+				404E68732724541E005AA5DD /* RegistThirdViewController.swift */,
 			);
-			path = EnrollMentor;
+			path = RegistMentor;
 			sourceTree = "<group>";
 		};
-		404E686E272449A4005AA5DD /* EnrollMentor */ = {
+		404E686E272449A4005AA5DD /* RegistMentor */ = {
 			isa = PBXGroup;
 			children = (
-				404E686F272449B6005AA5DD /* EnrollFirstViewModel.swift */,
-				404E687127245220005AA5DD /* EnrollSecondViewModel.swift */,
+				404E686F272449B6005AA5DD /* RegistFirstViewModel.swift */,
+				404E687127245220005AA5DD /* RegistSecondViewModel.swift */,
 			);
-			path = EnrollMentor;
+			path = RegistMentor;
 			sourceTree = "<group>";
 		};
 		4088F16A2719E15700527A77 /* SignUp */ = {
@@ -897,7 +897,7 @@
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
 				4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */,
-				404E686D272439C7005AA5DD /* EnrollSecondViewController.swift in Sources */,
+				404E686D272439C7005AA5DD /* RegistSecondViewController.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
 				40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */,
@@ -906,10 +906,10 @@
 				4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
 				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
-				404E6870272449B6005AA5DD /* EnrollFirstViewModel.swift in Sources */,
+				404E6870272449B6005AA5DD /* RegistFirstViewModel.swift in Sources */,
 				402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */,
 				40384BF6273199FA00605246 /* MyPageTVDataModel.swift in Sources */,
-				404E68742724541E005AA5DD /* EnrollThirdViewController.swift in Sources */,
+				404E68742724541E005AA5DD /* RegistThirdViewController.swift in Sources */,
 				40DCF34B2739894B00A82CC6 /* ReviewDataModel.swift in Sources */,
 				403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */,
 				402D65A12726D64400F4ED8F /* SearchDirectViewController.swift in Sources */,
@@ -937,14 +937,14 @@
 				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
 				40DCF3492739891F00A82CC6 /* ReviewCollectionViewModel.swift in Sources */,
 				402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */,
-				404E68692724206D005AA5DD /* EnrollFirstViewController.swift in Sources */,
+				404E68692724206D005AA5DD /* RegistFirstViewController.swift in Sources */,
 				402D659F272684B500F4ED8F /* MyPageViewController.swift in Sources */,
 				402D659B272684A600F4ED8F /* CommunityViewController.swift in Sources */,
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
 				402D65AA272730A100F4ED8F /* SearchesCollectionViewModel.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
 				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
-				404E687227245220005AA5DD /* EnrollSecondViewModel.swift in Sources */,
+				404E687227245220005AA5DD /* RegistSecondViewModel.swift in Sources */,
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40AFDE0227354B9000422930 /* ProfileFirstViewController.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import RxSwift
 
-struct EnrollFirstViewModel: ViewModelType {
+struct RegistFirstViewModel: ViewModelType {
     
     let dependency: Dependency
     var disposeBag: DisposeBag = DisposeBag()

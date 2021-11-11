@@ -7,7 +7,7 @@
 
 import RxSwift
 
-class EnrollThirdViewController: UIViewController {
+class RegistThirdViewController: UIViewController {
     
     //MARK:- Properties
     

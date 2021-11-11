@@ -7,11 +7,11 @@
 
 import RxSwift
 
-class EnrollFirstViewController: UIViewController {
+class RegistFirstViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var enrollFirstViewModel = EnrollFirstViewModel()
+    private lazy var registFirstViewModel = RegistFirstViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -307,15 +307,15 @@ class EnrollFirstViewController: UIViewController {
         
         companyTextField.rx.text
             .orEmpty
-            .bind(to: enrollFirstViewModel.input.companyText)
+            .bind(to: registFirstViewModel.input.companyText)
             .disposed(by: disposeBag)
         
         departmentTextField.rx.text
             .orEmpty
-            .bind(to: enrollFirstViewModel.input.departmentText)
+            .bind(to: registFirstViewModel.input.departmentText)
             .disposed(by: disposeBag)
         
-        enrollFirstViewModel.output.nextIsValid
+        registFirstViewModel.output.nextIsValid
             .filter {$0}
             .bind { _ in
                 self.nextBtn.setTitleColor(.white, for: .normal)
@@ -323,7 +323,7 @@ class EnrollFirstViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        enrollFirstViewModel.output.nextIsValid
+        registFirstViewModel.output.nextIsValid
             .filter {!$0}
             .bind { _ in
                 self.nextBtn.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
@@ -331,7 +331,7 @@ class EnrollFirstViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        enrollFirstViewModel.output.nextIsValid
+        registFirstViewModel.output.nextIsValid
             .bind(to: nextBtn.rx.isEnabled)
             .disposed(by: disposeBag)
         
@@ -358,7 +358,7 @@ class EnrollFirstViewController: UIViewController {
         
         nextBtn.rx.tap
             .bind { _ in
-                self.navigationController?.pushViewController(EnrollSecondViewController(), animated: false)
+                self.navigationController?.pushViewController(RegistSecondViewController(), animated: false)
             }
             .disposed(by: disposeBag)
     }

@@ -7,11 +7,11 @@
 
 import RxSwift
 
-class EnrollSecondViewController: UIViewController {
+class RegistSecondViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var enrollSecondViewModel = EnrollSecondViewModel()
+    private lazy var registSecondViewModel = RegistSecondViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -296,14 +296,14 @@ class EnrollSecondViewController: UIViewController {
         
         emailTextField.rx.text
             .orEmpty
-            .bind(to: enrollSecondViewModel.input.emailText)
+            .bind(to: registSecondViewModel.input.emailText)
             .disposed(by: disposeBag)
         
-        enrollSecondViewModel.output.sendIsValid
+        registSecondViewModel.output.sendIsValid
             .bind(to: sendBtn.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        enrollSecondViewModel.output.sendIsValid
+        registSecondViewModel.output.sendIsValid
             .filter {$0}
             .bind { _ in
                 self.sendBtn.setTitleColor(.white, for: .normal)
@@ -311,7 +311,7 @@ class EnrollSecondViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        enrollSecondViewModel.output.sendIsValid
+        registSecondViewModel.output.sendIsValid
             .filter {!$0}
             .bind { _ in
                 self.sendBtn.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
@@ -321,7 +321,7 @@ class EnrollSecondViewController: UIViewController {
         
         sendBtn.rx.tap
             .bind { _ in
-                self.navigationController?.pushViewController(EnrollThirdViewController(), animated: false)
+                self.navigationController?.pushViewController(RegistThirdViewController(), animated: false)
             }
             .disposed(by: disposeBag)
     }
