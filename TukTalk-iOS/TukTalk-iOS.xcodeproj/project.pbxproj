@@ -87,6 +87,7 @@
 		40DCF3492739891F00A82CC6 /* ReviewCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF3482739891F00A82CC6 /* ReviewCollectionViewModel.swift */; };
 		40DCF34B2739894B00A82CC6 /* ReviewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF34A2739894B00A82CC6 /* ReviewDataModel.swift */; };
 		40DCF34D273C0F5D00A82CC6 /* JobMentorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF34C273C0F5D00A82CC6 /* JobMentorListViewController.swift */; };
+		40DCF34F273D202D00A82CC6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF34E273D202D00A82CC6 /* HomeViewModel.swift */; };
 		CB6689EEEEA5C4F487F913F3 /* Pods_TukTalk_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */; };
 		D946EC43736DAE80E1B92F11 /* Pods_TukTalk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */; };
 		FE47055C235FE7AE896976B1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77C77FD87FFB639D54A00E1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework */; };
@@ -185,6 +186,7 @@
 		40DCF3482739891F00A82CC6 /* ReviewCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewModel.swift; sourceTree = "<group>"; };
 		40DCF34A2739894B00A82CC6 /* ReviewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDataModel.swift; sourceTree = "<group>"; };
 		40DCF34C273C0F5D00A82CC6 /* JobMentorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobMentorListViewController.swift; sourceTree = "<group>"; };
+		40DCF34E273D202D00A82CC6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		55850F1025F11A787912F4AD /* Pods-TukTalk-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOSTests/Pods-TukTalk-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -626,6 +628,7 @@
 			children = (
 				40DCF33C273833C000A82CC6 /* BannerCollectionViewModel.swift */,
 				40DCF3482739891F00A82CC6 /* ReviewCollectionViewModel.swift */,
+				40DCF34E273D202D00A82CC6 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -915,6 +918,7 @@
 				40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */,
 				403B2D30271B538D00B834A6 /* AgreeButtonViewModel.swift in Sources */,
 				4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */,
+				40DCF34F273D202D00A82CC6 /* HomeViewModel.swift in Sources */,
 				403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */,
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,

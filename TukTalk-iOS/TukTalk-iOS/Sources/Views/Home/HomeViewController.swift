@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     private lazy var mentorListViewModel = MentorListCollectionViewModel()
     private lazy var categoryViewModel = SearchesCollectionViewModel()
     private lazy var reviewListViewModel = ReviewCollectionViewModel()
+    private lazy var homeViewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -257,7 +258,13 @@ class HomeViewController: UIViewController {
     private func binding() {
         jobViewAllBtn.rx.tap
             .bind(onNext: { _ in
-                self.navigationController?.pushViewController(JobMentorListViewController(), animated: true)
+                let nextVC = JobMentorListViewController()
+                self.homeViewModel.output.indexPathNum.take(1)
+                    .subscribe(onNext: { num in
+                        nextVC.category = num
+                    })
+                    .disposed(by: self.disposeBag)
+                self.navigationController?.pushViewController(nextVC, animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -371,6 +378,10 @@ class HomeViewController: UIViewController {
                 return UICollectionViewCell()
             }
             .disposed(by: disposeBag)
+        
+        categoryCV.rx.itemSelected
+            .bind(to: homeViewModel.input.indexPath)
+            .disposed(by: disposeBag)
     }
     
 }
@@ -378,26 +389,24 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var items: [SearchesDataModel] = []
-        if collectionView == categoryCV {
+        switch collectionView {
+        case bannerCV:
+            return CGSize(width: 340, height: 230)
+        case topMentorCV:
+            return CGSize(width: 276, height: 135)
+        case categoryCV:
+            var items: [SearchesDataModel] = []
             categoryViewModel.output.jobCategoryData
                 .subscribe(onNext: {data in
                     items = data
                 })
                 .disposed(by: disposeBag)
-        }
-        
-        if collectionView == bannerCV {
-            return CGSize(width: 340, height: 230)
-        } else if collectionView == topMentorCV {
-            return CGSize(width: 276, height: 135)
-        } else if collectionView == categoryCV {
             return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
-        } else if collectionView == jobMentorCV {
+        case jobMentorCV:
             return CGSize(width: 156, height: 140)
-        } else if collectionView == reviewCV {
+        case reviewCV:
             return CGSize(width: 230, height: 234)
-        } else {
+        default:
             return CGSize()
         }
     }
