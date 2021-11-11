@@ -158,6 +158,7 @@ class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScrollView()
         setUI()
         setTableViewUI()
         binding()
@@ -172,6 +173,12 @@ class MyPageViewController: UIViewController {
     
     //MARK:- Function
     
+    private func setScrollView() {
+        mainScrollView.delegate = self
+        mainScrollView.bounces = false
+        mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1600)
+    }
+    
     private func setUI() {
         view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = true
@@ -184,8 +191,8 @@ class MyPageViewController: UIViewController {
         
         mainScrollView.addSubview(mainContentView)
         mainContentView.snp.makeConstraints {
-            $0.width.height.equalToSuperview()
-            $0.edges.equalToSuperview()
+            $0.width.height.equalTo(mainScrollView.contentSize)
+            $0.edges.equalTo(mainScrollView.contentSize)
         }
         
         mainContentView.addSubview(settingBtn)
