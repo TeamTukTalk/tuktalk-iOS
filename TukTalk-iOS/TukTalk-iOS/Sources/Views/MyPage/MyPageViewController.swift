@@ -28,16 +28,16 @@ class MyPageViewController: UIViewController {
         $0.setImage(UIImage(named: "settingBtn"), for: .normal)
     }
     
-    private let profileImg = UIImageView().then {
+    private let profileBtn = UIButton().then {
         $0.backgroundColor = UIColor.GrayScale.gray4
         $0.layer.masksToBounds = true
         $0.layer.cornerRadius = 35
         $0.contentMode = .scaleAspectFill
-        $0.image = UIImage(named: "tempProfileImg")
+        $0.setImage(UIImage(named: "tempProfileImg"), for: .normal)
     }
     
-    private let profileEditBtn = UIButton().then {
-        $0.setImage(UIImage(named: "profileEditBtn"), for: .normal)
+    private let profileEditImg = UIImageView().then {
+        $0.image = UIImage(named: "profileEditBtn")
     }
     
     private let nameLabel = UILabel().then {
@@ -195,23 +195,23 @@ class MyPageViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(16)
         }
         
-        mainContentView.addSubview(profileImg)
-        profileImg.snp.makeConstraints {
+        mainContentView.addSubview(profileBtn)
+        profileBtn.snp.makeConstraints {
             $0.width.height.equalTo(70)
             $0.top.equalToSuperview().offset(88)
             $0.leading.equalToSuperview().offset(16)
         }
         
-        mainContentView.addSubview(profileEditBtn)
-        profileEditBtn.snp.makeConstraints {
-            $0.trailing.bottom.equalTo(profileImg)
+        mainContentView.addSubview(profileEditImg)
+        profileEditImg.snp.makeConstraints {
+            $0.trailing.bottom.equalTo(profileBtn)
         }
         
         mainContentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints {
             $0.height.equalTo(24)
             $0.top.equalToSuperview().offset(99)
-            $0.leading.equalTo(profileImg.snp.trailing).offset(20)
+            $0.leading.equalTo(profileBtn.snp.trailing).offset(20)
         }
         
         mainContentView.addSubview(welcomeLabel)
@@ -225,7 +225,7 @@ class MyPageViewController: UIViewController {
         notiBtn.snp.makeConstraints {
             $0.height.equalTo(44)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.top.equalTo(profileImg.snp.bottom).offset(20)
+            $0.top.equalTo(profileBtn.snp.bottom).offset(20)
         }
         
         mainContentView.addSubview(manageStackView)
@@ -316,7 +316,11 @@ class MyPageViewController: UIViewController {
     }
     
     private func binding() {
-        //TODO
+        profileBtn.rx.tap
+            .bind(onNext: { _ in
+                print(123)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindingTableView() {
