@@ -12,6 +12,7 @@ class JobMentorListViewController: UIViewController {
     //MARK:- Properties
     
     private lazy var categoryViewModel = SearchesCollectionViewModel()
+    private lazy var mentorListViewModel = MentorListCollectionViewModel()
     private let disposeBag = DisposeBag()
     var category: Int?
     
@@ -28,6 +29,12 @@ class JobMentorListViewController: UIViewController {
     }
     
     private let categoryCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    private let grayBackgroundView = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray5
+    }
+    
+    private let mentorListCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     //MARK:- Life Cycle
 
@@ -63,6 +70,19 @@ class JobMentorListViewController: UIViewController {
             $0.top.equalTo(titleLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview()
         }
+        
+        view.addSubview(grayBackgroundView)
+        grayBackgroundView.snp.makeConstraints {
+            $0.top.equalTo(categoryCV.snp.bottom).offset(20)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        grayBackgroundView.addSubview(mentorListCV)
+        mentorListCV.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview()
+        }
     }
     
     private func binding() {
@@ -82,10 +102,22 @@ class JobMentorListViewController: UIViewController {
         categoryCV.backgroundColor = .white
         categoryCV.showsHorizontalScrollIndicator = false
         categoryCV.register(SearchingCollectionViewCell.self, forCellWithReuseIdentifier: "SearchingCollectionViewCell")
+        
+        let mentorListCVLayout = UICollectionViewFlowLayout()
+        mentorListCVLayout.minimumLineSpacing = 8
+        mentorListCVLayout.minimumInteritemSpacing = .zero
+        mentorListCVLayout.scrollDirection = .vertical
+        mentorListCVLayout.sectionInset = .init(top: 16, left: 0, bottom: 16, right: 0)
+        mentorListCV.setCollectionViewLayout(mentorListCVLayout, animated: false)
+        mentorListCV.backgroundColor = UIColor.GrayScale.gray5
+        mentorListCV.showsVerticalScrollIndicator = false
+        mentorListCV.register(MentorListCollectionViewCell.self, forCellWithReuseIdentifier: "MentorListCollectionViewCell")
     }
     
     private func bindingCollectionView() {
         categoryCV.rx.setDelegate(self).disposed(by: disposeBag)
+        mentorListCV.rx.setDelegate(self).disposed(by: disposeBag)
+        
         categoryViewModel.output.jobCategoryData
             .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
@@ -99,22 +131,36 @@ class JobMentorListViewController: UIViewController {
                 return UICollectionViewCell()
             }
             .disposed(by: disposeBag)
+        
+        mentorListViewModel.output.searchingMentorListData
+            .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
+                    
+                    cell.setData(mentor: item)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: disposeBag)
     }
 }
 
 extension JobMentorListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var items: [SearchesDataModel] = []
-        if collectionView == categoryCV {
+        switch collectionView {
+        case categoryCV:
+            var items: [SearchesDataModel] = []
             categoryViewModel.output.jobCategoryData
                 .subscribe(onNext: {data in
                     items = data
                 })
                 .disposed(by: disposeBag)
             return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
+        case mentorListCV:
+            return CGSize(width: 343, height: 135)
+        default:
+            return CGSize()
         }
-        
-        return CGSize()
     }
 }
