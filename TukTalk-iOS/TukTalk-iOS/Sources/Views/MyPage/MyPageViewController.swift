@@ -165,10 +165,10 @@ class MyPageViewController: UIViewController {
         bindingTableView()
     }
     
-    override func viewDidLayoutSubviews() {
-        mainScrollView.delegate = self
-        mainScrollView.bounces = false
-        mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1270)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.tabBarController?.tabBar.isHidden = false
     }
     
     //MARK:- Function
@@ -176,13 +176,11 @@ class MyPageViewController: UIViewController {
     private func setScrollView() {
         mainScrollView.delegate = self
         mainScrollView.bounces = false
-        mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1600)
+        mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1270)
     }
     
     private func setUI() {
         view.backgroundColor = .white
-        navigationController?.navigationBar.isHidden = true
-        tabBarController?.navigationController?.navigationBar.isHidden = true
         
         view.addSubview(mainScrollView)
         mainScrollView.snp.makeConstraints {
@@ -324,9 +322,10 @@ class MyPageViewController: UIViewController {
     
     private func binding() {
         profileBtn.rx.tap
-            .bind(onNext: { _ in
-                self.navigationController?.pushViewController(RegistProfileViewController(), animated: true)
-            })
+            .bind { _ in
+                self.tabBarController?.tabBar.isHidden = true
+                self.navigationController?.pushViewController(RegistProfileFirstViewController(), animated: true)
+            }
             .disposed(by: disposeBag)
     }
     
