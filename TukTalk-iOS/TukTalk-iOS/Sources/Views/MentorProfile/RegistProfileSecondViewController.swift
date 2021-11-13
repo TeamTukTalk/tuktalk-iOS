@@ -52,7 +52,8 @@ class RegistProfileSecondViewController: UIViewController {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
         $0.layer.cornerRadius = 8
-        $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -258, bottom: 12, right: 0)
+        $0.contentHorizontalAlignment = .left
+        $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
         $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
     }
     
@@ -82,8 +83,10 @@ class RegistProfileSecondViewController: UIViewController {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
         $0.layer.cornerRadius = 8
-        $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -258, bottom: 12, right: 0)
+        $0.contentHorizontalAlignment = .left
+        $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
         $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
+        $0.isEnabled = false
     }
     
     private let nextBtn = UIButton().then {
@@ -92,6 +95,7 @@ class RegistProfileSecondViewController: UIViewController {
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
         $0.backgroundColor = UIColor.GrayScale.gray4
         $0.layer.cornerRadius = 26
+        $0.isEnabled = false
     }
     
     //MARK:- Life Cycle
@@ -172,6 +176,14 @@ class RegistProfileSecondViewController: UIViewController {
         }
     }
     
+    private func nextBtnMakeEnable(bool: Bool) {
+        if bool {
+            self.nextBtn.isEnabled = bool
+            self.nextBtn.backgroundColor = UIColor.Primary.primary
+            self.nextBtn.setTitleColor(.white, for: .normal)
+        }
+    }
+    
     private func binding() {
         
         backBtn.rx.tap
@@ -194,6 +206,54 @@ class RegistProfileSecondViewController: UIViewController {
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
             })
+            .disposed(by: disposeBag)
+        
+        specialityBtn.rx.tap
+            .bind { _ in
+                let fieldVC = FieldViewController()
+                fieldVC.viewModel.input.selectedBtn.onNext("specialityBtn")
+                fieldVC.outputFieldData.bind(onNext: { field in
+                    self.specialityBtn.setTitle(field, for: .normal)
+                    self.specialityBtn.setTitleColor(UIColor.GrayScale.sub1, for: .normal)
+                    self.detailFieldBtn.isEnabled = true
+                })
+                .disposed(by: self.disposeBag)
+                let naviVC = UINavigationController(rootViewController: fieldVC)
+                naviVC.modalPresentationStyle = .overCurrentContext
+                naviVC.modalTransitionStyle = .crossDissolve
+                naviVC.navigationBar.isHidden = true
+                self.present(naviVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        detailFieldBtn.rx.tap
+            .bind { _ in
+                let fieldVC = FieldViewController()
+                fieldVC.viewModel.input.selectedBtn.onNext("detailFieldBtn")
+                if let field = self.specialityBtn.titleLabel?.text {
+                    fieldVC.viewModel.input.selectedField.onNext(field)
+                }
+                fieldVC.outputFieldData.bind(onNext: { field in
+                    self.detailFieldBtn.setTitle(field, for: .normal)
+                    self.detailFieldBtn.setTitleColor(UIColor.GrayScale.sub1, for: .normal)
+                })
+                .disposed(by: self.disposeBag)
+                fieldVC.selectedAll.subscribe(onNext: { bool in
+                    self.nextBtnMakeEnable(bool: bool)
+                })
+                .disposed(by: self.disposeBag)
+                let naviVC = UINavigationController(rootViewController: fieldVC)
+                naviVC.modalPresentationStyle = .overCurrentContext
+                naviVC.modalTransitionStyle = .crossDissolve
+                naviVC.navigationBar.isHidden = true
+                self.present(naviVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        nextBtn.rx.tap
+            .bind { _ in
+                print("cliecked")
+            }
             .disposed(by: disposeBag)
     }
 

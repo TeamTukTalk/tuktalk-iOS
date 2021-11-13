@@ -68,6 +68,10 @@
 		4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A9572729BFF90087E98C /* TagBottomSheetView.swift */; };
 		4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */; };
 		4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */; };
+		406324CD273FF15E009F62A3 /* FieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324CC273FF15E009F62A3 /* FieldViewController.swift */; };
+		406324D0273FF1E1009F62A3 /* FieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324CF273FF1E1009F62A3 /* FieldViewModel.swift */; };
+		406324D3273FF3E4009F62A3 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324D2273FF3E4009F62A3 /* FieldTableViewCell.swift */; };
+		406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
@@ -169,6 +173,10 @@
 		4060A9572729BFF90087E98C /* TagBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetView.swift; sourceTree = "<group>"; };
 		4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewModel.swift; sourceTree = "<group>"; };
 		4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewCell.swift; sourceTree = "<group>"; };
+		406324CC273FF15E009F62A3 /* FieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldViewController.swift; sourceTree = "<group>"; };
+		406324CF273FF1E1009F62A3 /* FieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldViewModel.swift; sourceTree = "<group>"; };
+		406324D2273FF3E4009F62A3 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
+		406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewDataModel.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +257,7 @@
 				40DCF338273832B600A82CC6 /* Home */,
 				400A3D382729705600921BE0 /* Search */,
 				40D0CE6D273115B9003AB9A7 /* MyPage */,
+				406324D4273FF494009F62A3 /* MentorProfile */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -556,6 +565,38 @@
 			path = RegistMentor;
 			sourceTree = "<group>";
 		};
+		406324CB273FF131009F62A3 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				406324CC273FF15E009F62A3 /* FieldViewController.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		406324CE273FF1D1009F62A3 /* UIViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				406324CF273FF1E1009F62A3 /* FieldViewModel.swift */,
+			);
+			path = UIViewModel;
+			sourceTree = "<group>";
+		};
+		406324D1273FF3CA009F62A3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				406324D2273FF3E4009F62A3 /* FieldTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		406324D4273FF494009F62A3 /* MentorProfile */ = {
+			isa = PBXGroup;
+			children = (
+				406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */,
+			);
+			path = MentorProfile;
+			sourceTree = "<group>";
+		};
 		4088F16A2719E15700527A77 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +627,7 @@
 		40A8F84F273F1796007360C9 /* MentorProfile */ = {
 			isa = PBXGroup;
 			children = (
+				406324CE273FF1D1009F62A3 /* UIViewModel */,
 				40A8F850273F17D8007360C9 /* FirstViewModel.swift */,
 			);
 			path = MentorProfile;
@@ -594,6 +636,8 @@
 		40AFDE0027354B2E00422930 /* MentorProfile */ = {
 			isa = PBXGroup;
 			children = (
+				406324D1273FF3CA009F62A3 /* Cell */,
+				406324CB273FF131009F62A3 /* UIView */,
 				40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */,
 				40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */,
 			);
@@ -905,6 +949,7 @@
 			files = (
 				4041C11627198933007D09E7 /* LoginViewController.swift in Sources */,
 				40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */,
+				406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */,
 				4000F8AF2722E8580067C6B6 /* CategoryView.swift in Sources */,
 				403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */,
 				40DCF33A273832F100A82CC6 /* BannerDataModel.swift in Sources */,
@@ -930,6 +975,7 @@
 				402D65A12726D64400F4ED8F /* SearchDirectViewController.swift in Sources */,
 				402D65972726848800F4ED8F /* HomeViewController.swift in Sources */,
 				40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */,
+				406324CD273FF15E009F62A3 /* FieldViewController.swift in Sources */,
 				40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */,
 				403B2D30271B538D00B834A6 /* AgreeButtonViewModel.swift in Sources */,
 				4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */,
@@ -957,10 +1003,12 @@
 				402D659F272684B500F4ED8F /* MyPageViewController.swift in Sources */,
 				402D659B272684A600F4ED8F /* CommunityViewController.swift in Sources */,
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
+				406324D3273FF3E4009F62A3 /* FieldTableViewCell.swift in Sources */,
 				402D65AA272730A100F4ED8F /* SearchesCollectionViewModel.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
 				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
 				404E687227245220005AA5DD /* RegistSecondViewModel.swift in Sources */,
+				406324D0273FF1E1009F62A3 /* FieldViewModel.swift in Sources */,
 				40A8F851273F17D8007360C9 /* FirstViewModel.swift in Sources */,
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
