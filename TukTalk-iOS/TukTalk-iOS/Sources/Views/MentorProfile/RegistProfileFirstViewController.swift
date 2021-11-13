@@ -313,11 +313,13 @@ class RegistProfileFirstViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        let initText = "멘티에게 어필할 수 있는 소개글을 자세히 작성해주세요."
+        
         detailIntroduceTextView.rx.didBeginEditing
             .bind { _ in
                 self.detailIntroduceTextView.textColor = UIColor.GrayScale.sub1
                 self.detailIntroduceTextView.layer.borderColor = UIColor.Primary.primary.cgColor
-                if self.detailIntroduceTextView.text == "멘티에게 어필할 수 있는 소개글을 자세히 작성해주세요." {
+                if self.detailIntroduceTextView.text == initText {
                     self.detailIntroduceTextView.text = ""
                 }
             }
@@ -326,7 +328,7 @@ class RegistProfileFirstViewController: UIViewController {
         detailIntroduceTextView.rx.didEndEditing
             .bind { _ in
                 if self.detailIntroduceTextView.text == "" {
-                    self.detailIntroduceTextView.text = "멘티에게 어필할 수 있는 소개글을 자세히 작성해주세요."
+                    self.detailIntroduceTextView.text = initText
                     self.detailIntroduceTextView.textColor = UIColor.GrayScale.sub4
                 }
                 self.detailIntroduceTextView.layer.borderColor = UIColor.GrayScale.gray1.cgColor
@@ -335,7 +337,7 @@ class RegistProfileFirstViewController: UIViewController {
         
         detailIntroduceTextView.rx.text
             .subscribe(onNext: { text in
-                if text != "멘티에게 어필할 수 있는 소개글을 자세히 작성해주세요." && text != "" {
+                if text != initText && text != "" {
                     self.firstViewModel.input.detailEditingBegin.onNext(true)
                 } else {
                     self.firstViewModel.input.detailEditingBegin.onNext(false)
