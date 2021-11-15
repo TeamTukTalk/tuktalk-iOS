@@ -77,7 +77,7 @@
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
 		40A387B82731A5CB00BA5D5D /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */; };
 		40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */; };
-		40A8F851273F17D8007360C9 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8F850273F17D8007360C9 /* FirstViewModel.swift */; };
+		40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */; };
 		40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */; };
 		40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */; };
 		40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */; };
@@ -182,7 +182,7 @@
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 		40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableHeaderView.swift; sourceTree = "<group>"; };
-		40A8F850273F17D8007360C9 /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
+		40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFirstViewModel.swift; sourceTree = "<group>"; };
 		40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewModel.swift; sourceTree = "<group>"; };
 		40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetViewModel.swift; sourceTree = "<group>"; };
@@ -628,7 +628,7 @@
 			isa = PBXGroup;
 			children = (
 				406324CE273FF1D1009F62A3 /* UIViewModel */,
-				40A8F850273F17D8007360C9 /* FirstViewModel.swift */,
+				40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */,
 			);
 			path = MentorProfile;
 			sourceTree = "<group>";
@@ -1009,7 +1009,7 @@
 				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
 				404E687227245220005AA5DD /* RegistSecondViewModel.swift in Sources */,
 				406324D0273FF1E1009F62A3 /* FieldViewModel.swift in Sources */,
-				40A8F851273F17D8007360C9 /* FirstViewModel.swift in Sources */,
+				40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */,
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
 				40DCF33D273833C000A82CC6 /* BannerCollectionViewModel.swift in Sources */,

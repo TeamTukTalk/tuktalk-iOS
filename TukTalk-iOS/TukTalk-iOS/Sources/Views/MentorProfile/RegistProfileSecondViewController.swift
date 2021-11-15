@@ -64,7 +64,7 @@ class RegistProfileSecondViewController: UIViewController {
     }
     
     private let detailFieldSubLabel = UILabel().then {
-        $0.text = "(3개까지 등록 가능"
+        $0.text = "(3개까지 등록 가능)"
         $0.font = UIFont.TTFont(type: .SDReg, size: 12)
         $0.textColor = UIColor.GrayScale.sub1
     }
@@ -87,6 +87,34 @@ class RegistProfileSecondViewController: UIViewController {
         $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
         $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
         $0.isEnabled = false
+    }
+    
+    private let detailFieldBtn2 = UIButton().then {
+        $0.setTitle("상세분야 선택", for: .normal)
+        $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
+        $0.titleLabel?.font = UIFont.TTFont(type: .SDReg, size: 14)
+        $0.setImage(UIImage(named: "dropDownBlackImg"), for: .normal)
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+        $0.layer.cornerRadius = 8
+        $0.contentHorizontalAlignment = .left
+        $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
+        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
+        $0.isHidden = true
+    }
+    
+    private let detailFieldBtn3 = UIButton().then {
+        $0.setTitle("상세분야 선택", for: .normal)
+        $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
+        $0.titleLabel?.font = UIFont.TTFont(type: .SDReg, size: 14)
+        $0.setImage(UIImage(named: "dropDownBlackImg"), for: .normal)
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+        $0.layer.cornerRadius = 8
+        $0.contentHorizontalAlignment = .left
+        $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
+        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
+        $0.isHidden = true
     }
     
     private let nextBtn = UIButton().then {
@@ -168,6 +196,20 @@ class RegistProfileSecondViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
+        view.addSubview(detailFieldBtn2)
+        detailFieldBtn2.snp.makeConstraints {
+            $0.height.equalTo(44)
+            $0.top.equalTo(detailFieldBtn.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        view.addSubview(detailFieldBtn3)
+        detailFieldBtn3.snp.makeConstraints {
+            $0.height.equalTo(44)
+            $0.top.equalTo(detailFieldBtn2.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
         view.addSubview(nextBtn)
         nextBtn.snp.makeConstraints {
             $0.height.equalTo(52)
@@ -213,7 +255,17 @@ class RegistProfileSecondViewController: UIViewController {
                 let fieldVC = FieldViewController()
                 fieldVC.viewModel.input.selectedBtn.onNext("specialityBtn")
                 fieldVC.outputFieldData.bind(onNext: { field in
-                    self.specialityBtn.setTitle(field, for: .normal)
+                    if self.specialityBtn.titleLabel?.text != field && field != "" {
+                        self.specialityBtn.setTitle(field, for: .normal)
+                        self.detailFieldBtn.setTitle("상세분야 선택", for: .normal)
+                        self.detailFieldBtn.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
+                        self.detailFieldBtn2.setTitle("상세분야 선택", for: .normal)
+                        self.detailFieldBtn2.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
+                        self.detailFieldBtn3.setTitle("상세분야 선택", for: .normal)
+                        self.detailFieldBtn3.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
+                        self.detailFieldBtn2.isHidden = true
+                        self.detailFieldBtn3.isHidden = true
+                    }
                     self.specialityBtn.setTitleColor(UIColor.GrayScale.sub1, for: .normal)
                     self.detailFieldBtn.isEnabled = true
                 })
@@ -247,6 +299,61 @@ class RegistProfileSecondViewController: UIViewController {
                 naviVC.modalTransitionStyle = .crossDissolve
                 naviVC.navigationBar.isHidden = true
                 self.present(naviVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        detailFieldBtn2.rx.tap
+            .bind { _ in
+                let fieldVC = FieldViewController()
+                fieldVC.viewModel.input.selectedBtn.onNext("detailFieldBtn")
+                if let field = self.specialityBtn.titleLabel?.text {
+                    fieldVC.viewModel.input.selectedField.onNext(field)
+                }
+                fieldVC.outputFieldData.bind(onNext: { field in
+                    self.detailFieldBtn2.setTitle(field, for: .normal)
+                    self.detailFieldBtn2.setTitleColor(UIColor.GrayScale.sub1, for: .normal)
+                })
+                .disposed(by: self.disposeBag)
+                let naviVC = UINavigationController(rootViewController: fieldVC)
+                naviVC.modalPresentationStyle = .overCurrentContext
+                naviVC.modalTransitionStyle = .crossDissolve
+                naviVC.navigationBar.isHidden = true
+                self.present(naviVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        detailFieldBtn3.rx.tap
+            .bind { _ in
+                let fieldVC = FieldViewController()
+                fieldVC.viewModel.input.selectedBtn.onNext("detailFieldBtn")
+                if let field = self.specialityBtn.titleLabel?.text {
+                    fieldVC.viewModel.input.selectedField.onNext(field)
+                }
+                fieldVC.outputFieldData.bind(onNext: { field in
+                    self.detailFieldBtn3.setTitle(field, for: .normal)
+                    self.detailFieldBtn3.setTitleColor(UIColor.GrayScale.sub1, for: .normal)
+                })
+                .disposed(by: self.disposeBag)
+                let naviVC = UINavigationController(rootViewController: fieldVC)
+                naviVC.modalPresentationStyle = .overCurrentContext
+                naviVC.modalTransitionStyle = .crossDissolve
+                naviVC.navigationBar.isHidden = true
+                self.present(naviVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        addFieldBtn.rx.tap
+            .bind { _ in
+                if !self.detailFieldBtn2.isHidden && !self.detailFieldBtn3.isHidden {
+                    return
+                }
+                if self.detailFieldBtn2.isHidden {
+                    self.detailFieldBtn2.isHidden = false
+                    return
+                }
+                if !self.detailFieldBtn2.isHidden {
+                    self.detailFieldBtn3.isHidden = false
+                }
             }
             .disposed(by: disposeBag)
         

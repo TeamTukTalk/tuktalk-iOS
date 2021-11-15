@@ -12,7 +12,7 @@ class RegistProfileFirstViewController: UIViewController {
     //MARK:- Properties
     
     private let disposeBag = DisposeBag()
-    private lazy var firstViewModel = FirstViewModel()
+    private lazy var firstViewModel = RegistProfileFirstViewModel()
     
     //MARK:- UI Components
     
