@@ -359,7 +359,13 @@ class RegistProfileSecondViewController: UIViewController {
         
         nextBtn.rx.tap
             .bind { _ in
-                print("cliecked")
+                let nextVC = RegistProfileThirdViewController()
+                nextVC.progressPercent.subscribe(onNext: { percent in
+                    self.progressPercentValue.accept(percent)
+                })
+                .disposed(by: self.disposeBag)
+                
+                self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)
     }

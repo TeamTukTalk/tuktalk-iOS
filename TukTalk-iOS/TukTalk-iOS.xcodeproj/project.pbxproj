@@ -72,6 +72,7 @@
 		406324D0273FF1E1009F62A3 /* FieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324CF273FF1E1009F62A3 /* FieldViewModel.swift */; };
 		406324D3273FF3E4009F62A3 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324D2273FF3E4009F62A3 /* FieldTableViewCell.swift */; };
 		406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */; };
+		4065FEDA274226A4005AAE0F /* RegistProfileThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
@@ -177,6 +178,7 @@
 		406324CF273FF1E1009F62A3 /* FieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldViewModel.swift; sourceTree = "<group>"; };
 		406324D2273FF3E4009F62A3 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
 		406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewDataModel.swift; sourceTree = "<group>"; };
+		4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileThirdViewController.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 				406324CB273FF131009F62A3 /* UIView */,
 				40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */,
 				40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */,
+				4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */,
 			);
 			path = MentorProfile;
 			sourceTree = "<group>";
@@ -1015,6 +1018,7 @@
 				40DCF33D273833C000A82CC6 /* BannerCollectionViewModel.swift in Sources */,
 				40DCF3472739884F00A82CC6 /* ReviewCollectionViewCell.swift in Sources */,
 				40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */,
+				4065FEDA274226A4005AAE0F /* RegistProfileThirdViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
