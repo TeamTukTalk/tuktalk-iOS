@@ -165,6 +165,18 @@ class RegistProfileFourthViewController: UIViewController {
                 self.nextBtn.setTitle(bool ? "다음" : "건너뛰기", for: .normal)
             })
             .disposed(by: disposeBag)
+        
+        nextBtn.rx.tap
+            .bind { _ in
+                let nextVC = RegistProfileFifthViewController()
+                nextVC.progressPercent.subscribe(onNext: { percent in
+                    self.progressPercentValue.accept(percent)
+                })
+                .disposed(by: self.disposeBag)
+                
+                self.navigationController?.pushViewController(nextVC, animated: false)
+            }
+            .disposed(by: disposeBag)
     }
 
 }

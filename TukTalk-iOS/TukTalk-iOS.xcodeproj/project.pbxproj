@@ -76,6 +76,11 @@
 		4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */; };
 		4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */; };
 		4065FEE02743506D005AAE0F /* RegistProfileFourthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDF2743506D005AAE0F /* RegistProfileFourthViewModel.swift */; };
+		4065FEE227435587005AAE0F /* TagCollectionViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE127435587005AAE0F /* TagCollectionViewDataModel.swift */; };
+		4065FEE4274355C8005AAE0F /* RegistProfileFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE3274355C8005AAE0F /* RegistProfileFifthViewController.swift */; };
+		4065FEE627435A1D005AAE0F /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE527435A1D005AAE0F /* CompanyCollectionViewCell.swift */; };
+		4065FEE827435B5F005AAE0F /* TagCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */; };
+		4065FEEA27435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE927435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
@@ -185,6 +190,11 @@
 		4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileThirdViewModel.swift; sourceTree = "<group>"; };
 		4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFourthViewController.swift; sourceTree = "<group>"; };
 		4065FEDF2743506D005AAE0F /* RegistProfileFourthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFourthViewModel.swift; sourceTree = "<group>"; };
+		4065FEE127435587005AAE0F /* TagCollectionViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewDataModel.swift; sourceTree = "<group>"; };
+		4065FEE3274355C8005AAE0F /* RegistProfileFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFifthViewController.swift; sourceTree = "<group>"; };
+		4065FEE527435A1D005AAE0F /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
+		4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewModel.swift; sourceTree = "<group>"; };
+		4065FEE927435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendHashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -593,6 +603,8 @@
 			isa = PBXGroup;
 			children = (
 				406324D2273FF3E4009F62A3 /* FieldTableViewCell.swift */,
+				4065FEE527435A1D005AAE0F /* CompanyCollectionViewCell.swift */,
+				4065FEE927435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -601,6 +613,7 @@
 			isa = PBXGroup;
 			children = (
 				406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */,
+				4065FEE127435587005AAE0F /* TagCollectionViewDataModel.swift */,
 			);
 			path = MentorProfile;
 			sourceTree = "<group>";
@@ -639,6 +652,7 @@
 				40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */,
 				4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */,
 				4065FEDF2743506D005AAE0F /* RegistProfileFourthViewModel.swift */,
+				4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */,
 			);
 			path = MentorProfile;
 			sourceTree = "<group>";
@@ -652,6 +666,7 @@
 				40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */,
 				4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */,
 				4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */,
+				4065FEE3274355C8005AAE0F /* RegistProfileFifthViewController.swift */,
 			);
 			path = MentorProfile;
 			sourceTree = "<group>";
@@ -977,10 +992,12 @@
 				4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
 				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
+				4065FEE4274355C8005AAE0F /* RegistProfileFifthViewController.swift in Sources */,
 				404E6870272449B6005AA5DD /* RegistFirstViewModel.swift in Sources */,
 				402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */,
 				40384BF6273199FA00605246 /* MyPageTVDataModel.swift in Sources */,
 				404E68742724541E005AA5DD /* RegistThirdViewController.swift in Sources */,
+				4065FEE827435B5F005AAE0F /* TagCollectionViewModel.swift in Sources */,
 				40DCF34B2739894B00A82CC6 /* ReviewDataModel.swift in Sources */,
 				40DCF359273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift in Sources */,
 				403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */,
@@ -997,6 +1014,7 @@
 				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,
 				4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */,
 				403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */,
+				4065FEEA27435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift in Sources */,
 				40A387B82731A5CB00BA5D5D /* MyPageTableViewCell.swift in Sources */,
 				402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */,
 				40DCF343273979DD00A82CC6 /* JobMentorCollectionViewCell.swift in Sources */,
@@ -1020,6 +1038,7 @@
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
 				406324D3273FF3E4009F62A3 /* FieldTableViewCell.swift in Sources */,
 				402D65AA272730A100F4ED8F /* SearchesCollectionViewModel.swift in Sources */,
+				4065FEE627435A1D005AAE0F /* CompanyCollectionViewCell.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
 				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
 				404E687227245220005AA5DD /* RegistSecondViewModel.swift in Sources */,
@@ -1031,6 +1050,7 @@
 				40DCF3472739884F00A82CC6 /* ReviewCollectionViewCell.swift in Sources */,
 				40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */,
 				4065FEDA274226A4005AAE0F /* RegistProfileThirdViewController.swift in Sources */,
+				4065FEE227435587005AAE0F /* TagCollectionViewDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
