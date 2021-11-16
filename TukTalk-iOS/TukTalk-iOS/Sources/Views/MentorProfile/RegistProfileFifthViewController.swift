@@ -155,7 +155,7 @@ class RegistProfileFifthViewController: UIViewController {
         companyCV.showsHorizontalScrollIndicator = false
         companyCV.register(CompanyCollectionViewCell.self, forCellWithReuseIdentifier: "CompanyCollectionViewCell")
         
-        let hashTagCVflowLayout = UICollectionViewFlowLayout()
+        let hashTagCVflowLayout: UICollectionViewFlowLayout = LeftAlignedCollectionViewFlowLayout()
         hashTagCVflowLayout.minimumLineSpacing = 12
         hashTagCVflowLayout.minimumInteritemSpacing = 8
         hashTagCVflowLayout.scrollDirection = .vertical

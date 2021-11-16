@@ -81,6 +81,7 @@
 		4065FEE627435A1D005AAE0F /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE527435A1D005AAE0F /* CompanyCollectionViewCell.swift */; };
 		4065FEE827435B5F005AAE0F /* TagCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */; };
 		4065FEEA27435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE927435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift */; };
+		4065FEEC27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEEB27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
@@ -195,6 +196,7 @@
 		4065FEE527435A1D005AAE0F /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewModel.swift; sourceTree = "<group>"; };
 		4065FEE927435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendHashTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		4065FEEB27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				4011847A271CA41E00A5657A /* CALayerExtension.swift */,
 				40746D0B271EE94400B54CBB /* UILabelExtension.swift */,
 				40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */,
+				4065FEEB27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1012,6 +1015,7 @@
 				403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */,
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,
+				4065FEEC27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */,
 				403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */,
 				4065FEEA27435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift in Sources */,
