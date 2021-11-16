@@ -409,7 +409,13 @@ class RegistProfileThirdViewController: UIViewController {
         nextBtn.rx.tap
             .bind { _ in
                 if self.monthValidation(valid: self.monthEnable ?? false) {
-                    print("goToNextVC")
+                    let nextVC = RegistProfileFourthViewController()
+                    nextVC.progressPercent.subscribe(onNext: { percent in
+                        self.progressPercentValue.accept(percent)
+                    })
+                    .disposed(by: self.disposeBag)
+                    
+                    self.navigationController?.pushViewController(nextVC, animated: false)
                 }
             }
             .disposed(by: disposeBag)

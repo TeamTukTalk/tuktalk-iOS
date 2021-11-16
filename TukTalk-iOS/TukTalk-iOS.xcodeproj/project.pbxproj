@@ -74,6 +74,7 @@
 		406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */; };
 		4065FEDA274226A4005AAE0F /* RegistProfileThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */; };
 		4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */; };
+		4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
@@ -181,6 +182,7 @@
 		406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewDataModel.swift; sourceTree = "<group>"; };
 		4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileThirdViewController.swift; sourceTree = "<group>"; };
 		4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileThirdViewModel.swift; sourceTree = "<group>"; };
+		4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFourthViewController.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 				40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */,
 				40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */,
 				4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */,
+				4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */,
 			);
 			path = MentorProfile;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */,
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,
+				4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */,
 				403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */,
 				40A387B82731A5CB00BA5D5D /* MyPageTableViewCell.swift in Sources */,
 				402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */,
