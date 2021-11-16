@@ -5,8 +5,6 @@
 //  Created by 한상진 on 2021/11/15.
 //
 
-import UIKit
-
 import RxSwift
 import RxCocoa
 
@@ -14,8 +12,10 @@ class RegistProfileThirdViewController: UIViewController {
     
     //MARK:- Properties
     
+    private lazy var viewModel = RegistProfileThirdViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(0.6))
+    private var monthEnable: Bool?
     var progressPercent: Observable<Float> {
         return progressPercentValue.asObservable()
     }
@@ -124,6 +124,7 @@ class RegistProfileThirdViewController: UIViewController {
         $0.textAlignment = .right
         $0.rightView = paddingView
         $0.rightViewMode = .always
+        $0.keyboardType = .numberPad
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
         $0.layer.cornerRadius = 8
@@ -143,6 +144,7 @@ class RegistProfileThirdViewController: UIViewController {
         $0.textAlignment = .right
         $0.rightView = paddingView
         $0.rightViewMode = .always
+        $0.keyboardType = .numberPad
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
         $0.layer.cornerRadius = 8
@@ -152,6 +154,13 @@ class RegistProfileThirdViewController: UIViewController {
         $0.text = "개월"
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
+    }
+    
+    private let errorLabel = UILabel().then {
+        $0.text = "12개월 미만으로 입력해주세요."
+        $0.textColor = UIColor.State.error
+        $0.font = UIFont.TTFont(type: .SDReg, size: 10)
+        $0.isHidden = true
     }
     
     private let nextBtn = UIButton().then {
@@ -287,13 +296,12 @@ class RegistProfileThirdViewController: UIViewController {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(16)
         }
-    }
-    
-    private func nextBtnMakeEnable(bool: Bool) {
-        if bool {
-            self.nextBtn.isEnabled = bool
-            self.nextBtn.backgroundColor = UIColor.Primary.primary
-            self.nextBtn.setTitleColor(.white, for: .normal)
+        
+        view.addSubview(errorLabel)
+        errorLabel.snp.makeConstraints {
+            $0.height.equalTo(14)
+            $0.top.equalTo(employmentStackView.snp.bottom).offset(8)
+            $0.trailing.equalToSuperview().inset(16)
         }
     }
     
@@ -322,11 +330,95 @@ class RegistProfileThirdViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        nextBtn.rx.tap
+        rankTextField.rx.controlEvent(.editingDidBegin)
             .bind { _ in
-                print("cliecked")
+                self.rankTextField.layer.borderColor = UIColor.Primary.primary.cgColor
             }
             .disposed(by: disposeBag)
+        
+        rankTextField.rx.controlEvent(.editingDidEnd)
+            .bind { _ in
+                self.rankTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+            }
+            .disposed(by: disposeBag)
+        
+        employmentYearTextField.rx.controlEvent(.editingDidBegin)
+            .bind { _ in
+                self.employmentYearTextField.layer.borderColor = UIColor.Primary.primary.cgColor
+            }
+            .disposed(by: disposeBag)
+        
+        employmentYearTextField.rx.controlEvent(.editingDidEnd)
+            .bind { _ in
+                self.employmentYearTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+            }
+            .disposed(by: disposeBag)
+        
+        employmentMonthTextField.rx.controlEvent(.editingDidBegin)
+            .bind { _ in
+                self.employmentMonthTextField.layer.borderColor = UIColor.Primary.primary.cgColor
+            }
+            .disposed(by: disposeBag)
+        
+        employmentMonthTextField.rx.controlEvent(.editingDidEnd)
+            .bind { _ in
+                self.employmentMonthTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+            }
+            .disposed(by: disposeBag)
+        
+        rankTextField.rx.text
+            .orEmpty
+            .bind(to: viewModel.input.rankTitle)
+            .disposed(by: disposeBag)
+        
+        employmentYearTextField.rx.text
+            .orEmpty
+            .bind(to: viewModel.input.inputYear)
+            .disposed(by: disposeBag)
+        
+        employmentYearTextField.rx.text
+            .orEmpty
+            .scan("") { (previous, new) -> String in
+                if new.count > 2 {
+                    return previous ?? String(new.prefix(2))
+                } else {
+                    return new
+                }
+            }
+            .subscribe(employmentYearTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        employmentMonthTextField.rx.text
+            .bind(to: viewModel.input.inputMonth)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.nextBtnEnable
+            .drive(onNext: { valid in
+                self.nextBtn.backgroundColor = valid ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.nextBtn.setTitleColor(valid ? .white : UIColor.GrayScale.sub4, for: .normal)
+                self.nextBtn.isEnabled = valid
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.output.monthEnable
+            .drive(onNext: { valid in
+                self.monthEnable = valid
+            })
+            .disposed(by: self.disposeBag)
+        
+        nextBtn.rx.tap
+            .bind { _ in
+                if self.monthValidation(valid: self.monthEnable ?? false) {
+                    print("goToNextVC")
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func monthValidation(valid: Bool) -> Bool{
+        errorLabel.isHidden = valid
+        if !valid { employmentMonthTextField.layer.borderColor = UIColor.State.error.cgColor }
+        return valid
     }
 
 }
