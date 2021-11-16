@@ -13,8 +13,10 @@ class RegistProfileFifthViewController: UIViewController {
     //MARK:- Properties
     
     private lazy var collectionViewModel = TagCollectionViewModel()
+    private lazy var viewModel = RegistProfileFifthViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(1))
+    private var hashTagSelectedNumber = 0
     var progressPercent: Observable<Float> {
         return progressPercentValue.asObservable()
     }
@@ -162,6 +164,7 @@ class RegistProfileFifthViewController: UIViewController {
         hashTagCV.setCollectionViewLayout(hashTagCVflowLayout, animated: false)
         hashTagCV.backgroundColor = .white
         hashTagCV.showsHorizontalScrollIndicator = false
+        hashTagCV.allowsMultipleSelection = true
         hashTagCV.register(RecommendHashTagCollectionViewCell.self, forCellWithReuseIdentifier: "RecommendHashTagCollectionViewCell")
     }
     
@@ -188,6 +191,44 @@ class RegistProfileFifthViewController: UIViewController {
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
             })
+            .disposed(by: disposeBag)
+        
+        companyCV.rx.modelSelected(TagCollectionViewDataModel.self)
+            .bind { _ in
+                self.viewModel.input.companySelected.onNext(true)
+            }
+            .disposed(by: disposeBag)
+        
+        hashTagCV.rx.itemSelected
+            .bind { index in
+                if self.hashTagSelectedNumber == 8 {
+                    self.hashTagCV.deselectItem(at: index, animated: false)
+                    return
+                }
+                self.hashTagSelectedNumber += 1
+                self.viewModel.input.hashTagSelected.onNext(self.hashTagSelectedNumber)
+            }
+            .disposed(by: disposeBag)
+        
+        hashTagCV.rx.itemDeselected
+            .bind { _ in
+                self.hashTagSelectedNumber -= 1
+                self.viewModel.input.hashTagSelected.onNext(self.hashTagSelectedNumber)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.nextBtnEnable
+            .bind(onNext: { valid in
+                self.nextBtn.backgroundColor = valid ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.nextBtn.setTitleColor(valid ? .white : UIColor.GrayScale.sub4, for: .normal)
+                self.nextBtn.isEnabled = valid
+            })
+            .disposed(by: disposeBag)
+        
+        nextBtn.rx.tap
+            .bind { _ in
+                print("cliecked")
+            }
             .disposed(by: disposeBag)
     }
     
