@@ -258,6 +258,10 @@ class RegistProfileFirstViewController: UIViewController {
                     self.progressBar.setProgress(percent, animated: true)
                 })
                 .disposed(by: self.disposeBag)
+                nextVC.progressIsHidden.subscribe(onNext: { valid in
+                    self.progressBar.isHidden = valid
+                })
+                .disposed(by: self.disposeBag)
                 self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)

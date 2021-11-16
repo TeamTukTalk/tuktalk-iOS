@@ -14,8 +14,12 @@ class RegistProfileSecondViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(0.4))
+    private let progressIsHiddenValue = BehaviorRelay(value: false)
     var progressPercent: Observable<Float> {
         return progressPercentValue.asObservable()
+    }
+    var progressIsHidden: Observable<Bool> {
+        return progressIsHiddenValue.asObservable()
     }
     
     //MARK:- UI Components
@@ -362,6 +366,10 @@ class RegistProfileSecondViewController: UIViewController {
                 let nextVC = RegistProfileThirdViewController()
                 nextVC.progressPercent.subscribe(onNext: { percent in
                     self.progressPercentValue.accept(percent)
+                })
+                .disposed(by: self.disposeBag)
+                nextVC.progressIsHidden.subscribe(onNext: { valid in
+                    self.progressIsHiddenValue.accept(valid)
                 })
                 .disposed(by: self.disposeBag)
                 

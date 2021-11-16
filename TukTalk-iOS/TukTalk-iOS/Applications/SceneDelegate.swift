@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: RegistProfileFifthViewController()) // RootViewController를 연결
+        window?.rootViewController = UINavigationController(rootViewController: TabBarViewController()) // RootViewController를 연결
         window?.makeKeyAndVisible()
     }
 

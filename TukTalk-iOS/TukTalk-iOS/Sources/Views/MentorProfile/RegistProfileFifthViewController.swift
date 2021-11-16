@@ -17,8 +17,12 @@ class RegistProfileFifthViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(1))
     private var hashTagSelectedNumber = 0
+    private let progressIsHiddenValue = BehaviorRelay(value: false)
     var progressPercent: Observable<Float> {
         return progressPercentValue.asObservable()
+    }
+    var progressIsHidden: Observable<Bool> {
+        return progressIsHiddenValue.asObservable()
     }
     
     //MARK:- UI Components
@@ -227,7 +231,12 @@ class RegistProfileFifthViewController: UIViewController {
         
         nextBtn.rx.tap
             .bind { _ in
-                print("cliecked")
+                let nextVC = RegistProfileFinishViewController()
+                nextVC.progressIsHidden.subscribe(onNext: { valid in
+                    self.progressIsHiddenValue.accept(valid)
+                })
+                .disposed(by: self.disposeBag)
+                self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)
     }
