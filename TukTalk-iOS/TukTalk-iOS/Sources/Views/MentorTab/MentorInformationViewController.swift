@@ -6,7 +6,6 @@
 //
 
 import RxSwift
-import RxCocoa
 
 class MentorInformationViewController: UIViewController {
 
@@ -16,9 +15,7 @@ class MentorInformationViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var dataSource: [PageCollectionViewDataModel] = []
 
-    private lazy var informationVC = UIViewController().then {
-        $0.view.backgroundColor = .blue
-    }
+    private lazy var informationVC = InformationViewController()
     private lazy var portfolioVC = UIViewController().then {
         $0.view.backgroundColor = .red
     }
@@ -29,19 +26,30 @@ class MentorInformationViewController: UIViewController {
         $0.view.backgroundColor = .green
     }
 
-    var currentPage: Int = 0 {
+    private var currentPage: Int = 0 {
         didSet {
             pageBind(oldValue: oldValue, newValue: currentPage)
         }
     }
 
     private lazy var dataViewControllers: [UIViewController] = [informationVC, portfolioVC, consultingVC, reviewVC]
+    
+    private let screenWidth = Int(UIScreen.main.bounds.width)
 
     //MARK:- UI Components
+    
+    private let mainScrollView = UIScrollView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.contentInsetAdjustmentBehavior = .never
+    }
+    
+    private let mainContentView = UIView()
 
     private var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
     private let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    
+    private let topView = UIView()
     
     private let backBtn = UIButton().then {
         $0.setImage(UIImage(named: "backBtnImg"), for: .normal)
@@ -70,6 +78,13 @@ class MentorInformationViewController: UIViewController {
         $0.layer.cornerRadius = 35
     }
     
+    private let nameStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.distribution = .equalSpacing
+        $0.alignment = .center
+        $0.spacing = 0
+    }
+    
     private let profileNameLabel = UILabel().then {
         $0.text = "애니"
         $0.font = UIFont.TTFont(type: .SDBold, size: 16)
@@ -78,6 +93,13 @@ class MentorInformationViewController: UIViewController {
     
     private let confirmImage = UIImageView().then {
         $0.image = UIImage(named: "mentorConfirmImg")
+    }
+    
+    private let companyStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.distribution = .equalSpacing
+        $0.alignment = .top
+        $0.spacing = 6
     }
     
     private var companyLabel = UILabel().then {
@@ -97,6 +119,10 @@ class MentorInformationViewController: UIViewController {
     }
     
     private let devideView = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray3
+    }
+    
+    private let pageDevideView = UIView().then {
         $0.backgroundColor = UIColor.GrayScale.gray3
     }
     
@@ -130,8 +156,8 @@ class MentorInformationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScrollView()
         setUI()
-        self.navigationController?.navigationBar.isHidden = true
         setPageView()
         setCollectionViewUI()
         binding()
@@ -145,35 +171,53 @@ class MentorInformationViewController: UIViewController {
     }
 
     //MARK: Function
+    
+    private func setScrollView() {
+        mainScrollView.delegate = self
+        mainScrollView.bounces = false
+        mainScrollView.contentSize = CGSize(width: screenWidth, height: 1300)
+    }
 
     private func setUI() {
         view.backgroundColor = .white
         
-        view.addSubview(backBtn)
-        backBtn.snp.makeConstraints {
-            $0.width.height.equalTo(24)
-            $0.top.equalToSuperview().offset(54)
-            $0.leading.equalToSuperview().offset(8)
-        }
-        
-        view.addSubview(heartBtn)
-        heartBtn.snp.makeConstraints {
-            $0.width.height.equalTo(24)
-            $0.top.equalToSuperview().offset(54)
-            $0.trailing.equalToSuperview().inset(16)
-        }
-
-        view.addSubview(collectionView)
-        collectionView.snp.makeConstraints {
-            $0.height.equalTo(38)
-            $0.top.equalToSuperview().offset(453)
+        view.addSubview(topView)
+        topView.snp.makeConstraints {
+            $0.height.equalTo(44)
+            $0.top.equalToSuperview().offset(44)
             $0.leading.trailing.equalToSuperview()
         }
         
-        view.addSubview(profileView)
+        topView.addSubview(backBtn)
+        backBtn.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(8)
+        }
+        
+        topView.addSubview(heartBtn)
+        heartBtn.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(16)
+        }
+        
+        view.addSubview(mainScrollView)
+        mainScrollView.snp.makeConstraints {
+            $0.top.equalTo(topView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        mainScrollView.addSubview(mainContentView)
+        mainContentView.snp.makeConstraints {
+            $0.width.height.equalTo(mainScrollView.contentSize)
+            $0.edges.equalTo(mainScrollView.contentSize)
+        }
+        
+        mainContentView.addSubview(profileView)
         profileView.snp.makeConstraints {
             $0.height.equalTo(337)
-            $0.top.equalToSuperview().offset(92)
+            $0.top.equalToSuperview().offset(4)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
@@ -190,39 +234,38 @@ class MentorInformationViewController: UIViewController {
             $0.centerX.centerY.equalToSuperview()
         }
         
-        profileView.addSubview(profileNameLabel)
-        profileNameLabel.snp.makeConstraints {
-            $0.height.equalTo(24)
-            $0.top.equalTo(profileImageView.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().offset(147.5)
-        }
-        
-        profileView.addSubview(confirmImage)
+        profileView.addSubview(nameStackView)
         confirmImage.snp.makeConstraints {
             $0.width.height.equalTo(20)
-            $0.centerY.equalTo(profileNameLabel)
-            $0.leading.equalTo(profileNameLabel.snp.trailing)
+        }
+        profileNameLabel.snp.makeConstraints {
+            $0.height.equalTo(24)
+        }
+        nameStackView.addArrangedSubview(profileNameLabel)
+        nameStackView.addArrangedSubview(confirmImage)
+        nameStackView.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.top.equalTo(profileImageView.snp.bottom).offset(8)
+            $0.centerX.equalToSuperview()
         }
         
-        profileView.addSubview(companyLabel)
+        profileView.addSubview(companyStackView)
         companyLabel.snp.makeConstraints {
             $0.height.equalTo(20)
-            $0.top.equalTo(profileNameLabel.snp.bottom).offset(2)
-            $0.leading.equalToSuperview().offset(108)
         }
-        
-        profileView.addSubview(devideDot)
         devideDot.snp.makeConstraints {
-            $0.height.equalTo(12)
-            $0.top.equalTo(companyLabel.snp.top)
-            $0.leading.equalTo(companyLabel.snp.trailing).offset(6)
+            $0.height.equalTo(14)
         }
-        
-        profileView.addSubview(jobLabel)
         jobLabel.snp.makeConstraints {
             $0.height.equalTo(20)
-            $0.leading.equalTo(devideDot.snp.trailing).offset(6)
-            $0.top.equalTo(companyLabel)
+        }
+        companyStackView.addArrangedSubview(companyLabel)
+        companyStackView.addArrangedSubview(devideDot)
+        companyStackView.addArrangedSubview(jobLabel)
+        companyStackView.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.equalTo(nameStackView.snp.bottom).offset(2)
+            $0.centerX.equalToSuperview()
         }
         
         profileView.addSubview(devideView)
@@ -251,9 +294,23 @@ class MentorInformationViewController: UIViewController {
             $0.top.equalTo(consultingBtn.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
+        
+        mainContentView.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.height.equalTo(38)
+            $0.top.equalTo(profileView.snp.bottom).offset(24)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        mainContentView.addSubview(pageDevideView)
+        pageDevideView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.top.equalToSuperview().offset(401)
+            $0.leading.trailing.equalToSuperview()
+        }
 
         addChild(pageViewController)
-        view.addSubview(pageViewController.view)
+        mainContentView.addSubview(pageViewController.view)
 
         pageViewController.view.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.bottom)
@@ -289,6 +346,11 @@ class MentorInformationViewController: UIViewController {
                 self.currentPage = index[1]
             })
             .disposed(by: disposeBag)
+        
+        informationVC.heightFrame.subscribe(onNext: { value in
+            self.mainScrollView.contentSize = CGSize(width: self.screenWidth, height: 459 + value + 92)
+        })
+        .disposed(by: self.disposeBag)
     }
 
     private func bindingCollectionView() {

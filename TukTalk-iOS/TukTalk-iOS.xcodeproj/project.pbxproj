@@ -88,6 +88,14 @@
 		4065FEFB2743CE31005AAE0F /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEFA2743CE31005AAE0F /* PageCollectionViewCell.swift */; };
 		4065FEFD274402D3005AAE0F /* MentorInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEFC274402D3005AAE0F /* MentorInformationViewController.swift */; };
 		4065FF00274404A7005AAE0F /* MentorInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEFF274404A7005AAE0F /* MentorInformationViewModel.swift */; };
+		4065FF0327453550005AAE0F /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF0227453550005AAE0F /* InformationViewController.swift */; };
+		4065FF07274539AC005AAE0F /* IntroduceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF06274539AC005AAE0F /* IntroduceTableViewCell.swift */; };
+		4065FF0B27453BD2005AAE0F /* InformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF0A27453BD2005AAE0F /* InformationViewModel.swift */; };
+		4065FF0D27454E26005AAE0F /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF0C27454E26005AAE0F /* CompanyTableViewCell.swift */; };
+		4065FF0F274578F1005AAE0F /* CareerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF0E274578F1005AAE0F /* CareerTableViewCell.swift */; };
+		4065FF11274579E0005AAE0F /* SpecialtyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF10274579E0005AAE0F /* SpecialtyTableViewCell.swift */; };
+		4065FF1327457B8C005AAE0F /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF1227457B8C005AAE0F /* TagTableViewCell.swift */; };
+		4065FF1527457D05005AAE0F /* TagListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF1427457D05005AAE0F /* TagListCollectionViewCell.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
@@ -209,6 +217,14 @@
 		4065FEFA2743CE31005AAE0F /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		4065FEFC274402D3005AAE0F /* MentorInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorInformationViewController.swift; sourceTree = "<group>"; };
 		4065FEFF274404A7005AAE0F /* MentorInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorInformationViewModel.swift; sourceTree = "<group>"; };
+		4065FF0227453550005AAE0F /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		4065FF06274539AC005AAE0F /* IntroduceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceTableViewCell.swift; sourceTree = "<group>"; };
+		4065FF0A27453BD2005AAE0F /* InformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewModel.swift; sourceTree = "<group>"; };
+		4065FF0C27454E26005AAE0F /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
+		4065FF0E274578F1005AAE0F /* CareerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerTableViewCell.swift; sourceTree = "<group>"; };
+		4065FF10274579E0005AAE0F /* SpecialtyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyTableViewCell.swift; sourceTree = "<group>"; };
+		4065FF1227457B8C005AAE0F /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
+		4065FF1427457D05005AAE0F /* TagListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListCollectionViewCell.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -639,6 +655,8 @@
 		4065FEF32743C9A3005AAE0F /* MentorTab */ = {
 			isa = PBXGroup;
 			children = (
+				4065FF0427453961005AAE0F /* PageCells */,
+				4065FF0127453529005AAE0F /* PageViews */,
 				4065FEF62743CB3C005AAE0F /* Cell */,
 				4065FEFC274402D3005AAE0F /* MentorInformationViewController.swift */,
 			);
@@ -664,9 +682,47 @@
 		4065FEFE27440495005AAE0F /* MentorTab */ = {
 			isa = PBXGroup;
 			children = (
+				4065FF0927453BB6005AAE0F /* PageViewModels */,
 				4065FEFF274404A7005AAE0F /* MentorInformationViewModel.swift */,
 			);
 			path = MentorTab;
+			sourceTree = "<group>";
+		};
+		4065FF0127453529005AAE0F /* PageViews */ = {
+			isa = PBXGroup;
+			children = (
+				4065FF0227453550005AAE0F /* InformationViewController.swift */,
+			);
+			path = PageViews;
+			sourceTree = "<group>";
+		};
+		4065FF0427453961005AAE0F /* PageCells */ = {
+			isa = PBXGroup;
+			children = (
+				4065FF0527453984005AAE0F /* Information */,
+			);
+			path = PageCells;
+			sourceTree = "<group>";
+		};
+		4065FF0527453984005AAE0F /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				4065FF06274539AC005AAE0F /* IntroduceTableViewCell.swift */,
+				4065FF0C27454E26005AAE0F /* CompanyTableViewCell.swift */,
+				4065FF0E274578F1005AAE0F /* CareerTableViewCell.swift */,
+				4065FF10274579E0005AAE0F /* SpecialtyTableViewCell.swift */,
+				4065FF1227457B8C005AAE0F /* TagTableViewCell.swift */,
+				4065FF1427457D05005AAE0F /* TagListCollectionViewCell.swift */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		4065FF0927453BB6005AAE0F /* PageViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4065FF0A27453BD2005AAE0F /* InformationViewModel.swift */,
+			);
+			path = PageViewModels;
 			sourceTree = "<group>";
 		};
 		4088F16A2719E15700527A77 /* SignUp */ = {
@@ -1027,6 +1083,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4065FF11274579E0005AAE0F /* SpecialtyTableViewCell.swift in Sources */,
 				4041C11627198933007D09E7 /* LoginViewController.swift in Sources */,
 				4065FEF227439F0A005AAE0F /* RegistProfileFinishViewController.swift in Sources */,
 				40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */,
@@ -1042,6 +1099,9 @@
 				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
 				40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */,
 				402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */,
+				4065FF0D27454E26005AAE0F /* CompanyTableViewCell.swift in Sources */,
+				4065FF1327457B8C005AAE0F /* TagTableViewCell.swift in Sources */,
+				4065FF0F274578F1005AAE0F /* CareerTableViewCell.swift in Sources */,
 				400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */,
 				4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
@@ -1068,6 +1128,7 @@
 				403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */,
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,
+				4065FF1527457D05005AAE0F /* TagListCollectionViewCell.swift in Sources */,
 				4065FEEC27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */,
 				403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */,
@@ -1098,7 +1159,9 @@
 				402D65AA272730A100F4ED8F /* SearchesCollectionViewModel.swift in Sources */,
 				4065FEE627435A1D005AAE0F /* CompanyCollectionViewCell.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
+				4065FF07274539AC005AAE0F /* IntroduceTableViewCell.swift in Sources */,
 				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
+				4065FF0B27453BD2005AAE0F /* InformationViewModel.swift in Sources */,
 				404E687227245220005AA5DD /* RegistSecondViewModel.swift in Sources */,
 				406324D0273FF1E1009F62A3 /* FieldViewModel.swift in Sources */,
 				40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */,
@@ -1111,6 +1174,7 @@
 				4065FEDA274226A4005AAE0F /* RegistProfileThirdViewController.swift in Sources */,
 				4065FEE227435587005AAE0F /* TagCollectionViewDataModel.swift in Sources */,
 				4065FEEE274397D4005AAE0F /* RegistProfileFifthViewModel.swift in Sources */,
+				4065FF0327453550005AAE0F /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
