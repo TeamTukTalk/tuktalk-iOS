@@ -179,6 +179,7 @@ class MentorInformationViewController: UIViewController {
     }
 
     private func setUI() {
+        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
         
         view.addSubview(topView)
