@@ -8,11 +8,13 @@
 import RxSwift
 
 class WhichFieldViewController: UIViewController {
-
+    
     //MARK:- Properties
-
+    
+    private lazy var viewModel = WhichFieldViewModel()
+    private var selectedNum = 0
     private let disposeBag = DisposeBag()
-
+    
     //MARK:- UI Components
     
     private let backBtn = UIButton().then {
@@ -36,20 +38,24 @@ class WhichFieldViewController: UIViewController {
     
     private let nextBtn = UIButton().then {
         $0.setTitle("다음", for: .normal)
-        $0.backgroundColor = UIColor.Primary.primary
-        $0.layer.cornerRadius = 26
+        $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
+        $0.backgroundColor = UIColor.GrayScale.gray4
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
+        $0.layer.cornerRadius = 26
+        $0.isEnabled = false
     }
     
-    private let categoryView = CategoryView()
-    
+    private let designCategoryCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let itDevCategoryCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setCollectionViewUI()
         binding()
+        bindingCollectionView()
     }
     
     //MARK:- Function
@@ -75,12 +81,18 @@ class WhichFieldViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(categoryView)
-        categoryView.snp.makeConstraints {
+        view.addSubview(designCategoryCV)
+        designCategoryCV.snp.makeConstraints {
+            $0.height.equalTo(132)
             $0.top.equalTo(titleLabel.snp.bottom).offset(56)
-            $0.leading.equalToSuperview().offset(16)
-            $0.height.equalTo(228) /// 나중에 오토레이아웃 적용해야함
-            $0.width.equalTo(343)
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        view.addSubview(itDevCategoryCV)
+        itDevCategoryCV.snp.makeConstraints {
+            $0.height.equalTo(84)
+            $0.top.equalTo(designCategoryCV.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(nextBtn)
@@ -89,6 +101,26 @@ class WhichFieldViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(42)
         }
+    }
+    
+    private func setCollectionViewUI() {
+        let designFlowLayout: UICollectionViewFlowLayout = LeftAlignedCollectionViewFlowLayout()
+        designFlowLayout.minimumLineSpacing = 12
+        designFlowLayout.minimumInteritemSpacing = 8
+        designFlowLayout.scrollDirection = .vertical
+        designCategoryCV.setCollectionViewLayout(designFlowLayout, animated: false)
+        designCategoryCV.backgroundColor = .white
+        designCategoryCV.isScrollEnabled = false
+        designCategoryCV.allowsMultipleSelection = true
+        
+        let itDevFlowLayout: UICollectionViewFlowLayout = LeftAlignedCollectionViewFlowLayout()
+        itDevFlowLayout.minimumLineSpacing = 12
+        itDevFlowLayout.minimumInteritemSpacing = 8
+        itDevFlowLayout.scrollDirection = .vertical
+        itDevCategoryCV.setCollectionViewLayout(itDevFlowLayout, animated: false)
+        itDevCategoryCV.backgroundColor = .white
+        itDevCategoryCV.isScrollEnabled = false
+        itDevCategoryCV.allowsMultipleSelection = true
     }
     
     private func binding() {
@@ -113,10 +145,101 @@ class WhichFieldViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        designCategoryCV.rx.itemSelected
+            .bind { _ in
+                self.selectedNum += 1
+                self.viewModel.input.selectedNum.onNext(self.selectedNum)
+            }
+            .disposed(by: disposeBag)
+        
+        designCategoryCV.rx.itemDeselected
+            .bind { _ in
+                self.selectedNum -= 1
+                self.viewModel.input.selectedNum.onNext(self.selectedNum)
+            }
+            .disposed(by: disposeBag)
+        
+        itDevCategoryCV.rx.itemSelected
+            .bind { _ in
+                self.selectedNum += 1
+                self.viewModel.input.selectedNum.onNext(self.selectedNum)
+            }
+            .disposed(by: disposeBag)
+        
+        itDevCategoryCV.rx.itemDeselected
+            .bind { _ in
+                self.selectedNum -= 1
+                self.viewModel.input.selectedNum.onNext(self.selectedNum)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.nextBtnEnable
+            .bind(onNext: { valid in
+                self.nextBtn.isEnabled = valid
+                self.nextBtn.backgroundColor = valid ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.nextBtn.setTitleColor(valid ? .white : UIColor.GrayScale.sub4, for: .normal)
+                
+            })
+            .disposed(by: disposeBag)
+        
         nextBtn.rx.tap
             .bind { _ in
                 self.navigationController?.pushViewController(SignUpViewController(), animated: true)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func bindingCollectionView() {
+        designCategoryCV.rx.setDelegate(self).disposed(by: disposeBag)
+        itDevCategoryCV.rx.setDelegate(self).disposed(by: disposeBag)
+        designCategoryCV.register(FirstFieldCategoryCVCell.self, forCellWithReuseIdentifier: "FirstFieldCategoryCVCell")
+        itDevCategoryCV.register(SecondFieldCategoryCVCell.self, forCellWithReuseIdentifier: "SecondFieldCategoryCVCell")
+        
+        viewModel.output.designData
+            .bind(to: designCategoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.designCategoryCV.dequeueReusableCell(withReuseIdentifier: "FirstFieldCategoryCVCell", for: IndexPath.init(row: row, section: 0)) as? FirstFieldCategoryCVCell {
+                    cell.configure(title: item.category)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.itDevData
+            .bind(to: itDevCategoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.itDevCategoryCV.dequeueReusableCell(withReuseIdentifier: "SecondFieldCategoryCVCell", for: IndexPath.init(row: row, section: 0)) as? SecondFieldCategoryCVCell {
+                    cell.configure(title: item.category)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
+extension WhichFieldViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        var items: [FieldCategoryDataModel] = []
+        
+        switch collectionView {
+        case designCategoryCV:
+            viewModel.output.designData
+                .subscribe(onNext: {data in
+                    items = data
+                })
+                .disposed(by: disposeBag)
+            
+            return FirstFieldCategoryCVCell.fittingSize(availableHeight: 36, title: items[indexPath.row].category)
+        default:
+            viewModel.output.itDevData
+                .subscribe(onNext: {data in
+                    items = data
+                })
+                .disposed(by: disposeBag)
+            
+            return SecondFieldCategoryCVCell.fittingSize(availableHeight: 36, title: items[indexPath.row].category)
+        }
     }
 }

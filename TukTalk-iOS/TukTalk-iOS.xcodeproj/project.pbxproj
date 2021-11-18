@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */; };
 		4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */; };
-		4000F8AF2722E8580067C6B6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8AE2722E8580067C6B6 /* CategoryView.swift */; };
 		400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */; };
 		4011846D271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
 		4011846E271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
@@ -64,6 +63,9 @@
 		404C57032746A3A500B31F64 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57022746A3A500B31F64 /* APIConstants.swift */; };
 		404C57072746B89100B31F64 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57062746B89100B31F64 /* SignUpService.swift */; };
 		404C570A2746BB2F00B31F64 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57092746BB2F00B31F64 /* SignUpRequest.swift */; };
+		404C570E2746C2F500B31F64 /* WhichFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C570D2746C2F500B31F64 /* WhichFieldViewModel.swift */; };
+		404C57112746C44900B31F64 /* FirstFieldCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57102746C44900B31F64 /* FirstFieldCategoryCVCell.swift */; };
+		404C57132746C89000B31F64 /* SecondFieldCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */; };
 		404E68692724206D005AA5DD /* RegistFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68682724206D005AA5DD /* RegistFirstViewController.swift */; };
 		404E686D272439C7005AA5DD /* RegistSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686C272439C7005AA5DD /* RegistSecondViewController.swift */; };
 		404E6870272449B6005AA5DD /* RegistFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686F272449B6005AA5DD /* RegistFirstViewModel.swift */; };
@@ -150,7 +152,6 @@
 		25FC350EF778AB1F6E37D05A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichFieldViewController.swift; sourceTree = "<group>"; };
 		4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCategoryDataModel.swift; sourceTree = "<group>"; };
-		4000F8AE2722E8580067C6B6 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCollectionViewCell.swift; sourceTree = "<group>"; };
 		4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-MEDIUM.OTF"; sourceTree = "<group>"; };
 		4011846B271C8E9C00A5657A /* SFProDisplay-BOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-BOLD.OTF"; sourceTree = "<group>"; };
@@ -199,6 +200,9 @@
 		404C57022746A3A500B31F64 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		404C57062746B89100B31F64 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		404C57092746BB2F00B31F64 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		404C570D2746C2F500B31F64 /* WhichFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichFieldViewModel.swift; sourceTree = "<group>"; };
+		404C57102746C44900B31F64 /* FirstFieldCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFieldCategoryCVCell.swift; sourceTree = "<group>"; };
+		404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFieldCategoryCVCell.swift; sourceTree = "<group>"; };
 		404E68682724206D005AA5DD /* RegistFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistFirstViewController.swift; sourceTree = "<group>"; };
 		404E686C272439C7005AA5DD /* RegistSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistSecondViewController.swift; sourceTree = "<group>"; };
 		404E686F272449B6005AA5DD /* RegistFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistFirstViewModel.swift; sourceTree = "<group>"; };
@@ -451,14 +455,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		402D65AF2727D57300F4ED8F /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				4000F8AE2722E8580067C6B6 /* CategoryView.swift */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
 		40384BF727319BF700605246 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,6 +643,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		404C570F2746C43200B31F64 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				404C57102746C44900B31F64 /* FirstFieldCategoryCVCell.swift */,
+				404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		404E686727242017005AA5DD /* RegistMentor */ = {
 			isa = PBXGroup;
 			children = (
@@ -777,7 +782,7 @@
 		4088F16A2719E15700527A77 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				402D65AF2727D57300F4ED8F /* UIView */,
+				404C570F2746C43200B31F64 /* Cell */,
 				4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */,
 				4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */,
 				4088F170271AE4CE00527A77 /* SignUpViewController.swift */,
@@ -789,6 +794,7 @@
 			isa = PBXGroup;
 			children = (
 				403B2D2F271B538D00B834A6 /* AgreeButtonViewModel.swift */,
+				404C570D2746C2F500B31F64 /* WhichFieldViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1139,7 +1145,6 @@
 				4065FEF227439F0A005AAE0F /* RegistProfileFinishViewController.swift in Sources */,
 				40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */,
 				406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */,
-				4000F8AF2722E8580067C6B6 /* CategoryView.swift in Sources */,
 				403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */,
 				40DCF33A273832F100A82CC6 /* BannerDataModel.swift in Sources */,
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
@@ -1148,6 +1153,7 @@
 				404E686D272439C7005AA5DD /* RegistSecondViewController.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
+				404C57132746C89000B31F64 /* SecondFieldCategoryCVCell.swift in Sources */,
 				40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */,
 				402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */,
 				4065FF0D27454E26005AAE0F /* CompanyTableViewCell.swift in Sources */,
@@ -1159,12 +1165,14 @@
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
 				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
 				4065FEE4274355C8005AAE0F /* RegistProfileFifthViewController.swift in Sources */,
+				404C57112746C44900B31F64 /* FirstFieldCategoryCVCell.swift in Sources */,
 				404E6870272449B6005AA5DD /* RegistFirstViewModel.swift in Sources */,
 				402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */,
 				4065FF00274404A7005AAE0F /* MentorInformationViewModel.swift in Sources */,
 				40384BF6273199FA00605246 /* MyPageTVDataModel.swift in Sources */,
 				404E68742724541E005AA5DD /* RegistThirdViewController.swift in Sources */,
 				4065FEE827435B5F005AAE0F /* TagCollectionViewModel.swift in Sources */,
+				404C570E2746C2F500B31F64 /* WhichFieldViewModel.swift in Sources */,
 				4065FEFD274402D3005AAE0F /* MentorInformationViewController.swift in Sources */,
 				40DCF34B2739894B00A82CC6 /* ReviewDataModel.swift in Sources */,
 				40DCF359273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift in Sources */,
