@@ -60,6 +60,8 @@
 		4041C10027198806007D09E7 /* TukTalk_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0FF27198806007D09E7 /* TukTalk_iOSUITests.swift */; };
 		4041C11627198933007D09E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C11527198933007D09E7 /* LoginViewController.swift */; };
 		4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C1172719893E007D09E7 /* LoginViewModel.swift */; };
+		404C57002746A1E200B31F64 /* network.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404C56FF2746A1E200B31F64 /* network.plist */; };
+		404C57032746A3A500B31F64 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57022746A3A500B31F64 /* APIConstants.swift */; };
 		404E68692724206D005AA5DD /* RegistFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68682724206D005AA5DD /* RegistFirstViewController.swift */; };
 		404E686D272439C7005AA5DD /* RegistSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686C272439C7005AA5DD /* RegistSecondViewController.swift */; };
 		404E6870272449B6005AA5DD /* RegistFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686F272449B6005AA5DD /* RegistFirstViewModel.swift */; };
@@ -191,6 +193,8 @@
 		4041C10127198806007D09E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4041C11527198933007D09E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4041C1172719893E007D09E7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		404C56FF2746A1E200B31F64 /* network.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = network.plist; sourceTree = "<group>"; };
+		404C57022746A3A500B31F64 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		404E68682724206D005AA5DD /* RegistFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistFirstViewController.swift; sourceTree = "<group>"; };
 		404E686C272439C7005AA5DD /* RegistSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistSecondViewController.swift; sourceTree = "<group>"; };
 		404E686F272449B6005AA5DD /* RegistFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistFirstViewModel.swift; sourceTree = "<group>"; };
@@ -530,6 +534,7 @@
 				4041C0EB27198806007D09E7 /* Info.plist */,
 				4041C0DD27198803007D09E7 /* AppDelegate.swift */,
 				4041C0DF27198803007D09E7 /* SceneDelegate.swift */,
+				404C56FF2746A1E200B31F64 /* network.plist */,
 			);
 			path = Applications;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 		4041C10E27198820007D09E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				404C57012746A37000B31F64 /* Network */,
 				4011847E271D9AB700A5657A /* Protocols */,
 				40118469271C8DF100A5657A /* Fonts */,
 				403B2D2C271B458F00B834A6 /* Extensions */,
@@ -601,6 +607,14 @@
 				4041C1172719893E007D09E7 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		404C57012746A37000B31F64 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				404C57022746A3A500B31F64 /* APIConstants.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		404E686727242017005AA5DD /* RegistMentor */ = {
@@ -952,6 +966,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40118473271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF in Resources */,
+				404C57002746A1E200B31F64 /* network.plist in Resources */,
 				4041C0EA27198806007D09E7 /* LaunchScreen.storyboard in Resources */,
 				4041C0E727198806007D09E7 /* Assets.xcassets in Resources */,
 				40118470271C8E9C00A5657A /* SFProDisplay-BOLD.OTF in Resources */,
@@ -1170,6 +1185,7 @@
 				4065FF07274539AC005AAE0F /* IntroduceTableViewCell.swift in Sources */,
 				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
 				4065FF0B27453BD2005AAE0F /* InformationViewModel.swift in Sources */,
+				404C57032746A3A500B31F64 /* APIConstants.swift in Sources */,
 				404E687227245220005AA5DD /* RegistSecondViewModel.swift in Sources */,
 				406324D0273FF1E1009F62A3 /* FieldViewModel.swift in Sources */,
 				40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */,
