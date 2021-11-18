@@ -126,22 +126,28 @@ class MenteeReviewViewController: UIViewController {
                             $0.bottom.equalToSuperview().inset(-16)
                         }
                     }
-                    cell.profileBtn.rx.tap
-                        .bind { _ in
-                            self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
-                        }
-                        .disposed(by: self.disposeBag)
+                    cell.profileBtn.addTarget(self, action: #selector(self.profileBtnAction), for: .touchUpInside)
                     cell.viewMoreBtn.rx.tap
+                        .take(1)
                         .bind { _ in
+                            print(1)
                             cell.viewMoreBtnAction()
-                            self.tableView.reloadData()
                         }
                         .disposed(by: self.disposeBag)
+                    cell.viewMoreBtn.addTarget(self, action: #selector(self.tableViewReloadData), for: .touchUpInside)
                     return cell
                 }
                 return UITableViewCell()
             }
             .disposed(by: disposeBag)
+    }
+    
+    @objc func profileBtnAction() {
+        self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
+    }
+    
+    @objc func tableViewReloadData() {
+        self.tableView.reloadData()
     }
     
 }
