@@ -36,6 +36,10 @@ class JobMentorListViewController: UIViewController {
     
     private let mentorListCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    private let bottomView = UIView().then {
+        $0.backgroundColor = .white
+    }
+    
     //MARK:- Life Cycle
 
     override func viewDidLoad() {
@@ -50,6 +54,7 @@ class JobMentorListViewController: UIViewController {
     
     private func setUI() {
         view.backgroundColor = .white
+        tabBarController?.tabBar.isHidden = true
         
         view.addSubview(backBtn)
         backBtn.snp.makeConstraints {
@@ -83,11 +88,19 @@ class JobMentorListViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()
         }
+        
+        view.addSubview(bottomView)
+        bottomView.snp.makeConstraints {
+            $0.height.equalTo(34)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
     }
     
     private func binding() {
         backBtn.rx.tap
             .bind(onNext: { _ in
+                self.tabBarController?.tabBar.isHidden = false
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)

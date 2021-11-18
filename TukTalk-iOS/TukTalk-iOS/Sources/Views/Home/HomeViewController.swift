@@ -257,7 +257,7 @@ class HomeViewController: UIViewController {
     
     private func binding() {
         jobViewAllBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind { _ in
                 let nextVC = JobMentorListViewController()
                 self.homeViewModel.output.indexPathNum.take(1)
                     .subscribe(onNext: { num in
@@ -265,7 +265,13 @@ class HomeViewController: UIViewController {
                     })
                     .disposed(by: self.disposeBag)
                 self.navigationController?.pushViewController(nextVC, animated: true)
-            })
+            }
+            .disposed(by: disposeBag)
+        
+        reviewViewAllBtn.rx.tap
+            .bind { _ in
+                self.navigationController?.pushViewController(MenteeReviewViewController(), animated: true)
+            }
             .disposed(by: disposeBag)
     }
     

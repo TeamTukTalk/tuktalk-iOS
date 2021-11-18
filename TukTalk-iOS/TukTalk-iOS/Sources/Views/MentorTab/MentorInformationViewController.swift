@@ -352,6 +352,12 @@ class MentorInformationViewController: UIViewController {
             self.mainScrollView.contentSize = CGSize(width: self.screenWidth, height: 459 + value + 92)
         })
         .disposed(by: self.disposeBag)
+        
+        backBtn.rx.tap
+            .bind { _ in
+                self.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: self.disposeBag)
     }
 
     private func bindingCollectionView() {
