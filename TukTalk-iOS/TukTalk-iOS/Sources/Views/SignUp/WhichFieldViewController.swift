@@ -12,6 +12,7 @@ class WhichFieldViewController: UIViewController {
     //MARK:- Properties
     
     private lazy var viewModel = WhichFieldViewModel()
+    private let user = UserSignUp.shared
     private var selectedNum = 0
     private let disposeBag = DisposeBag()
     
@@ -145,32 +146,44 @@ class WhichFieldViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        designCategoryCV.rx.itemSelected
-            .bind { _ in
+        designCategoryCV.rx.modelSelected(FieldCategoryDataModel.self)
+            .bind(onNext: { model in
+                self.user.field.append(model.category)
+                print(self.user.field)
                 self.selectedNum += 1
                 self.viewModel.input.selectedNum.onNext(self.selectedNum)
-            }
+            })
             .disposed(by: disposeBag)
         
-        designCategoryCV.rx.itemDeselected
-            .bind { _ in
+        designCategoryCV.rx.modelDeselected(FieldCategoryDataModel.self)
+            .bind(onNext: { model in
+                if let index = self.user.field.firstIndex(of: model.category) {
+                    self.user.field.remove(at: index)
+                }
+                print(self.user.field)
                 self.selectedNum -= 1
                 self.viewModel.input.selectedNum.onNext(self.selectedNum)
-            }
+            })
             .disposed(by: disposeBag)
         
-        itDevCategoryCV.rx.itemSelected
-            .bind { _ in
+        itDevCategoryCV.rx.modelSelected(FieldCategoryDataModel.self)
+            .bind(onNext: { model in
+                self.user.field.append(model.category)
+                print(self.user.field)
                 self.selectedNum += 1
                 self.viewModel.input.selectedNum.onNext(self.selectedNum)
-            }
+            })
             .disposed(by: disposeBag)
         
-        itDevCategoryCV.rx.itemDeselected
-            .bind { _ in
+        itDevCategoryCV.rx.modelDeselected(FieldCategoryDataModel.self)
+            .bind(onNext: { model in
+                if let index = self.user.field.firstIndex(of: model.category) {
+                    self.user.field.remove(at: index)
+                }
+                print(self.user.field)
                 self.selectedNum -= 1
                 self.viewModel.input.selectedNum.onNext(self.selectedNum)
-            }
+            })
             .disposed(by: disposeBag)
         
         viewModel.output.nextBtnEnable

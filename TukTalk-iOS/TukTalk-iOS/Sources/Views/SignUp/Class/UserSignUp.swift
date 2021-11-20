@@ -11,9 +11,11 @@ class UserSignUp {
     static let shared = UserSignUp()
     
     var role: String?
-    var field: [String]?
+    var field: [String] = []
     var nickname: String?
     var email: String?
     var password: String?
     var imageURL: String?
+    
+    private init() {}
 }
