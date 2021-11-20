@@ -112,6 +112,7 @@
 		40A387B82731A5CB00BA5D5D /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */; };
 		40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */; };
 		40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */; };
+		40AA40EC27494AAC00F76625 /* UserSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40EB27494AAC00F76625 /* UserSignUp.swift */; };
 		40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */; };
 		40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */; };
 		40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */; };
@@ -251,6 +252,7 @@
 		40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 		40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableHeaderView.swift; sourceTree = "<group>"; };
 		40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFirstViewModel.swift; sourceTree = "<group>"; };
+		40AA40EB27494AAC00F76625 /* UserSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUp.swift; sourceTree = "<group>"; };
 		40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewModel.swift; sourceTree = "<group>"; };
 		40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetViewModel.swift; sourceTree = "<group>"; };
@@ -796,6 +798,7 @@
 		4088F16A2719E15700527A77 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				40AA40EA27494A8E00F76625 /* Class */,
 				404C570F2746C43200B31F64 /* Cell */,
 				4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */,
 				4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */,
@@ -832,6 +835,14 @@
 				4065FEED274397D4005AAE0F /* RegistProfileFifthViewModel.swift */,
 			);
 			path = MentorProfile;
+			sourceTree = "<group>";
+		};
+		40AA40EA27494A8E00F76625 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				40AA40EB27494AAC00F76625 /* UserSignUp.swift */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 		40AFDE0027354B2E00422930 /* MentorProfile */ = {
@@ -1214,6 +1225,7 @@
 				4065FEF92743CDE7005AAE0F /* PageCollectionViewDataModel.swift in Sources */,
 				406C3F8427464F9C009EBAB2 /* MenteeReviewViewController.swift in Sources */,
 				402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */,
+				40AA40EC27494AAC00F76625 /* UserSignUp.swift in Sources */,
 				40DCF343273979DD00A82CC6 /* JobMentorCollectionViewCell.swift in Sources */,
 				4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
