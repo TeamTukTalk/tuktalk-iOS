@@ -130,7 +130,6 @@ class MenteeReviewViewController: UIViewController {
                     cell.viewMoreBtn.rx.tap
                         .take(1)
                         .bind { _ in
-                            print(1)
                             cell.viewMoreBtnAction()
                         }
                         .disposed(by: self.disposeBag)
