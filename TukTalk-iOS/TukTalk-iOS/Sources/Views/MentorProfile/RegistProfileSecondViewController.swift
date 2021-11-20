@@ -105,6 +105,7 @@ class RegistProfileSecondViewController: UIViewController {
         $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
         $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
         $0.isHidden = true
+        $0.isEnabled = false
     }
     
     private let detailFieldBtn3 = UIButton().then {
@@ -119,6 +120,7 @@ class RegistProfileSecondViewController: UIViewController {
         $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
         $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
         $0.isHidden = true
+        $0.isEnabled = false
     }
     
     private let nextBtn = UIButton().then {
@@ -272,6 +274,8 @@ class RegistProfileSecondViewController: UIViewController {
                     }
                     self.specialityBtn.setTitleColor(UIColor.GrayScale.sub1, for: .normal)
                     self.detailFieldBtn.isEnabled = true
+                    self.detailFieldBtn2.isEnabled = true
+                    self.detailFieldBtn3.isEnabled = true
                 })
                 .disposed(by: self.disposeBag)
                 let naviVC = UINavigationController(rootViewController: fieldVC)
