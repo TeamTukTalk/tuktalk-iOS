@@ -149,7 +149,6 @@ class WhichFieldViewController: UIViewController {
         designCategoryCV.rx.modelSelected(FieldCategoryDataModel.self)
             .bind(onNext: { model in
                 self.user.field.append(model.category)
-                print(self.user.field)
                 self.selectedNum += 1
                 self.viewModel.input.selectedNum.onNext(self.selectedNum)
             })
@@ -160,7 +159,6 @@ class WhichFieldViewController: UIViewController {
                 if let index = self.user.field.firstIndex(of: model.category) {
                     self.user.field.remove(at: index)
                 }
-                print(self.user.field)
                 self.selectedNum -= 1
                 self.viewModel.input.selectedNum.onNext(self.selectedNum)
             })
@@ -169,7 +167,6 @@ class WhichFieldViewController: UIViewController {
         itDevCategoryCV.rx.modelSelected(FieldCategoryDataModel.self)
             .bind(onNext: { model in
                 self.user.field.append(model.category)
-                print(self.user.field)
                 self.selectedNum += 1
                 self.viewModel.input.selectedNum.onNext(self.selectedNum)
             })
@@ -180,7 +177,6 @@ class WhichFieldViewController: UIViewController {
                 if let index = self.user.field.firstIndex(of: model.category) {
                     self.user.field.remove(at: index)
                 }
-                print(self.user.field)
                 self.selectedNum -= 1
                 self.viewModel.input.selectedNum.onNext(self.selectedNum)
             })
