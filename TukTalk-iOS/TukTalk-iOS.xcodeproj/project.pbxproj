@@ -323,7 +323,6 @@
 		4000F8AB27220D8C0067C6B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				404C57082746BB0E00B31F64 /* Network */,
 				400A3D372729704A00921BE0 /* SignUp */,
 				40DCF338273832B600A82CC6 /* Home */,
 				400A3D382729705600921BE0 /* Search */,
@@ -638,17 +637,9 @@
 			isa = PBXGroup;
 			children = (
 				404C57062746B89100B31F64 /* SignUpService.swift */,
+				404C57092746BB2F00B31F64 /* SignUpRequest.swift */,
 			);
 			path = SignUp;
-			sourceTree = "<group>";
-		};
-		404C57082746BB0E00B31F64 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				404C57092746BB2F00B31F64 /* SignUpRequest.swift */,
-				404C57142746D62800B31F64 /* LoginRequest.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		404C570F2746C43200B31F64 /* Cell */ = {
@@ -664,6 +655,7 @@
 			isa = PBXGroup;
 			children = (
 				404C57172746D6B100B31F64 /* LoginService.swift */,
+				404C57142746D62800B31F64 /* LoginRequest.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
