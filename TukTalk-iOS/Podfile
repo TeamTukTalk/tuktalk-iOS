@@ -11,6 +11,7 @@ pod 'RxSwift'
 pod 'RxCocoa'
 pod 'SnapKit'
 pod 'Moya'
+pod 'Moya/RxSwift'
 pod 'Then'
 
   target 'TukTalk-iOSTests' do

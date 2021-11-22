@@ -6,12 +6,16 @@
 //
 
 import RxSwift
+import Moya
 
 class SignUpViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var agreeButtonViewModel = AgreeButtonViewModel()
+    private lazy var viewModel = SignUpViewModel()
+    private let provider = MoyaProvider<EmailValidService>()
+    private let user = UserSignUp.shared
+    private var emailValid: Bool?
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -35,6 +39,7 @@ class SignUpViewController: UIViewController {
         $0.makeHeightSpacing(thisText: $0.text, fontSize: 20)
     }
     
+    // Name Area
     private let nameLabel = UILabel().then {
         $0.text = "이름(닉네임)"
         $0.font = UIFont.TTFont(type: .SDMed, size: 14)
@@ -46,13 +51,20 @@ class SignUpViewController: UIViewController {
         $0.font = UIFont.TTFont(type: .SDReg, size: 15)
         $0.setUnderline(false)
     }
+    private let nameErrorLabel = UILabel().then {
+        $0.text = "최소 2자 이상으로 적어주세요."
+        $0.font = UIFont.TTFont(type: .SDReg, size: 10)
+        $0.textColor = UIColor.State.error
+        $0.isHidden = true
+    }
+    private let nameErrorIcon = UIImageView()
     
+    // Email Area
     private let emailLabel = UILabel().then {
         $0.text = "아이디(이메일)"
         $0.font = UIFont.TTFont(type: .SDMed, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
     }
-    
     private let emailCheckBtn = UIButton().then {
         $0.setTitle("중복확인", for: .normal)
         $0.setTitleColor(UIColor.Primary.primary, for: .normal)
@@ -61,46 +73,66 @@ class SignUpViewController: UIViewController {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.Primary.primary.cgColor
     }
-    
     private let emailTextField = UITextField().then {
         $0.placeholder = "이메일을 입력해주세요."
         $0.borderStyle = UITextField.BorderStyle.none
         $0.font = UIFont.TTFont(type: .SDReg, size: 15)
         $0.setUnderline(false)
     }
+    private let emailErrorLabel = UILabel().then {
+        $0.text = "중복확인을 진행해주세요."
+        $0.font = UIFont.TTFont(type: .SDReg, size: 10)
+        $0.textColor = UIColor.State.error
+        $0.isHidden = true
+    }
+    private let emailErrorIcon = UIImageView()
     
+    // Password Area
     private let passwordLabel = UILabel().then {
         $0.text = "비밀번호"
         $0.font = UIFont.TTFont(type: .SDMed, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
     }
-    
     private let passwordTextField = UITextField().then {
         $0.placeholder = "8자 이상으로 입력해주세요."
         $0.borderStyle = UITextField.BorderStyle.none
         $0.font = UIFont.TTFont(type: .SDReg, size: 15)
+        $0.isSecureTextEntry = true
         $0.setUnderline(false)
     }
+    private let passwordErrorLabel = UILabel().then {
+        $0.text = "8자 이상으로 입력해주세요."
+        $0.font = UIFont.TTFont(type: .SDReg, size: 10)
+        $0.textColor = UIColor.State.error
+        $0.isHidden = true
+    }
+    private let passwordErrorIcon = UIImageView()
     
     private let passwordCheckLabel = UILabel().then {
         $0.text = "비밀번호 확인"
         $0.font = UIFont.TTFont(type: .SDMed, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
     }
-    
     private let passwordCheckTextField = UITextField().then {
         $0.placeholder = "8자 이상으로 입력해주세요."
         $0.borderStyle = UITextField.BorderStyle.none
         $0.font = UIFont.TTFont(type: .SDReg, size: 15)
+        $0.isSecureTextEntry = true
         $0.setUnderline(false)
     }
+    private let passwordCheckErrorLabel = UILabel().then {
+        $0.text = "비밀번호가 일치하지 않습니다."
+        $0.font = UIFont.TTFont(type: .SDReg, size: 10)
+        $0.textColor = UIColor.State.error
+        $0.isHidden = true
+    }
+    private let passwordCheckErrorIcon = UIImageView()
     
     private let allAgreeBtn = UIButton().then {
         $0.setTitle("뚝딱 가입 약관에 모두 동의합니다.", for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 12)
         $0.setTitleColor(UIColor.GrayScale.sub1, for: .normal)
         $0.setImage(UIImage(named: "allCheckOffImg"), for: .normal)
-        $0.setImage(UIImage(named: "allCheckOnImg"), for: .selected)
     }
     
     private let checkBtn = UIButton().then {
@@ -114,6 +146,7 @@ class SignUpViewController: UIViewController {
         $0.titleLabel?.font = UIFont.TTFont(type: .SDReg, size: 16)
         $0.backgroundColor = UIColor.GrayScale.gray4
         $0.layer.cornerRadius = 26
+        $0.isEnabled = false
     }
     
     //MARK:- Life Cycle
@@ -149,6 +182,7 @@ class SignUpViewController: UIViewController {
         
         view.addSubview(nameLabel)
         nameLabel.snp.makeConstraints {
+            $0.height.equalTo(22)
             $0.top.equalTo(titleLabel.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
@@ -158,6 +192,20 @@ class SignUpViewController: UIViewController {
             $0.top.equalTo(nameLabel.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(30)
+        }
+        
+        view.addSubview(nameErrorLabel)
+        nameErrorLabel.snp.makeConstraints {
+            $0.height.equalTo(14)
+            $0.top.equalTo(nameTextField.snp.bottom).offset(8)
+            $0.leading.equalTo(nameTextField.snp.leading)
+        }
+        
+        view.addSubview(nameErrorIcon)
+        nameErrorIcon.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.top.equalTo(nameLabel.snp.bottom).offset(13)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(emailLabel)
@@ -174,12 +222,26 @@ class SignUpViewController: UIViewController {
             $0.height.equalTo(30)
         }
         
+        view.addSubview(emailErrorLabel)
+        emailErrorLabel.snp.makeConstraints {
+            $0.height.equalTo(14)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(8)
+            $0.leading.equalTo(emailTextField.snp.leading)
+        }
+        
         view.addSubview(emailCheckBtn)
         emailCheckBtn.snp.makeConstraints {
             $0.width.equalTo(84)
             $0.height.equalTo(32)
             $0.bottom.equalTo(emailTextField.snp.bottom)
             $0.trailing.equalToSuperview().inset(16)
+        }
+        
+        view.addSubview(emailErrorIcon)
+        emailErrorIcon.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.top.equalTo(emailLabel.snp.bottom).offset(13)
+            $0.trailing.equalTo(emailCheckBtn.snp.leading).offset(-12)
         }
         
         view.addSubview(passwordLabel)
@@ -195,6 +257,20 @@ class SignUpViewController: UIViewController {
             $0.height.equalTo(30)
         }
         
+        view.addSubview(passwordErrorLabel)
+        passwordErrorLabel.snp.makeConstraints {
+            $0.height.equalTo(14)
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(8)
+            $0.leading.equalTo(passwordTextField.snp.leading)
+        }
+        
+        view.addSubview(passwordErrorIcon)
+        passwordErrorIcon.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.top.equalTo(passwordLabel.snp.bottom).offset(13)
+            $0.trailing.equalToSuperview().inset(16)
+        }
+        
         view.addSubview(passwordCheckLabel)
         passwordCheckLabel.snp.makeConstraints {
             $0.top.equalTo(passwordTextField.snp.bottom).offset(40)
@@ -208,10 +284,32 @@ class SignUpViewController: UIViewController {
             $0.height.equalTo(30)
         }
         
+        view.addSubview(passwordCheckErrorLabel)
+        passwordCheckErrorLabel.snp.makeConstraints {
+            $0.height.equalTo(14)
+            $0.top.equalTo(passwordCheckTextField.snp.bottom).offset(8)
+            $0.leading.equalTo(passwordCheckTextField.snp.leading)
+        }
+        
+        view.addSubview(passwordCheckErrorIcon)
+        passwordCheckErrorIcon.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.top.equalTo(passwordCheckLabel.snp.bottom).offset(13)
+            $0.trailing.equalToSuperview().inset(16)
+        }
+        
+        view.addSubview(signUpBtn)
+        signUpBtn.snp.makeConstraints {
+            $0.height.equalTo(52)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(42)
+        }
+        
         view.addSubview(allAgreeBtn)
         allAgreeBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 0)
         allAgreeBtn.snp.makeConstraints {
-            $0.top.equalTo(passwordCheckTextField.snp.bottom).offset(35)
+            $0.height.equalTo(24)
+            $0.bottom.equalTo(signUpBtn.snp.top).offset(-32)
             $0.leading.equalToSuperview().offset(16)
         }
         
@@ -220,15 +318,9 @@ class SignUpViewController: UIViewController {
         attribute.addAttribute(NSMutableAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: NSRange(location: 0, length: 4))
         checkBtn.setAttributedTitle(attribute, for: .normal)
         checkBtn.snp.makeConstraints {
-            $0.top.equalTo(allAgreeBtn.snp.top)
+            $0.height.equalTo(18)
+            $0.bottom.equalTo(signUpBtn.snp.top).offset(-35)
             $0.trailing.equalToSuperview().inset(16)
-        }
-        
-        view.addSubview(signUpBtn)
-        signUpBtn.snp.makeConstraints {
-            $0.height.equalTo(52)
-            $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(79)
         }
         
     }
@@ -243,6 +335,18 @@ class SignUpViewController: UIViewController {
         nameTextField.rx.controlEvent(.editingDidEnd)
             .subscribe { _ in
                 self.nameTextField.setUnderline(false)
+                self.viewModel.output.nicknameCheck
+                    .drive(onNext: { value in
+                        switch value {
+                        case true:
+                            self.nameErrorLabel.isHidden = true
+                            self.nameErrorIcon.image = UIImage(named: "successIcon")
+                        case false:
+                            self.nameErrorLabel.isHidden = false
+                            self.nameErrorIcon.image = UIImage(named: "errorIcon")
+                        }
+                    })
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
@@ -252,9 +356,22 @@ class SignUpViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        emailTextField.rx.controlEvent(.editingChanged)
+            .subscribe { _ in
+                self.viewModel.emailChecked.onNext(nil)
+                self.emailErrorLabel.textColor = UIColor.State.error
+                self.emailErrorLabel.isHidden = true
+            }
+            .disposed(by: disposeBag)
+        
         emailTextField.rx.controlEvent(.editingDidEnd)
             .subscribe { _ in
                 self.emailTextField.setUnderline(false)
+                if self.emailValid == nil {
+                    self.emailErrorLabel.text = "중복확인을 진행해주세요."
+                    self.emailErrorLabel.isHidden = false
+                    self.emailErrorIcon.image = UIImage(named: "errorIcon")
+                }
             }
             .disposed(by: disposeBag)
         
@@ -267,12 +384,24 @@ class SignUpViewController: UIViewController {
         passwordTextField.rx.controlEvent(.editingDidEnd)
             .subscribe { _ in
                 self.passwordTextField.setUnderline(false)
+                self.viewModel.output.passwordCheck
+                    .drive(onNext: { value in
+                        self.passwordErrorLabel.isHidden = value
+                        self.passwordErrorIcon.image = value ? UIImage(named: "successIcon") : UIImage(named: "errorIcon")
+                    })
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
         passwordCheckTextField.rx.controlEvent(.editingDidBegin)
             .subscribe { _ in
                 self.passwordCheckTextField.setUnderline(true)
+                self.viewModel.output.passwordConfirmCheck
+                    .drive(onNext: { value in
+                        self.passwordCheckErrorLabel.isHidden = value
+                        self.passwordCheckErrorIcon.image = value ? UIImage(named: "successIcon") : UIImage(named: "errorIcon")
+                    })
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
@@ -282,10 +411,94 @@ class SignUpViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        allAgreeBtn.rx.tap
+        nameTextField.rx.text
+            .bind(to: viewModel.input.nicknameInput)
+            .disposed(by: disposeBag)
+        
+        passwordTextField.rx.text
+            .bind(to: viewModel.input.passwordInput)
+            .disposed(by: disposeBag)
+        
+        passwordCheckTextField.rx.text
+            .bind(to: viewModel.input.passwordValidInput)
+            .disposed(by: disposeBag)
+        
+        emailCheckBtn.rx.tap
             .bind { _ in
-                self.agreeButtonViewModel.btnToggle()
-                self.agreeButtonViewModel.toggle ? self.allAgreeBtn.setImage(UIImage(named: "allCheckOnImg"), for: .normal) : self.allAgreeBtn.setImage(UIImage(named: "allCheckOffImg"), for: .normal)
+                if let text = self.emailTextField.text {
+                    if !text.contains("@") || !text.contains(".") {
+                        self.emailErrorLabel.text = "이메일 형식에 맞게 입력해주세요."
+                        self.emailErrorLabel.isHidden = false
+                        self.emailErrorIcon.image = UIImage(named: "errorIcon")
+                        return
+                    }
+                }
+                self.provider.rx.request(.emailRequest(self.emailTextField.text))
+                    .subscribe { result in
+                        switch result {
+                        case let .success(response):
+                            let emailValid = try? response.map(EmailValidResponse.self)
+                            if let result = emailValid?.existingEmail {
+                                switch result {
+                                case true:
+                                    self.emailErrorLabel.isHidden = false
+                                    self.emailErrorLabel.text = "이미 등록된 계정입니다."
+                                    self.emailErrorIcon.image = UIImage(named: "errorIcon")
+                                    self.viewModel.emailChecked.onNext(false)
+                                case false:
+                                    self.emailErrorLabel.isHidden = false
+                                    self.emailErrorLabel.text = "사용할 수 있는 아이디입니다."
+                                    self.emailErrorLabel.textColor = UIColor.GrayScale.sub3
+                                    self.emailErrorIcon.image = UIImage(named: "successIcon")
+                                    self.viewModel.emailChecked.onNext(true)
+                                }
+                        }
+                        case let .failure(error):
+                            print(error.localizedDescription)
+                        }
+                    }
+                    .disposed(by: self.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        allAgreeBtn.rx.tap
+            .scan(false) { state, _ in
+                !state
+            }
+            .bind(onNext: { state in
+                self.viewModel.agreeBtnState.onNext(state)
+                state ? self.allAgreeBtn.setImage(UIImage(named: "allCheckOnImg"), for: .normal) : self.allAgreeBtn.setImage(UIImage(named: "allCheckOffImg"), for: .normal)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.emailChecked
+            .bind(onNext: { value in
+                self.emailValid = value
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.output.signUpBtnCheck
+            .drive(onNext: { value in
+                switch value {
+                case false:
+                    self.signUpBtn.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
+                    self.signUpBtn.backgroundColor = UIColor.GrayScale.gray4
+                    self.signUpBtn.isEnabled = value
+                case true:
+                    self.signUpBtn.setTitleColor(.white, for: .normal)
+                    self.signUpBtn.backgroundColor = UIColor.Primary.primary
+                    self.signUpBtn.isEnabled = value
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        signUpBtn.rx.tap
+            .bind { _ in
+                self.user.nickname = self.nameTextField.text
+                self.user.email = self.emailTextField.text
+                self.user.password = self.passwordTextField.text
+                // 회원가입 api 연동 예정
+                self.navigationController?.pushViewController(SignUpFinishViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         

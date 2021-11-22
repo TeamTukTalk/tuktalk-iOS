@@ -133,6 +133,7 @@ class RegistProfileFirstViewController: UIViewController {
     //MARK:- Function
     
     private func setNaviBar() {
+        navigationController?.navigationBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: true)
         tabBarController?.navigationController?.setNavigationBarHidden(false, animated: true)
         
