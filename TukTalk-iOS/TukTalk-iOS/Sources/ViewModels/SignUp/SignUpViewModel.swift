@@ -49,10 +49,9 @@ final class SignUpViewModel: ViewModelType {
         self.output = Output(nicknameCheck: nicknameCheck$, passwordCheck: passwordCheck$, passwordConfirmCheck: passwordConfirmCheck$, signUpBtnCheck: signUpBtnCheck$)
     }
     
-    func signUpRequest() {
-        let provider = MoyaProvider<SignUpServce>()
-        let user = UserSignUp.shared
-        provider.rx.request(.signUp(param: SignUpRequest(user.field, user.email!, user.nickname!, user.password!, user.role!, user.profileImageColor!, user.firstLetter!)))
+    func signUpRequest(param: SignUpRequest) {
+        let provider = MoyaProvider<SignUpService>()
+        provider.rx.request(.signUp(param: param))
             .subscribe { result in
                 switch result {
                 case .success(_):

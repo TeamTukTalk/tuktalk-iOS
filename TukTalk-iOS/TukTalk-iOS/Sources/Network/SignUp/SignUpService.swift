@@ -7,11 +7,11 @@
 
 import Moya
 
-enum SignUpServce {
+enum SignUpService {
     case signUp(param: SignUpRequest)
 }
 
-extension SignUpServce: TargetType {
+extension SignUpService: TargetType {
     var baseURL: URL {
         return URL(string: APIConstants.baseURL)!
     }
@@ -32,8 +32,8 @@ extension SignUpServce: TargetType {
     
     var task: Task {
         switch self {
-        case .signUp(let signUpRequest):
-            return .requestJSONEncodable(signUpRequest)
+        case .signUp(let param):
+            return .requestJSONEncodable(param)
         }
     }
     

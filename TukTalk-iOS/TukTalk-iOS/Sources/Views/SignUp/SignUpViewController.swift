@@ -499,7 +499,8 @@ class SignUpViewController: UIViewController {
                 self.user.password = self.passwordTextField.text
                 self.user.firstLetter = String(self.nameTextField.text!.prefix(1)).uppercased()
                 self.user.profileImageColor = self.user.getRandomProfileColor()
-                self.viewModel.signUpRequest()
+                let param = SignUpRequest(subSpecialties: self.user.field, email: self.user.email!, nickname: self.user.nickname!, password: self.user.password!, role: self.user.role!, profileImageColor: self.user.profileImageColor!, firstLetter: self.user.firstLetter!)
+                self.viewModel.signUpRequest(param: param)
                 self.navigationController?.pushViewController(SignUpFinishViewController(), animated: true)
             }
             .disposed(by: disposeBag)

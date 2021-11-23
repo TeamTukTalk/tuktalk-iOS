@@ -15,24 +15,4 @@ struct SignUpRequest: Codable {
     let role: String
     let profileImageColor: String
     let firstLetter: String
-    
-    enum CodingKeys: String, CodingKey {
-        case subSpecialties
-        case email
-        case nickname
-        case password
-        case role
-        case profileImageColor
-        case firstLetter
-    }
-    
-    init(_ subSpecialties: [String], _ email: String, _ nickname: String, _ password: String, _ role: String, _ profileImageColor: String, _ firstLetter: String) {
-        self.subSpecialties = subSpecialties
-        self.email = email
-        self.nickname = nickname
-        self.password = password
-        self.role = role
-        self.profileImageColor = profileImageColor
-        self.firstLetter = firstLetter
-    }
 }
