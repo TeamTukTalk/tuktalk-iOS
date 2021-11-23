@@ -53,4 +53,14 @@ extension UIColor {
     
     //MARK:- MyPage
     static let myPageColor = UIColor(red: 251/255, green: 251/255, blue: 251/255, alpha: 1)
+    
+    //MARK:- Profile
+    
+    class Profile: UIColor {
+        static let profileBlue = UIColor(red: 229/255, green: 238/255, blue: 255/255, alpha: 1)
+        static let profileRed = UIColor(red: 255/255, green: 240/255, blue: 240/255, alpha: 1)
+        static let profileYellow = UIColor(red: 255/255, green: 241/255, blue: 211/255, alpha: 1)
+        static let profileGray = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        static let profileGreen = UIColor(red: 227/255, green: 255/255, blue: 243/255, alpha: 1)
+    }
 }

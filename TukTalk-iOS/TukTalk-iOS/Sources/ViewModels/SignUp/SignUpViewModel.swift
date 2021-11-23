@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import Moya
 
 final class SignUpViewModel: ViewModelType {
     var dependency: Dependency
@@ -46,6 +47,21 @@ final class SignUpViewModel: ViewModelType {
         
         self.input = Input(nicknameInput: nicknameInput$.asObserver(), passwordInput: passwordInput$.asObserver(), passwordValidInput: passwordConfirmInput$.asObserver())
         self.output = Output(nicknameCheck: nicknameCheck$, passwordCheck: passwordCheck$, passwordConfirmCheck: passwordConfirmCheck$, signUpBtnCheck: signUpBtnCheck$)
+    }
+    
+    func signUpRequest() {
+        let provider = MoyaProvider<SignUpServce>()
+        let user = UserSignUp.shared
+        provider.rx.request(.signUp(param: SignUpRequest(user.field, user.email!, user.nickname!, user.password!, user.role!, user.profileImageColor!, user.firstLetter!)))
+            .subscribe { result in
+                switch result {
+                case .success(_):
+                    print("success SignUp")
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: self.disposeBag)
     }
     
 }

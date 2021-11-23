@@ -497,7 +497,9 @@ class SignUpViewController: UIViewController {
                 self.user.nickname = self.nameTextField.text
                 self.user.email = self.emailTextField.text
                 self.user.password = self.passwordTextField.text
-                // 회원가입 api 연동 예정
+                self.user.firstLetter = String(self.nameTextField.text!.prefix(1)).uppercased()
+                self.user.profileImageColor = self.user.getRandomProfileColor()
+                self.viewModel.signUpRequest()
                 self.navigationController?.pushViewController(SignUpFinishViewController(), animated: true)
             }
             .disposed(by: disposeBag)

@@ -15,7 +15,15 @@ class UserSignUp {
     var nickname: String?
     var email: String?
     var password: String?
-    var imageURL: String?
+    var profileImageColor: String?
+    var firstLetter: String?
     
     private init() {}
+    
+    func getRandomProfileColor() -> String {
+        let colorList = ["profileBlue", "profileRed", "profileYellow", "profileGray", "profileGreen"]
+        let profileImageColor = colorList.randomElement() ?? ""
+        self.profileImageColor = profileImageColor
+        return profileImageColor
+    }
 }
