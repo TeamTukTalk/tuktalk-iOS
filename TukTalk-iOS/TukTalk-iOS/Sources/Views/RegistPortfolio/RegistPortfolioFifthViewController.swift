@@ -7,12 +7,13 @@
 
 import RxSwift
 import RxCocoa
+import MobileCoreServices
 
 class RegistPortfolioFifthViewController: UIViewController {
     
     //MARK:- Properties
     
-//    private lazy var viewModel = RegistPortfolioFifthViewModel()
+    //    private lazy var viewModel = RegistPortfolioFifthViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(1.0))
     private let progressIsHiddenValue = BehaviorRelay(value: false)
@@ -204,5 +205,18 @@ class RegistPortfolioFifthViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        portfolioUploadBtn.rx.tap
+            .bind { _ in
+                let importMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF)], in: .import)
+                importMenu.delegate = self
+                importMenu.modalPresentationStyle = .formSheet
+                self.present(importMenu, animated: true, completion: nil)
+            }
+            .disposed(by: disposeBag)
     }
+}
+
+extension RegistPortfolioFifthViewController: UIDocumentPickerDelegate {
+
 }
