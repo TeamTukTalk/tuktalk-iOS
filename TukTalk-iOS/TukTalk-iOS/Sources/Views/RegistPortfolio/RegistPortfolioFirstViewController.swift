@@ -184,7 +184,7 @@ class RegistPortfolioFirstViewController: UIViewController {
         
         nextBtn.rx.tap
             .bind { _ in
-                let nextVC = RegistProfileSecondViewController()
+                let nextVC = RegistPortfolioSecondViewController()
                 nextVC.progressPercent.subscribe(onNext: { percent in
                     self.progressBar.setProgress(percent, animated: true)
                 })
