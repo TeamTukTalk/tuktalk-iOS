@@ -1,5 +1,5 @@
 //
-//  RegistPortfolioThirdViewController.swift
+//  RegistPortfolioFirthViewController.swift
 //  TukTalk-iOS
 //
 //  Created by 한상진 on 2021/11/24.
@@ -8,13 +8,13 @@
 import RxSwift
 import RxCocoa
 
-class RegistPortfolioThirdViewController: UIViewController {
+class RegistPortfolioFirthViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var viewModel = RegistPortfolioThirdViewModel()
+    //    private lazy var viewModel = RegistPortfolioFirthViewModel()
     private let disposeBag = DisposeBag()
-    private let progressPercentValue = BehaviorRelay(value: Float(0.6))
+    private let progressPercentValue = BehaviorRelay(value: Float(0.8))
     private let progressIsHiddenValue = BehaviorRelay(value: false)
     var progressPercent: Observable<Float> {
         return progressPercentValue.asObservable()
@@ -40,18 +40,38 @@ class RegistPortfolioThirdViewController: UIViewController {
     private let titleLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDBold, size: 16)
         $0.textColor = UIColor.GrayScale.normal
-        $0.makeHeightSpacing(thisText: "어떤 분들께 추천하나요? 🙌", fontSize: 17)
+        $0.makeHeightSpacing(thisText: "가격을 책정해주세요!", fontSize: 17)
     }
     
-    private let devideView = UIView().then {
-        $0.backgroundColor = UIColor.GrayScale.gray3
+    private let subLabel = UILabel().then {
+        $0.text = "100,000원까지 책정하실 수 있습니다."
+        $0.textColor = UIColor.GrayScale.sub3
+        $0.font = UIFont.TTFont(type: .SDMed, size: 13)
     }
     
-    private let mainTextView = UITextView().then {
-        $0.text = "포트폴리오 제작에 어려움을 느끼시는 분 등등"
+    private let priceTitleLabael = UILabel().then {
+        $0.text = "가격*"
+        $0.font = UIFont.TTFont(type: .SDMed, size: 14)
+        $0.textColor = UIColor.GrayScale.sub1
+    }
+    
+    private let priceTextField = UITextField().then {
+        $0.placeholder = "0"
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
-        $0.textColor = UIColor.GrayScale.sub4
-        $0.textContainerInset = UIEdgeInsets(top: 12, left: 16, bottom: 0, right: 16)
+        $0.textColor = UIColor.GrayScale.sub1
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 29, height: 0))
+        $0.textAlignment = .right
+        $0.rightView = paddingView
+        $0.rightViewMode = .always
+        $0.keyboardType = .numberPad
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+        $0.layer.cornerRadius = 8
+    }
+    private let priceLabel = UILabel().then {
+        $0.text = "원"
+        $0.font = UIFont.TTFont(type: .SDReg, size: 14)
+        $0.textColor = UIColor.GrayScale.sub1
     }
     
     private let nextBtn = UIButton().then {
@@ -94,18 +114,31 @@ class RegistPortfolioThirdViewController: UIViewController {
             $0.leading.equalToSuperview().offset(16)
         }
         
-        view.addSubview(devideView)
-        devideView.snp.makeConstraints {
-            $0.height.equalTo(1)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(20)
+        view.addSubview(subLabel)
+        subLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.leading.equalToSuperview().offset(16)
+        }
+        
+        view.addSubview(priceTitleLabael)
+        priceTitleLabael.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.equalTo(subLabel.snp.bottom).offset(40)
+            $0.leading.equalToSuperview().offset(16)
+        }
+        
+        view.addSubview(priceTextField)
+        priceTextField.snp.makeConstraints {
+            $0.height.equalTo(44)
+            $0.top.equalTo(priceTitleLabael.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(mainTextView)
-        mainTextView.snp.makeConstraints {
-            $0.top.equalTo(devideView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-120)
+        priceTextField.addSubview(priceLabel)
+        priceLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(nextBtn)
@@ -120,7 +153,7 @@ class RegistPortfolioThirdViewController: UIViewController {
         
         backBtn.rx.tap
             .bind(onNext: { _ in
-                self.progressPercentValue.accept(0.4)
+                self.progressPercentValue.accept(0.6)
                 self.navigationController?.popViewController(animated: false)
             })
             .disposed(by: disposeBag)
@@ -141,45 +174,38 @@ class RegistPortfolioThirdViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        nextBtn.rx.tap
-            .bind { _ in
-                let nextVC = RegistPortfolioFirthViewController()
-                nextVC.progressPercent.subscribe(onNext: { percent in
-                    self.progressPercentValue.accept(percent)
-                })
-                .disposed(by: self.disposeBag)
-                nextVC.progressIsHidden.subscribe(onNext: { valid in
-                    self.progressIsHiddenValue.accept(valid)
-                })
-                .disposed(by: self.disposeBag)
-                
-                self.navigationController?.pushViewController(nextVC, animated: false)
-            }
-            .disposed(by: disposeBag)
+        priceTextField.rx.delegate.onNext(self)
+    }
+}
+extension RegistPortfolioFirthViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        mainTextView.rx.text
-            .orEmpty
-            .bind(to: viewModel.input.textViewInput)
-            .disposed(by: disposeBag)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale.current
+        formatter.maximumFractionDigits = 0
         
-        viewModel.output.nextIsValid
-            .drive(onNext: { status in
-                self.nextBtn.isEnabled = status
-                self.nextBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
-                self.nextBtn.setTitleColor(status ? .white : UIColor.GrayScale.sub4, for: .normal)
-            })
-            .disposed(by: disposeBag)
-        
-        let initText = "포트폴리오 제작에 어려움을 느끼시는 분 등등"
-        viewModel.input.initText.onNext(initText)
-        
-        mainTextView.rx.didBeginEditing
-            .bind { _ in
-                self.mainTextView.textColor = UIColor.GrayScale.sub1
-                if self.mainTextView.text == initText {
-                    self.mainTextView.text = ""
+        if let removeAllSeprator = textField.text?.replacingOccurrences(of: formatter.groupingSeparator, with: ""){
+            var beforeForemattedString = removeAllSeprator + string
+            if formatter.number(from: string) != nil {
+                if let formattedNumber = formatter.number(from: beforeForemattedString), let formattedString = formatter.string(from: formattedNumber){
+                    textField.text = formattedString
+                    return false
+                }
+            } else {
+                if string == "" {
+                    let lastIndex = beforeForemattedString.index(beforeForemattedString.endIndex, offsetBy: -1)
+                    beforeForemattedString = String(beforeForemattedString[..<lastIndex])
+                    if let formattedNumber = formatter.number(from: beforeForemattedString), let formattedString = formatter.string(from: formattedNumber){
+                        textField.text = formattedString
+                        return false
+                    }
+                } else {
+                    return false
                 }
             }
-            .disposed(by: disposeBag)
+        }
+        return true
     }
 }
