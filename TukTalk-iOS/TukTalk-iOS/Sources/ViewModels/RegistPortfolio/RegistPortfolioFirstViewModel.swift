@@ -16,8 +16,6 @@ struct RegistPortfolioFirstViewModel: ViewModelType {
     let output: Output
     
     struct Dependency {
-        var company :String?
-        var department: String?
     }
     
     struct Input {
@@ -29,7 +27,7 @@ struct RegistPortfolioFirstViewModel: ViewModelType {
         var nextIsValid: Driver<Bool>
     }
     
-    init(dependency: Dependency = Dependency(company: nil, department: nil)) {
+    init(dependency: Dependency = Dependency()) {
         self.dependency = dependency
         
         let textViewInput$ = BehaviorSubject<String?>(value: nil)
