@@ -125,6 +125,7 @@
 		40CC20C8274E7D86008A3967 /* RegistPortfolioThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20C7274E7D86008A3967 /* RegistPortfolioThirdViewModel.swift */; };
 		40CC20CA274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20C9274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift */; };
 		40CC20CC274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20CB274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift */; };
+		40CC20CE274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20CD274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift */; };
 		40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */; };
 		40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */; };
 		40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */; };
@@ -277,6 +278,7 @@
 		40CC20C7274E7D86008A3967 /* RegistPortfolioThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioThirdViewModel.swift; sourceTree = "<group>"; };
 		40CC20C9274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirthViewController.swift; sourceTree = "<group>"; };
 		40CC20CB274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirthViewModel.swift; sourceTree = "<group>"; };
+		40CC20CD274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFifthViewController.swift; sourceTree = "<group>"; };
 		40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewModel.swift; sourceTree = "<group>"; };
 		40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetViewModel.swift; sourceTree = "<group>"; };
 		40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -889,6 +891,7 @@
 				40CC20BF274E620C008A3967 /* RegistPortfolioSecondViewController.swift */,
 				40CC20C5274E7A01008A3967 /* RegistPortfolioThirdViewController.swift */,
 				40CC20C9274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift */,
+				40CC20CD274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift */,
 			);
 			path = RegistPortfolio;
 			sourceTree = "<group>";
@@ -1270,6 +1273,7 @@
 				404C57152746D62800B31F64 /* LoginRequest.swift in Sources */,
 				4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */,
 				40DCF34F273D202D00A82CC6 /* HomeViewModel.swift in Sources */,
+				40CC20CE274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift in Sources */,
 				403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */,
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,

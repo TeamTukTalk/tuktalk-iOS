@@ -174,6 +174,22 @@ class RegistPortfolioFirthViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        nextBtn.rx.tap
+            .bind { _ in
+                let nextVC = RegistPortfolioFifthViewController()
+                nextVC.progressPercent.subscribe(onNext: { percent in
+                    self.progressPercentValue.accept(percent)
+                })
+                .disposed(by: self.disposeBag)
+                nextVC.progressIsHidden.subscribe(onNext: { valid in
+                    self.progressIsHiddenValue.accept(valid)
+                })
+                .disposed(by: self.disposeBag)
+                
+                self.navigationController?.pushViewController(nextVC, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
         priceTextField.delegate = self
         
         viewModel.output.priceEnable
