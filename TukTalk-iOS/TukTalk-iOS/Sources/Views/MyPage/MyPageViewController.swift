@@ -98,7 +98,7 @@ class MyPageViewController: UIViewController {
     }
     
     private let manageMyServiceBtn = UIButton().then {
-        $0.setTitle("내 서비스", for: .normal)
+        $0.setTitle("서비스 관리", for: .normal)
         $0.setTitleColor(UIColor.GrayScale.normal, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
         $0.setImage(UIImage(named: "myServiceImg"), for: .normal)
@@ -107,7 +107,7 @@ class MyPageViewController: UIViewController {
         $0.layer.borderColor = UIColor.GrayScale.gray4.cgColor
         $0.layer.cornerRadius = 8
         $0.layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 14, spread: 0)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 64, left: -60, bottom: 0, right: 0)
+        $0.titleEdgeInsets = UIEdgeInsets(top: 64, left: -44, bottom: 0, right: 0)
         $0.imageEdgeInsets = UIEdgeInsets(top: 16, left: 69, bottom: 60, right: 16)
     }
     
