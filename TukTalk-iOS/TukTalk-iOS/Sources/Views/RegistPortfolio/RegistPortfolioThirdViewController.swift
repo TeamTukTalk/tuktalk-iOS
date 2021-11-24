@@ -12,6 +12,7 @@ class RegistPortfolioThirdViewController: UIViewController {
     
     //MARK:- Properties
     
+    private lazy var viewModel = RegistPortfolioThirdViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(0.6))
     private let progressIsHiddenValue = BehaviorRelay(value: false)
@@ -140,5 +141,44 @@ class RegistPortfolioThirdViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+//        nextBtn.rx.tap
+//            .bind { _ in
+//                let nextVC = RegistPortfolioFirthViewController()
+//                nextVC.progressPercent.subscribe(onNext: { percent in
+//                    self.progressBar.setProgress(percent, animated: true)
+//                })
+//                .disposed(by: self.disposeBag)
+//                nextVC.progressIsHidden.subscribe(onNext: { valid in
+//                    self.progressBar.isHidden = valid
+//                })
+//                .disposed(by: self.disposeBag)
+//                self.navigationController?.pushViewController(nextVC, animated: false)
+//            }
+//            .disposed(by: disposeBag)
+        
+        mainTextView.rx.text
+            .orEmpty
+            .bind(to: viewModel.input.textViewInput)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.nextIsValid
+            .drive(onNext: { status in
+                self.nextBtn.isEnabled = status
+                self.nextBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.nextBtn.setTitleColor(status ? .white : UIColor.GrayScale.sub4, for: .normal)
+            })
+            .disposed(by: disposeBag)
+        
+        let initText = "포트폴리오 제작에 어려움을 느끼시는 분 등등"
+        viewModel.input.initText.onNext(initText)
+        
+        mainTextView.rx.didBeginEditing
+            .bind { _ in
+                self.mainTextView.textColor = UIColor.GrayScale.sub1
+                if self.mainTextView.text == initText {
+                    self.mainTextView.text = ""
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }
