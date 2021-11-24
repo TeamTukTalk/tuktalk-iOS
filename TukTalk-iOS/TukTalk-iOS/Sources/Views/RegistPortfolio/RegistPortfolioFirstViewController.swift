@@ -157,7 +157,7 @@ class RegistPortfolioFirstViewController: UIViewController {
         closeBtn.rx.tap
             .bind(onNext: { _ in
                 let popUpViewController = PopUpViewController()
-                popUpViewController.popUpTitleLabel.text = "프로필 등록을 중단하시겠습니까?"
+                popUpViewController.popUpTitleLabel.text = "포트폴리오 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
                 naviVC.modalPresentationStyle = .overCurrentContext
                 naviVC.modalTransitionStyle = .crossDissolve
