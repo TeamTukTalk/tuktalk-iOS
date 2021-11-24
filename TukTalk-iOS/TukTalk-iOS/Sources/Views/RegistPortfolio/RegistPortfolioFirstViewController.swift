@@ -206,8 +206,7 @@ class RegistPortfolioFirstViewController: UIViewController {
             .drive(onNext: { status in
                 self.nextBtn.isEnabled = status
                 self.nextBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
-                let titleColor = status ? .white : UIColor.GrayScale.sub4
-                self.nextBtn.setTitleColor(titleColor, for: .normal)
+                self.nextBtn.setTitleColor(status ? .white : UIColor.GrayScale.sub4, for: .normal)
             })
             .disposed(by: disposeBag)
         
