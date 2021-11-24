@@ -289,6 +289,54 @@ class RegistPortfolioSecondViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        projectCountTextField.rx.controlEvent(.editingDidBegin)
+            .bind { _ in
+                self.projectCountTextField.layer.borderColor = UIColor.Primary.primary.cgColor
+            }
+            .disposed(by: disposeBag)
 
+        projectCountTextField.rx.controlEvent(.editingDidEnd)
+            .bind { _ in
+                self.projectCountTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+            }
+            .disposed(by: disposeBag)
+        
+        pageCountTextField.rx.controlEvent(.editingDidBegin)
+            .bind { _ in
+                self.pageCountTextField.layer.borderColor = UIColor.Primary.primary.cgColor
+            }
+            .disposed(by: disposeBag)
+
+        pageCountTextField.rx.controlEvent(.editingDidEnd)
+            .bind { _ in
+                self.pageCountTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+            }
+            .disposed(by: disposeBag)
+        
+        startYearTextField.rx.controlEvent(.editingDidBegin)
+            .bind { _ in
+                self.startYearTextField.layer.borderColor = UIColor.Primary.primary.cgColor
+            }
+            .disposed(by: disposeBag)
+
+        startYearTextField.rx.controlEvent(.editingDidEnd)
+            .bind { _ in
+                self.startYearTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+            }
+            .disposed(by: disposeBag)
+        
+        endYearTextField.rx.controlEvent(.editingDidBegin)
+            .bind { _ in
+                self.endYearTextField.layer.borderColor = UIColor.Primary.primary.cgColor
+            }
+            .disposed(by: disposeBag)
+
+        endYearTextField.rx.controlEvent(.editingDidEnd)
+            .bind { _ in
+                self.endYearTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+            }
+            .disposed(by: disposeBag)
+        
     }
 }
