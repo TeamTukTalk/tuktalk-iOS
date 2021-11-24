@@ -12,6 +12,7 @@ class RegistPortfolioSecondViewController: UIViewController {
     
     //MARK:- Properties
     
+    private lazy var viewModel = RegistPortfolioSecondViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(0.4))
     private var monthEnable: Bool?
@@ -338,5 +339,28 @@ class RegistPortfolioSecondViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        projectCountTextField.rx.text
+            .bind(to: viewModel.input.projectCountInput)
+            .disposed(by: disposeBag)
+        
+        pageCountTextField.rx.text
+            .bind(to: viewModel.input.pageCountInput)
+            .disposed(by: disposeBag)
+        
+        startYearTextField.rx.text
+            .bind(to: viewModel.input.startYearInput)
+            .disposed(by: disposeBag)
+        
+        endYearTextField.rx.text
+            .bind(to: viewModel.input.endYearInput)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.nextIsValid
+            .drive(onNext: { status in
+                self.nextBtn.isEnabled = status
+                self.nextBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.nextBtn.setTitleColor(status ? .white : UIColor.GrayScale.sub4, for: .normal)
+            })
+            .disposed(by: disposeBag)
     }
 }

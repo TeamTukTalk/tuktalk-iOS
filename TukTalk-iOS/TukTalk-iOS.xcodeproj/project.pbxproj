@@ -120,6 +120,7 @@
 		40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */; };
 		40CC20BE274E4423008A3967 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20BD274E4423008A3967 /* TipViewController.swift */; };
 		40CC20C0274E620C008A3967 /* RegistPortfolioSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20BF274E620C008A3967 /* RegistPortfolioSecondViewController.swift */; };
+		40CC20C2274E7578008A3967 /* RegistPortfolioSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20C1274E7578008A3967 /* RegistPortfolioSecondViewModel.swift */; };
 		40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */; };
 		40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */; };
 		40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */; };
@@ -267,6 +268,7 @@
 		40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirstViewModel.swift; sourceTree = "<group>"; };
 		40CC20BD274E4423008A3967 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		40CC20BF274E620C008A3967 /* RegistPortfolioSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioSecondViewController.swift; sourceTree = "<group>"; };
+		40CC20C1274E7578008A3967 /* RegistPortfolioSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioSecondViewModel.swift; sourceTree = "<group>"; };
 		40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewModel.swift; sourceTree = "<group>"; };
 		40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetViewModel.swift; sourceTree = "<group>"; };
 		40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -604,11 +606,11 @@
 		4041C112271988B2007D09E7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				40CC20B9274E394D008A3967 /* RegistPortfolio */,
 				4041C1142719891F007D09E7 /* Login */,
 				4088F16D271ADAE700527A77 /* SignUp */,
 				4065FEFE27440495005AAE0F /* MentorTab */,
 				404E686E272449A4005AA5DD /* RegistMentor */,
+				40CC20B9274E394D008A3967 /* RegistPortfolio */,
 				40DCF33B273833A900A82CC6 /* Home */,
 				402D65A82727306E00F4ED8F /* Search */,
 				40D0CE6A2731158D003AB9A7 /* MyPage */,
@@ -885,6 +887,7 @@
 			isa = PBXGroup;
 			children = (
 				40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */,
+				40CC20C1274E7578008A3967 /* RegistPortfolioSecondViewModel.swift */,
 			);
 			path = RegistPortfolio;
 			sourceTree = "<group>";
@@ -1301,6 +1304,7 @@
 				404C57072746B89100B31F64 /* SignUpService.swift in Sources */,
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
+				40CC20C2274E7578008A3967 /* RegistPortfolioSecondViewModel.swift in Sources */,
 				4065FEFB2743CE31005AAE0F /* PageCollectionViewCell.swift in Sources */,
 				40DCF33D273833C000A82CC6 /* BannerCollectionViewModel.swift in Sources */,
 				40AA40F2274A990D00F76625 /* SignUpViewModel.swift in Sources */,
