@@ -12,7 +12,7 @@ class RegistPortfolioFirthViewController: UIViewController {
     
     //MARK:- Properties
     
-    //    private lazy var viewModel = RegistPortfolioFirthViewModel()
+    private lazy var viewModel = RegistPortfolioFirthViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(0.8))
     private let progressIsHiddenValue = BehaviorRelay(value: false)
@@ -174,13 +174,28 @@ class RegistPortfolioFirthViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        priceTextField.rx.delegate.onNext(self)
+        priceTextField.delegate = self
+        
+        viewModel.output.priceEnable
+            .drive(onNext: { status in
+                self.nextBtn.isEnabled = status
+                self.nextBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.nextBtn.setTitleColor(status ? .white : UIColor.GrayScale.sub4, for: .normal)
+            })
+            .disposed(by: disposeBag)
     }
 }
+
 extension RegistPortfolioFirthViewController: UITextFieldDelegate {
     
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let text = textField.text?.replacingOccurrences(of: ",", with: "")
+        if let text = text {
+            viewModel.input.inputText.onNext(text)
+        }
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.locale = Locale.current
@@ -209,3 +224,4 @@ extension RegistPortfolioFirthViewController: UITextFieldDelegate {
         return true
     }
 }
+
