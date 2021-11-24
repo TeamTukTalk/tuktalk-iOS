@@ -116,6 +116,9 @@
 		40AA40F0274A7B2C00F76625 /* EmailValidService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40EF274A7B2C00F76625 /* EmailValidService.swift */; };
 		40AA40F2274A990D00F76625 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40F1274A990D00F76625 /* SignUpViewModel.swift */; };
 		40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */; };
+		40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20B7274E35EA008A3967 /* RegistPortfolioFirstViewController.swift */; };
+		40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */; };
+		40CC20BE274E4423008A3967 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20BD274E4423008A3967 /* TipViewController.swift */; };
 		40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */; };
 		40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */; };
 		40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */; };
@@ -259,6 +262,9 @@
 		40AA40EF274A7B2C00F76625 /* EmailValidService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidService.swift; sourceTree = "<group>"; };
 		40AA40F1274A990D00F76625 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		40CC20B7274E35EA008A3967 /* RegistPortfolioFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirstViewController.swift; sourceTree = "<group>"; };
+		40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirstViewModel.swift; sourceTree = "<group>"; };
+		40CC20BD274E4423008A3967 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewModel.swift; sourceTree = "<group>"; };
 		40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetViewModel.swift; sourceTree = "<group>"; };
 		40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -580,6 +586,7 @@
 				4041C11327198917007D09E7 /* Login */,
 				4088F16A2719E15700527A77 /* SignUp */,
 				404E686727242017005AA5DD /* RegistMentor */,
+				40CC20B6274E35B7008A3967 /* RegistPortfolio */,
 				402D658E272683DA00F4ED8F /* TabBar */,
 				402D65912726845500F4ED8F /* Home */,
 				402D65922726845E00F4ED8F /* Search */,
@@ -595,6 +602,7 @@
 		4041C112271988B2007D09E7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				40CC20B9274E394D008A3967 /* RegistPortfolio */,
 				4041C1142719891F007D09E7 /* Login */,
 				4088F16D271ADAE700527A77 /* SignUp */,
 				4065FEFE27440495005AAE0F /* MentorTab */,
@@ -859,6 +867,31 @@
 				4065FEF127439F0A005AAE0F /* RegistProfileFinishViewController.swift */,
 			);
 			path = MentorProfile;
+			sourceTree = "<group>";
+		};
+		40CC20B6274E35B7008A3967 /* RegistPortfolio */ = {
+			isa = PBXGroup;
+			children = (
+				40CC20BC274E4417008A3967 /* UIView */,
+				40CC20B7274E35EA008A3967 /* RegistPortfolioFirstViewController.swift */,
+			);
+			path = RegistPortfolio;
+			sourceTree = "<group>";
+		};
+		40CC20B9274E394D008A3967 /* RegistPortfolio */ = {
+			isa = PBXGroup;
+			children = (
+				40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */,
+			);
+			path = RegistPortfolio;
+			sourceTree = "<group>";
+		};
+		40CC20BC274E4417008A3967 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				40CC20BD274E4423008A3967 /* TipViewController.swift */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		40D0CE6A2731158D003AB9A7 /* MyPage */ = {
@@ -1178,7 +1211,9 @@
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
 				40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */,
 				4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */,
+				40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */,
 				404E686D272439C7005AA5DD /* RegistSecondViewController.swift in Sources */,
+				40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
 				404C57132746C89000B31F64 /* SecondFieldCategoryCVCell.swift in Sources */,
@@ -1208,6 +1243,7 @@
 				403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */,
 				402D65A12726D64400F4ED8F /* SearchDirectViewController.swift in Sources */,
 				402D65972726848800F4ED8F /* HomeViewController.swift in Sources */,
+				40CC20BE274E4423008A3967 /* TipViewController.swift in Sources */,
 				40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */,
 				406324CD273FF15E009F62A3 /* FieldViewController.swift in Sources */,
 				40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */,
