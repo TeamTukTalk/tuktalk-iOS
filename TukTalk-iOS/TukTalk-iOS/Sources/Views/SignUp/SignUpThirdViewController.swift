@@ -174,7 +174,6 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mainScrollView.flashScrollIndicators()
-        mainScrollView.keyboardDismissMode = .interactive
     }
     
     override func viewWillDisappear(_ animated: Bool) {
