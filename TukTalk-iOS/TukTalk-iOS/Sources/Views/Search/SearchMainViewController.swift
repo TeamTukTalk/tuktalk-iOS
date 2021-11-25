@@ -84,6 +84,7 @@ class SearchMainViewController: UIViewController {
     
     private func setUI() {
         view.backgroundColor = .white
+        navigationController?.navigationBar.isHidden = true
         tabBarController?.navigationController?.navigationBar.isHidden = true
         
         view.addSubview(searchTextBtn)
