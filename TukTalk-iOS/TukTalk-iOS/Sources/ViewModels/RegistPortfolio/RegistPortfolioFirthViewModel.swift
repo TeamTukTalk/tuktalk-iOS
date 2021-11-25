@@ -41,7 +41,7 @@ private func priceCheck(priceInput: String?) -> Bool {
     guard let priceInput = priceInput else { return false }
     
     if let price = Int(priceInput) {
-        return price > 0 && price < 100000
+        return price > 0 && price <= 100000
     }
     return false
 }
