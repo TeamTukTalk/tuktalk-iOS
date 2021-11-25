@@ -7,11 +7,11 @@
 
 import RxSwift
 
-class WhichFieldViewController: UIViewController {
+class SignUpSecondViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var viewModel = WhichFieldViewModel()
+    private lazy var viewModel = SignUpSecondViewModel()
     private let user = UserSignUp.shared
     private var selectedNum = 0
     private let disposeBag = DisposeBag()
@@ -205,7 +205,7 @@ class WhichFieldViewController: UIViewController {
         
         nextBtn.rx.tap
             .bind { _ in
-                self.navigationController?.pushViewController(SignUpViewController(), animated: true)
+                self.navigationController?.pushViewController(SignUpThirdViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }
@@ -238,7 +238,7 @@ class WhichFieldViewController: UIViewController {
     }
 }
 
-extension WhichFieldViewController: UICollectionViewDelegateFlowLayout {
+extension SignUpSecondViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

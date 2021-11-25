@@ -8,11 +8,11 @@
 import RxSwift
 import Moya
 
-class SignUpViewController: UIViewController {
+class SignUpThirdViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var viewModel = SignUpViewModel()
+    private lazy var viewModel = SignUpThirdViewModel()
     private let provider = MoyaProvider<EmailValidService>()
     private let user = UserSignUp.shared
     private var emailValid: Bool?

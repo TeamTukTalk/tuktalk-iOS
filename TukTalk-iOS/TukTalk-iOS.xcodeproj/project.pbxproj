@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */; };
+		4000F8A12721B14D0067C6B6 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8A02721B14D0067C6B6 /* SignUpSecondViewController.swift */; };
 		4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */; };
 		400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */; };
 		4011846D271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
@@ -62,7 +62,7 @@
 		404C57032746A3A500B31F64 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57022746A3A500B31F64 /* APIConstants.swift */; };
 		404C57072746B89100B31F64 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57062746B89100B31F64 /* SignUpService.swift */; };
 		404C570A2746BB2F00B31F64 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57092746BB2F00B31F64 /* SignUpRequest.swift */; };
-		404C570E2746C2F500B31F64 /* WhichFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C570D2746C2F500B31F64 /* WhichFieldViewModel.swift */; };
+		404C570E2746C2F500B31F64 /* SignUpSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C570D2746C2F500B31F64 /* SignUpSecondViewModel.swift */; };
 		404C57112746C44900B31F64 /* FirstFieldCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57102746C44900B31F64 /* FirstFieldCategoryCVCell.swift */; };
 		404C57132746C89000B31F64 /* SecondFieldCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */; };
 		404C57152746D62800B31F64 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57142746D62800B31F64 /* LoginRequest.swift */; };
@@ -106,15 +106,15 @@
 		406C3F8427464F9C009EBAB2 /* MenteeReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406C3F8327464F9C009EBAB2 /* MenteeReviewViewController.swift */; };
 		406C3F86274653B7009EBAB2 /* MenteeReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406C3F85274653B7009EBAB2 /* MenteeReviewTableViewCell.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
-		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
-		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
+		4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */; };
+		4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */; };
 		40A387B82731A5CB00BA5D5D /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */; };
 		40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */; };
 		40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */; };
 		40AA40EC27494AAC00F76625 /* UserSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40EB27494AAC00F76625 /* UserSignUp.swift */; };
 		40AA40EE274A7AFB00F76625 /* EmailValidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40ED274A7AFB00F76625 /* EmailValidResponse.swift */; };
 		40AA40F0274A7B2C00F76625 /* EmailValidService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40EF274A7B2C00F76625 /* EmailValidService.swift */; };
-		40AA40F2274A990D00F76625 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40F1274A990D00F76625 /* SignUpViewModel.swift */; };
+		40AA40F2274A990D00F76625 /* SignUpThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40F1274A990D00F76625 /* SignUpThirdViewModel.swift */; };
 		40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */; };
 		40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20B7274E35EA008A3967 /* RegistPortfolioFirstViewController.swift */; };
 		40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */; };
@@ -166,7 +166,7 @@
 
 /* Begin PBXFileReference section */
 		25FC350EF778AB1F6E37D05A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichFieldViewController.swift; sourceTree = "<group>"; };
+		4000F8A02721B14D0067C6B6 /* SignUpSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondViewController.swift; sourceTree = "<group>"; };
 		4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCategoryDataModel.swift; sourceTree = "<group>"; };
 		400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCollectionViewCell.swift; sourceTree = "<group>"; };
 		4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-MEDIUM.OTF"; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		404C57022746A3A500B31F64 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		404C57062746B89100B31F64 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		404C57092746BB2F00B31F64 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
-		404C570D2746C2F500B31F64 /* WhichFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichFieldViewModel.swift; sourceTree = "<group>"; };
+		404C570D2746C2F500B31F64 /* SignUpSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondViewModel.swift; sourceTree = "<group>"; };
 		404C57102746C44900B31F64 /* FirstFieldCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFieldCategoryCVCell.swift; sourceTree = "<group>"; };
 		404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFieldCategoryCVCell.swift; sourceTree = "<group>"; };
 		404C57142746D62800B31F64 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -259,15 +259,15 @@
 		406C3F8327464F9C009EBAB2 /* MenteeReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeReviewViewController.swift; sourceTree = "<group>"; };
 		406C3F85274653B7009EBAB2 /* MenteeReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeReviewTableViewCell.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
-		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
-		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
+		4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdViewController.swift; sourceTree = "<group>"; };
 		40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 		40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableHeaderView.swift; sourceTree = "<group>"; };
 		40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFirstViewModel.swift; sourceTree = "<group>"; };
 		40AA40EB27494AAC00F76625 /* UserSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUp.swift; sourceTree = "<group>"; };
 		40AA40ED274A7AFB00F76625 /* EmailValidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidResponse.swift; sourceTree = "<group>"; };
 		40AA40EF274A7B2C00F76625 /* EmailValidService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidService.swift; sourceTree = "<group>"; };
-		40AA40F1274A990D00F76625 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		40AA40F1274A990D00F76625 /* SignUpThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdViewModel.swift; sourceTree = "<group>"; };
 		40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		40CC20B7274E35EA008A3967 /* RegistPortfolioFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirstViewController.swift; sourceTree = "<group>"; };
 		40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirstViewModel.swift; sourceTree = "<group>"; };
@@ -822,9 +822,9 @@
 			children = (
 				40AA40EA27494A8E00F76625 /* Class */,
 				404C570F2746C43200B31F64 /* Cell */,
-				4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */,
-				4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */,
-				4088F170271AE4CE00527A77 /* SignUpViewController.swift */,
+				4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */,
+				4000F8A02721B14D0067C6B6 /* SignUpSecondViewController.swift */,
+				4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */,
 				40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */,
 			);
 			path = SignUp;
@@ -833,8 +833,8 @@
 		4088F16D271ADAE700527A77 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				404C570D2746C2F500B31F64 /* WhichFieldViewModel.swift */,
-				40AA40F1274A990D00F76625 /* SignUpViewModel.swift */,
+				404C570D2746C2F500B31F64 /* SignUpSecondViewModel.swift */,
+				40AA40F1274A990D00F76625 /* SignUpThirdViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1231,7 +1231,7 @@
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
 				40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */,
-				4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */,
+				4000F8A12721B14D0067C6B6 /* SignUpSecondViewController.swift in Sources */,
 				40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */,
 				404E686D272439C7005AA5DD /* RegistSecondViewController.swift in Sources */,
 				40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */,
@@ -1258,7 +1258,7 @@
 				40384BF6273199FA00605246 /* MyPageTVDataModel.swift in Sources */,
 				404E68742724541E005AA5DD /* RegistThirdViewController.swift in Sources */,
 				4065FEE827435B5F005AAE0F /* TagCollectionViewModel.swift in Sources */,
-				404C570E2746C2F500B31F64 /* WhichFieldViewModel.swift in Sources */,
+				404C570E2746C2F500B31F64 /* SignUpSecondViewModel.swift in Sources */,
 				4065FEFD274402D3005AAE0F /* MentorInformationViewController.swift in Sources */,
 				40DCF34B2739894B00A82CC6 /* ReviewDataModel.swift in Sources */,
 				40DCF359273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift in Sources */,
@@ -1294,12 +1294,12 @@
 				40DCF357273DAA3700A82CC6 /* RegistProfileFirstViewController.swift in Sources */,
 				402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */,
 				40DCF34D273C0F5D00A82CC6 /* JobMentorListViewController.swift in Sources */,
-				4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */,
+				4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */,
 				402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */,
 				40CC20CA274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift in Sources */,
 				4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */,
 				4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */,
-				4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */,
+				4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */,
 				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
 				40DCF3492739891F00A82CC6 /* ReviewCollectionViewModel.swift in Sources */,
 				402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */,
@@ -1327,7 +1327,7 @@
 				40CC20C2274E7578008A3967 /* RegistPortfolioSecondViewModel.swift in Sources */,
 				4065FEFB2743CE31005AAE0F /* PageCollectionViewCell.swift in Sources */,
 				40DCF33D273833C000A82CC6 /* BannerCollectionViewModel.swift in Sources */,
-				40AA40F2274A990D00F76625 /* SignUpViewModel.swift in Sources */,
+				40AA40F2274A990D00F76625 /* SignUpThirdViewModel.swift in Sources */,
 				40DCF3472739884F00A82CC6 /* ReviewCollectionViewCell.swift in Sources */,
 				40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */,
 				40AA40F0274A7B2C00F76625 /* EmailValidService.swift in Sources */,

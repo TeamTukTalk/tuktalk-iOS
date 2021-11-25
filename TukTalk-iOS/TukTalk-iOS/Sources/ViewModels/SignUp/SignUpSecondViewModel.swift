@@ -7,7 +7,7 @@
 
 import RxSwift
 
-final class WhichFieldViewModel: ViewModelType {
+final class SignUpSecondViewModel: ViewModelType {
     var dependency: Dependency
     var disposeBag: DisposeBag = DisposeBag()
     var input: Input

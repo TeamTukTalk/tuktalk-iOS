@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 import Moya
 
-final class SignUpViewModel: ViewModelType {
+final class SignUpThirdViewModel: ViewModelType {
     var dependency: Dependency
     var disposeBag: DisposeBag = DisposeBag()
     var input: Input

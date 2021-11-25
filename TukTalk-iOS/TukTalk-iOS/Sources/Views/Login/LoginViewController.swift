@@ -245,7 +245,7 @@ class LoginViewController: UIViewController {
         
         signUpBtn.rx.tap
             .bind {
-                let nextVC = SignUpChoiceViewController()
+                let nextVC = SignUpFirstViewController()
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
