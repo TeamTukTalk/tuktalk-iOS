@@ -66,7 +66,7 @@ class SignUpSecondViewController: UIViewController {
         
         view.addSubview(backBtn)
         backBtn.snp.makeConstraints {
-            if UIScreen.main.bounds.height == 667 {
+            if UIScreen.main.bounds.height <= 736 {
                 $0.top.equalToSuperview().offset(39)
             } else {
                 $0.top.equalToSuperview().offset(59)
@@ -76,7 +76,7 @@ class SignUpSecondViewController: UIViewController {
         
         view.addSubview(closeBtn)
         closeBtn.snp.makeConstraints {
-            if UIScreen.main.bounds.height == 667 {
+            if UIScreen.main.bounds.height == 736 {
                 $0.top.equalToSuperview().offset(36)
             } else {
                 $0.top.equalToSuperview().offset(56)

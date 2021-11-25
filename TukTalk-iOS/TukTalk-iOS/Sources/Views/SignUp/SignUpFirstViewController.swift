@@ -101,7 +101,7 @@ class SignUpFirstViewController: UIViewController {
         
         view.addSubview(backBtn)
         backBtn.snp.makeConstraints {
-            if UIScreen.main.bounds.height == 667 {
+            if UIScreen.main.bounds.height <= 737 {
                 $0.top.equalToSuperview().offset(39)
             } else {
                 $0.top.equalToSuperview().offset(59)
