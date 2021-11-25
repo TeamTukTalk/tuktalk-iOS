@@ -56,6 +56,7 @@ class LoginViewController: UIViewController {
     private let passwordTextField = UITextField().then {
         $0.placeholder = "비밀번호를 입력해주세요."
         $0.font = UIFont.TTFont(type: .SDReg, size: 15)
+        $0.isSecureTextEntry = true
         $0.setUnderline(false)
     }
     
