@@ -112,15 +112,19 @@ class LoginViewController: UIViewController {
         
         view.addSubview(logoImageView)
         logoImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(233)
+            if UIScreen.main.bounds.height == 667 {
+                $0.top.equalToSuperview().offset(180)
+            } else {
+                $0.top.equalToSuperview().offset(233)
+            }
             $0.centerX.equalToSuperview()
         }
         
         view.addSubview(emailLabel)
         emailLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(310)
-            $0.leading.equalToSuperview().offset(16)
             $0.height.equalTo(22)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(50)
+            $0.leading.equalToSuperview().offset(16)
         }
         
         view.addSubview(emailTextField)
@@ -133,7 +137,7 @@ class LoginViewController: UIViewController {
         view.addSubview(errorIcon)
         errorIcon.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(16)
-            $0.top.equalToSuperview().offset(343)
+            $0.top.equalTo(emailLabel.snp.bottom).offset(13)
         }
         
         view.addSubview(emailErrorMsg)
@@ -217,9 +221,6 @@ class LoginViewController: UIViewController {
                     .bind { status in
                         self.emailErrorMsg.isHidden = status
                         self.errorIcon.isHidden = status
-                        self.errorIcon.snp.updateConstraints {
-                            $0.top.equalToSuperview().offset(343)
-                        }
                     }.disposed(by: self.disposeBag)
                 self.loginViewModel.output.emailIsValid.take(1)
                     .filter {$0}
