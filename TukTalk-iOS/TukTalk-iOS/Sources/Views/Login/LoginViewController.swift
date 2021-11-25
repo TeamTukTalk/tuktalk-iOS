@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     
     //MARK:- Properties
     
+    private var keyboardFrame: NSValue?
+    private let screenHeight = UIScreen.main.bounds.height
     private lazy var loginViewModel = LoginViewModel()
     private let disposeBag = DisposeBag()
     
@@ -102,6 +104,16 @@ class LoginViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         [emailTextField, passwordTextField].forEach { $0.text = ""}
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        keyboardObserver()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     //MARK:- Functions
@@ -249,6 +261,25 @@ class LoginViewController: UIViewController {
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func keyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ sender: Notification) {
+        let loginBtnBottomPosition = screenHeight - (loginBtn.frame.origin.y + loginBtn.frame.height)
+        keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        let keyboardHeight = keyboardFrame!.cgRectValue.height
+        if keyboardHeight < loginBtnBottomPosition {
+            return
+        }
+        self.view.frame.origin.y = loginBtnBottomPosition - keyboardHeight - 20
+    }
+    
+    @objc private func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
     }
 
 }
