@@ -7,7 +7,7 @@
 
 import RxSwift
 
-struct RegistFirstViewModel: ViewModelType {
+struct RegistMentorFirstViewModel: ViewModelType {
     
     let dependency: Dependency
     var disposeBag: DisposeBag = DisposeBag()
