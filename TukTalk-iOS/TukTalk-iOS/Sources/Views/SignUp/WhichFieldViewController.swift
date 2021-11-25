@@ -84,7 +84,11 @@ class WhichFieldViewController: UIViewController {
         
         view.addSubview(designCategoryCV)
         designCategoryCV.snp.makeConstraints {
-            $0.height.equalTo(132)
+            if UIScreen.main.bounds.width == 428 {
+                $0.height.equalTo(84)
+            } else {
+                $0.height.equalTo(132)
+            }
             $0.top.equalTo(titleLabel.snp.bottom).offset(56)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
