@@ -269,13 +269,15 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func keyboardWillShow(_ sender: Notification) {
-        let loginBtnBottomPosition = screenHeight - (loginBtn.frame.origin.y + loginBtn.frame.height)
+        let loginBtnBottomPosition = loginBtn.frame.origin.y + loginBtn.frame.height
         keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-        let keyboardHeight = keyboardFrame!.cgRectValue.height
-        if keyboardHeight < loginBtnBottomPosition {
+        let keyboardTopPosition = screenHeight - keyboardFrame!.cgRectValue.height
+        if loginBtnBottomPosition < keyboardTopPosition {
             return
         }
-        self.view.frame.origin.y = loginBtnBottomPosition - keyboardHeight - 20
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y += keyboardTopPosition - loginBtnBottomPosition - 20
+        }
     }
     
     @objc private func keyboardWillHide(_ sender: Notification) {

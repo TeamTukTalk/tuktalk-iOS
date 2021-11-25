@@ -12,6 +12,8 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK:- Properties
     
+    private var keyboardFrame: NSValue?
+    private let screenHeight = UIScreen.main.bounds.height
     private lazy var viewModel = SignUpThirdViewModel()
     private let provider = MoyaProvider<EmailValidService>()
     private let user = UserSignUp.shared
@@ -164,9 +166,20 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
         binding()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        keyboardObserver()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mainScrollView.flashScrollIndicators()
+        mainScrollView.keyboardDismissMode = .interactive
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK:- Functions
@@ -175,6 +188,11 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
         mainScrollView.delegate = self
         mainScrollView.bounces = false
         mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 635)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapAction))
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.isEnabled = true
+        tapGesture.cancelsTouchesInView = false
+        mainScrollView.addGestureRecognizer(tapGesture)
     }
     
     private func setUI() {
@@ -568,5 +586,38 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
                 }
             }
             .disposed(by: disposeBag)
+    }
+    
+    @objc private func didTapAction(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
+    private func keyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ sender: Notification) {
+        if UIResponder.currentFirst() != passwordCheckTextField {
+            return
+        }
+        var passwordCheckBottomPosition = passwordCheckTextField.frame.origin.y + passwordCheckTextField.frame.height
+        if UIScreen.main.bounds.height <= 736 {
+            passwordCheckBottomPosition += 69
+        } else {
+            passwordCheckBottomPosition += 120
+        }
+        keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        let keyboardTopPosition = screenHeight - keyboardFrame!.cgRectValue.height
+        if passwordCheckBottomPosition < keyboardTopPosition {
+            return
+        }
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y += keyboardTopPosition - passwordCheckBottomPosition - 20
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
     }
 }
