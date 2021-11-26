@@ -13,6 +13,7 @@ class SearchingViewController: UIViewController {
     
     private lazy var searchCVModel = SearchesCollectionViewModel()
     private lazy var mentorCVModel = MentorListCollectionViewModel()
+    private var categorySelected = false
     private let disposeBag = DisposeBag()
 
     //MARK:- UI Components
@@ -245,6 +246,13 @@ class SearchingViewController: UIViewController {
                 self.openBottomSheet()
             }
             .disposed(by: disposeBag)
+        
+        categoryCV.rx.itemSelected
+            .bind { _ in
+                self.categorySelected = true
+                self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
+            }
+            .disposed(by: disposeBag)
     }
     
     private func openBottomSheet() {
@@ -287,6 +295,9 @@ class SearchingViewController: UIViewController {
             .filter {$0.isEmpty}
             .bind { text in
                 self.companyExtraLabel.text = text
+                if self.companyExtraLabel.text == text && self.careerExtraLabel.text == text && !self.categorySelected {
+                    self.titleLabel.text = "관심 분야의 멘토와 포트폴리오를 찾아보세요!"
+                }
                 self.companyCategoryBtn.snp.updateConstraints {
                     $0.width.equalTo(73)
                 }
@@ -296,6 +307,9 @@ class SearchingViewController: UIViewController {
             .filter {$0.isEmpty}
             .bind { text in
                 self.careerExtraLabel.text = text
+                if self.companyExtraLabel.text == text && self.careerExtraLabel.text == text && !self.categorySelected {
+                    self.titleLabel.text = "관심 분야의 멘토와 포트폴리오를 찾아보세요!"
+                }
                 self.careerCategoryBtn.snp.updateConstraints {
                     $0.width.equalTo(73)
                 }
