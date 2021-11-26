@@ -457,12 +457,9 @@
 		402D65A82727306E00F4ED8F /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				402D65A9272730A100F4ED8F /* SearchesCollectionViewModel.swift */,
+				4052BFC927512541007F2368 /* CollectionViewModel */,
 				402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */,
-				4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */,
 				40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */,
-				403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */,
-				403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -710,6 +707,17 @@
 				404E687127245220005AA5DD /* RegistMentorSecondViewModel.swift */,
 			);
 			path = RegistMentor;
+			sourceTree = "<group>";
+		};
+		4052BFC927512541007F2368 /* CollectionViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				402D65A9272730A100F4ED8F /* SearchesCollectionViewModel.swift */,
+				4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */,
+				403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */,
+				403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */,
+			);
+			path = CollectionViewModel;
 			sourceTree = "<group>";
 		};
 		406324CB273FF131009F62A3 /* UIView */ = {

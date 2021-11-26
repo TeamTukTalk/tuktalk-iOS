@@ -11,8 +11,8 @@ class SearchingViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var searchingViewModel = SearchesCollectionViewModel()
-    private lazy var mentorListViewModel = MentorListCollectionViewModel()
+    private lazy var searchCVModel = SearchesCollectionViewModel()
+    private lazy var mentorCVModel = MentorListCollectionViewModel()
     private let disposeBag = DisposeBag()
 
     //MARK:- UI Components
@@ -272,7 +272,7 @@ class SearchingViewController: UIViewController {
         mentorListCV.rx.setDelegate(self).disposed(by: disposeBag)
 
         if searchTextBtn.titleLabel?.text == "디자인" {
-            searchingViewModel.output.designCategoryData
+            searchCVModel.output.designCategoryData
                 .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                     if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
 
@@ -283,7 +283,7 @@ class SearchingViewController: UIViewController {
                 }
                 .disposed(by: disposeBag)
         } else if searchTextBtn.titleLabel?.text == "IT/개발" {
-            searchingViewModel.output.itDevCategoryData
+            searchCVModel.output.itDevCategoryData
                 .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                     if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
 
@@ -295,7 +295,7 @@ class SearchingViewController: UIViewController {
                 .disposed(by: disposeBag)
         }
         
-        mentorListViewModel.output.searchingMentorListData
+        mentorCVModel.output.searchingMentorListData
             .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
                     
@@ -333,13 +333,13 @@ extension SearchingViewController: UICollectionViewDelegateFlowLayout {
         var items: [SearchesDataModel] = []
 
         if searchTextBtn.titleLabel?.text == "디자인" {
-            searchingViewModel.output.designCategoryData
+            searchCVModel.output.designCategoryData
                 .subscribe(onNext: {data in
                     items = data
                 })
                 .disposed(by: disposeBag)
         } else if searchTextBtn.titleLabel?.text == "IT/개발" {
-            searchingViewModel.output.itDevCategoryData
+            searchCVModel.output.itDevCategoryData
                 .subscribe(onNext: {data in
                     items = data
                 })
