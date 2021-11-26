@@ -278,7 +278,7 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
         emailTextField.snp.makeConstraints {
             $0.top.equalTo(emailLabel.snp.bottom).offset(12)
             $0.leading.equalToSuperview().offset(16)
-            $0.width.equalTo(247)
+            $0.trailing.equalToSuperview().inset(112)
             $0.height.equalTo(30)
         }
         
