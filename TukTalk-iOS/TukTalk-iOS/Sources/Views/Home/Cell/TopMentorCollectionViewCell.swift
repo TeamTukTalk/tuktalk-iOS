@@ -86,12 +86,13 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
             $0.top.leading.equalToSuperview().inset(20)
         }
         nameLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
             $0.leading.equalTo(profileImg.snp.trailing).offset(12)
             $0.top.equalTo(profileImg.snp.top)
         }
         mentorConfirmImg.snp.makeConstraints {
             $0.width.height.equalTo(16)
-            $0.centerY.equalTo(nameLabel)
+            $0.top.equalTo(nameLabel).offset(1)
             $0.leading.equalTo(nameLabel.snp.trailing)
         }
         companyLabel.snp.makeConstraints {
