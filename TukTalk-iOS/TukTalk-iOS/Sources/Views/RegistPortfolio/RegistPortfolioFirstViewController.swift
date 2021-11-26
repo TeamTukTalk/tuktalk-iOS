@@ -54,7 +54,7 @@ class RegistPortfolioFirstViewController: UIViewController {
         $0.text = "자신의 포트폴리오의 장점, 차별점과 주요 프로젝트의 설명, 제작 과정 등등 자세히 작성해주세요."
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub4
-        $0.textContainerInset = UIEdgeInsets(top: 12, left: 16, bottom: 0, right: 16)
+        $0.textContainerInset = UIEdgeInsets(top: 12, left: 12, bottom: 0, right: 16)
     }
     
     private let nextBtn = UIButton().then {
@@ -222,6 +222,15 @@ class RegistPortfolioFirstViewController: UIViewController {
                 self.mainTextView.textColor = UIColor.GrayScale.sub1
                 if self.mainTextView.text == initText {
                     self.mainTextView.text = ""
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        mainTextView.rx.didEndEditing
+            .bind { _ in
+                if self.mainTextView.text == "" {
+                    self.mainTextView.textColor = UIColor.GrayScale.sub4
+                    self.mainTextView.text = initText
                 }
             }
             .disposed(by: disposeBag)

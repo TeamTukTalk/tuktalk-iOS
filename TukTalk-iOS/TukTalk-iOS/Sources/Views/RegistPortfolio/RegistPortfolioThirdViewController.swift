@@ -51,7 +51,7 @@ class RegistPortfolioThirdViewController: UIViewController {
         $0.text = "포트폴리오 제작에 어려움을 느끼시는 분 등등"
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub4
-        $0.textContainerInset = UIEdgeInsets(top: 12, left: 16, bottom: 0, right: 16)
+        $0.textContainerInset = UIEdgeInsets(top: 12, left: 12, bottom: 0, right: 16)
     }
     
     private let nextBtn = UIButton().then {
@@ -182,6 +182,15 @@ class RegistPortfolioThirdViewController: UIViewController {
                 self.mainTextView.textColor = UIColor.GrayScale.sub1
                 if self.mainTextView.text == initText {
                     self.mainTextView.text = ""
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        mainTextView.rx.didEndEditing
+            .bind { _ in
+                if self.mainTextView.text == "" {
+                    self.mainTextView.textColor = UIColor.GrayScale.sub4
+                    self.mainTextView.text = initText
                 }
             }
             .disposed(by: disposeBag)
