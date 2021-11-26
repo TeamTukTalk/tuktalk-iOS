@@ -17,11 +17,14 @@ class MenteeReviewTableViewCell: UITableViewCell {
         $0.backgroundColor = .white
     }
     
-    let viewMoreBtn = UIButton().then {
-        $0.setTitle("더보기", for: .normal)
-        $0.setImage(UIImage(named: "dropDownBlackImg"), for: .normal)
-        $0.setTitleColor(UIColor.GrayScale.sub3, for: .normal)
-        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 10)
+    let viewMoreBtn = UIButton()
+    let viewMoreLabel = UILabel().then {
+        $0.text = "더보기"
+        $0.font = UIFont.TTFont(type: .SDMed, size: 10)
+        $0.textColor = UIColor.GrayScale.sub3
+    }
+    var viewMoreImg = UIImageView().then {
+        $0.image = UIImage(named: "dropDownImg")
     }
     
     var profileImg = UIImageView().then {
@@ -100,10 +103,10 @@ class MenteeReviewTableViewCell: UITableViewCell {
         switch contentsLabel.numberOfLines {
         case 3:
             contentsLabel.numberOfLines = 0
-            viewMoreBtn.setImage(UIImage(named: "dropUpBlackImg"), for: .normal)
+            viewMoreImg.image = UIImage(named: "dropUpBlackImg")
         default:
             contentsLabel.numberOfLines = 3
-            viewMoreBtn.setImage(UIImage(named: "dropDownBlackImg"), for: .normal)
+            viewMoreImg.image = UIImage(named: "dropDownImg")
         }
     }
     
@@ -134,9 +137,8 @@ class MenteeReviewTableViewCell: UITableViewCell {
         cellBackgroundView.addSubview(menteeDevideDot)
         cellBackgroundView.addSubview(reviewDateLabel)
         cellBackgroundView.addSubview(viewMoreBtn)
-        
-        viewMoreBtn.titleEdgeInsets = UIEdgeInsets(top: 9, left: -32, bottom: 9, right: 0)
-        viewMoreBtn.imageEdgeInsets = UIEdgeInsets(top: 8, left: 34, bottom: 8, right: 8)
+        viewMoreBtn.addSubview(viewMoreImg)
+        viewMoreBtn.addSubview(viewMoreLabel)
         
         profileBtn.snp.makeConstraints {
             $0.height.equalTo(44)
@@ -200,6 +202,16 @@ class MenteeReviewTableViewCell: UITableViewCell {
             $0.width.equalTo(58)
             $0.height.equalTo(32)
             $0.trailing.bottom.equalToSuperview().inset(12)
+        }
+        viewMoreLabel.snp.makeConstraints {
+            $0.height.equalTo(14)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(8)
+        }
+        viewMoreImg.snp.makeConstraints {
+            $0.width.height.equalTo(16)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(viewMoreLabel.snp.trailing)
         }
     }
 
