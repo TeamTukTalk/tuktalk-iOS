@@ -297,7 +297,7 @@ class SearchingViewController: UIViewController {
             .bind { text in
                 self.careerExtraLabel.text = text
                 self.careerCategoryBtn.snp.updateConstraints {
-                    $0.width.equalTo(text.count == 3 ? 118 : 130)
+                    $0.width.equalTo(text.count == 4 ? 118 : 130)
                 }
                 self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
             }
