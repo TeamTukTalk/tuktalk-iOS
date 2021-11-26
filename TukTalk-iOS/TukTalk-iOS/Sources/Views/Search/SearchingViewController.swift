@@ -237,6 +237,14 @@ class SearchingViewController: UIViewController {
     private func openBottomSheet() {
         self.tabBarController?.tabBar.isHidden = true
         let bottomSheet = TagBottomSheetView()
+        
+        if companyExtraLabel.text != "" {
+            bottomSheet.companyTagTitle.onNext(companyExtraLabel.text ?? "")
+        }
+        if careerExtraLabel.text != "" {
+            bottomSheet.careerTagTitle.onNext(careerExtraLabel.text ?? "")
+        }
+        
         let naviVC = UINavigationController(rootViewController: bottomSheet)
         naviVC.modalPresentationStyle = .overCurrentContext
         naviVC.navigationBar.isHidden = true
