@@ -253,7 +253,7 @@ class SearchingViewController: UIViewController {
             .bind { text in
                 self.companyExtraLabel.text = text
                 self.companyCategoryBtn.snp.updateConstraints {
-                    _ = text.count == 3 ? $0.width.equalTo(118) : $0.width.equalTo(130)
+                    $0.width.equalTo(text.count == 3 ? 118 : 130)
                 }
                 self.companyCategoryBtn.titleEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
                 self.companyCategoryBtn.imageEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
@@ -265,11 +265,33 @@ class SearchingViewController: UIViewController {
             .bind { text in
                 self.careerExtraLabel.text = text
                 self.careerCategoryBtn.snp.updateConstraints {
-                    _ = text.count == 4 ? $0.width.equalTo(118) : $0.width.equalTo(130)
+                    $0.width.equalTo(text.count == 3 ? 118 : 130)
                 }
                 self.careerCategoryBtn.titleEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
                 self.careerCategoryBtn.imageEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
                 self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
+            }
+            .disposed(by: self.disposeBag)
+        bottomSheet.companyTagTitle
+            .filter {$0.isEmpty}
+            .bind { text in
+                self.companyExtraLabel.text = text
+                self.companyCategoryBtn.snp.updateConstraints {
+                    $0.width.equalTo(73)
+                }
+                self.companyCategoryBtn.titleEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 32)
+                self.companyCategoryBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 45, bottom: 10, right: 12)
+            }
+            .disposed(by: self.disposeBag)
+        bottomSheet.careerTagTitle
+            .filter {$0.isEmpty}
+            .bind { text in
+                self.careerExtraLabel.text = text
+                self.careerCategoryBtn.snp.updateConstraints {
+                    $0.width.equalTo(73)
+                }
+                self.careerCategoryBtn.titleEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 32)
+                self.careerCategoryBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 45, bottom: 10, right: 12)
             }
             .disposed(by: self.disposeBag)
         self.present(naviVC, animated: false)

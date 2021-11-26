@@ -210,6 +210,12 @@ final class TagBottomSheetView: UIViewController {
                 self.careerCV.allowsSelection = true
             }
             .disposed(by: disposeBag)
+        
+        closeBtn.rx.tap
+            .bind { _ in
+                self.dismiss(animated: false, completion: nil)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindingCollectionView() {
@@ -257,12 +263,6 @@ final class TagBottomSheetView: UIViewController {
             .bind(onNext: {model in
                 self.tagViewModel.input.careerTitle.onNext(model.title)
             })
-            .disposed(by: disposeBag)
-        
-        closeBtn.rx.tap
-            .bind { _ in
-                self.dismiss(animated: false, completion: nil)
-            }
             .disposed(by: disposeBag)
     }
     
