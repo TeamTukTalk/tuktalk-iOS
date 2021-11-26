@@ -52,13 +52,15 @@ class RegistProfileSecondViewController: UIViewController {
         $0.setTitle("전문분야 선택", for: .normal)
         $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDReg, size: 14)
-        $0.setImage(UIImage(named: "dropDownBlackImg"), for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
         $0.layer.cornerRadius = 8
         $0.contentHorizontalAlignment = .left
-        $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
+        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+    }
+    
+    private let specialityBtnImg = UIImageView().then {
+        $0.image = UIImage(named: "dropDownBlackImg")
     }
     
     private let detailFieldTitleLabel = UILabel().then {
@@ -83,44 +85,60 @@ class RegistProfileSecondViewController: UIViewController {
         $0.setTitle("상세분야 선택", for: .normal)
         $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDReg, size: 14)
-        $0.setImage(UIImage(named: "dropDownBlackImg"), for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
         $0.layer.cornerRadius = 8
         $0.contentHorizontalAlignment = .left
-        $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
-        $0.isEnabled = false
+        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+    }
+    
+    private let detailFieldBtnImg = UIImageView().then {
+        $0.image = UIImage(named: "dropDownBlackImg")
     }
     
     private let detailFieldBtn2 = UIButton().then {
         $0.setTitle("상세분야 선택", for: .normal)
         $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDReg, size: 14)
-        $0.setImage(UIImage(named: "dropDownBlackImg"), for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
         $0.layer.cornerRadius = 8
         $0.contentHorizontalAlignment = .left
-        $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
+        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         $0.isHidden = true
         $0.isEnabled = false
+    }
+    
+    private let detailFieldBtn2Img = UIImageView().then {
+        $0.image = UIImage(named: "dropDownBlackImg")
     }
     
     private let detailFieldBtn3 = UIButton().then {
         $0.setTitle("상세분야 선택", for: .normal)
         $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDReg, size: 14)
-        $0.setImage(UIImage(named: "dropDownBlackImg"), for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
         $0.layer.cornerRadius = 8
         $0.contentHorizontalAlignment = .left
-        $0.titleEdgeInsets = UIEdgeInsets(top: 12, left: -8, bottom: 12, right: 0)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 307, bottom: 10, right: 12)
+        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         $0.isHidden = true
         $0.isEnabled = false
+    }
+    
+    private let detailFieldBtn3Img = UIImageView().then {
+        $0.image = UIImage(named: "dropDownBlackImg")
+    }
+    
+    private let alertView = UIView().then {
+        $0.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 40/255, alpha: 0.7)
+        $0.layer.cornerRadius = 8
+        $0.alpha = 0
+    }
+    private let alertLabel = UILabel().then {
+        $0.text = "전문분야 먼저 선택해주세요."
+        $0.textColor = .white
+        $0.font = UIFont.TTFont(type: .SDMed, size: 13)
     }
     
     private let nextBtn = UIButton().then {
@@ -173,6 +191,12 @@ class RegistProfileSecondViewController: UIViewController {
             $0.top.equalTo(specialityLabel.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
+        specialityBtn.addSubview(specialityBtnImg)
+        specialityBtnImg.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(12)
+        }
         
         view.addSubview(detailFieldTitleLabel)
         detailFieldTitleLabel.snp.makeConstraints {
@@ -201,12 +225,24 @@ class RegistProfileSecondViewController: UIViewController {
             $0.top.equalTo(detailFieldTitleLabel.snp.bottom).offset(9)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
+        detailFieldBtn.addSubview(detailFieldBtnImg)
+        detailFieldBtnImg.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(12)
+        }
         
         view.addSubview(detailFieldBtn2)
         detailFieldBtn2.snp.makeConstraints {
             $0.height.equalTo(44)
             $0.top.equalTo(detailFieldBtn.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        detailFieldBtn2.addSubview(detailFieldBtn2Img)
+        detailFieldBtn2Img.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(12)
         }
         
         view.addSubview(detailFieldBtn3)
@@ -216,11 +252,32 @@ class RegistProfileSecondViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
+        detailFieldBtn3.addSubview(detailFieldBtn3Img)
+        detailFieldBtn3Img.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(12)
+        }
+        
         view.addSubview(nextBtn)
         nextBtn.snp.makeConstraints {
             $0.height.equalTo(52)
             $0.bottom.equalToSuperview().inset(42)
             $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        view.addSubview(alertView)
+        alertView.snp.makeConstraints {
+            $0.height.equalTo(42)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalTo(nextBtn.snp.top).offset(-12)
+        }
+        
+        alertView.addSubview(alertLabel)
+        alertLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
         }
     }
     
@@ -273,7 +330,6 @@ class RegistProfileSecondViewController: UIViewController {
                         self.detailFieldBtn3.isHidden = true
                     }
                     self.specialityBtn.setTitleColor(UIColor.GrayScale.sub1, for: .normal)
-                    self.detailFieldBtn.isEnabled = true
                     self.detailFieldBtn2.isEnabled = true
                     self.detailFieldBtn3.isEnabled = true
                 })
@@ -288,6 +344,14 @@ class RegistProfileSecondViewController: UIViewController {
         
         detailFieldBtn.rx.tap
             .bind { _ in
+                if self.specialityBtn.titleLabel?.text == "전문분야 선택" {
+                    self.alertView.alpha = 1
+                    UIView.animate(withDuration: 3, animations: {
+                        self.alertView.alpha = 0
+                    })
+                    
+                    return
+                }
                 let fieldVC = FieldViewController()
                 fieldVC.viewModel.input.selectedBtn.onNext("detailFieldBtn")
                 if let field = self.specialityBtn.titleLabel?.text {
