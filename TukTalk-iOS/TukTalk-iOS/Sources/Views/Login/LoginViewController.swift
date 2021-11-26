@@ -82,6 +82,12 @@ class LoginViewController: UIViewController {
         $0.setTitleColor(UIColor.GrayScale.sub3, for: .normal)
     }
     
+    private let bottomStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 8
+        $0.distribution = .equalSpacing
+    }
+    
     private let signUpLabel = UILabel().then {
         $0.text = "아직 뚝딱 회원이 아니신가요?"
         $0.font = UIFont.TTFont(type: .SDMed, size: 14)
@@ -185,19 +191,16 @@ class LoginViewController: UIViewController {
             $0.height.equalTo(52)
         }
         
-        view.addSubview(signUpLabel)
-        signUpLabel.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(40)
-            $0.leading.equalToSuperview().offset(77)
-        }
-        
-        view.addSubview(signUpBtn)
+        view.addSubview(bottomStackView)
+        bottomStackView.addArrangedSubview(signUpLabel)
+        bottomStackView.addArrangedSubview(signUpBtn)
         let attribute = NSMutableAttributedString(string: "회원가입")
         attribute.addAttribute(NSMutableAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: NSRange(location: 0, length: 4))
         signUpBtn.setAttributedTitle(attribute, for: .normal)
-        signUpBtn.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(35)
-            $0.leading.equalTo(signUpLabel.snp.trailing).offset(8)
+        bottomStackView.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.bottom.equalToSuperview().offset(-42)
+            $0.centerX.equalToSuperview()
         }
         
         view.addSubview(findBtn)
