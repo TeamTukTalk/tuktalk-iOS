@@ -47,6 +47,11 @@ class MenteeReviewViewController: UIViewController {
         bindingTableView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     //MARK:- Function
     
     private func setUI() {
@@ -96,7 +101,6 @@ class MenteeReviewViewController: UIViewController {
     private func binding() {
         backBtn.rx.tap
             .bind { _ in
-                self.tabBarController?.tabBar.isHidden = false
                 self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)

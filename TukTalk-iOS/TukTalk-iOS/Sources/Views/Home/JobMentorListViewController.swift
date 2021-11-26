@@ -50,6 +50,11 @@ class JobMentorListViewController: UIViewController {
         bindingCollectionView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     //MARK:- Function
     
     private func setUI() {
@@ -100,7 +105,6 @@ class JobMentorListViewController: UIViewController {
     private func binding() {
         backBtn.rx.tap
             .bind(onNext: { _ in
-                self.tabBarController?.tabBar.isHidden = false
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
@@ -171,7 +175,7 @@ extension JobMentorListViewController: UICollectionViewDelegateFlowLayout {
                 .disposed(by: disposeBag)
             return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
         case mentorListCV:
-            return CGSize(width: 343, height: 135)
+            return CGSize(width: UIScreen.main.bounds.width - 32, height: 135)
         default:
             return CGSize()
         }
