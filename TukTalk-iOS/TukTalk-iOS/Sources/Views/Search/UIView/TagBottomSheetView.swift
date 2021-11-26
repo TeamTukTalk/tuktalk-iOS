@@ -152,7 +152,12 @@ final class TagBottomSheetView: UIViewController {
         applyBtn.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(52)
-            $0.bottom.equalToSuperview().inset(46)
+            if UIScreen.main.bounds.height <= 736 {
+                $0.bottom.equalToSuperview().inset(16)
+            } else {
+                $0.bottom.equalToSuperview().inset(46)
+            }
+            
         }
         
         bottomSheetView.addSubview(devideView)
