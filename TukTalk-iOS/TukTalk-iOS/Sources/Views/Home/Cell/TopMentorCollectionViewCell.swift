@@ -129,6 +129,7 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
         hashTagCV.setCollectionViewLayout(hashTagCVLayout, animated: false)
         hashTagCV.backgroundColor = .white
         hashTagCV.showsHorizontalScrollIndicator = false
+        hashTagCV.isUserInteractionEnabled = false
         hashTagCV.register(HashTagCollectionViewCell.self, forCellWithReuseIdentifier: "HashTagCollectionViewCell")
     }
     private func bindingCollectionView() {

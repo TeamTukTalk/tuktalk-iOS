@@ -258,6 +258,14 @@ class LoginViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        loginBtn.rx.tap
+            .bind {
+                let nextVC = TabBarViewController()
+                nextVC.modalPresentationStyle = .fullScreen
+                self.present(nextVC, animated: true, completion: nil)
+            }
+            .disposed(by: disposeBag)
+        
         signUpBtn.rx.tap
             .bind {
                 let nextVC = SignUpFirstViewController()

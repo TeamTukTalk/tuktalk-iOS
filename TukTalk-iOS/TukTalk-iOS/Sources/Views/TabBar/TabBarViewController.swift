@@ -51,7 +51,7 @@ class TabBarViewController: UITabBarController {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.GrayScale.normal], for: .selected)
         
         tabBar.barTintColor = .white
-        tabBar.isTranslucent = false
+        tabBar.isTranslucent = true
     }
     
     private func setTabBarLink() {
