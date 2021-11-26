@@ -12,6 +12,8 @@ class RegistProfileThirdViewController: UIViewController {
     
     //MARK:- Properties
     
+    private var keyboardFrame: NSValue?
+    private let screenHeight = UIScreen.main.bounds.height
     private lazy var viewModel = RegistProfileThirdViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(0.6))
@@ -183,6 +185,20 @@ class RegistProfileThirdViewController: UIViewController {
         setNaviBar()
         setUI()
         binding()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        keyboardObserver()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     //MARK:- Function
@@ -433,6 +449,37 @@ class RegistProfileThirdViewController: UIViewController {
         errorLabel.isHidden = valid
         if !valid { employmentMonthTextField.layer.borderColor = UIColor.State.error.cgColor }
         return valid
+    }
+    
+    private func keyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ sender: Notification) {
+        keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        let keyboardTopPosition = screenHeight - keyboardFrame!.cgRectValue.height
+        if screenHeight == 667 && UIResponder.currentFirst() == rankTextField {
+            let rankBottomPosition = rankTextField.frame.origin.y + rankTextField.frame.height
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y += keyboardTopPosition - rankBottomPosition - 20
+            }
+            return
+        }
+        if UIResponder.currentFirst() != rankTextField {
+            let yearBottomPosition = employmentStackView.frame.origin.y + employmentStackView.frame.height
+            if yearBottomPosition < keyboardTopPosition {
+                return
+            }
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y += keyboardTopPosition - yearBottomPosition - 20
+            }
+        }
+        return
+    }
+    
+    @objc private func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
     }
 
 }
