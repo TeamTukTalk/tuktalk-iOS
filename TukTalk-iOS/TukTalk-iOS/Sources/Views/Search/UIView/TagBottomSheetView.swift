@@ -12,7 +12,7 @@ final class TagBottomSheetView: UIViewController {
     //MARK:- Properties
     
     private let collectionViewModel = BottomSheetCollectionViewModel()
-    private let tagViewModel = TagBottomSheetViewModel()
+    lazy var tagViewModel = TagBottomSheetViewModel()
     private let disposeBag = DisposeBag()
     
     let companyTagTitle = BehaviorSubject(value: "")
@@ -206,8 +206,10 @@ final class TagBottomSheetView: UIViewController {
             .bind { _ in
                 self.companyCV.allowsSelection = false
                 self.companyCV.allowsSelection = true
+                self.tagViewModel.input.companyTitle.onNext("")
                 self.careerCV.allowsSelection = false
                 self.careerCV.allowsSelection = true
+                self.tagViewModel.input.careerTitle.onNext("")
             }
             .disposed(by: disposeBag)
         
@@ -226,7 +228,7 @@ final class TagBottomSheetView: UIViewController {
                 if let cell = self.companyCV.dequeueReusableCell(withReuseIdentifier: "BottomSheetCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? BottomSheetCollectionViewCell {
                     
                     cell.configure(name: item.title)
-                    self.companyTagTitle.filter { $0 == cell.element.text }
+                    self.tagViewModel.output.companyText.filter { $0 == cell.element.text }
                         .bind { _ in
                             cell.isSelected = true
                             self.companyCV.selectItem(at: IndexPath.init(row: row, section: 0), animated: false, scrollPosition: .init())
@@ -242,7 +244,7 @@ final class TagBottomSheetView: UIViewController {
                 if let cell = self.careerCV.dequeueReusableCell(withReuseIdentifier: "BottomSheetCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? BottomSheetCollectionViewCell {
                     
                     cell.configure(name: item.title)
-                    self.careerTagTitle.filter { $0 == cell.element.text }
+                    self.tagViewModel.output.careerText.filter { $0 == cell.element.text }
                         .bind { _ in
                             cell.isSelected = true
                             self.careerCV.selectItem(at: IndexPath.init(row: row, section: 0), animated: false, scrollPosition: .init())

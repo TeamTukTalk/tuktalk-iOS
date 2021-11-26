@@ -34,34 +34,36 @@ class SearchingViewController: UIViewController {
     }
     
     private let companyCategoryBtn = UIButton().then {
-        $0.setTitle("기업", for: .normal)
-        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
-        $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
-        $0.setImage(UIImage(named: "dropDownImg"), for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray2.cgColor
         $0.layer.cornerRadius = 6
-        $0.titleEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 32)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 45, bottom: 10, right: 12)
     }
-    
+    private let companyTitleLabel = UILabel().then {
+        $0.text = "기업"
+        $0.font = UIFont.TTFont(type: .SDMed, size: 14)
+        $0.textColor = UIColor.GrayScale.sub2
+    }
+    private let companyIcon = UIImageView().then {
+        $0.image = UIImage(named: "dropDownImg")
+    }
     let companyExtraLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
         $0.textColor = UIColor.Primary.primary
     }
     
     private let careerCategoryBtn = UIButton().then {
-        $0.setTitle("경력", for: .normal)
-        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
-        $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
-        $0.setImage(UIImage(named: "dropDownImg"), for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray2.cgColor
         $0.layer.cornerRadius = 6
-        $0.titleEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 32)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 45, bottom: 10, right: 12)
     }
-    
+    private let careerTitleLabel = UILabel().then {
+        $0.text = "경력"
+        $0.font = UIFont.TTFont(type: .SDMed, size: 14)
+        $0.textColor = UIColor.GrayScale.sub2
+    }
+    private let careerIcon = UIImageView().then {
+        $0.image = UIImage(named: "dropDownImg")
+    }
     let careerExtraLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
         $0.textColor = UIColor.Primary.primary
@@ -131,7 +133,18 @@ class SearchingViewController: UIViewController {
             $0.top.equalTo(categoryCV.snp.bottom).offset(11)
             $0.leading.equalToSuperview().offset(16)
         }
-        
+        companyCategoryBtn.addSubview(companyTitleLabel)
+        companyTitleLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+        }
+        companyCategoryBtn.addSubview(companyIcon)
+        companyIcon.snp.makeConstraints {
+            $0.width.height.equalTo(16)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(12)
+        }
         companyCategoryBtn.addSubview(companyExtraLabel)
         companyExtraLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
@@ -145,7 +158,18 @@ class SearchingViewController: UIViewController {
             $0.top.equalTo(categoryCV.snp.bottom).offset(11)
             $0.leading.equalTo(companyCategoryBtn.snp.trailing).offset(8)
         }
-        
+        careerCategoryBtn.addSubview(careerTitleLabel)
+        careerTitleLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+        }
+        careerCategoryBtn.addSubview(careerIcon)
+        careerIcon.snp.makeConstraints {
+            $0.width.height.equalTo(16)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(12)
+        }
         careerCategoryBtn.addSubview(careerExtraLabel)
         careerExtraLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
@@ -221,17 +245,6 @@ class SearchingViewController: UIViewController {
                 self.openBottomSheet()
             }
             .disposed(by: disposeBag)
-        
-        careerCategoryBtn.rx.tap
-            .bind { _ in
-                self.tabBarController?.tabBar.isHidden = true
-                let bottomSheet = TagBottomSheetView()
-                let naviVC = UINavigationController(rootViewController: bottomSheet)
-                naviVC.modalPresentationStyle = .overCurrentContext
-                naviVC.navigationBar.isHidden = true
-                self.present(naviVC, animated: false)
-            }
-            .disposed(by: disposeBag)
     }
     
     private func openBottomSheet() {
@@ -239,9 +252,11 @@ class SearchingViewController: UIViewController {
         let bottomSheet = TagBottomSheetView()
         
         if companyExtraLabel.text != "" {
+            bottomSheet.tagViewModel.input.companyTitle.onNext(companyExtraLabel.text ?? "")
             bottomSheet.companyTagTitle.onNext(companyExtraLabel.text ?? "")
         }
         if careerExtraLabel.text != "" {
+            bottomSheet.tagViewModel.input.careerTitle.onNext(careerExtraLabel.text ?? "")
             bottomSheet.careerTagTitle.onNext(careerExtraLabel.text ?? "")
         }
         
@@ -255,8 +270,6 @@ class SearchingViewController: UIViewController {
                 self.companyCategoryBtn.snp.updateConstraints {
                     $0.width.equalTo(text.count == 3 ? 118 : 130)
                 }
-                self.companyCategoryBtn.titleEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
-                self.companyCategoryBtn.imageEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
                 self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
             }
             .disposed(by: self.disposeBag)
@@ -267,8 +280,6 @@ class SearchingViewController: UIViewController {
                 self.careerCategoryBtn.snp.updateConstraints {
                     $0.width.equalTo(text.count == 3 ? 118 : 130)
                 }
-                self.careerCategoryBtn.titleEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
-                self.careerCategoryBtn.imageEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
                 self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
             }
             .disposed(by: self.disposeBag)
@@ -279,8 +290,6 @@ class SearchingViewController: UIViewController {
                 self.companyCategoryBtn.snp.updateConstraints {
                     $0.width.equalTo(73)
                 }
-                self.companyCategoryBtn.titleEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 32)
-                self.companyCategoryBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 45, bottom: 10, right: 12)
             }
             .disposed(by: self.disposeBag)
         bottomSheet.careerTagTitle
@@ -290,8 +299,6 @@ class SearchingViewController: UIViewController {
                 self.careerCategoryBtn.snp.updateConstraints {
                     $0.width.equalTo(73)
                 }
-                self.careerCategoryBtn.titleEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 32)
-                self.careerCategoryBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 45, bottom: 10, right: 12)
             }
             .disposed(by: self.disposeBag)
         self.present(naviVC, animated: false)
