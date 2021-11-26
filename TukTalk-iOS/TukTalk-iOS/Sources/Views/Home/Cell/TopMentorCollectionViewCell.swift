@@ -116,7 +116,7 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
         }
         hashTagCV.snp.makeConstraints {
             $0.top.equalTo(devideView.snp.bottom).offset(8)
-            $0.leading.equalTo(profileImg.snp.trailing).offset(16)
+            $0.leading.equalTo(profileImg.snp.trailing).offset(12)
             $0.trailing.equalToSuperview().inset(27)
             $0.bottom.equalToSuperview().inset(20)
         }
