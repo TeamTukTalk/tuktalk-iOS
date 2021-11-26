@@ -55,9 +55,9 @@ final class PopUpViewController: UIViewController {
         popUpView.addSubview(acceptBtn)
         
         popUpView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(33)
-            $0.top.equalToSuperview().offset(321)
             $0.height.equalTo(171)
+            $0.centerY.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(33)
         }
         
         popUpTitleLabel.snp.makeConstraints {
