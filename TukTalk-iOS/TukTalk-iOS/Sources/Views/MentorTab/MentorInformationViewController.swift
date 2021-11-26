@@ -81,7 +81,7 @@ class MentorInformationViewController: UIViewController {
     private let nameStackView = UIStackView().then {
         $0.axis = .horizontal
         $0.distribution = .equalSpacing
-        $0.alignment = .center
+        $0.alignment = .top
         $0.spacing = 0
     }
     
