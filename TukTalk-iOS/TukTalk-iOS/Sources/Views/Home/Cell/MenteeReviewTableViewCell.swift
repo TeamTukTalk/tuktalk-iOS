@@ -112,7 +112,7 @@ class MenteeReviewTableViewCell: UITableViewCell {
         
         cellBackgroundView.layer.borderWidth = 1
         cellBackgroundView.layer.borderColor = UIColor.GrayScale.gray4.cgColor
-        cellBackgroundView.layer.cornerRadius = 20
+        cellBackgroundView.layer.cornerRadius = 8
         cellBackgroundView.layer.applyShadow(color: .black, alpha: 0.06, x: 4, y: 4, blur: 24, spread: 0)
         
         contentView.addSubview(cellBackgroundView)
