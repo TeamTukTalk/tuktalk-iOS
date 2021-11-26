@@ -71,6 +71,10 @@ class RegistPortfolioThirdViewController: UIViewController {
         binding()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
     //MARK:- Function
     
     private func setNaviBar() {
