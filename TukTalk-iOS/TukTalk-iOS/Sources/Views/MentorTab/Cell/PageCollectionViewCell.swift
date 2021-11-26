@@ -65,7 +65,7 @@ class PageCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(bottomLineView)
         bottomLineView.snp.makeConstraints {
             $0.height.equalTo(2)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-2)
             $0.leading.trailing.equalTo(titleLabel).inset(7)
         }
     }
