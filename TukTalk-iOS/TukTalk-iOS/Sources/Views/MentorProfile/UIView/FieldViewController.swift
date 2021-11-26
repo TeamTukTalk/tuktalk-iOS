@@ -53,7 +53,10 @@ final class FieldViewController: UIViewController {
         viewModel.output.fieldData
             .bind(onNext: { data in
                 var height = data.count * 46
-                if data.count > 5 { height = 5 * 46 }
+                if data.count > 5 {
+                    height = 5 * 46
+                    self.fieldTableView.flashScrollIndicators()
+                }
                 self.fieldTableView.snp.makeConstraints {
                     $0.height.equalTo(height + 8)
                     $0.centerY.equalToSuperview()
@@ -68,7 +71,6 @@ final class FieldViewController: UIViewController {
         fieldTableView.bounces = false
         fieldTableView.backgroundColor = .white
         fieldTableView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
-        fieldTableView.flashScrollIndicators()
     }
     
     private func bindingTableView() {
