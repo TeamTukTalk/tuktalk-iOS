@@ -7,10 +7,12 @@
 
 import RxSwift
 
-class RegistProfileFirstViewController: UIViewController {
+class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK:- Properties
     
+    private var keyboardFrame: NSValue?
+    private let screenHeight = UIScreen.main.bounds.height
     private let disposeBag = DisposeBag()
     private lazy var firstViewModel = RegistProfileFirstViewModel()
     
@@ -34,6 +36,12 @@ class RegistProfileFirstViewController: UIViewController {
         $0.transform = $0.transform.scaledBy(x: 1, y: 2)
         $0.progressViewStyle = .bar
     }
+    
+    private let mainScrollView = UIScrollView().then {
+        $0.contentInsetAdjustmentBehavior = .never
+    }
+    
+    private let mainContentView = UIView()
     
     private let titleLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDBold, size: 17)
@@ -121,13 +129,25 @@ class RegistProfileFirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNaviBar()
+        setScrollView()
         setUI()
         binding()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        keyboardObserver()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setProgressView()
+        mainScrollView.flashScrollIndicators()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK:- Function
@@ -141,10 +161,22 @@ class RegistProfileFirstViewController: UIViewController {
         let rightBarButton = UIBarButtonItem(customView: closeBtn)
         navigationItem.leftBarButtonItem = leftBarButton
         navigationItem.rightBarButtonItem = rightBarButton
+        setupAppearance()
     }
     
     private func setProgressView() {
         progressBar.setProgress(0.2, animated: true)
+    }
+    
+    private func setScrollView() {
+        mainScrollView.delegate = self
+        mainScrollView.bounces = false
+        mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 672)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapAction))
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.isEnabled = true
+        tapGesture.cancelsTouchesInView = false
+        mainScrollView.addGestureRecognizer(tapGesture)
     }
     
     private func setUI() {
@@ -156,70 +188,86 @@ class RegistProfileFirstViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
         }
         
-        view.addSubview(titleLabel)
+        view.addSubview(mainScrollView)
+        mainScrollView.snp.makeConstraints {
+            if screenHeight <= 736 {
+                $0.top.equalToSuperview().offset(94)
+            } else {
+                $0.top.equalToSuperview().offset(114)
+            }
+            $0.bottom.leading.trailing.equalToSuperview()
+        }
+        
+        mainScrollView.addSubview(mainContentView)
+        mainContentView.snp.makeConstraints {
+            $0.width.height.equalTo(mainScrollView.contentSize)
+            $0.edges.equalTo(mainScrollView.contentSize)
+        }
+        
+        mainContentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(114)
+            $0.top.equalToSuperview()
             $0.leading.equalToSuperview().offset(16)
         }
         
-        view.addSubview(profileBtn)
+        mainContentView.addSubview(profileBtn)
         profileBtn.snp.makeConstraints {
             $0.width.height.equalTo(70)
             $0.top.equalTo(titleLabel.snp.bottom).offset(40)
             $0.centerX.equalToSuperview()
         }
         
-        view.addSubview(profileEditImg)
+        mainContentView.addSubview(profileEditImg)
         profileEditImg.snp.makeConstraints {
             $0.trailing.bottom.equalTo(profileBtn)
         }
         
-        view.addSubview(nameLabel)
+        mainContentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints {
             $0.top.equalTo(profileBtn.snp.bottom).offset(40)
             $0.leading.equalToSuperview().offset(16)
         }
         
-        view.addSubview(nameTextField)
+        mainContentView.addSubview(nameTextField)
         nameTextField.snp.makeConstraints {
             $0.height.equalTo(44)
             $0.top.equalTo(nameLabel.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(introduceLabel)
+        mainContentView.addSubview(introduceLabel)
         introduceLabel.snp.makeConstraints {
             $0.top.equalTo(nameTextField.snp.bottom).offset(24)
             $0.leading.equalToSuperview().offset(16)
         }
         
-        view.addSubview(introduceTextField)
+        mainContentView.addSubview(introduceTextField)
         introduceTextField.snp.makeConstraints {
             $0.height.equalTo(44)
             $0.top.equalTo(introduceLabel.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(introduceTFCount)
+        mainContentView.addSubview(introduceTFCount)
         introduceTFCount.snp.makeConstraints {
             $0.top.equalTo(introduceTextField.snp.bottom).offset(4)
             $0.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(detailIntroduceLabel)
+        mainContentView.addSubview(detailIntroduceLabel)
         detailIntroduceLabel.snp.makeConstraints {
             $0.top.equalTo(introduceTextField.snp.bottom).offset(46)
             $0.leading.equalToSuperview().offset(16)
         }
         
-        view.addSubview(detailIntroduceTextView)
+        mainContentView.addSubview(detailIntroduceTextView)
         detailIntroduceTextView.snp.makeConstraints {
             $0.height.equalTo(140)
             $0.top.equalTo(detailIntroduceLabel.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(nextBtn)
+        mainContentView.addSubview(nextBtn)
         nextBtn.snp.makeConstraints {
             $0.height.equalTo(52)
             $0.top.equalTo(detailIntroduceTextView.snp.bottom).offset(40)
@@ -349,5 +397,46 @@ class RegistProfileFirstViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    @objc private func didTapAction(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
+    private func keyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ sender: Notification) {
+        keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        let keyboardTopPosition = screenHeight - keyboardFrame!.cgRectValue.height
+        
+        if UIResponder.currentFirst() == introduceTextField {
+            let introduceBottomPosition = introduceTextField.frame.origin.y + introduceTextField.frame.height + 94
+            if introduceBottomPosition < keyboardTopPosition {
+                return
+            }
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y += keyboardTopPosition - introduceBottomPosition - 20
+            }
+        } else {
+            var detailBottomPosition = detailIntroduceTextView.frame.origin.y + detailIntroduceTextView.frame.height
+            if screenHeight == 736 {
+                detailBottomPosition += 94
+            } else if screenHeight > 736 {
+                detailBottomPosition += 114
+            }
+            if detailBottomPosition < keyboardTopPosition {
+                return
+            }
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y += keyboardTopPosition - detailBottomPosition - 20
+            }
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
     }
 }

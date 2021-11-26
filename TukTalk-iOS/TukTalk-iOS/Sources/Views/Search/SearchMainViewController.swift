@@ -118,8 +118,8 @@ class SearchMainViewController: UIViewController {
         designBtn.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(16)
             $0.leading.equalToSuperview().offset(16)
-            $0.height.equalTo(144)
-            $0.width.equalTo(164)
+            $0.width.equalTo((UIScreen.main.bounds.width - 47) / 2)
+            $0.height.equalTo(((UIScreen.main.bounds.width - 47) / 2) * 0.87)
         }
         
         designBtn.addSubview(designLabel)
@@ -138,8 +138,8 @@ class SearchMainViewController: UIViewController {
         itDevBtn.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(16)
             $0.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(144)
-            $0.width.equalTo(164)
+            $0.width.equalTo((UIScreen.main.bounds.width - 47) / 2)
+            $0.height.equalTo(((UIScreen.main.bounds.width - 47) / 2) * 0.87)
         }
         
         itDevBtn.addSubview(itDevLabel)

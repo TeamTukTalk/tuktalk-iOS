@@ -11,8 +11,9 @@ class SearchingViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var searchingViewModel = SearchesCollectionViewModel()
-    private lazy var mentorListViewModel = MentorListCollectionViewModel()
+    private lazy var searchCVModel = SearchesCollectionViewModel()
+    private lazy var mentorCVModel = MentorListCollectionViewModel()
+    private var categorySelected = false
     private let disposeBag = DisposeBag()
 
     //MARK:- UI Components
@@ -34,34 +35,36 @@ class SearchingViewController: UIViewController {
     }
     
     private let companyCategoryBtn = UIButton().then {
-        $0.setTitle("기업", for: .normal)
-        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
-        $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
-        $0.setImage(UIImage(named: "dropDownImg"), for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray2.cgColor
         $0.layer.cornerRadius = 6
-        $0.titleEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 32)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 45, bottom: 10, right: 12)
     }
-    
+    private let companyTitleLabel = UILabel().then {
+        $0.text = "기업"
+        $0.font = UIFont.TTFont(type: .SDMed, size: 14)
+        $0.textColor = UIColor.GrayScale.sub2
+    }
+    private let companyIcon = UIImageView().then {
+        $0.image = UIImage(named: "dropDownImg")
+    }
     let companyExtraLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
         $0.textColor = UIColor.Primary.primary
     }
     
     private let careerCategoryBtn = UIButton().then {
-        $0.setTitle("경력", for: .normal)
-        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
-        $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
-        $0.setImage(UIImage(named: "dropDownImg"), for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray2.cgColor
         $0.layer.cornerRadius = 6
-        $0.titleEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 32)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 10, left: 45, bottom: 10, right: 12)
     }
-    
+    private let careerTitleLabel = UILabel().then {
+        $0.text = "경력"
+        $0.font = UIFont.TTFont(type: .SDMed, size: 14)
+        $0.textColor = UIColor.GrayScale.sub2
+    }
+    private let careerIcon = UIImageView().then {
+        $0.image = UIImage(named: "dropDownImg")
+    }
     let careerExtraLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
         $0.textColor = UIColor.Primary.primary
@@ -87,6 +90,11 @@ class SearchingViewController: UIViewController {
         setCollectionViewUI()
         binding()
         bindingCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
     
     //MARK:- Function
@@ -131,7 +139,18 @@ class SearchingViewController: UIViewController {
             $0.top.equalTo(categoryCV.snp.bottom).offset(11)
             $0.leading.equalToSuperview().offset(16)
         }
-        
+        companyCategoryBtn.addSubview(companyTitleLabel)
+        companyTitleLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+        }
+        companyCategoryBtn.addSubview(companyIcon)
+        companyIcon.snp.makeConstraints {
+            $0.width.height.equalTo(16)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(12)
+        }
         companyCategoryBtn.addSubview(companyExtraLabel)
         companyExtraLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
@@ -145,7 +164,18 @@ class SearchingViewController: UIViewController {
             $0.top.equalTo(categoryCV.snp.bottom).offset(11)
             $0.leading.equalTo(companyCategoryBtn.snp.trailing).offset(8)
         }
-        
+        careerCategoryBtn.addSubview(careerTitleLabel)
+        careerTitleLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+        }
+        careerCategoryBtn.addSubview(careerIcon)
+        careerIcon.snp.makeConstraints {
+            $0.width.height.equalTo(16)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(12)
+        }
         careerCategoryBtn.addSubview(careerExtraLabel)
         careerExtraLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
@@ -222,14 +252,16 @@ class SearchingViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        careerCategoryBtn.rx.tap
+        categoryCV.rx.itemSelected
             .bind { _ in
-                self.tabBarController?.tabBar.isHidden = true
-                let bottomSheet = TagBottomSheetView()
-                let naviVC = UINavigationController(rootViewController: bottomSheet)
-                naviVC.modalPresentationStyle = .overCurrentContext
-                naviVC.navigationBar.isHidden = true
-                self.present(naviVC, animated: false)
+                self.categorySelected = true
+                self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
+            }
+            .disposed(by: disposeBag)
+        
+        mentorListCV.rx.modelSelected(MentorListDataModel.self)
+            .bind { _ in
+                self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }
@@ -237,6 +269,16 @@ class SearchingViewController: UIViewController {
     private func openBottomSheet() {
         self.tabBarController?.tabBar.isHidden = true
         let bottomSheet = TagBottomSheetView()
+        
+        if companyExtraLabel.text != "" {
+            bottomSheet.tagViewModel.input.companyTitle.onNext(companyExtraLabel.text ?? "")
+            bottomSheet.companyTagTitle.onNext(companyExtraLabel.text ?? "")
+        }
+        if careerExtraLabel.text != "" {
+            bottomSheet.tagViewModel.input.careerTitle.onNext(careerExtraLabel.text ?? "")
+            bottomSheet.careerTagTitle.onNext(careerExtraLabel.text ?? "")
+        }
+        
         let naviVC = UINavigationController(rootViewController: bottomSheet)
         naviVC.modalPresentationStyle = .overCurrentContext
         naviVC.navigationBar.isHidden = true
@@ -245,10 +287,8 @@ class SearchingViewController: UIViewController {
             .bind { text in
                 self.companyExtraLabel.text = text
                 self.companyCategoryBtn.snp.updateConstraints {
-                    _ = text.count == 3 ? $0.width.equalTo(118) : $0.width.equalTo(130)
+                    $0.width.equalTo(text.count == 3 ? 118 : 130)
                 }
-                self.companyCategoryBtn.titleEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
-                self.companyCategoryBtn.imageEdgeInsets = text.count == 3 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
                 self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
             }
             .disposed(by: self.disposeBag)
@@ -257,11 +297,33 @@ class SearchingViewController: UIViewController {
             .bind { text in
                 self.careerExtraLabel.text = text
                 self.careerCategoryBtn.snp.updateConstraints {
-                    _ = text.count == 4 ? $0.width.equalTo(118) : $0.width.equalTo(130)
+                    $0.width.equalTo(text.count == 4 ? 118 : 130)
                 }
-                self.careerCategoryBtn.titleEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 77) : UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 89)
-                self.careerCategoryBtn.imageEdgeInsets = text.count == 4 ? UIEdgeInsets(top: 10, left: 90, bottom: 10, right: 12) : UIEdgeInsets(top: 10, left: 105, bottom: 10, right: 12)
                 self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
+            }
+            .disposed(by: self.disposeBag)
+        bottomSheet.companyTagTitle
+            .filter {$0.isEmpty}
+            .bind { text in
+                self.companyExtraLabel.text = text
+                if self.companyExtraLabel.text == text && self.careerExtraLabel.text == text && !self.categorySelected {
+                    self.titleLabel.text = "관심 분야의 멘토와 포트폴리오를 찾아보세요!"
+                }
+                self.companyCategoryBtn.snp.updateConstraints {
+                    $0.width.equalTo(73)
+                }
+            }
+            .disposed(by: self.disposeBag)
+        bottomSheet.careerTagTitle
+            .filter {$0.isEmpty}
+            .bind { text in
+                self.careerExtraLabel.text = text
+                if self.companyExtraLabel.text == text && self.careerExtraLabel.text == text && !self.categorySelected {
+                    self.titleLabel.text = "관심 분야의 멘토와 포트폴리오를 찾아보세요!"
+                }
+                self.careerCategoryBtn.snp.updateConstraints {
+                    $0.width.equalTo(73)
+                }
             }
             .disposed(by: self.disposeBag)
         self.present(naviVC, animated: false)
@@ -272,7 +334,7 @@ class SearchingViewController: UIViewController {
         mentorListCV.rx.setDelegate(self).disposed(by: disposeBag)
 
         if searchTextBtn.titleLabel?.text == "디자인" {
-            searchingViewModel.output.designCategoryData
+            searchCVModel.output.designCategoryData
                 .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                     if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
 
@@ -283,7 +345,7 @@ class SearchingViewController: UIViewController {
                 }
                 .disposed(by: disposeBag)
         } else if searchTextBtn.titleLabel?.text == "IT/개발" {
-            searchingViewModel.output.itDevCategoryData
+            searchCVModel.output.itDevCategoryData
                 .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                     if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
 
@@ -295,7 +357,7 @@ class SearchingViewController: UIViewController {
                 .disposed(by: disposeBag)
         }
         
-        mentorListViewModel.output.searchingMentorListData
+        mentorCVModel.output.searchingMentorListData
             .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
                     
@@ -333,13 +395,13 @@ extension SearchingViewController: UICollectionViewDelegateFlowLayout {
         var items: [SearchesDataModel] = []
 
         if searchTextBtn.titleLabel?.text == "디자인" {
-            searchingViewModel.output.designCategoryData
+            searchCVModel.output.designCategoryData
                 .subscribe(onNext: {data in
                     items = data
                 })
                 .disposed(by: disposeBag)
         } else if searchTextBtn.titleLabel?.text == "IT/개발" {
-            searchingViewModel.output.itDevCategoryData
+            searchCVModel.output.itDevCategoryData
                 .subscribe(onNext: {data in
                     items = data
                 })
@@ -347,7 +409,7 @@ extension SearchingViewController: UICollectionViewDelegateFlowLayout {
         }
         
         if collectionView == mentorListCV {
-            return CGSize(width: 343, height: 135)
+            return CGSize(width: UIScreen.main.bounds.width - 32, height: 135)
         } else {
             return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
         }

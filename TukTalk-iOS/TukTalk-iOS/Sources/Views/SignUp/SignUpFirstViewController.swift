@@ -7,7 +7,7 @@
 
 import RxSwift
 
-class SignUpChoiceViewController: UIViewController {
+class SignUpFirstViewController: UIViewController {
     
     //MARK:- Properties
     
@@ -101,7 +101,11 @@ class SignUpChoiceViewController: UIViewController {
         
         view.addSubview(backBtn)
         backBtn.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(59)
+            if UIScreen.main.bounds.height <= 737 {
+                $0.top.equalToSuperview().offset(39)
+            } else {
+                $0.top.equalToSuperview().offset(59)
+            }
             $0.leading.equalToSuperview().offset(14)
         }
         
@@ -176,7 +180,7 @@ class SignUpChoiceViewController: UIViewController {
         signUpMentorBtn.rx.tap
             .bind {
                 self.user.role = "MENTOR"
-                let nextVC = WhichFieldViewController()
+                let nextVC = SignUpSecondViewController()
                 nextVC.titleLabel.text = "어떤 분야에서\n일하고 계신가요?👀"
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
@@ -185,7 +189,7 @@ class SignUpChoiceViewController: UIViewController {
         signUpMenteeBtn.rx.tap
             .bind {
                 self.user.role = "MENTEE"
-                self.navigationController?.pushViewController(WhichFieldViewController(), animated: true)
+                self.navigationController?.pushViewController(SignUpSecondViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         

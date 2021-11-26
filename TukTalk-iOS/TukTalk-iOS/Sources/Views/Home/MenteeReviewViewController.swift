@@ -33,6 +33,10 @@ class MenteeReviewViewController: UIViewController {
     
     private let tableView = UITableView()
     
+    private let devideLineView = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray5
+    }
+    
     private let bottomView = UIView().then {
         $0.backgroundColor = .white
     }
@@ -78,6 +82,15 @@ class MenteeReviewViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
         
+        tableView.addSubview(devideLineView)
+        devideLineView.snp.makeConstraints {
+            $0.height.equalTo(6)
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(tableView.snp.leading)
+            $0.trailing.equalTo(tableView.snp.trailing)
+        }
+        
         view.addSubview(bottomView)
         bottomView.snp.makeConstraints {
             $0.height.equalTo(34)
@@ -96,7 +109,6 @@ class MenteeReviewViewController: UIViewController {
     private func binding() {
         backBtn.rx.tap
             .bind { _ in
-                self.tabBarController?.tabBar.isHidden = false
                 self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
@@ -154,5 +166,25 @@ class MenteeReviewViewController: UIViewController {
 extension MenteeReviewViewController : UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+extension MenteeReviewViewController : UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == tableView {
+            if scrollView.contentOffset.y > 0 {
+                devideLineView.snp.updateConstraints {
+                    $0.top.equalTo(scrollView.contentOffset.y)
+                    $0.height.equalTo(max(6-scrollView.contentOffset.y, 1))
+                }
+                devideLineView.backgroundColor = UIColor.GrayScale.gray3
+            } else {
+                devideLineView.snp.updateConstraints {
+                    $0.top.equalTo(0)
+                    $0.height.equalTo(6)
+                }
+                devideLineView.backgroundColor = UIColor.GrayScale.gray5
+            }
+        }
     }
 }

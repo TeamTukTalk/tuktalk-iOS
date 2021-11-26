@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */; };
+		4000F8A12721B14D0067C6B6 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8A02721B14D0067C6B6 /* SignUpSecondViewController.swift */; };
 		4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */; };
 		400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */; };
 		4011846D271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
@@ -62,16 +62,16 @@
 		404C57032746A3A500B31F64 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57022746A3A500B31F64 /* APIConstants.swift */; };
 		404C57072746B89100B31F64 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57062746B89100B31F64 /* SignUpService.swift */; };
 		404C570A2746BB2F00B31F64 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57092746BB2F00B31F64 /* SignUpRequest.swift */; };
-		404C570E2746C2F500B31F64 /* WhichFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C570D2746C2F500B31F64 /* WhichFieldViewModel.swift */; };
+		404C570E2746C2F500B31F64 /* SignUpSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C570D2746C2F500B31F64 /* SignUpSecondViewModel.swift */; };
 		404C57112746C44900B31F64 /* FirstFieldCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57102746C44900B31F64 /* FirstFieldCategoryCVCell.swift */; };
 		404C57132746C89000B31F64 /* SecondFieldCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */; };
 		404C57152746D62800B31F64 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57142746D62800B31F64 /* LoginRequest.swift */; };
 		404C57182746D6B100B31F64 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57172746D6B100B31F64 /* LoginService.swift */; };
-		404E68692724206D005AA5DD /* RegistFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68682724206D005AA5DD /* RegistFirstViewController.swift */; };
-		404E686D272439C7005AA5DD /* RegistSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686C272439C7005AA5DD /* RegistSecondViewController.swift */; };
-		404E6870272449B6005AA5DD /* RegistFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686F272449B6005AA5DD /* RegistFirstViewModel.swift */; };
-		404E687227245220005AA5DD /* RegistSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E687127245220005AA5DD /* RegistSecondViewModel.swift */; };
-		404E68742724541E005AA5DD /* RegistThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* RegistThirdViewController.swift */; };
+		404E68692724206D005AA5DD /* RegistMentorFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68682724206D005AA5DD /* RegistMentorFirstViewController.swift */; };
+		404E686D272439C7005AA5DD /* RegistMentorSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686C272439C7005AA5DD /* RegistMentorSecondViewController.swift */; };
+		404E6870272449B6005AA5DD /* RegistMentorFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686F272449B6005AA5DD /* RegistMentorFirstViewModel.swift */; };
+		404E687227245220005AA5DD /* RegistMentorSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E687127245220005AA5DD /* RegistMentorSecondViewModel.swift */; };
+		404E68742724541E005AA5DD /* RegistMentorFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* RegistMentorFinishViewController.swift */; };
 		4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A9572729BFF90087E98C /* TagBottomSheetView.swift */; };
 		4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */; };
 		4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */; };
@@ -103,18 +103,19 @@
 		4065FF11274579E0005AAE0F /* SpecialtyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF10274579E0005AAE0F /* SpecialtyTableViewCell.swift */; };
 		4065FF1327457B8C005AAE0F /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF1227457B8C005AAE0F /* TagTableViewCell.swift */; };
 		4065FF1527457D05005AAE0F /* TagListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF1427457D05005AAE0F /* TagListCollectionViewCell.swift */; };
+		4067CE06275136D100FFC8AF /* SearchingDirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4067CE05275136D100FFC8AF /* SearchingDirectViewController.swift */; };
 		406C3F8427464F9C009EBAB2 /* MenteeReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406C3F8327464F9C009EBAB2 /* MenteeReviewViewController.swift */; };
 		406C3F86274653B7009EBAB2 /* MenteeReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406C3F85274653B7009EBAB2 /* MenteeReviewTableViewCell.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
-		4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */; };
-		4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpViewController.swift */; };
+		4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */; };
+		4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */; };
 		40A387B82731A5CB00BA5D5D /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */; };
 		40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */; };
 		40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */; };
 		40AA40EC27494AAC00F76625 /* UserSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40EB27494AAC00F76625 /* UserSignUp.swift */; };
 		40AA40EE274A7AFB00F76625 /* EmailValidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40ED274A7AFB00F76625 /* EmailValidResponse.swift */; };
 		40AA40F0274A7B2C00F76625 /* EmailValidService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40EF274A7B2C00F76625 /* EmailValidService.swift */; };
-		40AA40F2274A990D00F76625 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40F1274A990D00F76625 /* SignUpViewModel.swift */; };
+		40AA40F2274A990D00F76625 /* SignUpThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40F1274A990D00F76625 /* SignUpThirdViewModel.swift */; };
 		40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */; };
 		40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20B7274E35EA008A3967 /* RegistPortfolioFirstViewController.swift */; };
 		40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */; };
@@ -126,6 +127,7 @@
 		40CC20CA274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20C9274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift */; };
 		40CC20CC274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20CB274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift */; };
 		40CC20CE274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20CD274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift */; };
+		40CC20D0274FFA55008A3967 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20CF274FFA55008A3967 /* UIResponderExtension.swift */; };
 		40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */; };
 		40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */; };
 		40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */; };
@@ -166,7 +168,7 @@
 
 /* Begin PBXFileReference section */
 		25FC350EF778AB1F6E37D05A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichFieldViewController.swift; sourceTree = "<group>"; };
+		4000F8A02721B14D0067C6B6 /* SignUpSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondViewController.swift; sourceTree = "<group>"; };
 		4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCategoryDataModel.swift; sourceTree = "<group>"; };
 		400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCollectionViewCell.swift; sourceTree = "<group>"; };
 		4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-MEDIUM.OTF"; sourceTree = "<group>"; };
@@ -215,16 +217,16 @@
 		404C57022746A3A500B31F64 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		404C57062746B89100B31F64 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		404C57092746BB2F00B31F64 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
-		404C570D2746C2F500B31F64 /* WhichFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichFieldViewModel.swift; sourceTree = "<group>"; };
+		404C570D2746C2F500B31F64 /* SignUpSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondViewModel.swift; sourceTree = "<group>"; };
 		404C57102746C44900B31F64 /* FirstFieldCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFieldCategoryCVCell.swift; sourceTree = "<group>"; };
 		404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFieldCategoryCVCell.swift; sourceTree = "<group>"; };
 		404C57142746D62800B31F64 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		404C57172746D6B100B31F64 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		404E68682724206D005AA5DD /* RegistFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistFirstViewController.swift; sourceTree = "<group>"; };
-		404E686C272439C7005AA5DD /* RegistSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistSecondViewController.swift; sourceTree = "<group>"; };
-		404E686F272449B6005AA5DD /* RegistFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistFirstViewModel.swift; sourceTree = "<group>"; };
-		404E687127245220005AA5DD /* RegistSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistSecondViewModel.swift; sourceTree = "<group>"; };
-		404E68732724541E005AA5DD /* RegistThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistThirdViewController.swift; sourceTree = "<group>"; };
+		404E68682724206D005AA5DD /* RegistMentorFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFirstViewController.swift; sourceTree = "<group>"; };
+		404E686C272439C7005AA5DD /* RegistMentorSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorSecondViewController.swift; sourceTree = "<group>"; };
+		404E686F272449B6005AA5DD /* RegistMentorFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFirstViewModel.swift; sourceTree = "<group>"; };
+		404E687127245220005AA5DD /* RegistMentorSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorSecondViewModel.swift; sourceTree = "<group>"; };
+		404E68732724541E005AA5DD /* RegistMentorFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFinishViewController.swift; sourceTree = "<group>"; };
 		4060A9572729BFF90087E98C /* TagBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetView.swift; sourceTree = "<group>"; };
 		4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewModel.swift; sourceTree = "<group>"; };
 		4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -256,18 +258,19 @@
 		4065FF10274579E0005AAE0F /* SpecialtyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyTableViewCell.swift; sourceTree = "<group>"; };
 		4065FF1227457B8C005AAE0F /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		4065FF1427457D05005AAE0F /* TagListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListCollectionViewCell.swift; sourceTree = "<group>"; };
+		4067CE05275136D100FFC8AF /* SearchingDirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingDirectViewController.swift; sourceTree = "<group>"; };
 		406C3F8327464F9C009EBAB2 /* MenteeReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeReviewViewController.swift; sourceTree = "<group>"; };
 		406C3F85274653B7009EBAB2 /* MenteeReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeReviewTableViewCell.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
-		4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpChoiceViewController.swift; sourceTree = "<group>"; };
-		4088F170271AE4CE00527A77 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
+		4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdViewController.swift; sourceTree = "<group>"; };
 		40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 		40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableHeaderView.swift; sourceTree = "<group>"; };
 		40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFirstViewModel.swift; sourceTree = "<group>"; };
 		40AA40EB27494AAC00F76625 /* UserSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUp.swift; sourceTree = "<group>"; };
 		40AA40ED274A7AFB00F76625 /* EmailValidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidResponse.swift; sourceTree = "<group>"; };
 		40AA40EF274A7B2C00F76625 /* EmailValidService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidService.swift; sourceTree = "<group>"; };
-		40AA40F1274A990D00F76625 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		40AA40F1274A990D00F76625 /* SignUpThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdViewModel.swift; sourceTree = "<group>"; };
 		40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		40CC20B7274E35EA008A3967 /* RegistPortfolioFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirstViewController.swift; sourceTree = "<group>"; };
 		40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirstViewModel.swift; sourceTree = "<group>"; };
@@ -279,6 +282,7 @@
 		40CC20C9274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirthViewController.swift; sourceTree = "<group>"; };
 		40CC20CB274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirthViewModel.swift; sourceTree = "<group>"; };
 		40CC20CD274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFifthViewController.swift; sourceTree = "<group>"; };
+		40CC20CF274FFA55008A3967 /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewModel.swift; sourceTree = "<group>"; };
 		40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetViewModel.swift; sourceTree = "<group>"; };
 		40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -422,6 +426,7 @@
 				402D65982726849E00F4ED8F /* SearchMainViewController.swift */,
 				402D65A02726D64400F4ED8F /* SearchDirectViewController.swift */,
 				402D65B02727D64400F4ED8F /* SearchingViewController.swift */,
+				4067CE05275136D100FFC8AF /* SearchingDirectViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -455,12 +460,9 @@
 		402D65A82727306E00F4ED8F /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				402D65A9272730A100F4ED8F /* SearchesCollectionViewModel.swift */,
+				4052BFC927512541007F2368 /* CollectionViewModel */,
 				402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */,
-				4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */,
 				40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */,
-				403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */,
-				403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -505,6 +507,7 @@
 				40746D0B271EE94400B54CBB /* UILabelExtension.swift */,
 				40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */,
 				4065FEEB27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift */,
+				40CC20CF274FFA55008A3967 /* UIResponderExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -693,9 +696,9 @@
 		404E686727242017005AA5DD /* RegistMentor */ = {
 			isa = PBXGroup;
 			children = (
-				404E68682724206D005AA5DD /* RegistFirstViewController.swift */,
-				404E686C272439C7005AA5DD /* RegistSecondViewController.swift */,
-				404E68732724541E005AA5DD /* RegistThirdViewController.swift */,
+				404E68682724206D005AA5DD /* RegistMentorFirstViewController.swift */,
+				404E686C272439C7005AA5DD /* RegistMentorSecondViewController.swift */,
+				404E68732724541E005AA5DD /* RegistMentorFinishViewController.swift */,
 			);
 			path = RegistMentor;
 			sourceTree = "<group>";
@@ -703,10 +706,21 @@
 		404E686E272449A4005AA5DD /* RegistMentor */ = {
 			isa = PBXGroup;
 			children = (
-				404E686F272449B6005AA5DD /* RegistFirstViewModel.swift */,
-				404E687127245220005AA5DD /* RegistSecondViewModel.swift */,
+				404E686F272449B6005AA5DD /* RegistMentorFirstViewModel.swift */,
+				404E687127245220005AA5DD /* RegistMentorSecondViewModel.swift */,
 			);
 			path = RegistMentor;
+			sourceTree = "<group>";
+		};
+		4052BFC927512541007F2368 /* CollectionViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				402D65A9272730A100F4ED8F /* SearchesCollectionViewModel.swift */,
+				4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */,
+				403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */,
+				403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */,
+			);
+			path = CollectionViewModel;
 			sourceTree = "<group>";
 		};
 		406324CB273FF131009F62A3 /* UIView */ = {
@@ -822,9 +836,9 @@
 			children = (
 				40AA40EA27494A8E00F76625 /* Class */,
 				404C570F2746C43200B31F64 /* Cell */,
-				4088F16B2719E16E00527A77 /* SignUpChoiceViewController.swift */,
-				4000F8A02721B14D0067C6B6 /* WhichFieldViewController.swift */,
-				4088F170271AE4CE00527A77 /* SignUpViewController.swift */,
+				4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */,
+				4000F8A02721B14D0067C6B6 /* SignUpSecondViewController.swift */,
+				4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */,
 				40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */,
 			);
 			path = SignUp;
@@ -833,8 +847,8 @@
 		4088F16D271ADAE700527A77 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				404C570D2746C2F500B31F64 /* WhichFieldViewModel.swift */,
-				40AA40F1274A990D00F76625 /* SignUpViewModel.swift */,
+				404C570D2746C2F500B31F64 /* SignUpSecondViewModel.swift */,
+				40AA40F1274A990D00F76625 /* SignUpThirdViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1231,9 +1245,9 @@
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
 				40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */,
-				4000F8A12721B14D0067C6B6 /* WhichFieldViewController.swift in Sources */,
+				4000F8A12721B14D0067C6B6 /* SignUpSecondViewController.swift in Sources */,
 				40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */,
-				404E686D272439C7005AA5DD /* RegistSecondViewController.swift in Sources */,
+				404E686D272439C7005AA5DD /* RegistMentorSecondViewController.swift in Sources */,
 				40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
@@ -1252,13 +1266,13 @@
 				4065FEE4274355C8005AAE0F /* RegistProfileFifthViewController.swift in Sources */,
 				404C57112746C44900B31F64 /* FirstFieldCategoryCVCell.swift in Sources */,
 				40AA40EE274A7AFB00F76625 /* EmailValidResponse.swift in Sources */,
-				404E6870272449B6005AA5DD /* RegistFirstViewModel.swift in Sources */,
+				404E6870272449B6005AA5DD /* RegistMentorFirstViewModel.swift in Sources */,
 				402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */,
 				4065FF00274404A7005AAE0F /* MentorInformationViewModel.swift in Sources */,
 				40384BF6273199FA00605246 /* MyPageTVDataModel.swift in Sources */,
-				404E68742724541E005AA5DD /* RegistThirdViewController.swift in Sources */,
+				404E68742724541E005AA5DD /* RegistMentorFinishViewController.swift in Sources */,
 				4065FEE827435B5F005AAE0F /* TagCollectionViewModel.swift in Sources */,
-				404C570E2746C2F500B31F64 /* WhichFieldViewModel.swift in Sources */,
+				404C570E2746C2F500B31F64 /* SignUpSecondViewModel.swift in Sources */,
 				4065FEFD274402D3005AAE0F /* MentorInformationViewController.swift in Sources */,
 				40DCF34B2739894B00A82CC6 /* ReviewDataModel.swift in Sources */,
 				40DCF359273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift in Sources */,
@@ -1281,11 +1295,13 @@
 				4065FEEC27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */,
 				403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */,
+				4067CE06275136D100FFC8AF /* SearchingDirectViewController.swift in Sources */,
 				404C570A2746BB2F00B31F64 /* SignUpRequest.swift in Sources */,
 				4065FEEA27435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift in Sources */,
 				40A387B82731A5CB00BA5D5D /* MyPageTableViewCell.swift in Sources */,
 				4065FEF92743CDE7005AAE0F /* PageCollectionViewDataModel.swift in Sources */,
 				406C3F8427464F9C009EBAB2 /* MenteeReviewViewController.swift in Sources */,
+				40CC20D0274FFA55008A3967 /* UIResponderExtension.swift in Sources */,
 				402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */,
 				40AA40EC27494AAC00F76625 /* UserSignUp.swift in Sources */,
 				40DCF343273979DD00A82CC6 /* JobMentorCollectionViewCell.swift in Sources */,
@@ -1294,16 +1310,16 @@
 				40DCF357273DAA3700A82CC6 /* RegistProfileFirstViewController.swift in Sources */,
 				402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */,
 				40DCF34D273C0F5D00A82CC6 /* JobMentorListViewController.swift in Sources */,
-				4088F171271AE4CE00527A77 /* SignUpViewController.swift in Sources */,
+				4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */,
 				402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */,
 				40CC20CA274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift in Sources */,
 				4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */,
 				4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */,
-				4088F16C2719E16E00527A77 /* SignUpChoiceViewController.swift in Sources */,
+				4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */,
 				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
 				40DCF3492739891F00A82CC6 /* ReviewCollectionViewModel.swift in Sources */,
 				402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */,
-				404E68692724206D005AA5DD /* RegistFirstViewController.swift in Sources */,
+				404E68692724206D005AA5DD /* RegistMentorFirstViewController.swift in Sources */,
 				402D659F272684B500F4ED8F /* MyPageViewController.swift in Sources */,
 				4065FEE02743506D005AAE0F /* RegistProfileFourthViewModel.swift in Sources */,
 				402D659B272684A600F4ED8F /* CommunityViewController.swift in Sources */,
@@ -1317,7 +1333,7 @@
 				40CC20C6274E7A01008A3967 /* RegistPortfolioThirdViewController.swift in Sources */,
 				4065FF0B27453BD2005AAE0F /* InformationViewModel.swift in Sources */,
 				404C57032746A3A500B31F64 /* APIConstants.swift in Sources */,
-				404E687227245220005AA5DD /* RegistSecondViewModel.swift in Sources */,
+				404E687227245220005AA5DD /* RegistMentorSecondViewModel.swift in Sources */,
 				406324D0273FF1E1009F62A3 /* FieldViewModel.swift in Sources */,
 				40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */,
 				40CC20C0274E620C008A3967 /* RegistPortfolioSecondViewController.swift in Sources */,
@@ -1327,7 +1343,7 @@
 				40CC20C2274E7578008A3967 /* RegistPortfolioSecondViewModel.swift in Sources */,
 				4065FEFB2743CE31005AAE0F /* PageCollectionViewCell.swift in Sources */,
 				40DCF33D273833C000A82CC6 /* BannerCollectionViewModel.swift in Sources */,
-				40AA40F2274A990D00F76625 /* SignUpViewModel.swift in Sources */,
+				40AA40F2274A990D00F76625 /* SignUpThirdViewModel.swift in Sources */,
 				40DCF3472739884F00A82CC6 /* ReviewCollectionViewCell.swift in Sources */,
 				40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */,
 				40AA40F0274A7B2C00F76625 /* EmailValidService.swift in Sources */,

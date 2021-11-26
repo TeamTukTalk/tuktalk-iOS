@@ -8,11 +8,13 @@
 import RxSwift
 import Moya
 
-class SignUpViewController: UIViewController {
+class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK:- Properties
     
-    private lazy var viewModel = SignUpViewModel()
+    private var keyboardFrame: NSValue?
+    private let screenHeight = UIScreen.main.bounds.height
+    private lazy var viewModel = SignUpThirdViewModel()
     private let provider = MoyaProvider<EmailValidService>()
     private let user = UserSignUp.shared
     private var emailValid: Bool?
@@ -31,6 +33,12 @@ class SignUpViewController: UIViewController {
         $0.frame.size.height = 20
         $0.frame.size.width = 20
     }
+    
+    private let mainScrollView = UIScrollView().then {
+        $0.contentInsetAdjustmentBehavior = .never
+    }
+    
+    private let mainContentView = UIView()
     
     private let titleLabel = UILabel().then {
         $0.text = "딱 이것만 체크하면\n가입완료!"
@@ -153,83 +161,135 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScrollView()
         setUI()
         binding()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        keyboardObserver()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        mainScrollView.flashScrollIndicators()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     //MARK:- Functions
+    
+    private func setScrollView() {
+        mainScrollView.delegate = self
+        mainScrollView.bounces = false
+        mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 635)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapAction))
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.isEnabled = true
+        tapGesture.cancelsTouchesInView = false
+        mainScrollView.addGestureRecognizer(tapGesture)
+    }
     
     private func setUI() {
         view.backgroundColor = .white
         
         view.addSubview(backBtn)
         backBtn.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(59)
+            if UIScreen.main.bounds.height <= 736 {
+                $0.top.equalToSuperview().offset(39)
+            } else {
+                $0.top.equalToSuperview().offset(59)
+            }
             $0.leading.equalToSuperview().offset(14)
         }
         
         view.addSubview(closeBtn)
         closeBtn.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(56)
+            if UIScreen.main.bounds.height <= 736 {
+                $0.top.equalToSuperview().offset(36)
+            } else {
+                $0.top.equalToSuperview().offset(56)
+            }
             $0.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(titleLabel)
+        view.addSubview(mainScrollView)
+        mainScrollView.snp.makeConstraints {
+            if UIScreen.main.bounds.height <= 736 {
+                $0.top.equalTo(backBtn.snp.bottom).offset(10)
+            } else {
+                $0.top.equalToSuperview().offset(120)
+            }
+            $0.bottom.leading.trailing.equalToSuperview()
+        }
+        
+        mainScrollView.addSubview(mainContentView)
+        mainContentView.snp.makeConstraints {
+            $0.width.height.equalTo(mainScrollView.contentSize)
+            $0.edges.equalTo(mainScrollView.contentSize)
+        }
+        
+        mainContentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(120)
+            $0.height.equalTo(60)
+            $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(nameLabel)
+        mainContentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints {
             $0.height.equalTo(22)
             $0.top.equalTo(titleLabel.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(nameTextField)
+        mainContentView.addSubview(nameTextField)
         nameTextField.snp.makeConstraints {
             $0.top.equalTo(nameLabel.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(30)
         }
         
-        view.addSubview(nameErrorLabel)
+        mainContentView.addSubview(nameErrorLabel)
         nameErrorLabel.snp.makeConstraints {
             $0.height.equalTo(14)
             $0.top.equalTo(nameTextField.snp.bottom).offset(8)
             $0.leading.equalTo(nameTextField.snp.leading)
         }
         
-        view.addSubview(nameErrorIcon)
+        mainContentView.addSubview(nameErrorIcon)
         nameErrorIcon.snp.makeConstraints {
             $0.height.width.equalTo(20)
             $0.top.equalTo(nameLabel.snp.bottom).offset(13)
             $0.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(emailLabel)
+        mainContentView.addSubview(emailLabel)
         emailLabel.snp.makeConstraints {
             $0.top.equalTo(nameTextField.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(emailTextField)
+        mainContentView.addSubview(emailTextField)
         emailTextField.snp.makeConstraints {
             $0.top.equalTo(emailLabel.snp.bottom).offset(12)
             $0.leading.equalToSuperview().offset(16)
-            $0.width.equalTo(247)
+            $0.trailing.equalToSuperview().inset(112)
             $0.height.equalTo(30)
         }
         
-        view.addSubview(emailErrorLabel)
+        mainContentView.addSubview(emailErrorLabel)
         emailErrorLabel.snp.makeConstraints {
             $0.height.equalTo(14)
             $0.top.equalTo(emailTextField.snp.bottom).offset(8)
             $0.leading.equalTo(emailTextField.snp.leading)
         }
         
-        view.addSubview(emailCheckBtn)
+        mainContentView.addSubview(emailCheckBtn)
         emailCheckBtn.snp.makeConstraints {
             $0.width.equalTo(84)
             $0.height.equalTo(32)
@@ -237,90 +297,90 @@ class SignUpViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(emailErrorIcon)
+        mainContentView.addSubview(emailErrorIcon)
         emailErrorIcon.snp.makeConstraints {
             $0.height.width.equalTo(20)
             $0.top.equalTo(emailLabel.snp.bottom).offset(13)
             $0.trailing.equalTo(emailCheckBtn.snp.leading).offset(-12)
         }
         
-        view.addSubview(passwordLabel)
+        mainContentView.addSubview(passwordLabel)
         passwordLabel.snp.makeConstraints {
             $0.top.equalTo(emailTextField.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(passwordTextField)
+        mainContentView.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints {
             $0.top.equalTo(passwordLabel.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(30)
         }
         
-        view.addSubview(passwordErrorLabel)
+        mainContentView.addSubview(passwordErrorLabel)
         passwordErrorLabel.snp.makeConstraints {
             $0.height.equalTo(14)
             $0.top.equalTo(passwordTextField.snp.bottom).offset(8)
             $0.leading.equalTo(passwordTextField.snp.leading)
         }
         
-        view.addSubview(passwordErrorIcon)
+        mainContentView.addSubview(passwordErrorIcon)
         passwordErrorIcon.snp.makeConstraints {
             $0.height.width.equalTo(20)
             $0.top.equalTo(passwordLabel.snp.bottom).offset(13)
             $0.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(passwordCheckLabel)
+        mainContentView.addSubview(passwordCheckLabel)
         passwordCheckLabel.snp.makeConstraints {
             $0.top.equalTo(passwordTextField.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(passwordCheckTextField)
+        mainContentView.addSubview(passwordCheckTextField)
         passwordCheckTextField.snp.makeConstraints {
             $0.top.equalTo(passwordCheckLabel.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(30)
         }
         
-        view.addSubview(passwordCheckErrorLabel)
+        mainContentView.addSubview(passwordCheckErrorLabel)
         passwordCheckErrorLabel.snp.makeConstraints {
             $0.height.equalTo(14)
             $0.top.equalTo(passwordCheckTextField.snp.bottom).offset(8)
             $0.leading.equalTo(passwordCheckTextField.snp.leading)
         }
         
-        view.addSubview(passwordCheckErrorIcon)
+        mainContentView.addSubview(passwordCheckErrorIcon)
         passwordCheckErrorIcon.snp.makeConstraints {
             $0.height.width.equalTo(20)
             $0.top.equalTo(passwordCheckLabel.snp.bottom).offset(13)
             $0.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(signUpBtn)
-        signUpBtn.snp.makeConstraints {
-            $0.height.equalTo(52)
-            $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(42)
-        }
-        
-        view.addSubview(allAgreeBtn)
+        mainContentView.addSubview(allAgreeBtn)
         allAgreeBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 0)
         allAgreeBtn.snp.makeConstraints {
             $0.height.equalTo(24)
-            $0.bottom.equalTo(signUpBtn.snp.top).offset(-32)
+            $0.top.equalTo(passwordCheckErrorLabel.snp.bottom).offset(32)
             $0.leading.equalToSuperview().offset(16)
         }
         
-        view.addSubview(checkBtn)
+        mainContentView.addSubview(checkBtn)
         let attribute = NSMutableAttributedString(string: "확인하기")
         attribute.addAttribute(NSMutableAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: NSRange(location: 0, length: 4))
         checkBtn.setAttributedTitle(attribute, for: .normal)
         checkBtn.snp.makeConstraints {
             $0.height.equalTo(18)
-            $0.bottom.equalTo(signUpBtn.snp.top).offset(-35)
+            $0.top.equalTo(passwordCheckErrorLabel.snp.bottom).offset(35)
             $0.trailing.equalToSuperview().inset(16)
+        }
+        
+        mainContentView.addSubview(signUpBtn)
+        signUpBtn.snp.makeConstraints {
+            $0.height.equalTo(52)
+            $0.top.equalTo(checkBtn.snp.bottom).offset(35)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
     }
@@ -525,5 +585,38 @@ class SignUpViewController: UIViewController {
                 }
             }
             .disposed(by: disposeBag)
+    }
+    
+    @objc private func didTapAction(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
+    private func keyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ sender: Notification) {
+        if UIResponder.currentFirst() != passwordCheckTextField {
+            return
+        }
+        var passwordCheckBottomPosition = passwordCheckTextField.frame.origin.y + passwordCheckTextField.frame.height
+        if UIScreen.main.bounds.height <= 736 {
+            passwordCheckBottomPosition += 69
+        } else {
+            passwordCheckBottomPosition += 120
+        }
+        keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        let keyboardTopPosition = screenHeight - keyboardFrame!.cgRectValue.height
+        if passwordCheckBottomPosition < keyboardTopPosition {
+            return
+        }
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y += keyboardTopPosition - passwordCheckBottomPosition - 20
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
     }
 }

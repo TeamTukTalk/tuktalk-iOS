@@ -73,7 +73,11 @@ class SignUpFinishViewController: UIViewController {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.height.equalTo(25)
-            $0.top.equalToSuperview().offset(420)
+            if UIScreen.main.bounds.height == 667 {
+                $0.top.equalToSuperview().offset(320)
+            } else {
+                $0.top.equalToSuperview().offset(420)
+            }
             $0.centerX.equalToSuperview()
         }
         
@@ -87,7 +91,7 @@ class SignUpFinishViewController: UIViewController {
         view.addSubview(conImage)
         conImage.snp.makeConstraints {
             $0.bottom.equalTo(titleLabel.snp.top)
-            $0.leading.equalToSuperview().offset(112)
+            $0.centerX.equalToSuperview()
         }
         
         switch user.role {

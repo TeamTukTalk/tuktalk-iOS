@@ -7,11 +7,11 @@
 
 import RxSwift
 
-class WhichFieldViewController: UIViewController {
+class SignUpSecondViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var viewModel = WhichFieldViewModel()
+    private lazy var viewModel = SignUpSecondViewModel()
     private let user = UserSignUp.shared
     private var selectedNum = 0
     private let disposeBag = DisposeBag()
@@ -66,13 +66,21 @@ class WhichFieldViewController: UIViewController {
         
         view.addSubview(backBtn)
         backBtn.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(59)
+            if UIScreen.main.bounds.height <= 736 {
+                $0.top.equalToSuperview().offset(39)
+            } else {
+                $0.top.equalToSuperview().offset(59)
+            }
             $0.leading.equalToSuperview().offset(14)
         }
         
         view.addSubview(closeBtn)
         closeBtn.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(56)
+            if UIScreen.main.bounds.height == 736 {
+                $0.top.equalToSuperview().offset(36)
+            } else {
+                $0.top.equalToSuperview().offset(56)
+            }
             $0.trailing.equalToSuperview().inset(16)
         }
         
@@ -84,7 +92,11 @@ class WhichFieldViewController: UIViewController {
         
         view.addSubview(designCategoryCV)
         designCategoryCV.snp.makeConstraints {
-            $0.height.equalTo(132)
+            if UIScreen.main.bounds.width == 428 {
+                $0.height.equalTo(84)
+            } else {
+                $0.height.equalTo(132)
+            }
             $0.top.equalTo(titleLabel.snp.bottom).offset(56)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
@@ -193,7 +205,7 @@ class WhichFieldViewController: UIViewController {
         
         nextBtn.rx.tap
             .bind { _ in
-                self.navigationController?.pushViewController(SignUpViewController(), animated: true)
+                self.navigationController?.pushViewController(SignUpThirdViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }
@@ -226,7 +238,7 @@ class WhichFieldViewController: UIViewController {
     }
 }
 
-extension WhichFieldViewController: UICollectionViewDelegateFlowLayout {
+extension SignUpSecondViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

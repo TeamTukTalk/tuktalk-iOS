@@ -12,7 +12,7 @@ final class TagBottomSheetView: UIViewController {
     //MARK:- Properties
     
     private let collectionViewModel = BottomSheetCollectionViewModel()
-    private let tagViewModel = TagBottomSheetViewModel()
+    lazy var tagViewModel = TagBottomSheetViewModel()
     private let disposeBag = DisposeBag()
     
     let companyTagTitle = BehaviorSubject(value: "")
@@ -29,7 +29,6 @@ final class TagBottomSheetView: UIViewController {
 
     private let closeBtn = UIButton().then {
         $0.setImage(UIImage(named: "categoryCloseImg"), for: .normal)
-        $0.addTarget(self, action: #selector(dismissBtnAction), for: .touchUpInside)
     }
     
     private let closeLabel = UILabel().then {
@@ -152,7 +151,12 @@ final class TagBottomSheetView: UIViewController {
         applyBtn.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(52)
-            $0.bottom.equalToSuperview().inset(46)
+            if UIScreen.main.bounds.height <= 736 {
+                $0.bottom.equalToSuperview().inset(16)
+            } else {
+                $0.bottom.equalToSuperview().inset(46)
+            }
+            
         }
         
         bottomSheetView.addSubview(devideView)
@@ -202,8 +206,16 @@ final class TagBottomSheetView: UIViewController {
             .bind { _ in
                 self.companyCV.allowsSelection = false
                 self.companyCV.allowsSelection = true
+                self.tagViewModel.input.companyTitle.onNext("")
                 self.careerCV.allowsSelection = false
                 self.careerCV.allowsSelection = true
+                self.tagViewModel.input.careerTitle.onNext("")
+            }
+            .disposed(by: disposeBag)
+        
+        closeBtn.rx.tap
+            .bind { _ in
+                self.dismiss(animated: false, completion: nil)
             }
             .disposed(by: disposeBag)
     }
@@ -216,6 +228,11 @@ final class TagBottomSheetView: UIViewController {
                 if let cell = self.companyCV.dequeueReusableCell(withReuseIdentifier: "BottomSheetCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? BottomSheetCollectionViewCell {
                     
                     cell.configure(name: item.title)
+                    self.tagViewModel.output.companyText.filter { $0 == cell.element.text }
+                        .bind { _ in
+                            cell.isSelected = true
+                            self.companyCV.selectItem(at: IndexPath.init(row: row, section: 0), animated: false, scrollPosition: .init())
+                        }.disposed(by: self.disposeBag)
                     return cell
                 }
                 return UICollectionViewCell()
@@ -227,6 +244,11 @@ final class TagBottomSheetView: UIViewController {
                 if let cell = self.careerCV.dequeueReusableCell(withReuseIdentifier: "BottomSheetCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? BottomSheetCollectionViewCell {
                     
                     cell.configure(name: item.title)
+                    self.tagViewModel.output.careerText.filter { $0 == cell.element.text }
+                        .bind { _ in
+                            cell.isSelected = true
+                            self.careerCV.selectItem(at: IndexPath.init(row: row, section: 0), animated: false, scrollPosition: .init())
+                        }.disposed(by: self.disposeBag)
                     return cell
                 }
                 return UICollectionViewCell()
@@ -251,10 +273,6 @@ final class TagBottomSheetView: UIViewController {
             self.bottomSheetView.transform = CGAffineTransform(translationX: 0, y: (-UIScreen.main.bounds.height)+230)
             self.bottomSheetView.layoutIfNeeded()
         }, completion: nil)
-    }
-    
-    @objc func dismissBtnAction() {
-        self.dismiss(animated: false)
     }
     
 }

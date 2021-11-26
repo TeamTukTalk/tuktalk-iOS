@@ -1,5 +1,5 @@
 //
-//  SecondView.swift
+//  EnrollThirdViewController.swift
 //  TukTalk-iOS
 //
 //  Created by 한상진 on 2021/10/23.
@@ -7,11 +7,10 @@
 
 import RxSwift
 
-class RegistSecondViewController: UIViewController {
+class RegistMentorFinishViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var registSecondViewModel = RegistSecondViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -71,7 +70,7 @@ class RegistSecondViewController: UIViewController {
     }
     
     private let thirdLabelIcon = UILabel().then {
-        $0.backgroundColor = UIColor.GrayScale.sub4
+        $0.backgroundColor = UIColor.Primary.primary
         $0.text = "3"
         $0.font = UIFont.boldSystemFont(ofSize: 12)
         $0.textColor = .white
@@ -83,7 +82,7 @@ class RegistSecondViewController: UIViewController {
     private let thirdLabel = UILabel().then {
         $0.text = "등록완료"
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
-        $0.textColor = UIColor.GrayScale.sub4
+        $0.textColor = UIColor.Primary.primary
     }
     
     private let backgroundView = UIView().then {
@@ -93,57 +92,37 @@ class RegistSecondViewController: UIViewController {
         $0.layer.cornerRadius = 12
     }
     
+    private let centerImageView = UIImageView().then {
+        $0.image = UIImage(named: "conImg")
+    }
+    
     private let titleLabel = UILabel().then {
-        $0.text = "재직중인 기업 이메일을 입력해주세요."
+        $0.text = "뚝딱 멘토가 되신걸 환영합니다!"
         $0.font = UIFont.TTFont(type: .SDBold, size: 16)
         $0.textColor = UIColor.GrayScale.normal
     }
     
     private let subTitleLabel = UILabel().then {
-        $0.text = "입력하신 기업 이메일은 암호 처리됩니다."
+        $0.text = "마이페이지에서 자신을 소개해보세요."
         $0.font = UIFont.TTFont(type: .SDReg, size: 13)
         $0.textColor = UIColor.GrayScale.sub2
     }
     
-    private let emailLabel = UILabel().then {
-        $0.text = "이메일"
-        $0.textColor = UIColor.GrayScale.sub1
-        $0.font = UIFont.TTFont(type: .SDMed, size: 14)
-    }
-    
-    private let emailTextField = UITextField().then {
-        $0.placeholder = "이메일 계정을 입력해주세요."
-        $0.font = UIFont.TTFont(type: .SDReg, size: 15)
-        $0.setUnderline(false)
-    }
-    
-    private let sendBtn = UIButton().then {
-        $0.setTitle("발송", for: .normal)
+    private let nextBtn = UIButton().then {
+        $0.setTitle("확인", for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
-        $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
-        $0.backgroundColor = UIColor.GrayScale.gray4
+        $0.setTitleColor(UIColor.Primary.primary, for: .normal)
+        $0.backgroundColor = .white
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.Primary.primary.cgColor
         $0.layer.cornerRadius = 24
     }
     
-    private let informLabel = UILabel().then {
-        $0.numberOfLines = 0
-        $0.text = "*외부 이메일 차단 등의 이유로 인증이 불가능한 경우 뚝딱\nabc@company.com 으로 문의해주세요."
-        $0.textColor = UIColor.GrayScale.sub3
-        $0.font = UIFont.TTFont(type: .SDReg, size: 12)
-        $0.makeHeightSpacing(thisText: $0.text, fontSize: 12)
-    }
-    
     //MARK:- Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         binding()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        emailTextField.text = ""
     }
     
     //MARK:- Function
@@ -219,15 +198,22 @@ class RegistSecondViewController: UIViewController {
         
         view.addSubview(backgroundView)
         backgroundView.snp.makeConstraints {
-            $0.height.equalTo(345)
+            $0.height.equalTo(380)
             $0.top.equalTo(firstLabelIcon.snp.bottom).offset(22)
             $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        view.addSubview(centerImageView)
+        centerImageView.snp.makeConstraints {
+            $0.width.height.equalTo(150)
+            $0.top.equalTo(backgroundView).offset(49)
+            $0.centerX.equalTo(backgroundView)
         }
         
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.height.equalTo(24)
-            $0.top.equalTo(backgroundView.snp.top).offset(32)
+            $0.top.equalTo(backgroundView.snp.top).offset(195)
             $0.centerX.equalTo(backgroundView)
         }
         
@@ -238,30 +224,10 @@ class RegistSecondViewController: UIViewController {
             $0.centerX.equalTo(backgroundView)
         }
         
-        view.addSubview(emailLabel)
-        emailLabel.snp.makeConstraints {
-            $0.height.equalTo(20)
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(40)
-            $0.leading.equalTo(backgroundView).offset(20)
-        }
-        
-        view.addSubview(emailTextField)
-        emailTextField.snp.makeConstraints {
-            $0.height.equalTo(30)
-            $0.top.equalTo(emailLabel.snp.bottom).offset(12)
-            $0.leading.trailing.equalTo(backgroundView).inset(20)
-        }
-        
-        view.addSubview(sendBtn)
-        sendBtn.snp.makeConstraints {
+        view.addSubview(nextBtn)
+        nextBtn.snp.makeConstraints {
             $0.height.equalTo(48)
-            $0.top.equalTo(emailTextField.snp.bottom).offset(32)
-            $0.leading.trailing.equalTo(backgroundView).inset(20)
-        }
-        
-        view.addSubview(informLabel)
-        informLabel.snp.makeConstraints {
-            $0.top.equalTo(sendBtn.snp.bottom).offset(16)
+            $0.bottom.equalTo(backgroundView).inset(32)
             $0.leading.trailing.equalTo(backgroundView).inset(20)
         }
     }
@@ -288,41 +254,11 @@ class RegistSecondViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        emailTextField.rx.controlEvent(.editingDidBegin)
+        nextBtn.rx.tap
             .bind { _ in
-                self.emailTextField.setUnderline(true)
-            }
-            .disposed(by: disposeBag)
-        
-        emailTextField.rx.text
-            .orEmpty
-            .bind(to: registSecondViewModel.input.emailText)
-            .disposed(by: disposeBag)
-        
-        registSecondViewModel.output.sendIsValid
-            .bind(to: sendBtn.rx.isEnabled)
-            .disposed(by: disposeBag)
-        
-        registSecondViewModel.output.sendIsValid
-            .filter {$0}
-            .bind { _ in
-                self.sendBtn.setTitleColor(.white, for: .normal)
-                self.sendBtn.backgroundColor = UIColor.Primary.primary
-            }
-            .disposed(by: disposeBag)
-        
-        registSecondViewModel.output.sendIsValid
-            .filter {!$0}
-            .bind { _ in
-                self.sendBtn.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
-                self.sendBtn.backgroundColor = UIColor.GrayScale.gray4
-            }
-            .disposed(by: disposeBag)
-        
-        sendBtn.rx.tap
-            .bind { _ in
-                self.navigationController?.pushViewController(RegistThirdViewController(), animated: false)
+                // TODO
             }
             .disposed(by: disposeBag)
     }
+
 }

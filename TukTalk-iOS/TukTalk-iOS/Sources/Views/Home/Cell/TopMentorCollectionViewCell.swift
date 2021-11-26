@@ -86,12 +86,13 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
             $0.top.leading.equalToSuperview().inset(20)
         }
         nameLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
             $0.leading.equalTo(profileImg.snp.trailing).offset(12)
             $0.top.equalTo(profileImg.snp.top)
         }
         mentorConfirmImg.snp.makeConstraints {
             $0.width.height.equalTo(16)
-            $0.centerY.equalTo(nameLabel)
+            $0.top.equalTo(nameLabel).offset(1)
             $0.leading.equalTo(nameLabel.snp.trailing)
         }
         companyLabel.snp.makeConstraints {
@@ -115,7 +116,7 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
         }
         hashTagCV.snp.makeConstraints {
             $0.top.equalTo(devideView.snp.bottom).offset(8)
-            $0.leading.equalTo(profileImg.snp.trailing).offset(16)
+            $0.leading.equalTo(profileImg.snp.trailing).offset(12)
             $0.trailing.equalToSuperview().inset(27)
             $0.bottom.equalToSuperview().inset(20)
         }
@@ -128,6 +129,7 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
         hashTagCV.setCollectionViewLayout(hashTagCVLayout, animated: false)
         hashTagCV.backgroundColor = .white
         hashTagCV.showsHorizontalScrollIndicator = false
+        hashTagCV.isUserInteractionEnabled = false
         hashTagCV.register(HashTagCollectionViewCell.self, forCellWithReuseIdentifier: "HashTagCollectionViewCell")
     }
     private func bindingCollectionView() {

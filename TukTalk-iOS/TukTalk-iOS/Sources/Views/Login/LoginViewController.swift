@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     
     //MARK:- Properties
     
+    private var keyboardFrame: NSValue?
+    private let screenHeight = UIScreen.main.bounds.height
     private lazy var loginViewModel = LoginViewModel()
     private let disposeBag = DisposeBag()
     
@@ -80,6 +82,12 @@ class LoginViewController: UIViewController {
         $0.setTitleColor(UIColor.GrayScale.sub3, for: .normal)
     }
     
+    private let bottomStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 8
+        $0.distribution = .equalSpacing
+    }
+    
     private let signUpLabel = UILabel().then {
         $0.text = "아직 뚝딱 회원이 아니신가요?"
         $0.font = UIFont.TTFont(type: .SDMed, size: 14)
@@ -102,6 +110,16 @@ class LoginViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         [emailTextField, passwordTextField].forEach { $0.text = ""}
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        keyboardObserver()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     //MARK:- Functions
@@ -112,15 +130,19 @@ class LoginViewController: UIViewController {
         
         view.addSubview(logoImageView)
         logoImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(233)
+            if UIScreen.main.bounds.height == 667 {
+                $0.top.equalToSuperview().offset(180)
+            } else {
+                $0.top.equalToSuperview().offset(233)
+            }
             $0.centerX.equalToSuperview()
         }
         
         view.addSubview(emailLabel)
         emailLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(310)
-            $0.leading.equalToSuperview().offset(16)
             $0.height.equalTo(22)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(50)
+            $0.leading.equalToSuperview().offset(16)
         }
         
         view.addSubview(emailTextField)
@@ -133,7 +155,7 @@ class LoginViewController: UIViewController {
         view.addSubview(errorIcon)
         errorIcon.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(16)
-            $0.top.equalToSuperview().offset(343)
+            $0.top.equalTo(emailLabel.snp.bottom).offset(13)
         }
         
         view.addSubview(emailErrorMsg)
@@ -169,19 +191,16 @@ class LoginViewController: UIViewController {
             $0.height.equalTo(52)
         }
         
-        view.addSubview(signUpLabel)
-        signUpLabel.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(40)
-            $0.leading.equalToSuperview().offset(77)
-        }
-        
-        view.addSubview(signUpBtn)
+        view.addSubview(bottomStackView)
+        bottomStackView.addArrangedSubview(signUpLabel)
+        bottomStackView.addArrangedSubview(signUpBtn)
         let attribute = NSMutableAttributedString(string: "회원가입")
         attribute.addAttribute(NSMutableAttributedString.Key.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: NSRange(location: 0, length: 4))
         signUpBtn.setAttributedTitle(attribute, for: .normal)
-        signUpBtn.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(35)
-            $0.leading.equalTo(signUpLabel.snp.trailing).offset(8)
+        bottomStackView.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.bottom.equalToSuperview().offset(-42)
+            $0.centerX.equalToSuperview()
         }
         
         view.addSubview(findBtn)
@@ -217,9 +236,6 @@ class LoginViewController: UIViewController {
                     .bind { status in
                         self.emailErrorMsg.isHidden = status
                         self.errorIcon.isHidden = status
-                        self.errorIcon.snp.updateConstraints {
-                            $0.top.equalToSuperview().offset(343)
-                        }
                     }.disposed(by: self.disposeBag)
                 self.loginViewModel.output.emailIsValid.take(1)
                     .filter {$0}
@@ -242,12 +258,41 @@ class LoginViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        loginBtn.rx.tap
+            .bind {
+                let nextVC = TabBarViewController()
+                nextVC.modalPresentationStyle = .fullScreen
+                self.present(nextVC, animated: true, completion: nil)
+            }
+            .disposed(by: disposeBag)
+        
         signUpBtn.rx.tap
             .bind {
-                let nextVC = SignUpChoiceViewController()
+                let nextVC = SignUpFirstViewController()
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func keyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ sender: Notification) {
+        let loginBtnBottomPosition = loginBtn.frame.origin.y + loginBtn.frame.height
+        keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        let keyboardTopPosition = screenHeight - keyboardFrame!.cgRectValue.height
+        if loginBtnBottomPosition < keyboardTopPosition {
+            return
+        }
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y += keyboardTopPosition - loginBtnBottomPosition - 20
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
     }
 
 }

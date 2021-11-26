@@ -49,6 +49,9 @@ class TabBarViewController: UITabBarController {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.TTFont(type: .SDBold, size: 12)], for: .selected)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.GrayScale.normal], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.GrayScale.normal], for: .selected)
+        
+        tabBar.barTintColor = .white
+        tabBar.isTranslucent = true
     }
     
     private func setTabBarLink() {

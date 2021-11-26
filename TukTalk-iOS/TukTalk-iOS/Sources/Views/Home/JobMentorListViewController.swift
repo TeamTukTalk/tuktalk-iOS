@@ -36,6 +36,10 @@ class JobMentorListViewController: UIViewController {
     
     private let mentorListCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    private let devideLineView = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray5
+    }
+    
     private let bottomView = UIView().then {
         $0.backgroundColor = .white
     }
@@ -89,6 +93,15 @@ class JobMentorListViewController: UIViewController {
             $0.bottom.equalToSuperview()
         }
         
+        mentorListCV.addSubview(devideLineView)
+        devideLineView.snp.makeConstraints {
+            $0.height.equalTo(6)
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(mentorListCV.snp.leading)
+            $0.trailing.equalTo(mentorListCV.snp.trailing)
+        }
+        
         view.addSubview(bottomView)
         bottomView.snp.makeConstraints {
             $0.height.equalTo(34)
@@ -100,7 +113,6 @@ class JobMentorListViewController: UIViewController {
     private func binding() {
         backBtn.rx.tap
             .bind(onNext: { _ in
-                self.tabBarController?.tabBar.isHidden = false
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
@@ -159,6 +171,25 @@ class JobMentorListViewController: UIViewController {
 }
 
 extension JobMentorListViewController: UICollectionViewDelegateFlowLayout {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == mentorListCV {
+            if scrollView.contentOffset.y > 0 {
+                devideLineView.snp.updateConstraints {
+                    $0.top.equalTo(scrollView.contentOffset.y)
+                    $0.height.equalTo(max(6-scrollView.contentOffset.y, 1))
+                }
+                devideLineView.backgroundColor = UIColor.GrayScale.gray3
+            } else {
+                devideLineView.snp.updateConstraints {
+                    $0.top.equalTo(0)
+                    $0.height.equalTo(6)
+                }
+                devideLineView.backgroundColor = UIColor.GrayScale.gray5
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         switch collectionView {
@@ -171,7 +202,7 @@ extension JobMentorListViewController: UICollectionViewDelegateFlowLayout {
                 .disposed(by: disposeBag)
             return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
         case mentorListCV:
-            return CGSize(width: 343, height: 135)
+            return CGSize(width: UIScreen.main.bounds.width - 32, height: 135)
         default:
             return CGSize()
         }

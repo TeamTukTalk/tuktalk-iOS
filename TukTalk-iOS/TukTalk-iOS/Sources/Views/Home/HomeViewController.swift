@@ -113,6 +113,11 @@ class HomeViewController: UIViewController {
         bindingCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     //MARK:- Function
     
     private func setScrollView() {
@@ -122,8 +127,9 @@ class HomeViewController: UIViewController {
     }
     
     private func setUI() {
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.navigationController?.navigationBar.isHidden = true
+        
         view.backgroundColor = .white
         
         view.addSubview(mainScrollView)
@@ -271,6 +277,18 @@ class HomeViewController: UIViewController {
         reviewViewAllBtn.rx.tap
             .bind { _ in
                 self.navigationController?.pushViewController(MenteeReviewViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        topMentorCV.rx.modelSelected(MentorListDataModel.self)
+            .bind { _ in
+                self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        jobMentorCV.rx.modelSelected(MentorListDataModel.self)
+            .bind { _ in
+                self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }
