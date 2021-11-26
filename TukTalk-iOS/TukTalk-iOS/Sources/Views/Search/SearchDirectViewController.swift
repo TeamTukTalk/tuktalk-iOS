@@ -156,7 +156,7 @@ class SearchDirectViewController: UIViewController {
         
         searchTextField.rx.controlEvent(.editingDidEndOnExit)
             .bind { _ in
-                let nextVC = SearchingViewController()
+                let nextVC = SearchingDirectViewController()
                 nextVC.searchTextBtn.setTitle(self.nextText, for: .normal)
                 nextVC.searchTextBtn.setTitleColor(UIColor.GrayScale.normal, for: .normal)
                 self.navigationController?.pushViewController(nextVC, animated: false)
@@ -165,7 +165,7 @@ class SearchDirectViewController: UIViewController {
         
         searchBtn.rx.tap
             .bind { _ in
-                let nextVC = SearchingViewController()
+                let nextVC = SearchingDirectViewController()
                 nextVC.searchTextBtn.setTitle(self.nextText, for: .normal)
                 nextVC.searchTextBtn.setTitleColor(UIColor.GrayScale.normal, for: .normal)
                 self.navigationController?.pushViewController(nextVC, animated: false)

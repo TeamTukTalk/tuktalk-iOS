@@ -347,7 +347,7 @@ extension SearchingViewController: UICollectionViewDelegateFlowLayout {
         }
         
         if collectionView == mentorListCV {
-            return CGSize(width: 343, height: 135)
+            return CGSize(width: UIScreen.main.bounds.width - 32, height: 135)
         } else {
             return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
         }
