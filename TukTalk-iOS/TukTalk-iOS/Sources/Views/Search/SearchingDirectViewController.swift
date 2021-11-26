@@ -47,6 +47,11 @@ class SearchingDirectViewController: UIViewController {
         bindingCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     //MARK:- Function
     
     private func setUI() {
@@ -113,6 +118,12 @@ class SearchingDirectViewController: UIViewController {
         clearBtn.rx.tap
             .bind { _ in
                 self.navigationController?.popToRootViewController(animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+        mentorListCV.rx.modelSelected(MentorListDataModel.self)
+            .bind { _ in
+                self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }

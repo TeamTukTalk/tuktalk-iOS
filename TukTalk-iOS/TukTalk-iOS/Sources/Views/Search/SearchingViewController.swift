@@ -92,6 +92,11 @@ class SearchingViewController: UIViewController {
         bindingCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     //MARK:- Function
     
     private func setUI() {
@@ -251,6 +256,12 @@ class SearchingViewController: UIViewController {
             .bind { _ in
                 self.categorySelected = true
                 self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
+            }
+            .disposed(by: disposeBag)
+        
+        mentorListCV.rx.modelSelected(MentorListDataModel.self)
+            .bind { _ in
+                self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }
