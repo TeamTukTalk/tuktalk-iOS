@@ -19,17 +19,8 @@ class TabBarViewController: UITabBarController {
         $0.tabBarItem = UITabBarItem(title: "탐색", image: UIImage(named: "searchOffImg"), selectedImage: UIImage(named: "searchOnImg")?.withRenderingMode(.alwaysOriginal))
         $0.navigationItem.largeTitleDisplayMode = .always
     }
-    let vc3 = CommunityViewController().then {
-        $0.tabBarItem = UITabBarItem(title: "커뮤니티", image: UIImage(named: "communityOffImg"), selectedImage: UIImage(named: "communityOffImg")?.withRenderingMode(.alwaysOriginal))
-        $0.navigationItem.largeTitleDisplayMode = .always
-    }
-    let vc4 = ConsultingViewController().then {
-        $0.tabBarItem = UITabBarItem(title: "상담", image: UIImage(named: "consultingOffImg"), selectedImage: UIImage(named: "consultingOffImg")?.withRenderingMode(.alwaysOriginal))
-        $0.navigationItem.largeTitleDisplayMode = .always
-    }
     
-    // 서버연동 후 변경 예정
-    let vc5 = MyPageViewController().then {
+    var vc3 = MentorMyPageViewController().then {
         $0.tabBarItem = UITabBarItem(title: "마이뚝딱", image: UIImage(named: "mypageOffImg"), selectedImage: UIImage(named: "mypageOnImg")?.withRenderingMode(.alwaysOriginal))
         $0.navigationItem.largeTitleDisplayMode = .always
     }
@@ -64,13 +55,7 @@ class TabBarViewController: UITabBarController {
         let nav3 = UINavigationController(rootViewController: vc3).then {
             $0.navigationBar.prefersLargeTitles = true
         }
-        let nav4 = UINavigationController(rootViewController: vc4).then {
-            $0.navigationBar.prefersLargeTitles = true
-        }
-        let nav5 = UINavigationController(rootViewController: vc5).then {
-            $0.navigationBar.prefersLargeTitles = true
-        }
-        setViewControllers([nav1, nav2, nav3, nav4, nav5], animated: false)
+        setViewControllers([nav1, nav2, nav3], animated: false)
     }
 
 }
