@@ -99,6 +99,17 @@ class LoginViewController: UIViewController {
         $0.setTitleColor(UIColor.Primary.primary, for: .normal)
     }
     
+    private let alertView = UIView().then {
+        $0.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 40/255, alpha: 0.7)
+        $0.layer.cornerRadius = 8
+        $0.alpha = 0
+    }
+    private let alertLabel = UILabel().then {
+        $0.text = "아이디(이메일) 또는 비밀번호가 틀립니다."
+        $0.textColor = .white
+        $0.font = UIFont.TTFont(type: .SDMed, size: 13)
+    }
+    
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
@@ -199,7 +210,11 @@ class LoginViewController: UIViewController {
         signUpBtn.setAttributedTitle(attribute, for: .normal)
         bottomStackView.snp.makeConstraints {
             $0.height.equalTo(20)
-            $0.bottom.equalToSuperview().offset(-42)
+            if UIScreen.main.bounds.height <= 737 {
+                $0.bottom.equalToSuperview().offset(-16)
+            } else {
+                $0.bottom.equalToSuperview().offset(-42)
+            }
             $0.centerX.equalToSuperview()
         }
         
@@ -207,6 +222,20 @@ class LoginViewController: UIViewController {
         findBtn.snp.makeConstraints {
             $0.top.equalTo(loginBtn.snp.bottom).offset(20)
             $0.centerX.equalTo(view)
+        }
+        
+        view.addSubview(alertView)
+        alertView.snp.makeConstraints {
+            $0.height.equalTo(42)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalTo(bottomStackView.snp.top).offset(-16)
+        }
+        
+        alertView.addSubview(alertLabel)
+        alertLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
         }
     }
 
