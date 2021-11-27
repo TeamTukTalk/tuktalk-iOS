@@ -62,13 +62,6 @@ class LoginViewController: UIViewController {
         $0.setUnderline(false)
     }
     
-    private let passwordErrorMsg = UILabel().then {
-        $0.text = "비밀번호가 맞지 않습니다."
-        $0.textColor = UIColor.State.error
-        $0.font = UIFont.TTFont(type: .SDReg, size: 10)
-        $0.isHidden = true
-    }
-    
     private let loginBtn = UIButton().then {
         $0.setTitle("로그인", for: .normal)
         $0.backgroundColor = UIColor.Primary.primary
@@ -187,12 +180,6 @@ class LoginViewController: UIViewController {
             $0.top.equalTo(passwordLabel.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(30)
-        }
-        
-        view.addSubview(passwordErrorMsg)
-        passwordErrorMsg.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().inset(16)
         }
         
         view.addSubview(loginBtn)
