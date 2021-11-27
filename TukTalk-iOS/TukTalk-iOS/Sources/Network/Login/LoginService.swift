@@ -32,8 +32,8 @@ extension LoginService: TargetType {
     
     var task: Task {
         switch self {
-        case .login(let loginRequest):
-            return .requestJSONEncodable(loginRequest)
+        case .login(let param):
+            return .requestJSONEncodable(param)
         }
     }
     

@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import Moya
 import SnapKit
 import Then
 
@@ -17,6 +18,7 @@ class LoginViewController: UIViewController {
     private var keyboardFrame: NSValue?
     private let screenHeight = UIScreen.main.bounds.height
     private lazy var loginViewModel = LoginViewModel()
+    private lazy var provider = MoyaProvider<LoginService>()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -276,9 +278,36 @@ class LoginViewController: UIViewController {
         
         loginBtn.rx.tap
             .bind {
+                self.view.endEditing(true)
                 let nextVC = TabBarViewController()
                 nextVC.modalPresentationStyle = .fullScreen
-                self.present(nextVC, animated: true, completion: nil)
+                
+                self.provider.rx.request(.login(param: LoginRequest(email: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "")))
+                    .subscribe { result in
+                        switch result {
+                        case let .success(response):
+                            let loginResponse = try? response.map(LoginResponse.self)
+                            if response.statusCode == 200 {
+                                print("success Login")
+                                if let token = loginResponse?.accessToken.data(using: String.Encoding.utf8) {
+                                    KeyChain.save(key: "token", data: token)
+                                }
+                                self.present(nextVC, animated: true, completion: nil)
+                            } else {
+                                self.alertView.alpha = 1
+                                UIView.animate(withDuration: 3, animations: {
+                                    self.alertView.alpha = 0
+                                })
+                            }
+                        case let .failure(error):
+                            self.alertView.alpha = 1
+                            UIView.animate(withDuration: 3, animations: {
+                                self.alertView.alpha = 0
+                            })
+                            print(error.localizedDescription)
+                        }
+                    }
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         

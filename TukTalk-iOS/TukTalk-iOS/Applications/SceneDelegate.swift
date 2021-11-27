@@ -15,7 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: LoginViewController()) // RootViewController를 연결
+        window?.rootViewController = UINavigationController()
+        if KeyChain.load(key: "token") == nil {
+            window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        } else {
+            window?.rootViewController = UINavigationController(rootViewController: TabBarViewController())
+        }
         window?.makeKeyAndVisible()
     }
 
