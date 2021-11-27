@@ -1,5 +1,5 @@
 //
-//  MentorMyPageViewController.swift
+//  MenteeMyPageViewController.swift
 //  TukTalk-iOS
 //
 //  Created by 한상진 on 2021/11/27.
@@ -7,7 +7,7 @@
 
 import RxSwift
 
-class MentorMyPageViewController: UIViewController {
+class MenteeMyPageViewController: UIViewController {
     
     //MARK:- Properties
     
@@ -44,19 +44,6 @@ class MentorMyPageViewController: UIViewController {
         $0.textColor = UIColor.GrayScale.normal
     }
     
-    private let notiBtn = UIButton().then {
-        $0.backgroundColor = UIColor.GrayScale.gray5
-        $0.layer.cornerRadius = 22
-    }
-    private let notiBtnLabel = UILabel().then {
-        $0.text = "✉️ 멘토 인증을 해주셔야 활동하실 수 있습니다!"
-        $0.textColor = UIColor.GrayScale.sub1
-        $0.font = UIFont.TTFont(type: .SDMed, size: 14)
-    }
-    private let notiBtnImg = UIImageView().then {
-        $0.image = UIImage(named: "arrowRightImg")
-    }
-    
     private let devideView = UIView(frame: .zero).then {
         $0.backgroundColor = UIColor.GrayScale.gray5
     }
@@ -64,31 +51,16 @@ class MentorMyPageViewController: UIViewController {
         $0.backgroundColor = UIColor.GrayScale.gray4
     }
     
+    private let myServiceBtn = UIButton()
+    
     private let myServiceLabel = UILabel().then {
-        $0.text = "💬 나의 서비스"
+        $0.text = "📁 최근 본 포트폴리오"
         $0.font = UIFont.TTFont(type: .SDBold, size: 15)
         $0.textColor = UIColor.GrayScale.normal
     }
     
-    private let myServiceBtn = UIButton().then {
-        $0.setImage(UIImage(named: "arrowRightImg"), for: .normal)
-    }
-    
-    private let myServiceView = UIView().then {
-        $0.backgroundColor = UIColor.myPageColor
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.GrayScale.gray3.cgColor
-        $0.layer.cornerRadius = 8
-    }
-    
-    private let myServiceNilImg = UIImageView().then {
-        $0.image = UIImage(named: "nilAlertImg")
-    }
-    
-    private let myServiceNilLabel = UILabel().then {
-        $0.text = "등록한 서비스가 없습니다."
-        $0.font = UIFont.TTFont(type: .SDReg, size: 12)
-        $0.textColor = UIColor.GrayScale.sub4
+    private let myServiceImageView = UIImageView().then {
+        $0.image = UIImage(named: "arrowRightImg")
     }
     
     private let certifyBtn = UIButton()
@@ -157,69 +129,39 @@ class MentorMyPageViewController: UIViewController {
             $0.leading.equalTo(nameLabel.snp.leading)
         }
         
-        view.addSubview(notiBtn)
-        notiBtn.snp.makeConstraints {
-            $0.height.equalTo(44)
-            $0.leading.trailing.equalToSuperview().inset(16)
-            $0.top.equalTo(profileBtn.snp.bottom).offset(20)
-        }
-        notiBtn.addSubview(notiBtnLabel)
-        notiBtnLabel.snp.makeConstraints {
-            $0.height.equalTo(20)
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(20)
-        }
-        notiBtn.addSubview(notiBtnImg)
-        notiBtnImg.snp.makeConstraints {
-            $0.width.height.equalTo(16)
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(20)
-        }
-        
         view.addSubview(devideView)
         devideView.snp.makeConstraints {
             $0.height.equalTo(6)
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(profileBtn.snp.bottom).offset(84)
-        }
-        
-        view.addSubview(myServiceLabel)
-        myServiceLabel.snp.makeConstraints {
-            $0.top.equalTo(devideView.snp.bottom).offset(16)
-            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalTo(profileBtn.snp.bottom).offset(24)
         }
         
         view.addSubview(myServiceBtn)
         myServiceBtn.snp.makeConstraints {
+            $0.height.equalTo(54)
+            $0.top.equalTo(devideView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        myServiceBtn.addSubview(myServiceLabel)
+        myServiceLabel.snp.makeConstraints {
+            $0.height.equalTo(22)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+        }
+        
+        myServiceBtn.addSubview(myServiceImageView)
+        myServiceImageView.snp.makeConstraints {
             $0.width.height.equalTo(16)
-            $0.top.equalTo(devideView.snp.bottom).offset(19)
+            $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(16)
-        }
-        
-        view.addSubview(myServiceView)
-        myServiceView.snp.makeConstraints {
-            $0.height.equalTo(135)
-            $0.top.equalTo(myServiceBtn.snp.bottom).offset(19)
-            $0.leading.trailing.equalToSuperview().inset(16)
-        }
-        
-        myServiceView.addSubview(myServiceNilImg)
-        myServiceNilImg.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(43)
-        }
-        
-        myServiceView.addSubview(myServiceNilLabel)
-        myServiceNilLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(75)
         }
         
         view.addSubview(secondDevideView)
         secondDevideView.snp.makeConstraints {
             $0.height.equalTo(6)
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(myServiceView.snp.bottom).offset(24)
+            $0.top.equalTo(myServiceBtn.snp.bottom)
         }
         
         view.addSubview(certifyBtn)

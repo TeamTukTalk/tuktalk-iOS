@@ -31,6 +31,7 @@
 		402B98CB27521B4800EDD668 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B98CA27521B4800EDD668 /* KeyChain.swift */; };
 		402B98CD2752245400EDD668 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B98CC2752245400EDD668 /* LoginResponse.swift */; };
 		402B98CF275240EA00EDD668 /* MentorMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B98CE275240EA00EDD668 /* MentorMyPageViewController.swift */; };
+		402B98D127524AE600EDD668 /* MenteeMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B98D027524AE600EDD668 /* MenteeMyPageViewController.swift */; };
 		402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D658F272683FC00F4ED8F /* TabBarViewController.swift */; };
 		402D65972726848800F4ED8F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65962726848800F4ED8F /* HomeViewController.swift */; };
 		402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65982726849E00F4ED8F /* SearchMainViewController.swift */; };
@@ -177,6 +178,7 @@
 		402B98CA27521B4800EDD668 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		402B98CC2752245400EDD668 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		402B98CE275240EA00EDD668 /* MentorMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorMyPageViewController.swift; sourceTree = "<group>"; };
+		402B98D027524AE600EDD668 /* MenteeMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeMyPageViewController.swift; sourceTree = "<group>"; };
 		402D658F272683FC00F4ED8F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		402D65962726848800F4ED8F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		402D65982726849E00F4ED8F /* SearchMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainViewController.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			children = (
 				40A387B92731AA8100BA5D5D /* UIView */,
 				402B98CE275240EA00EDD668 /* MentorMyPageViewController.swift */,
+				402B98D027524AE600EDD668 /* MenteeMyPageViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1294,6 +1297,7 @@
 				40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */,
 				40CC20C0274E620C008A3967 /* RegistPortfolioSecondViewController.swift in Sources */,
 				404C57072746B89100B31F64 /* SignUpService.swift in Sources */,
+				402B98D127524AE600EDD668 /* MenteeMyPageViewController.swift in Sources */,
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
 				40CC20C2274E7578008A3967 /* RegistPortfolioSecondViewModel.swift in Sources */,

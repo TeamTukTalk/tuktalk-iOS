@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController {
         $0.navigationItem.largeTitleDisplayMode = .always
     }
     
-    var vc3 = MentorMyPageViewController().then {
+    var vc3 = MenteeMyPageViewController().then {
         $0.tabBarItem = UITabBarItem(title: "마이뚝딱", image: UIImage(named: "mypageOffImg"), selectedImage: UIImage(named: "mypageOnImg")?.withRenderingMode(.alwaysOriginal))
         $0.navigationItem.largeTitleDisplayMode = .always
     }
