@@ -150,6 +150,10 @@
 		40FAED4E275373C30006490E /* QuerySearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4D275373C30006490E /* QuerySearchResponse.swift */; };
 		40FAED502753744E0006490E /* JobSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4F2753744E0006490E /* JobSearchService.swift */; };
 		40FAED522753796A0006490E /* JobSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED512753796A0006490E /* JobSearchResponse.swift */; };
+		40FAED5527537AE10006490E /* TopMentorSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5427537AE10006490E /* TopMentorSearchService.swift */; };
+		40FAED5727537BD50006490E /* TopMentorSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5627537BD50006490E /* TopMentorSearchResponse.swift */; };
+		40FAED5927537CA40006490E /* ReviewSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5827537CA40006490E /* ReviewSearchService.swift */; };
+		40FAED5B27537D2B0006490E /* ReviewSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5A27537D2B0006490E /* ReviewSearchResponse.swift */; };
 		CB6689EEEEA5C4F487F913F3 /* Pods_TukTalk_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */; };
 		D946EC43736DAE80E1B92F11 /* Pods_TukTalk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */; };
 		FE47055C235FE7AE896976B1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77C77FD87FFB639D54A00E1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework */; };
@@ -311,6 +315,10 @@
 		40FAED4D275373C30006490E /* QuerySearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySearchResponse.swift; sourceTree = "<group>"; };
 		40FAED4F2753744E0006490E /* JobSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchService.swift; sourceTree = "<group>"; };
 		40FAED512753796A0006490E /* JobSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchResponse.swift; sourceTree = "<group>"; };
+		40FAED5427537AE10006490E /* TopMentorSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMentorSearchService.swift; sourceTree = "<group>"; };
+		40FAED5627537BD50006490E /* TopMentorSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMentorSearchResponse.swift; sourceTree = "<group>"; };
+		40FAED5827537CA40006490E /* ReviewSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSearchService.swift; sourceTree = "<group>"; };
+		40FAED5A27537D2B0006490E /* ReviewSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSearchResponse.swift; sourceTree = "<group>"; };
 		55850F1025F11A787912F4AD /* Pods-TukTalk-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOSTests/Pods-TukTalk-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -647,6 +655,7 @@
 		404C57042746B82900B31F64 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				40FAED5327537A9E0006490E /* Home */,
 				40FAED4827536FE40006490E /* Search */,
 				404C57162746D6A900B31F64 /* Login */,
 				404C57052746B82F00B31F64 /* SignUp */,
@@ -965,10 +974,21 @@
 			children = (
 				40FAED492753701B0006490E /* QuerySearchService.swift */,
 				40FAED4D275373C30006490E /* QuerySearchResponse.swift */,
-				40FAED4F2753744E0006490E /* JobSearchService.swift */,
-				40FAED512753796A0006490E /* JobSearchResponse.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		40FAED5327537A9E0006490E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				40FAED4F2753744E0006490E /* JobSearchService.swift */,
+				40FAED512753796A0006490E /* JobSearchResponse.swift */,
+				40FAED5427537AE10006490E /* TopMentorSearchService.swift */,
+				40FAED5627537BD50006490E /* TopMentorSearchResponse.swift */,
+				40FAED5827537CA40006490E /* ReviewSearchService.swift */,
+				40FAED5A27537D2B0006490E /* ReviewSearchResponse.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		9238CF2D4D09587F33AF1237 /* Frameworks */ = {
@@ -1270,6 +1290,7 @@
 				404C570E2746C2F500B31F64 /* SignUpSecondViewModel.swift in Sources */,
 				4065FEFD274402D3005AAE0F /* MentorInformationViewController.swift in Sources */,
 				40DCF34B2739894B00A82CC6 /* ReviewDataModel.swift in Sources */,
+				40FAED5527537AE10006490E /* TopMentorSearchService.swift in Sources */,
 				40DCF359273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift in Sources */,
 				403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */,
 				402D65A12726D64400F4ED8F /* SearchDirectViewController.swift in Sources */,
@@ -1294,6 +1315,7 @@
 				403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */,
 				4067CE06275136D100FFC8AF /* SearchingDirectViewController.swift in Sources */,
 				404C570A2746BB2F00B31F64 /* SignUpRequest.swift in Sources */,
+				40FAED5927537CA40006490E /* ReviewSearchService.swift in Sources */,
 				4065FEEA27435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift in Sources */,
 				4065FEF92743CDE7005AAE0F /* PageCollectionViewDataModel.swift in Sources */,
 				406C3F8427464F9C009EBAB2 /* MenteeReviewViewController.swift in Sources */,
@@ -1314,10 +1336,12 @@
 				4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */,
 				4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */,
 				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
+				40FAED5727537BD50006490E /* TopMentorSearchResponse.swift in Sources */,
 				402B98CD2752245400EDD668 /* LoginResponse.swift in Sources */,
 				40DCF3492739891F00A82CC6 /* ReviewCollectionViewModel.swift in Sources */,
 				402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */,
 				404E68692724206D005AA5DD /* RegistMentorFirstViewController.swift in Sources */,
+				40FAED5B27537D2B0006490E /* ReviewSearchResponse.swift in Sources */,
 				40FAED4E275373C30006490E /* QuerySearchResponse.swift in Sources */,
 				402B98CB27521B4800EDD668 /* KeyChain.swift in Sources */,
 				4065FEE02743506D005AAE0F /* RegistProfileFourthViewModel.swift in Sources */,

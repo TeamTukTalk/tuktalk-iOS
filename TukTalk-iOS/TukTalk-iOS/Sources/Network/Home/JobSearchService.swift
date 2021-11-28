@@ -7,11 +7,11 @@
 
 import Moya
 
-enum jobSearchService {
+enum JobSearchService {
     case jobSearchRequest(_ subSpecialty: String? = nil, _ startYear: Int? = nil, _ endYear: Int? = nil, _ page: Int? = nil, _ companySize: String? = nil, _ specialty: String? = nil)
 }
 
-extension jobSearchService: TargetType {
+extension JobSearchService: TargetType {
     var baseURL: URL {
         return URL(string: APIConstants.baseURL)!
     }
