@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct JobSearchResponse: Codable {
+struct JobSearchResponseElement: Codable {
     let id: Int
     let nickname, companyName, department: String
     let hashTags: [JobSearchHashTag]
@@ -17,3 +17,4 @@ struct JobSearchResponse: Codable {
 struct JobSearchHashTag: Codable {
     let hashTag: String
 }
+typealias JobSearchResponse = [JobSearchResponseElement]

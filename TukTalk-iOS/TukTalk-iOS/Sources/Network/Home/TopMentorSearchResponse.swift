@@ -7,13 +7,15 @@
 
 import Foundation
 
-struct TopMentorSearchResponse: Codable {
+struct TopMentorSearchResponseElement: Codable {
     let id: Int
     let nickname, companyName, department: String
-    let hashTags: [TopMentorSearchHashTag]
+    let hashTags: [TopMentorHashTag]
 }
 
 // MARK: - HashTag
-struct TopMentorSearchHashTag: Codable {
+struct TopMentorHashTag: Codable {
     let hashTag: String
 }
+
+typealias TopMentorSearchResponse = [TopMentorSearchResponseElement]

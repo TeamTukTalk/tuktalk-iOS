@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QuerySearchResponse: Codable {
+struct QuerySearchResponseElement: Codable {
     let id: Int
     let nickname, companyName, department: String
     let hashTags: [QuerySearchHashTag]
@@ -17,3 +17,5 @@ struct QuerySearchResponse: Codable {
 struct QuerySearchHashTag: Codable {
     let hashTag: String
 }
+
+typealias QuerySearchResponse = [QuerySearchResponseElement]
