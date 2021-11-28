@@ -25,8 +25,7 @@ struct BannerCollectionViewModel: ViewModelType {
     
     // 추후 변경 예정
     var bannerList: [BannerDataModel] = [
-        BannerDataModel(image: UIImage(named: "firstBanner") ?? UIImage()),
-        BannerDataModel(image: UIImage(named: "firstBanner") ?? UIImage())
+        BannerDataModel(image: UIImage(named: "secondBanner") ?? UIImage())
     ]
     
     init(dependency: Dependency = Dependency()) {

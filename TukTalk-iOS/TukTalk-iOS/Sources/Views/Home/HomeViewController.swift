@@ -159,7 +159,8 @@ class HomeViewController: UIViewController {
         
         mainContentView.addSubview(bannerCV)
         bannerCV.snp.makeConstraints {
-            $0.height.equalTo(254)
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.height.equalTo(UIScreen.main.bounds.width * 0.656)
             $0.top.equalTo(bellBtn.snp.bottom).offset(18)
             $0.leading.trailing.equalToSuperview()
         }
@@ -297,7 +298,7 @@ class HomeViewController: UIViewController {
         let bannerCVLayout = UICollectionViewFlowLayout()
         bannerCVLayout.minimumLineSpacing = 8
         bannerCVLayout.scrollDirection = .horizontal
-        bannerCVLayout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 24, right: 16)
+        bannerCV.isPagingEnabled = true
         bannerCV.setCollectionViewLayout(bannerCVLayout, animated: false)
         bannerCV.backgroundColor = .white
         bannerCV.showsHorizontalScrollIndicator = false
@@ -415,7 +416,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         
         switch collectionView {
         case bannerCV:
-            return CGSize(width: 340, height: 230)
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         case topMentorCV:
             return CGSize(width: 276, height: 135)
         case categoryCV:
