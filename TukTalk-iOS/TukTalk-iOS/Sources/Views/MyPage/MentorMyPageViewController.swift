@@ -116,7 +116,7 @@ class MentorMyPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationController?.tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
     }
     
     //MARK:- Function
@@ -252,9 +252,15 @@ class MentorMyPageViewController: UIViewController {
     
     private func binding() {
         profileBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.tabBarController?.tabBar.isHidden = true
                 self.navigationController?.pushViewController(RegistProfileFirstViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        accountSettingBtn.rx.tap
+            .bind {
+                self.navigationController?.pushViewController(AccountSettingViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }

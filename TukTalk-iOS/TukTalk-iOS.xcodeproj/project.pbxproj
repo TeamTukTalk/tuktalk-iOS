@@ -142,6 +142,10 @@
 		40DCF357273DAA3700A82CC6 /* RegistProfileFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */; };
 		40DCF359273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */; };
 		40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */; };
+		40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */; };
+		40FAED4127534F860006490E /* MyPageInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4027534F860006490E /* MyPageInformationViewController.swift */; };
+		40FAED43275355490006490E /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED42275355490006490E /* WithdrawViewController.swift */; };
+		40FAED4727535C630006490E /* WithdrawViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4627535C630006490E /* WithdrawViewModel.swift */; };
 		CB6689EEEEA5C4F487F913F3 /* Pods_TukTalk_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */; };
 		D946EC43736DAE80E1B92F11 /* Pods_TukTalk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */; };
 		FE47055C235FE7AE896976B1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77C77FD87FFB639D54A00E1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework */; };
@@ -295,6 +299,10 @@
 		40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFirstViewController.swift; sourceTree = "<group>"; };
 		40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileSecondViewController.swift; sourceTree = "<group>"; };
 		40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishViewController.swift; sourceTree = "<group>"; };
+		40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
+		40FAED4027534F860006490E /* MyPageInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInformationViewController.swift; sourceTree = "<group>"; };
+		40FAED42275355490006490E /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
+		40FAED4627535C630006490E /* WithdrawViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewModel.swift; sourceTree = "<group>"; };
 		55850F1025F11A787912F4AD /* Pods-TukTalk-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOSTests/Pods-TukTalk-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -432,6 +440,9 @@
 				40A387B92731AA8100BA5D5D /* UIView */,
 				402B98CE275240EA00EDD668 /* MentorMyPageViewController.swift */,
 				402B98D027524AE600EDD668 /* MenteeMyPageViewController.swift */,
+				40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */,
+				40FAED4027534F860006490E /* MyPageInformationViewController.swift */,
+				40FAED42275355490006490E /* WithdrawViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -904,6 +915,7 @@
 			isa = PBXGroup;
 			children = (
 				40A8F84F273F1796007360C9 /* MentorProfile */,
+				40FAED4627535C630006490E /* WithdrawViewModel.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1203,6 +1215,7 @@
 				40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */,
 				406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */,
 				403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */,
+				40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */,
 				40DCF33A273832F100A82CC6 /* BannerDataModel.swift in Sources */,
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
@@ -1221,6 +1234,7 @@
 				4065FF0F274578F1005AAE0F /* CareerTableViewCell.swift in Sources */,
 				400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */,
 				40CC20C8274E7D86008A3967 /* RegistPortfolioThirdViewModel.swift in Sources */,
+				40FAED4127534F860006490E /* MyPageInformationViewController.swift in Sources */,
 				4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
 				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
@@ -1263,6 +1277,7 @@
 				40CC20D0274FFA55008A3967 /* UIResponderExtension.swift in Sources */,
 				402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */,
 				40AA40EC27494AAC00F76625 /* UserSignUp.swift in Sources */,
+				40FAED4727535C630006490E /* WithdrawViewModel.swift in Sources */,
 				40DCF343273979DD00A82CC6 /* JobMentorCollectionViewCell.swift in Sources */,
 				4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
@@ -1292,6 +1307,7 @@
 				40CC20C6274E7A01008A3967 /* RegistPortfolioThirdViewController.swift in Sources */,
 				4065FF0B27453BD2005AAE0F /* InformationViewModel.swift in Sources */,
 				404C57032746A3A500B31F64 /* APIConstants.swift in Sources */,
+				40FAED43275355490006490E /* WithdrawViewController.swift in Sources */,
 				404E687227245220005AA5DD /* RegistMentorSecondViewModel.swift in Sources */,
 				406324D0273FF1E1009F62A3 /* FieldViewModel.swift in Sources */,
 				40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */,
