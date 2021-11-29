@@ -153,6 +153,12 @@
 		40FAED5927537CA40006490E /* ReviewSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5827537CA40006490E /* ReviewSearchService.swift */; };
 		40FAED5B27537D2B0006490E /* ReviewSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5A27537D2B0006490E /* ReviewSearchResponse.swift */; };
 		40FAED5E275390050006490E /* PortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5D275390050006490E /* PortfolioService.swift */; };
+		40FAED6227553CF70006490E /* PreviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED6127553CF70006490E /* PreviewService.swift */; };
+		40FAED64275540150006490E /* RegistPortfolioFirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED63275540150006490E /* RegistPortfolioFirthViewModel.swift */; };
+		40FAED66275543110006490E /* PortfolioResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED65275543110006490E /* PortfolioResponse.swift */; };
+		40FAED682755433B0006490E /* PreviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED672755433B0006490E /* PreviewResponse.swift */; };
+		40FAED6B275543B30006490E /* UserPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED6A275543B30006490E /* UserPortfolio.swift */; };
+		40FAED6E275549470006490E /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED6D275549470006490E /* PreviewCollectionViewCell.swift */; };
 		CB6689EEEEA5C4F487F913F3 /* Pods_TukTalk_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */; };
 		D946EC43736DAE80E1B92F11 /* Pods_TukTalk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */; };
 		FE47055C235FE7AE896976B1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77C77FD87FFB639D54A00E1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework */; };
@@ -317,6 +323,12 @@
 		40FAED5827537CA40006490E /* ReviewSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSearchService.swift; sourceTree = "<group>"; };
 		40FAED5A27537D2B0006490E /* ReviewSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSearchResponse.swift; sourceTree = "<group>"; };
 		40FAED5D275390050006490E /* PortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioService.swift; sourceTree = "<group>"; };
+		40FAED6127553CF70006490E /* PreviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewService.swift; sourceTree = "<group>"; };
+		40FAED63275540150006490E /* RegistPortfolioFirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirthViewModel.swift; sourceTree = "<group>"; };
+		40FAED65275543110006490E /* PortfolioResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioResponse.swift; sourceTree = "<group>"; };
+		40FAED672755433B0006490E /* PreviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewResponse.swift; sourceTree = "<group>"; };
+		40FAED6A275543B30006490E /* UserPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPortfolio.swift; sourceTree = "<group>"; };
+		40FAED6D275549470006490E /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		55850F1025F11A787912F4AD /* Pods-TukTalk-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOSTests/Pods-TukTalk-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -899,6 +911,8 @@
 		40CC20B6274E35B7008A3967 /* RegistPortfolio */ = {
 			isa = PBXGroup;
 			children = (
+				40FAED6C275548A20006490E /* Cell */,
+				40FAED69275543A50006490E /* Class */,
 				40CC20BC274E4417008A3967 /* UIView */,
 				40CC20B7274E35EA008A3967 /* RegistPortfolioFirstViewController.swift */,
 				40CC20BF274E620C008A3967 /* RegistPortfolioSecondViewController.swift */,
@@ -914,6 +928,7 @@
 				40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */,
 				40CC20C1274E7578008A3967 /* RegistPortfolioSecondViewModel.swift */,
 				40CC20C7274E7D86008A3967 /* RegistPortfolioThirdViewModel.swift */,
+				40FAED63275540150006490E /* RegistPortfolioFirthViewModel.swift */,
 			);
 			path = RegistPortfolio;
 			sourceTree = "<group>";
@@ -992,8 +1007,27 @@
 			isa = PBXGroup;
 			children = (
 				40FAED5D275390050006490E /* PortfolioService.swift */,
+				40FAED65275543110006490E /* PortfolioResponse.swift */,
+				40FAED6127553CF70006490E /* PreviewService.swift */,
+				40FAED672755433B0006490E /* PreviewResponse.swift */,
 			);
 			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		40FAED69275543A50006490E /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				40FAED6A275543B30006490E /* UserPortfolio.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		40FAED6C275548A20006490E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				40FAED6D275549470006490E /* PreviewCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		9238CF2D4D09587F33AF1237 /* Frameworks */ = {
@@ -1256,6 +1290,7 @@
 				40FAED5E275390050006490E /* PortfolioService.swift in Sources */,
 				4065FF11274579E0005AAE0F /* SpecialtyTableViewCell.swift in Sources */,
 				404C57182746D6B100B31F64 /* LoginService.swift in Sources */,
+				40FAED6E275549470006490E /* PreviewCollectionViewCell.swift in Sources */,
 				4041C11627198933007D09E7 /* LoginViewController.swift in Sources */,
 				4065FEF227439F0A005AAE0F /* RegistProfileFinishViewController.swift in Sources */,
 				40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */,
@@ -1264,6 +1299,7 @@
 				40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */,
 				40DCF33A273832F100A82CC6 /* BannerDataModel.swift in Sources */,
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
+				40FAED6227553CF70006490E /* PreviewService.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
 				40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */,
 				4000F8A12721B14D0067C6B6 /* SignUpSecondViewController.swift in Sources */,
@@ -1327,6 +1363,7 @@
 				40CC20D0274FFA55008A3967 /* UIResponderExtension.swift in Sources */,
 				402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */,
 				40AA40EC27494AAC00F76625 /* UserSignUp.swift in Sources */,
+				40FAED64275540150006490E /* RegistPortfolioFirthViewModel.swift in Sources */,
 				40FAED4727535C630006490E /* WithdrawViewModel.swift in Sources */,
 				40DCF343273979DD00A82CC6 /* JobMentorCollectionViewCell.swift in Sources */,
 				4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */,
@@ -1352,6 +1389,7 @@
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
 				406324D3273FF3E4009F62A3 /* FieldTableViewCell.swift in Sources */,
 				402D65AA272730A100F4ED8F /* SearchesCollectionViewModel.swift in Sources */,
+				40FAED682755433B0006490E /* PreviewResponse.swift in Sources */,
 				4065FEE627435A1D005AAE0F /* CompanyCollectionViewCell.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
 				4065FF07274539AC005AAE0F /* IntroduceTableViewCell.swift in Sources */,
@@ -1365,9 +1403,11 @@
 				40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */,
 				40CC20C0274E620C008A3967 /* RegistPortfolioSecondViewController.swift in Sources */,
 				404C57072746B89100B31F64 /* SignUpService.swift in Sources */,
+				40FAED66275543110006490E /* PortfolioResponse.swift in Sources */,
 				402B98D127524AE600EDD668 /* MenteeMyPageViewController.swift in Sources */,
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
+				40FAED6B275543B30006490E /* UserPortfolio.swift in Sources */,
 				40CC20C2274E7578008A3967 /* RegistPortfolioSecondViewModel.swift in Sources */,
 				4065FEFB2743CE31005AAE0F /* PageCollectionViewCell.swift in Sources */,
 				40DCF33D273833C000A82CC6 /* BannerCollectionViewModel.swift in Sources */,

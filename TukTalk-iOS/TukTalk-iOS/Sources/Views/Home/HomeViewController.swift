@@ -382,7 +382,7 @@ class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
         
         mentorListViewModel.getTopMentorList() { response in
-            _ = Observable.of(response)
+            Observable.of(response)
                 .bind(to: self.topMentorCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                     if let cell = self.topMentorCV.dequeueReusableCell(withReuseIdentifier: "TopMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? TopMentorCollectionViewCell {
                         cell.setData(mentor: item)

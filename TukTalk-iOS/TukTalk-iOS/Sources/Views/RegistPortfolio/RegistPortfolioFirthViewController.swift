@@ -14,8 +14,9 @@ class RegistPortfolioFirthViewController: UIViewController {
     
     //MARK:- Properties
     
-    //    private lazy var viewModel = RegistPortfolioFifthViewModel()
-    private let provider = MoyaProvider<PortfolioService>()
+    private lazy var viewModel = RegistPortfolioFirthViewModel()
+    private lazy var portfolioProvider = MoyaProvider<PortfolioService>()
+    private lazy var previewProvider = MoyaProvider<PreviewService>()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(1.0))
     private let progressIsHiddenValue = BehaviorRelay(value: false)
@@ -101,13 +102,21 @@ class RegistPortfolioFirthViewController: UIViewController {
         $0.layer.cornerRadius = 26
     }
     
+    private let previewCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    private let pdfMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF)], in: .import)
+    private let imgMenu = UIImagePickerController()
+    
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNaviBar()
+        setController()
         setUI()
+        setCollectionView()
         binding()
+        bindingCollectionView()
     }
     
     //MARK:- Function
@@ -168,6 +177,13 @@ class RegistPortfolioFirthViewController: UIViewController {
             $0.leading.equalTo(previewLabel.snp.trailing).offset(8)
         }
         
+        view.addSubview(previewCV)
+        previewCV.snp.makeConstraints {
+            $0.height.equalTo(90)
+            $0.top.equalTo(previewLabel.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
         view.addSubview(previewUploadBtn)
         previewUploadBtn.snp.makeConstraints {
             $0.width.height.equalTo(90)
@@ -181,6 +197,23 @@ class RegistPortfolioFirthViewController: UIViewController {
             $0.bottom.equalToSuperview().offset(-42)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
+    }
+    
+    private func setController() {
+        pdfMenu.delegate = self
+        pdfMenu.modalPresentationStyle = .formSheet
+        imgMenu.delegate = self
+    }
+    
+    private func setCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 12
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 118, bottom: 0, right: 0)
+        previewCV.backgroundColor = .white
+        previewCV.setCollectionViewLayout(layout, animated: false)
+        previewCV.showsHorizontalScrollIndicator = false
+        previewCV.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: "PreviewCollectionViewCell")
     }
     
     private func binding() {
@@ -210,19 +243,48 @@ class RegistPortfolioFirthViewController: UIViewController {
         
         portfolioUploadBtn.rx.tap
             .bind { _ in
-                let importMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF)], in: .import)
-                importMenu.delegate = self
-                importMenu.modalPresentationStyle = .formSheet
-                self.present(importMenu, animated: true, completion: nil)
+                self.present(self.pdfMenu, animated: true, completion: nil)
+            }
+            .disposed(by: disposeBag)
+        
+        previewUploadBtn.rx.tap
+            .bind { _ in
+                self.present(self.imgMenu, animated: true, completion: nil)
+            }
+            .disposed(by: disposeBag)
+        
+        nextBtn.rx.tap
+            .bind { _ in
+                self.uploadPreview()
             }
             .disposed(by: disposeBag)
     }
+    
+    private func bindingCollectionView() {
+        previewCV.rx.setDelegate(self).disposed(by: disposeBag)
+        
+        viewModel.imgData
+            .bind(to: self.previewCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.previewCV.dequeueReusableCell(withReuseIdentifier: "PreviewCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? PreviewCollectionViewCell {
+                    
+                    cell.setData(img: item as! UIImage)
+                    cell.deleteBtn.layer.setValue(row, forKey: "index")
+                    cell.deleteBtn.addTarget(self, action: #selector(self.deletePreview), for: .touchUpInside)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: self.disposeBag)
+    }
+    
     private func uploadPDF(pdfData: Data?, fileName: String) {
         guard let pdfData = pdfData else { return }
-        provider.rx.request(.portfolioRequest(pdfData, fileName: fileName))
+        portfolioProvider.rx.request(.portfolioRequest(pdfData, fileName: fileName))
             .subscribe { result in
                 switch result {
                 case let .success(response):
+                    guard let responseData = try? response.map(PortfolioResponse.self) else { return }
+                    UserPortfolio.shared.pdfFileId = responseData.id
                     print(response)
                 case let .failure(error):
                     print(error.localizedDescription)
@@ -230,13 +292,47 @@ class RegistPortfolioFirthViewController: UIViewController {
             }
             .disposed(by: self.disposeBag)
     }
+    
+    private func uploadImg(imgData: Data?, fileName: String) {
+        guard let imgData = imgData else { return }
+        viewModel.formData.append(MultipartFormData(provider: .data(imgData), name: "image", fileName: fileName, mimeType: "image/png"))
+    }
+    
+    private func uploadPreview() {
+        previewProvider.rx.request(.previewRequest(viewModel.formData))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    guard let responseData = try? response.map(PreviewResponse.self) else { return }
+                    for data in responseData {
+                        UserPortfolio.shared.imageFileIds.append(data.id)
+                    }
+                    print(response)
+                case let .failure(error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    @objc func deletePreview(_ sender: UICollectionViewCell) {
+        var array: [Any] = []
+        viewModel.imgData
+            .bind { data in
+                array = data
+            }
+            .disposed(by: disposeBag)
+        let i = sender.layer.value(forKey: "index") as! Int
+        array.remove(at: i)
+        viewModel.formData.remove(at: i)
+        viewModel.imgData.onNext(array)
+        previewUploadBtn.setTitle("사진 \(array.count)/5", for: .normal)
+    }
 }
 
 extension RegistPortfolioFirthViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let myURL = urls.first else { return }
-        print("import result: \(myURL)")
-
         do {
             uploadPDF(pdfData: try Data(contentsOf: myURL), fileName: myURL.lastPathComponent)
             portfolioTextField.text = myURL.lastPathComponent
@@ -244,5 +340,34 @@ extension RegistPortfolioFirthViewController: UIDocumentPickerDelegate {
         } catch {
             print(error)
         }
+    }
+}
+
+extension RegistPortfolioFirthViewController: UICollectionViewDelegateFlowLayout {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == previewCV {
+            previewUploadBtn.snp.updateConstraints {
+                $0.leading.equalToSuperview().offset(16 - scrollView.contentOffset.x)
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 90, height: 90)
+    }
+}
+
+extension RegistPortfolioFirthViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else { return }
+        do {
+            try viewModel.imgData.onNext(viewModel.imgData.value() + [selectedImage])
+            try previewUploadBtn.setTitle("사진 \(viewModel.imgData.value().count)/5", for: .normal)
+        } catch {
+            print("fail to add Image")
+        }
+        picker.dismiss(animated: true)
     }
 }
