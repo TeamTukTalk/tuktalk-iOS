@@ -255,6 +255,9 @@ class RegistPortfolioFirthViewController: UIViewController {
         
         nextBtn.rx.tap
             .bind { _ in
+                let user = UserPortfolio.shared
+                let param = PortfolioRequest(description: user.description!, projectCount: user.projectCount!, totalPages: user.totalPages!, startYear: user.startYear!, endYear: user.endYear!, recommendationTargetDescription: user.recommendationTargetDescription!, pdfFileId: user.pdfFileId!, imageFileIds: user.imageFileIds)
+                self.viewModel.portfolioRequest(param: param)
                 self.uploadPreview()
             }
             .disposed(by: disposeBag)
@@ -362,12 +365,15 @@ extension RegistPortfolioFirthViewController: UICollectionViewDelegateFlowLayout
 extension RegistPortfolioFirthViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
+        guard let myURL = info[.imageURL] as? NSURL else { return }
+        guard let fileName = myURL.lastPathComponent else { return }
         do {
             try viewModel.imgData.onNext(viewModel.imgData.value() + [selectedImage])
             try previewUploadBtn.setTitle("사진 \(viewModel.imgData.value().count)/5", for: .normal)
         } catch {
             print("fail to add Image")
         }
+        uploadImg(imgData: selectedImage.pngData(), fileName: fileName)
         picker.dismiss(animated: true)
     }
 }

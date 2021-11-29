@@ -50,6 +50,8 @@
 		403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */; };
 		403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D33271B784800B834A6 /* UIColorExtension.swift */; };
 		403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */; };
+		403EC21F2755767B008A40B9 /* PortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC21E2755767B008A40B9 /* PortfolioService.swift */; };
+		403EC221275576C9008A40B9 /* PortfolioRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC220275576C9008A40B9 /* PortfolioRequest.swift */; };
 		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
 		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
 		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
@@ -214,6 +216,8 @@
 		403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		403B2D33271B784800B834A6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		403EC21E2755767B008A40B9 /* PortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioService.swift; sourceTree = "<group>"; };
+		403EC220275576C9008A40B9 /* PortfolioRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioRequest.swift; sourceTree = "<group>"; };
 		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1010,6 +1014,8 @@
 				40FAED65275543110006490E /* PDFResponse.swift */,
 				40FAED6127553CF70006490E /* PreviewService.swift */,
 				40FAED672755433B0006490E /* PreviewResponse.swift */,
+				403EC21E2755767B008A40B9 /* PortfolioService.swift */,
+				403EC220275576C9008A40B9 /* PortfolioRequest.swift */,
 			);
 			path = Portfolio;
 			sourceTree = "<group>";
@@ -1332,6 +1338,7 @@
 				404C570E2746C2F500B31F64 /* SignUpSecondViewModel.swift in Sources */,
 				4065FEFD274402D3005AAE0F /* MentorInformationViewController.swift in Sources */,
 				40DCF34B2739894B00A82CC6 /* ReviewDataModel.swift in Sources */,
+				403EC21F2755767B008A40B9 /* PortfolioService.swift in Sources */,
 				40FAED5527537AE10006490E /* TopMentorSearchService.swift in Sources */,
 				40DCF359273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift in Sources */,
 				403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */,
@@ -1396,6 +1403,7 @@
 				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
 				40CC20C6274E7A01008A3967 /* RegistPortfolioThirdViewController.swift in Sources */,
 				4065FF0B27453BD2005AAE0F /* InformationViewModel.swift in Sources */,
+				403EC221275576C9008A40B9 /* PortfolioRequest.swift in Sources */,
 				404C57032746A3A500B31F64 /* APIConstants.swift in Sources */,
 				40FAED43275355490006490E /* WithdrawViewController.swift in Sources */,
 				404E687227245220005AA5DD /* RegistMentorSecondViewModel.swift in Sources */,
