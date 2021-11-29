@@ -97,7 +97,7 @@ class RegistPortfolioFirstViewController: UIViewController {
     }
     
     private func setProgressView() {
-        progressBar.setProgress(0.2, animated: true)
+        progressBar.setProgress(0.25, animated: true)
     }
     
     private func setUI() {

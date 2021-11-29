@@ -132,16 +132,16 @@ class SearchingDirectViewController: UIViewController {
     private func bindingCollectionView() {
         mentorListCV.rx.setDelegate(self).disposed(by: disposeBag)
         
-        mentorCVModel.output.searchingMentorListData
-            .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
-                    
-                    cell.setData(mentor: item)
-                    return cell
-                }
-                return UICollectionViewCell()
-            }
-            .disposed(by: disposeBag)
+//        mentorCVModel.output.searchingMentorListData
+//            .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+//                if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
+//                    
+//                    cell.setData(mentor: item)
+//                    return cell
+//                }
+//                return UICollectionViewCell()
+//            }
+//            .disposed(by: disposeBag)
     }
 }
 

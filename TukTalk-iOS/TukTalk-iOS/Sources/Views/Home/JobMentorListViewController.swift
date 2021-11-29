@@ -14,6 +14,7 @@ class JobMentorListViewController: UIViewController {
     private lazy var categoryViewModel = SearchesCollectionViewModel()
     private lazy var mentorListViewModel = MentorListCollectionViewModel()
     private let disposeBag = DisposeBag()
+    lazy var jobMentorDataList: BehaviorSubject<JobSearchResponse> = BehaviorSubject(value: [])
     var category: Int?
     
     //MARK:- UI Components
@@ -116,6 +117,20 @@ class JobMentorListViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
+        
+        categoryCV.rx.modelSelected(SearchesDataModel.self)
+            .bind(onNext: { model in
+                self.mentorListViewModel.getJobMentorList(field: model.title) { response in
+                    self.jobMentorDataList.onNext(response)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        mentorListCV.rx.modelSelected(JobSearchResponseElement.self)
+            .bind { _ in
+                self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func setCollectionViewUI() {
@@ -157,7 +172,7 @@ class JobMentorListViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        mentorListViewModel.output.searchingMentorListData
+        jobMentorDataList
             .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
                     

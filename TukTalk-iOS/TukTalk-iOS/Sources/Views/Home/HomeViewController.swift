@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     private lazy var reviewListViewModel = ReviewCollectionViewModel()
     private lazy var homeViewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
+//    private lazy var homeViewModel.jobMentorDataList: BehaviorSubject<JobSearchResponse> = BehaviorSubject(value: [])
     
     //MARK:- UI Components
     
@@ -263,9 +264,17 @@ class HomeViewController: UIViewController {
     }
     
     private func binding() {
+        mentorListViewModel.getJobMentorList(field: homeViewModel.categoryTitle) { response in
+            self.homeViewModel.jobMentorDataList.onNext(response)
+        }
+        
         jobViewAllBtn.rx.tap
             .bind { _ in
                 let nextVC = JobMentorListViewController()
+                self.homeViewModel.jobMentorDataList.bind(onNext: { data in
+                    nextVC.jobMentorDataList.onNext(data)
+                })
+                .disposed(by: self.disposeBag)
                 self.homeViewModel.output.indexPathNum.take(1)
                     .subscribe(onNext: { num in
                         nextVC.category = num
@@ -281,16 +290,29 @@ class HomeViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        topMentorCV.rx.modelSelected(MentorListDataModel.self)
+        topMentorCV.rx.modelSelected(TopMentorSearchResponseElement.self)
             .bind { _ in
                 self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         
-        jobMentorCV.rx.modelSelected(MentorListDataModel.self)
+        jobMentorCV.rx.modelSelected(JobSearchResponseElement.self)
             .bind { _ in
                 self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
             }
+            .disposed(by: disposeBag)
+        
+        categoryCV.rx.itemSelected
+            .bind(to: homeViewModel.input.indexPath)
+            .disposed(by: disposeBag)
+        
+        categoryCV.rx.modelSelected(SearchesDataModel.self)
+            .bind(onNext: { model in
+                self.homeViewModel.categoryTitle = model.title
+                self.mentorListViewModel.getJobMentorList(field: self.homeViewModel.categoryTitle) { response in
+                    self.homeViewModel.jobMentorDataList.onNext(response)
+                }
+            })
             .disposed(by: disposeBag)
     }
     
@@ -359,16 +381,17 @@ class HomeViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        mentorListViewModel.output.topMentorListData
-            .bind(to: topMentorCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                if let cell = self.topMentorCV.dequeueReusableCell(withReuseIdentifier: "TopMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? TopMentorCollectionViewCell {
-                    
-                    cell.setData(mentor: item)
-                    return cell
+        mentorListViewModel.getTopMentorList() { response in
+            _ = Observable.of(response)
+                .bind(to: self.topMentorCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                    if let cell = self.topMentorCV.dequeueReusableCell(withReuseIdentifier: "TopMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? TopMentorCollectionViewCell {
+                        cell.setData(mentor: item)
+                        return cell
+                    }
+                    return UICollectionViewCell()
                 }
-                return UICollectionViewCell()
-            }
-            .disposed(by: disposeBag)
+                .disposed(by: self.disposeBag)
+        }
         
         categoryViewModel.output.jobCategoryData
             .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
@@ -384,15 +407,15 @@ class HomeViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        mentorListViewModel.output.jobMentorListData
-            .bind(to: jobMentorCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                if let cell = self.jobMentorCV.dequeueReusableCell(withReuseIdentifier: "JobMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? JobMentorCollectionViewCell {
-                    cell.setData(mentor: item)
-                    return cell
+        homeViewModel.jobMentorDataList
+            .bind(to: self.jobMentorCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                    if let cell = self.jobMentorCV.dequeueReusableCell(withReuseIdentifier: "JobMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? JobMentorCollectionViewCell {
+                        cell.setData(mentor: item)
+                        return cell
+                    }
+                    return UICollectionViewCell()
                 }
-                return UICollectionViewCell()
-            }
-            .disposed(by: disposeBag)
+                .disposed(by: self.disposeBag)
         
         reviewListViewModel.output.reviewListData
             .bind(to: reviewCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
@@ -402,10 +425,6 @@ class HomeViewController: UIViewController {
                 }
                 return UICollectionViewCell()
             }
-            .disposed(by: disposeBag)
-        
-        categoryCV.rx.itemSelected
-            .bind(to: homeViewModel.input.indexPath)
             .disposed(by: disposeBag)
     }
     

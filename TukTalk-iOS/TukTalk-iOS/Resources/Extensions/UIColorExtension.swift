@@ -58,9 +58,48 @@ extension UIColor {
     
     class Profile: UIColor {
         static let profileBlue = UIColor(red: 229/255, green: 238/255, blue: 255/255, alpha: 1)
+        static let nameBlue = UIColor(red: 170/255, green: 199/255, blue: 255/255, alpha: 1)
         static let profileRed = UIColor(red: 255/255, green: 240/255, blue: 240/255, alpha: 1)
+        static let nameRed = UIColor(red: 254/255, green: 196/255, blue: 196/255, alpha: 1)
         static let profileYellow = UIColor(red: 255/255, green: 241/255, blue: 211/255, alpha: 1)
+        static let nameYellow = UIColor(red: 255/255, green: 206/255, blue: 99/255, alpha: 1)
         static let profileGray = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        static let nameGray = UIColor(red: 181/255, green: 181/255, blue: 181/255, alpha: 1)
         static let profileGreen = UIColor(red: 227/255, green: 255/255, blue: 243/255, alpha: 1)
+        static let nameGreen = UIColor(red: 124/255, green: 228/255, blue: 183/255, alpha: 1)
+        
+        static func getProfileColor(color: String) -> UIColor {
+            switch color {
+            case "profileBlue":
+                return profileBlue
+            case "profileRed":
+                return profileRed
+            case "profileYellow":
+                return profileYellow
+            case "profileGray":
+                return profileGray
+            case "profileGreen":
+                return profileGreen
+            default:
+                return UIColor()
+            }
+        }
+        
+        static func getNameColor(color: String) -> UIColor {
+            switch color {
+            case "profileBlue":
+                return nameBlue
+            case "profileRed":
+                return nameRed
+            case "profileYellow":
+                return nameYellow
+            case "profileGray":
+                return nameGray
+            case "profileGreen":
+                return nameGreen
+            default:
+                return UIColor()
+            }
+        }
     }
 }

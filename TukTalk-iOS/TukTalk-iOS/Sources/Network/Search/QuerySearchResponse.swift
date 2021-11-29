@@ -10,12 +10,7 @@ import Foundation
 struct QuerySearchResponseElement: Codable {
     let id: Int
     let nickname, companyName, department: String
-    let hashTags: [QuerySearchHashTag]
-}
-
-// MARK: - HashTag
-struct QuerySearchHashTag: Codable {
-    let hashTag: String
+    let hashTags: [HashTag]
 }
 
 typealias QuerySearchResponse = [QuerySearchResponseElement]

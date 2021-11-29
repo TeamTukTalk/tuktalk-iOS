@@ -8,7 +8,7 @@
 import Moya
 
 enum JobSearchService {
-    case jobSearchRequest(_ subSpecialty: String? = nil, _ startYear: Int? = nil, _ endYear: Int? = nil, _ page: Int? = nil, _ companySize: String? = nil, _ specialty: String? = nil)
+    case jobSearchRequest(_ specialty: String? = nil)
 }
 
 extension JobSearchService: TargetType {
@@ -32,8 +32,8 @@ extension JobSearchService: TargetType {
     
     var task: Task {
         switch self {
-        case .jobSearchRequest(let specialty, let subSpecialty, let companySize, let startYear, let endYear, let page):
-            let params: [String: Any] = ["specialty": specialty, "subSpecialty": subSpecialty, "companySize": companySize, "startYear": startYear, "endYear": endYear, "page": page]
+        case .jobSearchRequest(let specialty):
+            let params: [String: String] = ["specialty": specialty!]
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
         }
     }

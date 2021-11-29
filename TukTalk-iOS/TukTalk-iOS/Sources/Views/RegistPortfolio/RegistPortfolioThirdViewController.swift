@@ -14,7 +14,7 @@ class RegistPortfolioThirdViewController: UIViewController {
     
     private lazy var viewModel = RegistPortfolioThirdViewModel()
     private let disposeBag = DisposeBag()
-    private let progressPercentValue = BehaviorRelay(value: Float(0.6))
+    private let progressPercentValue = BehaviorRelay(value: Float(0.75))
     private let progressIsHiddenValue = BehaviorRelay(value: false)
     var progressPercent: Observable<Float> {
         return progressPercentValue.asObservable()
@@ -124,7 +124,7 @@ class RegistPortfolioThirdViewController: UIViewController {
         
         backBtn.rx.tap
             .bind(onNext: { _ in
-                self.progressPercentValue.accept(0.4)
+                self.progressPercentValue.accept(0.5)
                 self.navigationController?.popViewController(animated: false)
             })
             .disposed(by: disposeBag)

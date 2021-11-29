@@ -289,7 +289,9 @@ class LoginViewController: UIViewController {
                             let loginResponse = try? response.map(LoginResponse.self)
                             if response.statusCode == 200 {
                                 print("success Login")
-                                if let token = loginResponse?.accessToken.data(using: String.Encoding.utf8) {
+                                guard let token = loginResponse?.accessToken else { return }
+                                let tokenString = "Bearer " + token
+                                if let token = tokenString.data(using: String.Encoding.utf8) {
                                     KeyChain.save(key: "token", data: token)
                                 }
                                 self.present(nextVC, animated: true, completion: nil)

@@ -25,6 +25,9 @@ struct HomeViewModel: ViewModelType {
         var indexPathNum: Observable<Int>
     }
     
+    var categoryTitle = "디자인"
+    var jobMentorDataList: BehaviorSubject<JobSearchResponse> = BehaviorSubject(value: [])
+    
     init(dependency: Dependency = Dependency()) {
         self.dependency = dependency
         

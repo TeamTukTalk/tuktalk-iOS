@@ -10,11 +10,15 @@ import Foundation
 struct JobSearchResponseElement: Codable {
     let id: Int
     let nickname, companyName, department: String
-    let hashTags: [JobSearchHashTag]
+    let profileImageURL: JSONNull?
+    let profileImageColor, firstLetter: String
+    let hashTags: [HashTag]
+
+    enum CodingKeys: String, CodingKey {
+        case id, nickname, companyName, department
+        case profileImageURL = "profileImageUrl"
+        case profileImageColor, firstLetter, hashTags
+    }
 }
 
-// MARK: - HashTag
-struct JobSearchHashTag: Codable {
-    let hashTag: String
-}
 typealias JobSearchResponse = [JobSearchResponseElement]
