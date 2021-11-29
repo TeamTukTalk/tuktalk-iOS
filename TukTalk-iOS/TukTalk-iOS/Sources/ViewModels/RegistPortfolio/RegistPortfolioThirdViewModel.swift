@@ -37,6 +37,11 @@ struct RegistPortfolioThirdViewModel: ViewModelType {
         self.input = Input(textViewInput: textViewInput$.asObserver(), initText: initText$.asObserver())
         self.output = Output(nextIsValid: nextIsValid$)
     }
+    
+    func insertData(text: String?) {
+        guard let text = text else { return }
+        UserPortfolio.shared.recommendationTargetDescription = text
+    }
 }
 
 private func nextValidation(text: String?, initText: String?) -> Bool {

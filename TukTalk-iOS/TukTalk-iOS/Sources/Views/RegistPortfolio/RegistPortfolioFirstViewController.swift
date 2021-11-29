@@ -197,6 +197,7 @@ class RegistPortfolioFirstViewController: UIViewController {
                     self.progressBar.isHidden = valid
                 })
                 .disposed(by: self.disposeBag)
+                self.viewModel.insertData(text: self.mainTextView.text)
                 self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)

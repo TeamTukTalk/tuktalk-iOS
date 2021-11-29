@@ -15,7 +15,7 @@ class RegistPortfolioFirthViewController: UIViewController {
     //MARK:- Properties
     
     private lazy var viewModel = RegistPortfolioFirthViewModel()
-    private lazy var portfolioProvider = MoyaProvider<PortfolioService>()
+    private lazy var portfolioProvider = MoyaProvider<PDFService>()
     private lazy var previewProvider = MoyaProvider<PreviewService>()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(1.0))
@@ -279,11 +279,11 @@ class RegistPortfolioFirthViewController: UIViewController {
     
     private func uploadPDF(pdfData: Data?, fileName: String) {
         guard let pdfData = pdfData else { return }
-        portfolioProvider.rx.request(.portfolioRequest(pdfData, fileName: fileName))
+        portfolioProvider.rx.request(.pdfRequest(pdfData, fileName: fileName))
             .subscribe { result in
                 switch result {
                 case let .success(response):
-                    guard let responseData = try? response.map(PortfolioResponse.self) else { return }
+                    guard let responseData = try? response.map(PDFResponse.self) else { return }
                     UserPortfolio.shared.pdfFileId = responseData.id
                     print(response)
                 case let .failure(error):

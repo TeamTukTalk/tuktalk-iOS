@@ -305,7 +305,7 @@ class RegistPortfolioSecondViewController: UIViewController {
                     self.progressIsHiddenValue.accept(valid)
                 })
                 .disposed(by: self.disposeBag)
-                
+                self.viewModel.insertData(projectCount: self.projectCountTextField.text, pageCount: self.pageCountTextField.text, startYear: self.startYearTextField.text, endYear: self.endYearTextField.text)
                 self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)

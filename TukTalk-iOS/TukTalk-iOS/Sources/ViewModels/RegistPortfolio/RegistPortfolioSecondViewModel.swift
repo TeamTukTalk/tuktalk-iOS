@@ -42,6 +42,17 @@ struct RegistPortfolioSecondViewModel: ViewModelType {
         self.input = Input(projectCountInput: projectCountInput$.asObserver(), pageCountInput: pageCountInput$.asObserver(), startYearInput: startYearInput$.asObserver(), endYearInput: endYearInput$.asObserver())
         self.output = Output(nextIsValid: nextIsValid$)
     }
+    
+    func insertData(projectCount: String?, pageCount: String?, startYear: String?, endYear: String?) {
+        guard let projectCount = Int(projectCount!) else { return }
+        guard let pageCount = Int(pageCount!) else { return }
+        guard let startYear = Int(startYear!) else { return }
+        guard let endYear = Int(endYear!) else { return }
+        UserPortfolio.shared.projectCount = projectCount
+        UserPortfolio.shared.totalPages = pageCount
+        UserPortfolio.shared.startYear = startYear
+        UserPortfolio.shared.endYear = endYear
+    }
 }
 
 private func nextValidation(prjCount: String?, pageCount: String?, start: String?, end: String?) -> Bool {

@@ -152,10 +152,10 @@
 		40FAED5727537BD50006490E /* TopMentorSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5627537BD50006490E /* TopMentorSearchResponse.swift */; };
 		40FAED5927537CA40006490E /* ReviewSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5827537CA40006490E /* ReviewSearchService.swift */; };
 		40FAED5B27537D2B0006490E /* ReviewSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5A27537D2B0006490E /* ReviewSearchResponse.swift */; };
-		40FAED5E275390050006490E /* PortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5D275390050006490E /* PortfolioService.swift */; };
+		40FAED5E275390050006490E /* PDFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5D275390050006490E /* PDFService.swift */; };
 		40FAED6227553CF70006490E /* PreviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED6127553CF70006490E /* PreviewService.swift */; };
 		40FAED64275540150006490E /* RegistPortfolioFirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED63275540150006490E /* RegistPortfolioFirthViewModel.swift */; };
-		40FAED66275543110006490E /* PortfolioResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED65275543110006490E /* PortfolioResponse.swift */; };
+		40FAED66275543110006490E /* PDFResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED65275543110006490E /* PDFResponse.swift */; };
 		40FAED682755433B0006490E /* PreviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED672755433B0006490E /* PreviewResponse.swift */; };
 		40FAED6B275543B30006490E /* UserPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED6A275543B30006490E /* UserPortfolio.swift */; };
 		40FAED6E275549470006490E /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED6D275549470006490E /* PreviewCollectionViewCell.swift */; };
@@ -322,10 +322,10 @@
 		40FAED5627537BD50006490E /* TopMentorSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMentorSearchResponse.swift; sourceTree = "<group>"; };
 		40FAED5827537CA40006490E /* ReviewSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSearchService.swift; sourceTree = "<group>"; };
 		40FAED5A27537D2B0006490E /* ReviewSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSearchResponse.swift; sourceTree = "<group>"; };
-		40FAED5D275390050006490E /* PortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioService.swift; sourceTree = "<group>"; };
+		40FAED5D275390050006490E /* PDFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFService.swift; sourceTree = "<group>"; };
 		40FAED6127553CF70006490E /* PreviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewService.swift; sourceTree = "<group>"; };
 		40FAED63275540150006490E /* RegistPortfolioFirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirthViewModel.swift; sourceTree = "<group>"; };
-		40FAED65275543110006490E /* PortfolioResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioResponse.swift; sourceTree = "<group>"; };
+		40FAED65275543110006490E /* PDFResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFResponse.swift; sourceTree = "<group>"; };
 		40FAED672755433B0006490E /* PreviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewResponse.swift; sourceTree = "<group>"; };
 		40FAED6A275543B30006490E /* UserPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPortfolio.swift; sourceTree = "<group>"; };
 		40FAED6D275549470006490E /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1006,8 +1006,8 @@
 		40FAED5C27538FED0006490E /* Portfolio */ = {
 			isa = PBXGroup;
 			children = (
-				40FAED5D275390050006490E /* PortfolioService.swift */,
-				40FAED65275543110006490E /* PortfolioResponse.swift */,
+				40FAED5D275390050006490E /* PDFService.swift */,
+				40FAED65275543110006490E /* PDFResponse.swift */,
 				40FAED6127553CF70006490E /* PreviewService.swift */,
 				40FAED672755433B0006490E /* PreviewResponse.swift */,
 			);
@@ -1287,7 +1287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40FAED5E275390050006490E /* PortfolioService.swift in Sources */,
+				40FAED5E275390050006490E /* PDFService.swift in Sources */,
 				4065FF11274579E0005AAE0F /* SpecialtyTableViewCell.swift in Sources */,
 				404C57182746D6B100B31F64 /* LoginService.swift in Sources */,
 				40FAED6E275549470006490E /* PreviewCollectionViewCell.swift in Sources */,
@@ -1403,7 +1403,7 @@
 				40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */,
 				40CC20C0274E620C008A3967 /* RegistPortfolioSecondViewController.swift in Sources */,
 				404C57072746B89100B31F64 /* SignUpService.swift in Sources */,
-				40FAED66275543110006490E /* PortfolioResponse.swift in Sources */,
+				40FAED66275543110006490E /* PDFResponse.swift in Sources */,
 				402B98D127524AE600EDD668 /* MenteeMyPageViewController.swift in Sources */,
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,

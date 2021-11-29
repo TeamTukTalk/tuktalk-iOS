@@ -7,32 +7,32 @@
 
 import Moya
 
-enum PortfolioService {
-    case portfolioRequest(Data, fileName: String)
+enum PDFService {
+    case pdfRequest(Data, fileName: String)
 }
 
-extension PortfolioService: TargetType {
+extension PDFService: TargetType {
     var baseURL: URL {
         return URL(string: APIConstants.baseURL)!
     }
     
     var path: String {
         switch self {
-        case .portfolioRequest:
-            return APIConstants.portfolioURL
+        case .pdfRequest:
+            return APIConstants.pdfURL
         }
     }
     
     var method: Method {
         switch self {
-        case .portfolioRequest:
+        case .pdfRequest:
             return .post
         }
     }
     
     var task: Task {
         switch self {
-        case let .portfolioRequest(data, fileName):
+        case let .pdfRequest(data, fileName):
             let pdfData = MultipartFormData(provider: .data(data), name: "pdf", fileName: fileName, mimeType: "application/pdf")
             return .uploadMultipart([pdfData])
         }
@@ -41,7 +41,7 @@ extension PortfolioService: TargetType {
     var headers: [String : String]? {
         guard let token = APIConstants.token else { return nil }
         switch self {
-        case .portfolioRequest:
+        case .pdfRequest:
             return [
                 "Authorization": token,
                 "Content-Type": "multipart/form-data"

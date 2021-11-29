@@ -157,6 +157,7 @@ class RegistPortfolioThirdViewController: UIViewController {
                 })
                 .disposed(by: self.disposeBag)
                 
+                self.viewModel.insertData(text: self.mainTextView.text)
                 self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)

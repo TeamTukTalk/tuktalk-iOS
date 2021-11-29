@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PortfolioResponse: Codable {
+struct PDFResponse: Codable {
     let id: Int
     let fileURL: String
 
