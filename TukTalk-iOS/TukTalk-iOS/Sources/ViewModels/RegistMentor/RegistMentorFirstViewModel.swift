@@ -21,7 +21,6 @@ struct RegistMentorFirstViewModel: ViewModelType {
     
     struct Input {
         var companyText: AnyObserver<String>
-        var departmentText: AnyObserver<String>
     }
     
     struct Output {
@@ -32,18 +31,16 @@ struct RegistMentorFirstViewModel: ViewModelType {
         self.dependency = dependency
         
         let companyText$ = BehaviorSubject<String>(value: "")
-        let departmentText$ = BehaviorSubject<String>(value: "")
-        let nextIsValid$ = nextValidation(company: companyText$, department: departmentText$)
+        let nextIsValid$ = nextValidation(company: companyText$)
         
-        self.input = Input(companyText: companyText$.asObserver(), departmentText: departmentText$.asObserver())
+        self.input = Input(companyText: companyText$.asObserver())
         self.output = Output(nextIsValid: nextIsValid$)
     }
 }
 
-private func nextValidation(company: Observable<String>, department: Observable<String>) -> Observable<Bool> {
+private func nextValidation(company: Observable<String>) -> Observable<Bool> {
     
-    return Observable.combineLatest(company, department)
-        .map { com, de in
-            return !com.isEmpty && !de.isEmpty
-        }
+    return company.map { text in
+        return !text.isEmpty
+    }
 }

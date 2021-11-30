@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if KeyChain.load(key: "token") == nil {
             window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         } else {
-            window?.rootViewController = UINavigationController(rootViewController: RegistMentorFirstViewController())
+            window?.rootViewController = UINavigationController(rootViewController: TabBarViewController())
         }
         window?.makeKeyAndVisible()
     }

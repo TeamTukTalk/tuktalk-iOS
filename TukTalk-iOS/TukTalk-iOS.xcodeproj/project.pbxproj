@@ -62,6 +62,7 @@
 		403EC23327566015008A40B9 /* SendEmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23227566015008A40B9 /* SendEmailService.swift */; };
 		403EC23527566131008A40B9 /* EmailVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23427566131008A40B9 /* EmailVerifyService.swift */; };
 		403EC237275661CC008A40B9 /* EmailVerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC236275661CC008A40B9 /* EmailVerifyResponse.swift */; };
+		403EC23D27568DAB008A40B9 /* UpdatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23C27568DAA008A40B9 /* UpdatePopUpViewController.swift */; };
 		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
 		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
 		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
@@ -238,6 +239,7 @@
 		403EC23227566015008A40B9 /* SendEmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailService.swift; sourceTree = "<group>"; };
 		403EC23427566131008A40B9 /* EmailVerifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyService.swift; sourceTree = "<group>"; };
 		403EC236275661CC008A40B9 /* EmailVerifyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyResponse.swift; sourceTree = "<group>"; };
+		403EC23C27568DAA008A40B9 /* UpdatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePopUpViewController.swift; sourceTree = "<group>"; };
 		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */,
 				403B2D33271B784800B834A6 /* UIColorExtension.swift */,
 				403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */,
+				403EC23C27568DAA008A40B9 /* UpdatePopUpViewController.swift */,
 				40118476271C90D800A5657A /* UIFontExtension.swift */,
 				4011847A271CA41E00A5657A /* CALayerExtension.swift */,
 				40746D0B271EE94400B54CBB /* UILabelExtension.swift */,
@@ -1469,6 +1472,7 @@
 				402B98D127524AE600EDD668 /* MenteeMyPageViewController.swift in Sources */,
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
+				403EC23D27568DAB008A40B9 /* UpdatePopUpViewController.swift in Sources */,
 				40FAED6B275543B30006490E /* UserPortfolio.swift in Sources */,
 				403EC22727561CA9008A40B9 /* TermsTableViewModel.swift in Sources */,
 				40CC20C2274E7578008A3967 /* RegistPortfolioSecondViewModel.swift in Sources */,

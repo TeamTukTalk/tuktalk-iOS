@@ -119,18 +119,6 @@ class RegistMentorFirstViewController: UIViewController {
         $0.setUnderline(false)
     }
     
-    private let departmentLabel = UILabel().then {
-        $0.text = "부서"
-        $0.textColor = UIColor.GrayScale.sub1
-        $0.font = UIFont.TTFont(type: .SDMed, size: 14)
-    }
-    
-    private let departmentTextField = UITextField().then {
-        $0.placeholder = "웹 디자인"
-        $0.font = UIFont.TTFont(type: .SDReg, size: 15)
-        $0.setUnderline(false)
-    }
-    
     private let nextBtn = UIButton().then {
         $0.setTitle("다음", for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
@@ -150,7 +138,8 @@ class RegistMentorFirstViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         NotificationCenter.default.removeObserver(self)
-        [companyTextField, departmentTextField].forEach { $0.text = ""}
+        companyTextField.text = ""
+//        [companyTextField, departmentTextField].forEach { $0.text = ""}
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -269,20 +258,6 @@ class RegistMentorFirstViewController: UIViewController {
             $0.leading.trailing.equalTo(backgroundView).inset(20)
         }
         
-        view.addSubview(departmentLabel)
-        departmentLabel.snp.makeConstraints {
-            $0.height.equalTo(20)
-            $0.top.equalTo(companyTextField.snp.bottom).offset(24)
-            $0.leading.equalTo(backgroundView).offset(20)
-        }
-        
-        view.addSubview(departmentTextField)
-        departmentTextField.snp.makeConstraints {
-            $0.height.equalTo(30)
-            $0.top.equalTo(departmentLabel.snp.bottom).offset(12)
-            $0.leading.trailing.equalTo(backgroundView).inset(20)
-        }
-        
         view.addSubview(nextBtn)
         nextBtn.snp.makeConstraints {
             $0.height.equalTo(48)
@@ -299,32 +274,15 @@ class RegistMentorFirstViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        departmentTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
-                self.departmentTextField.setUnderline(true)
-            }
-            .disposed(by: disposeBag)
-        
         companyTextField.rx.controlEvent(.editingDidEnd)
             .bind { _ in
                 self.companyTextField.setUnderline(false)
             }
             .disposed(by: disposeBag)
         
-        departmentTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
-                self.departmentTextField.setUnderline(false)
-            }
-            .disposed(by: disposeBag)
-        
         companyTextField.rx.text
             .orEmpty
             .bind(to: registFirstViewModel.input.companyText)
-            .disposed(by: disposeBag)
-        
-        departmentTextField.rx.text
-            .orEmpty
-            .bind(to: registFirstViewModel.input.departmentText)
             .disposed(by: disposeBag)
         
         registFirstViewModel.output.nextIsValid
