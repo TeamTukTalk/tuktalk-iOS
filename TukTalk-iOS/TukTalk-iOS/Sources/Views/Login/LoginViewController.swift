@@ -71,11 +71,11 @@ class LoginViewController: UIViewController {
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
     }
     
-    private let findBtn = UIButton().then {
-        $0.setTitle("아이디 | 비밀번호 찾기", for: .normal)
-        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 13)
-        $0.setTitleColor(UIColor.GrayScale.sub3, for: .normal)
-    }
+//    private let findBtn = UIButton().then {
+//        $0.setTitle("아이디 | 비밀번호 찾기", for: .normal)
+//        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 13)
+//        $0.setTitleColor(UIColor.GrayScale.sub3, for: .normal)
+//    }
     
     private let bottomStackView = UIStackView().then {
         $0.axis = .horizontal
@@ -207,11 +207,11 @@ class LoginViewController: UIViewController {
             $0.centerX.equalToSuperview()
         }
         
-        view.addSubview(findBtn)
-        findBtn.snp.makeConstraints {
-            $0.top.equalTo(loginBtn.snp.bottom).offset(20)
-            $0.centerX.equalTo(view)
-        }
+//        view.addSubview(findBtn)
+//        findBtn.snp.makeConstraints {
+//            $0.top.equalTo(loginBtn.snp.bottom).offset(20)
+//            $0.centerX.equalTo(view)
+//        }
         
         view.addSubview(alertView)
         alertView.snp.makeConstraints {
