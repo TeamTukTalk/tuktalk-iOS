@@ -19,24 +19,6 @@ class RegistMentorFinishViewController: UIViewController {
         $0.backgroundColor = .white
     }
     
-    private let backBtn = UIButton().then {
-        $0.setImage(UIImage(named: "backBtnImg"), for: .normal)
-        $0.frame.size.height = 12
-        $0.frame.size.width = 12
-    }
-    
-    private let backLabel = UILabel().then {
-        $0.text = "멘토등록"
-        $0.font = UIFont.TTFont(type: .SDBold, size: 16)
-        $0.textColor = UIColor.GrayScale.normal
-    }
-    
-    private let closeBtn = UIButton().then {
-        $0.setImage(UIImage(named: "closeBtnImg"), for: .normal)
-        $0.frame.size.height = 20
-        $0.frame.size.width = 20
-    }
-    
     private let firstLabelIcon = UILabel().then {
         $0.backgroundColor = UIColor.Primary.primary
         $0.text = "1"
@@ -137,26 +119,6 @@ class RegistMentorFinishViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
         }
         
-        view.addSubview(backBtn)
-        backBtn.snp.makeConstraints {
-            $0.width.height.equalTo(24)
-            $0.bottom.equalTo(topView.snp.bottom).inset(10)
-            $0.leading.equalToSuperview().offset(8)
-        }
-        
-        view.addSubview(backLabel)
-        backLabel.snp.makeConstraints {
-            $0.bottom.equalTo(topView.snp.bottom).inset(10)
-            $0.leading.equalTo(backBtn.snp.trailing).offset(4)
-        }
-        
-        view.addSubview(closeBtn)
-        closeBtn.snp.makeConstraints {
-            $0.width.height.equalTo(20)
-            $0.bottom.equalTo(topView.snp.bottom).inset(12)
-            $0.trailing.equalToSuperview().inset(16)
-        }
-        
         view.addSubview(firstLabelIcon)
         firstLabelIcon.snp.makeConstraints {
             $0.height.width.equalTo(20)
@@ -233,30 +195,9 @@ class RegistMentorFinishViewController: UIViewController {
     }
     
     private func binding() {
-        backBtn.rx.tap
-            .bind { _ in
-                self.navigationController?.popViewController(animated: false)
-            }
-            .disposed(by: disposeBag)
-        
-        closeBtn.rx.tap
-            .bind { _ in
-                let popUpViewController = PopUpViewController()
-                popUpViewController.popUpTitleLabel.text = "멘토등록을 중단하시겠습니까?"
-                let naviVC = UINavigationController(rootViewController: popUpViewController)
-                naviVC.modalPresentationStyle = .overCurrentContext
-                naviVC.modalTransitionStyle = .crossDissolve
-                naviVC.navigationBar.isHidden = true
-                self.present(naviVC, animated: true) {
-                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
-                    naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
-                }
-            }
-            .disposed(by: disposeBag)
-        
         nextBtn.rx.tap
             .bind { _ in
-                // TODO
+                self.navigationController?.popToRootViewController(animated: true)
             }
             .disposed(by: disposeBag)
     }

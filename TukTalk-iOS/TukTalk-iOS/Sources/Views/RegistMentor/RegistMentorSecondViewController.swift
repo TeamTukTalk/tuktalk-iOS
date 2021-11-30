@@ -6,12 +6,13 @@
 //
 
 import RxSwift
+import Moya
 
 class RegistMentorSecondViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var registSecondViewModel = RegistMentorSecondViewModel()
+    private lazy var viewModel = RegistMentorSecondViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -117,11 +118,42 @@ class RegistMentorSecondViewController: UIViewController {
         $0.setUnderline(false)
     }
     
+    private let errorLabel = UILabel().then {
+        $0.text = "이메일 인증을 실패했습니다."
+        $0.textColor = UIColor.State.error
+        $0.font = UIFont.TTFont(type: .SDReg, size: 10)
+        $0.isHidden = true
+    }
+    
+    private let errorIcon = UIImageView().then {
+        $0.image = UIImage(named: "errorIcon")
+        $0.isHidden = true
+    }
+    
     private let sendBtn = UIButton().then {
         $0.setTitle("발송", for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
         $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
         $0.backgroundColor = UIColor.GrayScale.gray4
+        $0.layer.cornerRadius = 24
+        $0.isEnabled = false
+    }
+    
+    private let resendBtn = UIButton().then {
+        $0.backgroundColor = .white
+        $0.setTitle("재발송", for: .normal)
+        $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
+        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+        $0.layer.cornerRadius = 24
+    }
+    
+    private let confirmBtn = UIButton().then {
+        $0.setTitle("인증완료", for: .normal)
+        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = UIColor.Primary.primary
         $0.layer.cornerRadius = 24
     }
     
@@ -144,6 +176,10 @@ class RegistMentorSecondViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         emailTextField.text = ""
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     //MARK:- Function
@@ -252,6 +288,20 @@ class RegistMentorSecondViewController: UIViewController {
             $0.leading.trailing.equalTo(backgroundView).inset(20)
         }
         
+        view.addSubview(errorIcon)
+        errorIcon.snp.makeConstraints {
+            $0.width.height.equalTo(20)
+            $0.top.equalTo(emailLabel.snp.bottom).offset(13)
+            $0.trailing.equalTo(backgroundView).inset(20)
+        }
+        
+        view.addSubview(errorLabel)
+        errorLabel.snp.makeConstraints {
+            $0.height.equalTo(14)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(8)
+            $0.leading.equalTo(backgroundView).offset(20)
+        }
+        
         view.addSubview(sendBtn)
         sendBtn.snp.makeConstraints {
             $0.height.equalTo(48)
@@ -296,33 +346,80 @@ class RegistMentorSecondViewController: UIViewController {
         
         emailTextField.rx.text
             .orEmpty
-            .bind(to: registSecondViewModel.input.emailText)
+            .bind(to: viewModel.input.emailText)
             .disposed(by: disposeBag)
         
-        registSecondViewModel.output.sendIsValid
+        viewModel.output.sendIsValid
             .bind(to: sendBtn.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        registSecondViewModel.output.sendIsValid
-            .filter {$0}
-            .bind { _ in
-                self.sendBtn.setTitleColor(.white, for: .normal)
-                self.sendBtn.backgroundColor = UIColor.Primary.primary
-            }
-            .disposed(by: disposeBag)
-        
-        registSecondViewModel.output.sendIsValid
-            .filter {!$0}
-            .bind { _ in
-                self.sendBtn.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
-                self.sendBtn.backgroundColor = UIColor.GrayScale.gray4
+        viewModel.output.sendIsValid
+            .bind { status in
+                self.sendBtn.setTitleColor( status ? .white : UIColor.GrayScale.sub4, for: .normal)
+                self.sendBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.sendBtn.isEnabled = status
             }
             .disposed(by: disposeBag)
         
         sendBtn.rx.tap
             .bind { _ in
-                self.navigationController?.pushViewController(RegistMentorFinishViewController(), animated: false)
+                self.updateBtnUI()
+                self.viewModel.sendEmailRequest(email: self.emailTextField.text!)
             }
             .disposed(by: disposeBag)
+        
+        resendBtn.rx.tap
+            .bind {
+                self.viewModel.sendEmailRequest(email: self.emailTextField.text!)
+            }
+            .disposed(by: disposeBag)
+        
+        confirmBtn.rx.tap
+            .bind {
+                self.viewModel.verifyEmailRequest() { response in
+                    if response.certifiedMentor {
+                        self.navigationController?.pushViewController(RegistMentorFinishViewController(), animated: true)
+                    } else {
+                        self.resendBtn.snp.updateConstraints {
+                            $0.top.equalTo(self.emailTextField.snp.bottom).offset(46)
+                        }
+                        self.backgroundView.snp.updateConstraints {
+                            $0.height.equalTo(407)
+                        }
+                        self.errorLabel.isHidden = false
+                        self.errorIcon.isHidden = false
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func updateBtnUI() {
+        
+        sendBtn.removeFromSuperview()
+        
+        view.addSubview(resendBtn)
+        resendBtn.snp.makeConstraints {
+            $0.height.equalTo(48)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(32)
+            $0.leading.trailing.equalTo(backgroundView).inset(20)
+        }
+        
+        view.addSubview(confirmBtn)
+        confirmBtn.snp.makeConstraints {
+            $0.height.equalTo(48)
+            $0.top.equalTo(resendBtn.snp.bottom).offset(8)
+            $0.leading.trailing.equalTo(backgroundView).inset(20)
+        }
+        
+        informLabel.snp.removeConstraints()
+        informLabel.snp.makeConstraints {
+            $0.top.equalTo(confirmBtn.snp.bottom).offset(16)
+            $0.leading.trailing.equalTo(backgroundView).inset(20)
+        }
+        
+        backgroundView.snp.updateConstraints {
+            $0.height.equalTo(393)
+        }
     }
 }

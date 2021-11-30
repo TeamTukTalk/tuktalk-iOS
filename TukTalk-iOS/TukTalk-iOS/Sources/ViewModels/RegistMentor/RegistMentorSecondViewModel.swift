@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import Moya
 
 struct RegistMentorSecondViewModel: ViewModelType {
     
@@ -34,6 +35,36 @@ struct RegistMentorSecondViewModel: ViewModelType {
         
         self.input = Input(emailText: emailText$.asObserver())
         self.output = Output(sendIsValid: sendIsValid$)
+    }
+    
+    func sendEmailRequest(email: String) {
+        let provider = MoyaProvider<SendEmailService>()
+        provider.rx.request(.sendEmailRequest(email))
+            .subscribe { result in
+                switch result {
+                case .success(_):
+                    print("success SendEmail")
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: self.disposeBag)
+    }
+    
+    func verifyEmailRequest(completion: @escaping (EmailVerifyResponse) -> ()) {
+        let provider = MoyaProvider<EmailVerifyService>()
+        provider.rx.request(.verifyRequest)
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    let responseData = try? response.map(EmailVerifyResponse.self)
+                    guard let data = responseData else { return }
+                    completion(data)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: self.disposeBag)
     }
 }
 

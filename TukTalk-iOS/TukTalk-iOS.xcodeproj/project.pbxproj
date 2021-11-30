@@ -56,6 +56,12 @@
 		403EC225275617E6008A40B9 /* TermsTVTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC224275617E6008A40B9 /* TermsTVTitleCell.swift */; };
 		403EC22727561CA9008A40B9 /* TermsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC22627561CA9008A40B9 /* TermsTableViewModel.swift */; };
 		403EC22927562928008A40B9 /* TermsTVContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC22827562928008A40B9 /* TermsTVContentCell.swift */; };
+		403EC22C27565D16008A40B9 /* RegistMentorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC22B27565D16008A40B9 /* RegistMentorService.swift */; };
+		403EC22E27565D3D008A40B9 /* RegistMentorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC22D27565D3D008A40B9 /* RegistMentorRequest.swift */; };
+		403EC23127565F15008A40B9 /* UserMentorRegist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23027565F15008A40B9 /* UserMentorRegist.swift */; };
+		403EC23327566015008A40B9 /* SendEmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23227566015008A40B9 /* SendEmailService.swift */; };
+		403EC23527566131008A40B9 /* EmailVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23427566131008A40B9 /* EmailVerifyService.swift */; };
+		403EC237275661CC008A40B9 /* EmailVerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC236275661CC008A40B9 /* EmailVerifyResponse.swift */; };
 		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
 		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
 		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
@@ -226,6 +232,12 @@
 		403EC224275617E6008A40B9 /* TermsTVTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTVTitleCell.swift; sourceTree = "<group>"; };
 		403EC22627561CA9008A40B9 /* TermsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTableViewModel.swift; sourceTree = "<group>"; };
 		403EC22827562928008A40B9 /* TermsTVContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTVContentCell.swift; sourceTree = "<group>"; };
+		403EC22B27565D16008A40B9 /* RegistMentorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorService.swift; sourceTree = "<group>"; };
+		403EC22D27565D3D008A40B9 /* RegistMentorRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorRequest.swift; sourceTree = "<group>"; };
+		403EC23027565F15008A40B9 /* UserMentorRegist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMentorRegist.swift; sourceTree = "<group>"; };
+		403EC23227566015008A40B9 /* SendEmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailService.swift; sourceTree = "<group>"; };
+		403EC23427566131008A40B9 /* EmailVerifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyService.swift; sourceTree = "<group>"; };
+		403EC236275661CC008A40B9 /* EmailVerifyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyResponse.swift; sourceTree = "<group>"; };
 		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -532,6 +544,26 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		403EC22A27565CEC008A40B9 /* RegistMentor */ = {
+			isa = PBXGroup;
+			children = (
+				403EC22B27565D16008A40B9 /* RegistMentorService.swift */,
+				403EC22D27565D3D008A40B9 /* RegistMentorRequest.swift */,
+				403EC23227566015008A40B9 /* SendEmailService.swift */,
+				403EC23427566131008A40B9 /* EmailVerifyService.swift */,
+				403EC236275661CC008A40B9 /* EmailVerifyResponse.swift */,
+			);
+			path = RegistMentor;
+			sourceTree = "<group>";
+		};
+		403EC22F27565EFE008A40B9 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				403EC23027565F15008A40B9 /* UserMentorRegist.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
 		4041C0D127198803007D09E7 = {
 			isa = PBXGroup;
 			children = (
@@ -682,6 +714,7 @@
 				40FAED4827536FE40006490E /* Search */,
 				404C57162746D6A900B31F64 /* Login */,
 				404C57052746B82F00B31F64 /* SignUp */,
+				403EC22A27565CEC008A40B9 /* RegistMentor */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -721,6 +754,7 @@
 		404E686727242017005AA5DD /* RegistMentor */ = {
 			isa = PBXGroup;
 			children = (
+				403EC22F27565EFE008A40B9 /* Class */,
 				404E68682724206D005AA5DD /* RegistMentorFirstViewController.swift */,
 				404E686C272439C7005AA5DD /* RegistMentorSecondViewController.swift */,
 				404E68732724541E005AA5DD /* RegistMentorFinishViewController.swift */,
@@ -1322,6 +1356,7 @@
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				40FAED6227553CF70006490E /* PreviewService.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
+				403EC23527566131008A40B9 /* EmailVerifyService.swift in Sources */,
 				40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */,
 				4000F8A12721B14D0067C6B6 /* SignUpSecondViewController.swift in Sources */,
 				40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */,
@@ -1330,6 +1365,8 @@
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
 				404C57132746C89000B31F64 /* SecondFieldCategoryCVCell.swift in Sources */,
+				403EC22C27565D16008A40B9 /* RegistMentorService.swift in Sources */,
+				403EC23127565F15008A40B9 /* UserMentorRegist.swift in Sources */,
 				402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */,
 				4065FF0D27454E26005AAE0F /* CompanyTableViewCell.swift in Sources */,
 				406C3F86274653B7009EBAB2 /* MenteeReviewTableViewCell.swift in Sources */,
@@ -1398,6 +1435,7 @@
 				4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */,
 				4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */,
 				4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */,
+				403EC237275661CC008A40B9 /* EmailVerifyResponse.swift in Sources */,
 				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
 				40FAED5727537BD50006490E /* TopMentorSearchResponse.swift in Sources */,
 				402B98CD2752245400EDD668 /* LoginResponse.swift in Sources */,
@@ -1408,6 +1446,7 @@
 				40FAED4E275373C30006490E /* QuerySearchResponse.swift in Sources */,
 				402B98CB27521B4800EDD668 /* KeyChain.swift in Sources */,
 				4065FEE02743506D005AAE0F /* RegistProfileFourthViewModel.swift in Sources */,
+				403EC22E27565D3D008A40B9 /* RegistMentorRequest.swift in Sources */,
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
 				406324D3273FF3E4009F62A3 /* FieldTableViewCell.swift in Sources */,
 				402D65AA272730A100F4ED8F /* SearchesCollectionViewModel.swift in Sources */,
@@ -1438,6 +1477,7 @@
 				40AA40F2274A990D00F76625 /* SignUpThirdViewModel.swift in Sources */,
 				40DCF3472739884F00A82CC6 /* ReviewCollectionViewCell.swift in Sources */,
 				40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */,
+				403EC23327566015008A40B9 /* SendEmailService.swift in Sources */,
 				40AA40F0274A7B2C00F76625 /* EmailValidService.swift in Sources */,
 				4065FEDA274226A4005AAE0F /* RegistProfileThirdViewController.swift in Sources */,
 				4065FEE227435587005AAE0F /* TagCollectionViewDataModel.swift in Sources */,
