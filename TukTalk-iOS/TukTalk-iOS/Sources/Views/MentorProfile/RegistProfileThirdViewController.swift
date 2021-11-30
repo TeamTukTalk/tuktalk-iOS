@@ -80,18 +80,13 @@ class RegistProfileThirdViewController: UIViewController {
     }
     
     private let departMentTextField = UITextField().then {
-        $0.text = "UXUI 디자인"
+        $0.placeholder = "부서"
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
         $0.setLeftPaddingPoints(16)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
         $0.layer.cornerRadius = 8
-        $0.isEnabled = false
-    }
-    
-    private let departmentSuccessImg = UIImageView().then {
-        $0.image = UIImage(named: "successIcon")
     }
     
     private let rankLabel = UILabel().then {
@@ -269,13 +264,6 @@ class RegistProfileThirdViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        departMentTextField.addSubview(departmentSuccessImg)
-        departmentSuccessImg.snp.makeConstraints {
-            $0.height.width.equalTo(20)
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(16)
-        }
-        
         view.addSubview(rankLabel)
         rankLabel.snp.makeConstraints {
             $0.height.equalTo(20)
@@ -350,6 +338,18 @@ class RegistProfileThirdViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        departMentTextField.rx.controlEvent(.editingDidBegin)
+            .bind { _ in
+                self.departMentTextField.layer.borderColor = UIColor.Primary.primary.cgColor
+            }
+            .disposed(by: disposeBag)
+        
+        departMentTextField.rx.controlEvent(.editingDidEnd)
+            .bind { _ in
+                self.departMentTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+            }
+            .disposed(by: disposeBag)
+        
         rankTextField.rx.controlEvent(.editingDidBegin)
             .bind { _ in
                 self.rankTextField.layer.borderColor = UIColor.Primary.primary.cgColor
@@ -384,6 +384,11 @@ class RegistProfileThirdViewController: UIViewController {
             .bind { _ in
                 self.employmentMonthTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
             }
+            .disposed(by: disposeBag)
+        
+        departMentTextField.rx.text
+            .orEmpty
+            .bind(to: viewModel.input.department)
             .disposed(by: disposeBag)
         
         rankTextField.rx.text
@@ -439,6 +444,9 @@ class RegistProfileThirdViewController: UIViewController {
                     })
                     .disposed(by: self.disposeBag)
                     
+                    UserMentorRegist.shared.department = self.departMentTextField.text
+                    UserMentorRegist.shared.position = self.rankTextField.text
+                    UserMentorRegist.shared.career = Career(months: Int(self.employmentMonthTextField.text!)!, years: Int(self.employmentYearTextField.text!)!)
                     self.navigationController?.pushViewController(nextVC, animated: false)
                 }
             }

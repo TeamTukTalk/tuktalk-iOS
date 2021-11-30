@@ -10,7 +10,7 @@ import Foundation
 struct JobSearchResponseElement: Codable {
     let id: Int
     let nickname, companyName, department: String
-    let profileImageURL: JSONNull?
+    let profileImageURL: String
     let profileImageColor, firstLetter: String
     let hashTags: [HashTag]
 

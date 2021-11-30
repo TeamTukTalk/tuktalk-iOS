@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import Moya
 
 struct RegistProfileFifthViewModel: ViewModelType {
     
@@ -25,6 +26,8 @@ struct RegistProfileFifthViewModel: ViewModelType {
     struct Output {
         var nextBtnEnable: Observable<Bool>
     }
+    var company: String?
+    var hashTag: [String] = []
     
     init(dependency: Dependency = Dependency()) {
         self.dependency = dependency
@@ -35,6 +38,20 @@ struct RegistProfileFifthViewModel: ViewModelType {
         
         self.input = Input(companySelected: companySelected$.asObserver(), hashTagSelected: hashTagSelected$.asObserver())
         self.output = Output(nextBtnEnable: nextBtnEnable$)
+    }
+    
+    func registProfile(param: RegistMentorRequest) {
+        let provider = MoyaProvider<RegistMentorService>()
+        provider.rx.request(.registMentorRequest(param: param))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    print(response)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: self.disposeBag)
     }
 }
 

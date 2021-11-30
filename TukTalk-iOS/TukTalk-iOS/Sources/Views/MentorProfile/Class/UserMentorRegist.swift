@@ -9,7 +9,7 @@ import Foundation
 
 class UserMentorRegist {
     static let shared = UserMentorRegist()
-    
+
     var nickname: String?
     var simpleIntroDuction: String?
     var detailedIntroduction: String?
@@ -21,7 +21,7 @@ class UserMentorRegist {
     var career: Career?
     var careerDescription: String?
     var companySize: String?
-    var hashTags: HashTag?
-    
+    var hashTags: [HashTag] = []
+
     private init() {}
 }

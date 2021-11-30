@@ -56,13 +56,20 @@ class JobMentorCollectionViewCell: UICollectionViewCell {
     }
     
     func setData(mentor: JobSearchResponseElement) {
-        if mentor.profileImageURL == nil {
+        if mentor.profileImageURL == "" {
+            profileBackground.isHidden = false
+            profileLabel.isHidden = false
             profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: mentor.profileImageColor)
             profileLabel.textColor = UIColor.Profile.getNameColor(color: mentor.profileImageColor)
             profileLabel.text = mentor.firstLetter
             profileImg.isHidden = true
         } else {
-//            profileImg.image = UIImage(data: )
+            let url = URL(string: mentor.profileImageURL)
+            let data = try? Data(contentsOf: url!)
+            profileImg.image = UIImage(data: data!)
+            profileImg.isHidden = false
+            profileBackground.isHidden = true
+            profileLabel.isHidden = true
         }
         nameLabel.text = mentor.nickname
         companyLabel.text = mentor.companyName

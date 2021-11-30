@@ -1,5 +1,5 @@
 //
-//  UpdatePopUpViewController.swift
+//  MentorCertifyPopUp.swift
 //  TukTalk-iOS
 //
 //  Created by 한상진 on 2021/12/01.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class UpdatePopUpViewController: UIViewController {
+final class MentorCertifyPopUp: UIViewController {
     
     //MARK:- Properties
     
@@ -21,7 +21,7 @@ final class UpdatePopUpViewController: UIViewController {
     }
     
     private let popUpTitleLabel = UILabel().then {
-        $0.text = "업데이트 준비중입니다. 잠시만 기다려주세요."
+        $0.text = "프로필은 멘토 인증을 해주셔야 등록하실 수 있습니다!"
         $0.textColor = UIColor.GrayScale.sub3
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
     }
@@ -31,7 +31,6 @@ final class UpdatePopUpViewController: UIViewController {
         $0.setTitle("확인", for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
         $0.addTarget(self, action: #selector(acceptBtnAction), for: .touchUpInside)
-        
     }
     
     //MARK:- Life Cycle
@@ -71,7 +70,7 @@ final class UpdatePopUpViewController: UIViewController {
         
         acceptBtn.snp.makeConstraints {
             $0.height.equalTo(62)
-            $0.width.equalTo(154)
+            $0.width.equalTo(40)
             $0.bottom.equalToSuperview()
             $0.centerX.equalToSuperview()
         }

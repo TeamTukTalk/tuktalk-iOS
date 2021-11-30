@@ -20,32 +20,20 @@ class TabBarViewController: UITabBarController {
         $0.navigationItem.largeTitleDisplayMode = .always
     }
     
-    var vc3 = UIViewController()
+    let vc3 = MyPageViewController().then {
+        $0.tabBarItem = UITabBarItem(title: "마이뚝딱", image: UIImage(named: "mypageOffImg"), selectedImage: UIImage(named: "mypageOnImg")?.withRenderingMode(.alwaysOriginal))
+        $0.navigationItem.largeTitleDisplayMode = .always
+    }
 
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setMyPage()
         setTabBarLink()
         setTabBarUI()
     }
     
     //MARK:- Function
-    
-    private func setMyPage() {
-        if SignInUser.shared.role == "MENTOR" {
-            vc3 = MentorMyPageViewController().then {
-                $0.tabBarItem = UITabBarItem(title: "마이뚝딱", image: UIImage(named: "mypageOffImg"), selectedImage: UIImage(named: "mypageOnImg")?.withRenderingMode(.alwaysOriginal))
-                $0.navigationItem.largeTitleDisplayMode = .always
-            }
-        } else {
-            vc3 = MenteeMyPageViewController().then {
-                $0.tabBarItem = UITabBarItem(title: "마이뚝딱", image: UIImage(named: "mypageOffImg"), selectedImage: UIImage(named: "mypageOnImg")?.withRenderingMode(.alwaysOriginal))
-                $0.navigationItem.largeTitleDisplayMode = .always
-            }
-        }
-    }
     
     private func setTabBarUI() {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.TTFont(type: .SDMed, size: 12)], for: .normal)

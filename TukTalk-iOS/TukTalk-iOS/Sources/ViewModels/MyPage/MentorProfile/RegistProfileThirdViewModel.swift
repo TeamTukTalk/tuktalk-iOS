@@ -22,6 +22,7 @@ struct RegistProfileThirdViewModel: ViewModelType {
     }
     
     struct Input {
+        var department: AnyObserver<String?>
         var rankTitle: AnyObserver<String?>
         var inputYear: AnyObserver<String?>
         var inputMonth: AnyObserver<String?>
@@ -35,19 +36,20 @@ struct RegistProfileThirdViewModel: ViewModelType {
     init(dependency: Dependency = Dependency(rank: nil, year: nil, month: nil)) {
         self.dependency = dependency
         
+        let department$ = BehaviorSubject<String?>(value: nil)
         let rankTitle$ = BehaviorSubject<String?>(value: nil)
         let inputYear$ = BehaviorSubject<String?>(value: nil)
         let inputMonth$ = BehaviorSubject<String?>(value: nil)
         let monthEnable$ = inputMonth$.map(monthValidation).asDriver(onErrorJustReturn: false)
-        let nextBtnEnable$ = Observable.combineLatest(rankTitle$, inputYear$, inputMonth$).map(btnValidation).asDriver(onErrorJustReturn: false)
+        let nextBtnEnable$ = Observable.combineLatest(department$, rankTitle$, inputYear$, inputMonth$).map(btnValidation).asDriver(onErrorJustReturn: false)
         
-        self.input = Input(rankTitle: rankTitle$.asObserver(), inputYear: inputYear$.asObserver(), inputMonth: inputMonth$.asObserver())
+        self.input = Input(department: department$.asObserver(), rankTitle: rankTitle$.asObserver(), inputYear: inputYear$.asObserver(), inputMonth: inputMonth$.asObserver())
         self.output = Output(nextBtnEnable: nextBtnEnable$, monthEnable: monthEnable$)
     }
 }
 
-private func btnValidation(rank: String?, year: String?, month: String?) -> Bool {
-    return rank?.isEmpty == false && year?.isEmpty == false && month?.isEmpty == false
+private func btnValidation(department: String?, rank: String?, year: String?, month: String?) -> Bool {
+    return department?.isEmpty == false && rank?.isEmpty == false && year?.isEmpty == false && month?.isEmpty == false
 }
 
 private func monthValidation(month: String?) -> Bool {

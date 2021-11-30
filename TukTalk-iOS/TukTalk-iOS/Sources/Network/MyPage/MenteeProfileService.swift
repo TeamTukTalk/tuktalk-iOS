@@ -1,48 +1,46 @@
 //
-//  SendEmailService.swift
+//  MenteeProfileService.swift
 //  TukTalk-iOS
 //
-//  Created by 한상진 on 2021/11/30.
+//  Created by 한상진 on 2021/12/01.
 //
 
 import Moya
 
-enum SendEmailService {
-    case sendEmailRequest(_ email: String? = nil)
+enum MenteeProfileService {
+    case menteeProfileRequest
 }
 
-extension SendEmailService: TargetType {
+extension MenteeProfileService: TargetType {
     var baseURL: URL {
         return URL(string: APIConstants.baseURL)!
     }
     
     var path: String {
         switch self {
-        case .sendEmailRequest:
-            return APIConstants.sendEmailURL
+        case .menteeProfileRequest:
+            return APIConstants.menteeProfileURL
         }
     }
     
     var method: Method {
         switch self {
-        case .sendEmailRequest:
-            return .post
+        case .menteeProfileRequest:
+            return .get
         }
     }
     
     var task: Task {
         switch self {
-        case .sendEmailRequest(let email):
-            let params: [String: String] = ["email": email!]
-            return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+        case .menteeProfileRequest:
+            return .requestPlain
         }
     }
     
     var headers: [String : String]? {
         guard let token = APIConstants.token else { return nil }
-        print(token)
         switch self {
-        case .sendEmailRequest:
+        case .menteeProfileRequest:
             return [
                 "Authorization": token,
                 "Content-Type": "application/json"
@@ -50,4 +48,3 @@ extension SendEmailService: TargetType {
         }
     }
 }
-

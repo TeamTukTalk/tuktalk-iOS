@@ -291,10 +291,24 @@ class LoginViewController: UIViewController {
                                 print("success Login")
                                 guard let token = loginResponse?.accessToken else { return }
                                 let tokenString = "Bearer " + token
+                                if let role = loginResponse?.role.data(using: String.Encoding.utf8) {
+                                    KeyChain.save(key: "role", data: role)
+                                }
                                 if let token = tokenString.data(using: String.Encoding.utf8) {
                                     KeyChain.save(key: "token", data: token)
                                 }
-                                SignInUser.shared.role = loginResponse?.role
+                                if let name = loginResponse?.nickname.data(using: String.Encoding.utf8) {
+                                    KeyChain.save(key: "nickname", data: name)
+                                }
+                                if let firstLetter = loginResponse?.firstLetter.data(using: String.Encoding.utf8) {
+                                    KeyChain.save(key: "firstLetter", data: firstLetter)
+                                }
+                                if let profileImageColor = loginResponse?.profileImageColor.data(using: String.Encoding.utf8) {
+                                    KeyChain.save(key: "profileImageColor", data: profileImageColor)
+                                }
+                                if let email = loginResponse?.email.data(using: String.Encoding.utf8) {
+                                    KeyChain.save(key: "email", data: email)
+                                }
                                 self.present(nextVC, animated: true, completion: nil)
                             } else {
                                 self.alertView.alpha = 1

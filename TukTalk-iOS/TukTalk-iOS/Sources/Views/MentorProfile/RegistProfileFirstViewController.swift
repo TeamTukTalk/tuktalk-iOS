@@ -49,16 +49,12 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
         $0.makeHeightSpacing(thisText: "뚝딱 멘티들에게 보여줄\n기본정보를 입력해주세요 👋", fontSize: 17)
     }
     
-    private let profileBtn = UIButton().then {
+    private let profileBackground = UIView().then {
         $0.backgroundColor = UIColor.GrayScale.gray4
-        $0.layer.masksToBounds = true
         $0.layer.cornerRadius = 35
-        $0.contentMode = .scaleAspectFill
-        $0.setImage(UIImage(named: "tempProfileImg"), for: .normal)
     }
-    
-    private let profileEditImg = UIImageView().then {
-        $0.image = UIImage(named: "profileEditBtn")
+    private let profileLabel = UILabel().then {
+        $0.font = UIFont.TTFont(type: .SDBold, size: 24)
     }
     
     private let nameLabel = UILabel().then {
@@ -68,7 +64,7 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private let nameTextField = UITextField().then {
-        $0.text = "애니" /// 서버 연동 후 변경 예정
+        $0.text = String(data: KeyChain.load(key: "nickname")!, encoding: .utf8)
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
         $0.layer.borderWidth = 1
@@ -130,6 +126,7 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         setNaviBar()
         setScrollView()
+        setProfileData()
         setUI()
         binding()
     }
@@ -210,21 +207,21 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
             $0.leading.equalToSuperview().offset(16)
         }
         
-        mainContentView.addSubview(profileBtn)
-        profileBtn.snp.makeConstraints {
+        mainContentView.addSubview(profileBackground)
+        profileBackground.snp.makeConstraints {
             $0.width.height.equalTo(70)
             $0.top.equalTo(titleLabel.snp.bottom).offset(40)
             $0.centerX.equalToSuperview()
         }
-        
-        mainContentView.addSubview(profileEditImg)
-        profileEditImg.snp.makeConstraints {
-            $0.trailing.bottom.equalTo(profileBtn)
+        profileBackground.addSubview(profileLabel)
+        profileLabel.snp.makeConstraints {
+            $0.height.equalTo(22)
+            $0.centerX.centerY.equalToSuperview()
         }
         
         mainContentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints {
-            $0.top.equalTo(profileBtn.snp.bottom).offset(40)
+            $0.top.equalTo(profileBackground.snp.bottom).offset(40)
             $0.leading.equalToSuperview().offset(16)
         }
         
@@ -275,6 +272,22 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    private func setProfileData() {
+        if let nickname = KeyChain.load(key: "nickname") {
+            let name = String(data: nickname, encoding: .utf8)
+            self.nameLabel.text = "\(name ?? "")님"
+        }
+        if let firstLetter = KeyChain.load(key: "firstLetter") {
+            let first = String(data: firstLetter, encoding: .utf8)
+            self.profileLabel.text = first
+        }
+        if let profileImageColor = KeyChain.load(key: "profileImageColor") {
+            let color = String(data: profileImageColor, encoding: .utf8)
+            self.profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: color ?? "")
+            self.profileLabel.textColor = UIColor.Profile.getNameColor(color: color ?? "")
+        }
+    }
+    
     private func binding() {
         
         backBtn.rx.tap
@@ -311,6 +324,9 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
                     self.progressBar.isHidden = valid
                 })
                 .disposed(by: self.disposeBag)
+                UserMentorRegist.shared.nickname = self.nameTextField.text
+                UserMentorRegist.shared.simpleIntroDuction = self.introduceTextField.text
+                UserMentorRegist.shared.detailedIntroduction = self.detailIntroduceTextView.text
                 self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)

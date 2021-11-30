@@ -43,7 +43,7 @@ struct RegistMentorSecondViewModel: ViewModelType {
             .subscribe { result in
                 switch result {
                 case .success(_):
-                    print("success SendEmail")
+                    print(result)
                 case let .failure(error):
                     print(error.localizedDescription)
                 }

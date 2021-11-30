@@ -198,8 +198,9 @@ class RegistProfileFifthViewController: UIViewController {
             .disposed(by: disposeBag)
         
         companyCV.rx.modelSelected(TagCollectionViewDataModel.self)
-            .bind { _ in
+            .bind { model in
                 self.viewModel.input.companySelected.onNext(true)
+                self.viewModel.company = model.title
             }
             .disposed(by: disposeBag)
         
@@ -210,13 +211,15 @@ class RegistProfileFifthViewController: UIViewController {
                     return
                 }
                 self.hashTagSelectedNumber += 1
+                self.viewModel.hashTag.append(self.collectionViewModel.hashTagCategoryList[index.last!].title)
                 self.viewModel.input.hashTagSelected.onNext(self.hashTagSelectedNumber)
             }
             .disposed(by: disposeBag)
         
         hashTagCV.rx.itemDeselected
-            .bind { _ in
+            .bind { index in
                 self.hashTagSelectedNumber -= 1
+                self.viewModel.hashTag = self.viewModel.hashTag.filter() {$0 != self.collectionViewModel.hashTagCategoryList[index.last!].title}
                 self.viewModel.input.hashTagSelected.onNext(self.hashTagSelectedNumber)
             }
             .disposed(by: disposeBag)
@@ -236,6 +239,13 @@ class RegistProfileFifthViewController: UIViewController {
                     self.progressIsHiddenValue.accept(valid)
                 })
                 .disposed(by: self.disposeBag)
+                UserMentorRegist.shared.companySize = self.viewModel.company
+                var hashTag: [HashTag] = []
+                for i in Range(0...self.viewModel.hashTag.count - 1) {
+                    hashTag.append(HashTag(hashTag: self.viewModel.hashTag[i]))
+                }
+                UserMentorRegist.shared.hashTags = hashTag
+                self.viewModel.registProfile(param: RegistMentorRequest(nickname: UserMentorRegist.shared.nickname!, simpleIntroDuction: UserMentorRegist.shared.simpleIntroDuction!, detailedIntroduction: UserMentorRegist.shared.detailedIntroduction!, specialty: UserMentorRegist.shared.specialty!, subSpecialties: UserMentorRegist.shared.subSpecialties, companyName: UserMentorRegist.shared.companyName!, department: UserMentorRegist.shared.department!, position: UserMentorRegist.shared.position!, career: UserMentorRegist.shared.career!, careerDescription: UserMentorRegist.shared.careerDescription!, companySize: UserMentorRegist.shared.companyName!, hashTags: UserMentorRegist.shared.hashTags))
                 self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)

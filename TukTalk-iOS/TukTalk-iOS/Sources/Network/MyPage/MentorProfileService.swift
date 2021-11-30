@@ -1,40 +1,39 @@
 //
-//  SendEmailService.swift
+//  MentorProfileService.swift
 //  TukTalk-iOS
 //
-//  Created by 한상진 on 2021/11/30.
+//  Created by 한상진 on 2021/12/01.
 //
 
 import Moya
 
-enum SendEmailService {
-    case sendEmailRequest(_ email: String? = nil)
+enum MentorProfileService {
+    case mentorProfileRequest
 }
 
-extension SendEmailService: TargetType {
+extension MentorProfileService: TargetType {
     var baseURL: URL {
         return URL(string: APIConstants.baseURL)!
     }
     
     var path: String {
         switch self {
-        case .sendEmailRequest:
-            return APIConstants.sendEmailURL
+        case .mentorProfileRequest:
+            return APIConstants.mentorProfileURL
         }
     }
     
     var method: Method {
         switch self {
-        case .sendEmailRequest:
-            return .post
+        case .mentorProfileRequest:
+            return .get
         }
     }
     
     var task: Task {
         switch self {
-        case .sendEmailRequest(let email):
-            let params: [String: String] = ["email": email!]
-            return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+        case .mentorProfileRequest:
+            return .requestPlain
         }
     }
     
@@ -42,7 +41,7 @@ extension SendEmailService: TargetType {
         guard let token = APIConstants.token else { return nil }
         print(token)
         switch self {
-        case .sendEmailRequest:
+        case .mentorProfileRequest:
             return [
                 "Authorization": token,
                 "Content-Type": "application/json"
@@ -50,4 +49,3 @@ extension SendEmailService: TargetType {
         }
     }
 }
-

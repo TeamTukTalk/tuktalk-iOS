@@ -440,7 +440,14 @@ class RegistProfileSecondViewController: UIViewController {
                     self.progressIsHiddenValue.accept(valid)
                 })
                 .disposed(by: self.disposeBag)
-                
+                UserMentorRegist.shared.specialty = self.specialityBtn.titleLabel?.text
+                UserMentorRegist.shared.subSpecialties.append((self.detailFieldBtn.titleLabel?.text)!)
+                if self.detailFieldBtn2.titleLabel?.text != "상세분야 선택" {
+                    UserMentorRegist.shared.subSpecialties.append((self.detailFieldBtn2.titleLabel?.text)!)
+                }
+                if self.detailFieldBtn3.titleLabel?.text != "상세분야 선택" {
+                    UserMentorRegist.shared.subSpecialties.append((self.detailFieldBtn3.titleLabel?.text)!)
+                }
                 self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)

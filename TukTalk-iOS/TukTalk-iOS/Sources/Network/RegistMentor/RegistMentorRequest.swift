@@ -19,7 +19,7 @@ struct RegistMentorRequest: Codable {
     let career: Career
     let careerDescription: String
     let companySize: String
-    let hashTags: HashTag
+    let hashTags: [HashTag]
 }
 
 // MARK: - Career

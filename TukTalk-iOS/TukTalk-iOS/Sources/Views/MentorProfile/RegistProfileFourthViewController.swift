@@ -185,7 +185,11 @@ class RegistProfileFourthViewController: UIViewController {
                     self.progressIsHiddenValue.accept(valid)
                 })
                 .disposed(by: self.disposeBag)
-                
+                if self.textView.text != initText {
+                    UserMentorRegist.shared.careerDescription = self.textView.text
+                } else {
+                    UserMentorRegist.shared.careerDescription = ""
+                }
                 self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)
