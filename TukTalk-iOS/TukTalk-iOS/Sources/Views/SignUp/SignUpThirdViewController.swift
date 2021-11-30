@@ -565,6 +565,12 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
             }
             .disposed(by: disposeBag)
         
+        checkBtn.rx.tap
+            .bind {
+                self.navigationController?.pushViewController(TermsViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
         backBtn.rx.tap
             .bind { _ in
                 self.navigationController?.popViewController(animated: true)

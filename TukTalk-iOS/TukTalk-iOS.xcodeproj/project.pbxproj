@@ -52,6 +52,10 @@
 		403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */; };
 		403EC21F2755767B008A40B9 /* PortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC21E2755767B008A40B9 /* PortfolioService.swift */; };
 		403EC221275576C9008A40B9 /* PortfolioRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC220275576C9008A40B9 /* PortfolioRequest.swift */; };
+		403EC223275614B5008A40B9 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC222275614B5008A40B9 /* TermsViewController.swift */; };
+		403EC225275617E6008A40B9 /* TermsTVTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC224275617E6008A40B9 /* TermsTVTitleCell.swift */; };
+		403EC22727561CA9008A40B9 /* TermsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC22627561CA9008A40B9 /* TermsTableViewModel.swift */; };
+		403EC22927562928008A40B9 /* TermsTVContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC22827562928008A40B9 /* TermsTVContentCell.swift */; };
 		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
 		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
 		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
@@ -218,6 +222,10 @@
 		403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		403EC21E2755767B008A40B9 /* PortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioService.swift; sourceTree = "<group>"; };
 		403EC220275576C9008A40B9 /* PortfolioRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioRequest.swift; sourceTree = "<group>"; };
+		403EC222275614B5008A40B9 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		403EC224275617E6008A40B9 /* TermsTVTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTVTitleCell.swift; sourceTree = "<group>"; };
+		403EC22627561CA9008A40B9 /* TermsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTableViewModel.swift; sourceTree = "<group>"; };
+		403EC22827562928008A40B9 /* TermsTVContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTVContentCell.swift; sourceTree = "<group>"; };
 		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -694,6 +702,8 @@
 			children = (
 				404C57102746C44900B31F64 /* FirstFieldCategoryCVCell.swift */,
 				404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */,
+				403EC224275617E6008A40B9 /* TermsTVTitleCell.swift */,
+				403EC22827562928008A40B9 /* TermsTVContentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -855,6 +865,7 @@
 				4000F8A02721B14D0067C6B6 /* SignUpSecondViewController.swift */,
 				4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */,
 				40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */,
+				403EC222275614B5008A40B9 /* TermsViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -864,6 +875,7 @@
 			children = (
 				404C570D2746C2F500B31F64 /* SignUpSecondViewModel.swift */,
 				40AA40F1274A990D00F76625 /* SignUpThirdViewModel.swift */,
+				403EC22627561CA9008A40B9 /* TermsTableViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1296,10 +1308,13 @@
 				40FAED5E275390050006490E /* PDFService.swift in Sources */,
 				4065FF11274579E0005AAE0F /* SpecialtyTableViewCell.swift in Sources */,
 				404C57182746D6B100B31F64 /* LoginService.swift in Sources */,
+				403EC22927562928008A40B9 /* TermsTVContentCell.swift in Sources */,
 				40FAED6E275549470006490E /* PreviewCollectionViewCell.swift in Sources */,
+				403EC223275614B5008A40B9 /* TermsViewController.swift in Sources */,
 				4041C11627198933007D09E7 /* LoginViewController.swift in Sources */,
 				4065FEF227439F0A005AAE0F /* RegistProfileFinishViewController.swift in Sources */,
 				40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */,
+				403EC225275617E6008A40B9 /* TermsTVTitleCell.swift in Sources */,
 				406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */,
 				403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */,
 				40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */,
@@ -1416,6 +1431,7 @@
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
 				40FAED6B275543B30006490E /* UserPortfolio.swift in Sources */,
+				403EC22727561CA9008A40B9 /* TermsTableViewModel.swift in Sources */,
 				40CC20C2274E7578008A3967 /* RegistPortfolioSecondViewModel.swift in Sources */,
 				4065FEFB2743CE31005AAE0F /* PageCollectionViewCell.swift in Sources */,
 				40DCF33D273833C000A82CC6 /* BannerCollectionViewModel.swift in Sources */,
