@@ -120,7 +120,7 @@ class SignUpFinishViewController: UIViewController {
             .bind { _ in
                 switch self.user.role {
                 case "MENTEE":
-                    print("미구현")
+                    self.navigationController?.pushViewController(RegistMenteeProfileViewController(), animated: true)
                 default:
                     self.navigationController?.pushViewController(RegistProfileFirstViewController(), animated: true)
                 }

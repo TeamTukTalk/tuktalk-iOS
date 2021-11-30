@@ -11,6 +11,7 @@ class RegistMenteeProfileViewController: UIViewController {
     
     //MARK:- Properties
     
+    private lazy var viewModel = MenteeProfileViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -31,7 +32,6 @@ class RegistMenteeProfileViewController: UIViewController {
 //        $0.isHidden = true
 //    }
     private let profileBackground = UIView().then {
-        $0.backgroundColor = UIColor.GrayScale.gray4
         $0.layer.cornerRadius = 35
     }
     private let profileLabel = UILabel().then {
@@ -44,7 +44,6 @@ class RegistMenteeProfileViewController: UIViewController {
     }
     
     private let nameTextField = UITextField().then {
-        $0.text = "애니" /// 서버 연동 후 변경 예정
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
         $0.layer.borderWidth = 1
@@ -54,4 +53,112 @@ class RegistMenteeProfileViewController: UIViewController {
         $0.setLeftPaddingPoints(16)
     }
     
+    private let saveBtn = UIButton().then {
+        $0.backgroundColor = UIColor.Primary.primary
+        $0.setTitle("저장", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.layer.cornerRadius = 26
+    }
+    
+    //MARK:- Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUI()
+        setProfileData()
+        binding()
+    }
+    
+    //MARK:- Function
+    
+    private func setUI() {
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        tabBarController?.tabBar.isHidden = true
+        view.backgroundColor = .white
+        
+        view.addSubview(backBtn)
+        backBtn.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.top.equalToSuperview().offset(54)
+            $0.leading.equalToSuperview().offset(8)
+        }
+        
+        view.addSubview(profileBackground)
+        profileBackground.snp.makeConstraints {
+            $0.width.height.equalTo(70)
+            $0.top.equalTo(backBtn.snp.bottom).offset(50)
+            $0.centerX.equalToSuperview()
+        }
+        profileBackground.addSubview(profileLabel)
+        profileLabel.snp.makeConstraints {
+            $0.height.equalTo(22)
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
+        view.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.equalTo(profileBackground.snp.bottom).offset(40)
+            $0.leading.equalToSuperview().offset(16)
+        }
+        
+        view.addSubview(nameTextField)
+        nameTextField.snp.makeConstraints {
+            $0.height.equalTo(44)
+            $0.top.equalTo(nameLabel.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
+    }
+    
+    private func setProfileData() {
+        if let nickname = KeyChain.load(key: "nickname") {
+            let name = String(data: nickname, encoding: .utf8)
+            self.nameTextField.text = "\(name ?? "")"
+        }
+        if let firstLetter = KeyChain.load(key: "firstLetter") {
+            let first = String(data: firstLetter, encoding: .utf8)
+            self.profileLabel.text = first
+        }
+        if let profileImageColor = KeyChain.load(key: "profileImageColor") {
+            let color = String(data: profileImageColor, encoding: .utf8)
+            self.profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: color ?? "")
+            self.profileLabel.textColor = UIColor.Profile.getNameColor(color: color ?? "")
+        }
+    }
+    
+    private func binding() {
+        
+        nameTextField.rx.text
+            .orEmpty
+            .bind(to: viewModel.input.inputText)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.output
+            .drive(onNext: { status in
+                self.saveBtn.isEnabled = status
+                self.saveBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.saveBtn.setTitleColor(status ? .white : UIColor.GrayScale.sub4, for: .normal)
+            })
+            .disposed(by: disposeBag)
+        
+        backBtn.rx.tap
+            .bind(onNext: { _ in
+                self.navigationController?.viewControllers[0].tabBarController?.tabBar.isHidden = false
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        saveBtn.rx.tap
+            .bind { _ in
+                KeyChain.delete(key: "nickname")
+                KeyChain.delete(key: "firstLetter")
+                KeyChain.save(key: "nickname", data: self.nameTextField.text!.data(using: .utf8)!)
+                let firstLetter = String(self.nameTextField.text!.prefix(1)).uppercased()
+                KeyChain.save(key: "firstLetter", data: firstLetter.data(using: .utf8)!)
+                self.viewModel.signUpRequest(param: RegistMenteeRequest(nickname: self.nameTextField.text!))
+                self.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
 }
