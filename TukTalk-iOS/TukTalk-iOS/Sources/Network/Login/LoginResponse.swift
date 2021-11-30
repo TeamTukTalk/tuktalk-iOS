@@ -9,5 +9,5 @@ import Foundation
 
 struct LoginResponse: Codable {
     let accessToken, nickname, email, profileImageColor: String
-    let firstLetter: String
+    let firstLetter, role: String
 }

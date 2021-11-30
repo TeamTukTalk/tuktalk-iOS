@@ -294,6 +294,7 @@ class LoginViewController: UIViewController {
                                 if let token = tokenString.data(using: String.Encoding.utf8) {
                                     KeyChain.save(key: "token", data: token)
                                 }
+                                SignInUser.shared.role = loginResponse?.role
                                 self.present(nextVC, animated: true, completion: nil)
                             } else {
                                 self.alertView.alpha = 1

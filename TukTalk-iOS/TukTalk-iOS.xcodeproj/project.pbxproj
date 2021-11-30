@@ -63,6 +63,7 @@
 		403EC23527566131008A40B9 /* EmailVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23427566131008A40B9 /* EmailVerifyService.swift */; };
 		403EC237275661CC008A40B9 /* EmailVerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC236275661CC008A40B9 /* EmailVerifyResponse.swift */; };
 		403EC23D27568DAB008A40B9 /* UpdatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23C27568DAA008A40B9 /* UpdatePopUpViewController.swift */; };
+		403EC24027569424008A40B9 /* SignInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23F27569424008A40B9 /* SignInUser.swift */; };
 		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
 		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
 		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
@@ -240,6 +241,7 @@
 		403EC23427566131008A40B9 /* EmailVerifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyService.swift; sourceTree = "<group>"; };
 		403EC236275661CC008A40B9 /* EmailVerifyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyResponse.swift; sourceTree = "<group>"; };
 		403EC23C27568DAA008A40B9 /* UpdatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePopUpViewController.swift; sourceTree = "<group>"; };
+		403EC23F27569424008A40B9 /* SignInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUser.swift; sourceTree = "<group>"; };
 		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -567,6 +569,14 @@
 			path = Class;
 			sourceTree = "<group>";
 		};
+		403EC23E27569415008A40B9 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				403EC23F27569424008A40B9 /* SignInUser.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
 		4041C0D127198803007D09E7 = {
 			isa = PBXGroup;
 			children = (
@@ -687,6 +697,7 @@
 		4041C11327198917007D09E7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				403EC23E27569415008A40B9 /* Class */,
 				4041C11527198933007D09E7 /* LoginViewController.swift */,
 			);
 			path = Login;
@@ -1364,6 +1375,7 @@
 				4000F8A12721B14D0067C6B6 /* SignUpSecondViewController.swift in Sources */,
 				40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */,
 				404E686D272439C7005AA5DD /* RegistMentorSecondViewController.swift in Sources */,
+				403EC24027569424008A40B9 /* SignInUser.swift in Sources */,
 				40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
