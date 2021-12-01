@@ -8,7 +8,7 @@
 import Moya
 
 enum QuerySearchService {
-    case querySearchRequest(_ query: String? = nil, _ companySize: String? = nil, _ subSpecialty: String? = nil, _ startYear: Int? = nil, _ page: Int? = nil)
+    case querySearchRequest(param: QuerySearchRequest)
 }
 
 extension QuerySearchService: TargetType {
@@ -32,16 +32,40 @@ extension QuerySearchService: TargetType {
     
     var task: Task {
         switch self {
-        case .querySearchRequest(let query, let companySize, let subSpecialty, let startYear, let page):
-            let params: [String: Any] = ["query": query, "companySize": companySize, "subSpecialty": subSpecialty, "startYear": startYear, "page": page]
+        case .querySearchRequest(let param):
+            var params = ["query": param.query]
+            if param.CompanySize != nil {
+                params["companySize"] = param.CompanySize
+            }
+            if param.subSpecialty != nil {
+                params["subSpecialty"] = param.subSpecialty
+            }
+            if param.startYear != nil {
+                params["startYear"] = param.startYear
+            }
+            print(params)
+//            if param.
+//            var params: [String: Any] = ["query": "\(param.query)", "companySize": "\(param.CompanySize)", "subSpecialty": "\(param.subSpecialty)", "startYear": param.startYear]
+//            for (key, value) in params {
+//                let nummable: Any = value
+//                if case Optional<Any>.none = nummable {
+//                    print(key)
+//                    print(123)
+//                }
+//                print("\(key) : \(value)")
+//            }
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
+        guard let token = APIConstants.token else { return nil }
         switch self {
         case .querySearchRequest:
-            return ["Content-Type": "application/json"]
+            return [
+                "Authorization": token,
+                "Content-Type": "application/json"
+            ]
         }
     }
 }

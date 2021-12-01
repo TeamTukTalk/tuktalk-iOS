@@ -17,6 +17,7 @@ final class TagBottomSheetView: UIViewController {
     
     let companyTagTitle = BehaviorSubject(value: "")
     let careerTagTitle = BehaviorSubject(value: "")
+    let closeBottomSheet = BehaviorSubject(value: false)
     
     //MARK:- UI Components
 
@@ -198,6 +199,7 @@ final class TagBottomSheetView: UIViewController {
                 self.tagViewModel.output.careerText
                     .bind(to: self.careerTagTitle)
                     .disposed(by: self.disposeBag)
+                self.closeBottomSheet.onNext(true)
                 self.dismiss(animated: false)
             }
             .disposed(by: disposeBag)

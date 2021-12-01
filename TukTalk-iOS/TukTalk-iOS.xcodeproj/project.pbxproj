@@ -83,6 +83,7 @@
 		403EC2702757447C008A40B9 /* ConsultingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26F2757447C008A40B9 /* ConsultingViewController.swift */; };
 		403EC27227574492008A40B9 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC27127574492008A40B9 /* ReviewViewController.swift */; };
 		403EC2742757449C008A40B9 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2732757449C008A40B9 /* PortfolioViewController.swift */; };
+		403EC27627579C76008A40B9 /* QuerySearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC27527579C76008A40B9 /* QuerySearchRequest.swift */; };
 		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
 		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
 		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
@@ -280,6 +281,7 @@
 		403EC26F2757447C008A40B9 /* ConsultingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultingViewController.swift; sourceTree = "<group>"; };
 		403EC27127574492008A40B9 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		403EC2732757449C008A40B9 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
+		403EC27527579C76008A40B9 /* QuerySearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySearchRequest.swift; sourceTree = "<group>"; };
 		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1155,6 +1157,7 @@
 			children = (
 				40FAED492753701B0006490E /* QuerySearchService.swift */,
 				40FAED4D275373C30006490E /* QuerySearchResponse.swift */,
+				403EC27527579C76008A40B9 /* QuerySearchRequest.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1558,6 +1561,7 @@
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
 				40DCF357273DAA3700A82CC6 /* RegistProfileFirstViewController.swift in Sources */,
 				403EC2532756C787008A40B9 /* SignUpResponse.swift in Sources */,
+				403EC27627579C76008A40B9 /* QuerySearchRequest.swift in Sources */,
 				402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */,
 				40DCF34D273C0F5D00A82CC6 /* JobMentorListViewController.swift in Sources */,
 				4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */,
