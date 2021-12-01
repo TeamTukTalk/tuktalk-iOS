@@ -19,6 +19,7 @@ class MentorInformationViewController: UIViewController {
     private lazy var portfolioVC = ConsultingViewController()
     private lazy var consultingVC = ConsultingViewController()
     private lazy var reviewVC = ReviewViewController()
+    var mentorID: Int?
 
     private var currentPage: Int = 0 {
         didSet {
@@ -61,15 +62,21 @@ class MentorInformationViewController: UIViewController {
         $0.layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 14, spread: 0)
     }
     
-    private let profileImage = UIImageView().then {
-        $0.image = UIImage(named: "tempProfileImg")
-        $0.contentMode = .scaleAspectFill
-        $0.layer.masksToBounds = true
-    }
-    
-    private let profileImageView = UIView().then {
-        $0.backgroundColor = UIColor.GrayScale.gray4
+//    private let profileImage = UIImageView().then {
+//        $0.image = UIImage(named: "tempProfileImg")
+//        $0.contentMode = .scaleAspectFill
+//        $0.layer.masksToBounds = true
+//    }
+//
+//    private let profileImageView = UIView().then {
+//        $0.backgroundColor = UIColor.GrayScale.gray4
+//        $0.layer.cornerRadius = 35
+//    }
+    private let profileBackground = UIView().then {
         $0.layer.cornerRadius = 35
+    }
+    private let profileLabel = UILabel().then {
+        $0.font = UIFont.TTFont(type: .SDBold, size: 24)
     }
     
     private let nameStackView = UIStackView().then {
@@ -140,6 +147,7 @@ class MentorInformationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         setScrollView()
         setUI()
         setPageView()
@@ -210,15 +218,15 @@ class MentorInformationViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        profileView.addSubview(profileImageView)
-        profileImageView.snp.makeConstraints {
+        profileView.addSubview(profileBackground)
+        profileBackground.snp.makeConstraints {
             $0.width.height.equalTo(70)
             $0.top.equalToSuperview().offset(20)
             $0.centerX.equalToSuperview()
         }
         
-        profileImageView.addSubview(profileImage)
-        profileImage.snp.makeConstraints {
+        profileBackground.addSubview(profileLabel)
+        profileLabel.snp.makeConstraints {
             $0.width.height.equalTo(48)
             $0.centerX.centerY.equalToSuperview()
         }
@@ -234,7 +242,7 @@ class MentorInformationViewController: UIViewController {
         nameStackView.addArrangedSubview(confirmImage)
         nameStackView.snp.makeConstraints {
             $0.height.equalTo(24)
-            $0.top.equalTo(profileImageView.snp.bottom).offset(8)
+            $0.top.equalTo(profileBackground.snp.bottom).offset(8)
             $0.centerX.equalToSuperview()
         }
         
@@ -362,6 +370,20 @@ class MentorInformationViewController: UIViewController {
         pageViewController.setViewControllers([dataViewControllers[currentPage]], direction: direction, animated: true, completion: nil)
 
         collectionView.selectItem(at: IndexPath(item: currentPage, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+    }
+    
+    private func getData() {
+        informationVC.mentorID = mentorID
+        viewModel.getMentorInform(id: mentorID ?? -1) { response in
+            self.informationVC.response = response
+            self.profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: response.profileImageColor)
+            self.profileLabel.text = response.firstLetter
+            self.profileLabel.textColor = UIColor.Profile.getNameColor(color: response.profileImageColor)
+            self.profileNameLabel.text = response.nickname
+            self.companyLabel.text = response.companyName
+            self.jobLabel.text = response.specialty
+            self.introduceLabel.text = response.simpleIntroduction
+        }
     }
 }
 

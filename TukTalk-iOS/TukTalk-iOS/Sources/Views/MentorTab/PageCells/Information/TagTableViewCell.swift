@@ -6,11 +6,13 @@
 //
 
 import RxSwift
+import RxCocoa
 
 class TagTableViewCell: UITableViewCell {
     
     public static let identifier : String = "TagTableViewCell"
     private lazy var viewModel = InformationViewModel()
+    var hashTag = BehaviorSubject<[HashTag]>(value: [])
     private let disposeBag = DisposeBag()
     
     private let titleLabel = UILabel().then {
@@ -38,6 +40,10 @@ class TagTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setData(data: [HashTag]) {
+        hashTag.onNext(data)
     }
     
     private func setUI() {
@@ -71,11 +77,11 @@ class TagTableViewCell: UITableViewCell {
     }
     private func bindingCollectionView() {
         
-        viewModel.output.tagCellData
+        hashTag
             .bind(to: tagListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.tagListCV.dequeueReusableCell(withReuseIdentifier: "TagListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? TagListCollectionViewCell {
 
-                    cell.configure(title: item.title)
+                    cell.configure(title: item.hashTag)
                     return cell
                 }
                 return UICollectionViewCell()

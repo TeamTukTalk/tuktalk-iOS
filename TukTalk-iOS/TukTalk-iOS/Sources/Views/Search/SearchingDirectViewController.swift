@@ -147,7 +147,7 @@ class SearchingDirectViewController: UIViewController {
     }
     
     private func reloadMentorData() {
-        self.mentorCVModel.getSearchMentorList(query: self.mentorCVModel.query!, companySize: self.mentorCVModel.companySize, subSpecialty: self.mentorCVModel.subSpecialty, startYear: self.mentorCVModel.startYear) { response in
+        self.mentorCVModel.getSearchMentorList(query: self.mentorCVModel.query ?? "", companySize: self.mentorCVModel.companySize, subSpecialty: self.mentorCVModel.subSpecialty, startYear: self.mentorCVModel.startYear) { response in
             self.mentorCVModel.mentorDataList.onNext(response)
             print(response)
         }

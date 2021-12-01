@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import Moya
 
 final class MentorInformationViewModel: ViewModelType {
     var dependency: Dependency
@@ -31,6 +32,22 @@ final class MentorInformationViewModel: ViewModelType {
         PageCollectionViewDataModel(title: "1:1 멘토링"),
         PageCollectionViewDataModel(title: "후기")
     ]
+    
+    func getMentorInform(id: Int, completion: @escaping (MentorPageResponse) -> ()) {
+        let provider = MoyaProvider<MentorPageService>()
+        provider.rx.request(.mentorPageRequest(id: id))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    let responseData = try? response.map(MentorPageResponse.self)
+                    guard let data = responseData else { return }
+                    completion(data)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
     
     init(dependency: Dependency = Dependency()) {
         self.dependency = Dependency()

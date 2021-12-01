@@ -191,7 +191,9 @@ extension TopMentorCollectionViewCell: UICollectionViewDelegateFlowLayout {
         
         hashTag
             .bind { data in
-                value = HashTagCollectionViewCell.fittingSize(availableHeight: 18, name: data[indexPath.row].hashTag)
+                if indexPath.row < data.count {
+                    value = HashTagCollectionViewCell.fittingSize(availableHeight: 18, name: data[indexPath.row].hashTag)
+                }
             }
             .disposed(by: disposeBag)
         

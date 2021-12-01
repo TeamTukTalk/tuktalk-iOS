@@ -1,13 +1,12 @@
 //
-//  MentorProfileRequset.swift
+//  MentorPageResponse.swift
 //  TukTalk-iOS
 //
-//  Created by 한상진 on 2021/12/01.
+//  Created by 한상진 on 2021/12/02.
 //
-
 import Foundation
 
-struct MentorProfileResponse: Codable {
+struct MentorPageResponse: Codable {
     let profileImageURL, profileImageColor, firstLetter, nickname: String
     let simpleIntroduction, detailedIntroduction, companyName, specialty: String
     let subSpecialties: [SubSpecialty]

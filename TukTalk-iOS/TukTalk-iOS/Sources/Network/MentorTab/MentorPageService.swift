@@ -8,7 +8,7 @@
 import Moya
 
 enum MentorPageService {
-    case mentorPageRequest
+    case mentorPageRequest(id: Int)
 }
 
 extension MentorPageService: TargetType {
@@ -18,8 +18,8 @@ extension MentorPageService: TargetType {
     
     var path: String {
         switch self {
-        case .mentorPageRequest:
-            return APIConstants.mentorPageURL
+        case .mentorPageRequest(let id):
+            return "\(APIConstants.mentorProfileURL) + \(id)"
         }
     }
     
@@ -38,9 +38,13 @@ extension MentorPageService: TargetType {
     }
     
     var headers: [String : String]? {
+        guard let token = APIConstants.token else { return nil }
         switch self {
         case .mentorPageRequest:
-            return ["Content-Type": "application/json"]
+            return [
+                "Authorization": token,
+                "Content-Type": "application/json"
+            ]
         }
     }
 }
