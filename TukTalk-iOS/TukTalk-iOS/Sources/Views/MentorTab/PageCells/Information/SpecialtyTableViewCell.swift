@@ -19,11 +19,11 @@ class SpecialtyTableViewCell: UITableViewCell {
         $0.textColor = UIColor.GrayScale.normal
     }
     
-    var mainTextView = UITextView().then {
+    var mainLabel = UILabel().then {
         $0.text = ""
+        $0.numberOfLines = 0
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
-        $0.isEditable = false
     }
 
     override func awakeFromNib() {
@@ -46,13 +46,7 @@ class SpecialtyTableViewCell: UITableViewCell {
     func setData(data: [SubSpecialty]) {
         textData = data
         for text in textData {
-            mainTextView.text += text.value
-            mainTextView.text += "\n"
-        }
-        mainTextView.snp.makeConstraints {
-            $0.height.equalTo(20 * textData.count)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(titleLabel.snp.leading)
+            mainLabel.text! += "· \(text.value)\n\n"
         }
     }
     
@@ -64,7 +58,12 @@ class SpecialtyTableViewCell: UITableViewCell {
             $0.top.leading.equalToSuperview()
         }
         
-        contentView.addSubview(mainTextView)
+        contentView.addSubview(mainLabel)
+        mainLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.leading.equalTo(titleLabel.snp.leading)
+            $0.bottom.equalToSuperview().inset(12)
+        }
     }
 
 }

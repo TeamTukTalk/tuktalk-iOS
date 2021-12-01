@@ -26,7 +26,9 @@ class HashTagCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(name: String?) {
-        titleLabel.text = name
+        if let name = name {
+            titleLabel.text = "#\(name)"
+        }
     }
     
     static func fittingSize(availableHeight: CGFloat, name: String?) -> CGSize {

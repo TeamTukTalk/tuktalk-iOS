@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 final class InformationViewModel:ViewModelType{
     var dependency: Dependency

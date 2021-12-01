@@ -26,7 +26,9 @@ class TagListCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(title: String?) {
-        titleLabel.text = title
+        if let title = title {
+            titleLabel.text = "#\(title)"
+        }
     }
     
     static func fittingSize(availableHeight: CGFloat, title: String?) -> CGSize {

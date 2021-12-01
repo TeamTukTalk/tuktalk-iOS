@@ -22,6 +22,10 @@ class CompanyTableViewCell: UITableViewCell {
         $0.textColor = UIColor.GrayScale.sub1
     }
     
+    var confirmImage = UIImageView().then {
+        $0.image = UIImage(named: "mentorConfirmImg")
+    }
+    
     var specialtyLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
@@ -55,13 +59,13 @@ class CompanyTableViewCell: UITableViewCell {
     }
     
     func setData(company: String, specialty: String, position: String, year: String, month: String) {
-        companyLabel.text = company
-        specialtyLabel.text = specialty
-        positionLabel.text = position
+        companyLabel.text = "· \(company)"
+        specialtyLabel.text = "· \(specialty)"
+        positionLabel.text = "· \(position)"
         if month != "0" {
-            careerLabel.text = "\(year)년 \(month)개월"
+            careerLabel.text = "· \(year)년 \(month)개월"
         } else {
-            careerLabel.text = "\(year)년"
+            careerLabel.text = "· \(year)년"
         }
     }
     
@@ -78,6 +82,13 @@ class CompanyTableViewCell: UITableViewCell {
             $0.height.equalTo(20)
             $0.top.equalTo(titleLabel.snp.bottom).offset(12)
             $0.leading.equalTo(titleLabel.snp.leading)
+        }
+        
+        contentView.addSubview(confirmImage)
+        confirmImage.snp.makeConstraints {
+            $0.width.height.equalTo(16)
+            $0.top.equalTo(companyLabel).offset(1)
+            $0.leading.equalTo(companyLabel.snp.trailing)
         }
         
         contentView.addSubview(specialtyLabel)

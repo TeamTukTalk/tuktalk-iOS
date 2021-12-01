@@ -9,7 +9,6 @@ import RxSwift
 import RxCocoa
 
 class TopMentorCollectionViewCell: UICollectionViewCell {
-    private let hashTagListViewModel = HashTagCollectionViewModel()
     private let disposeBag = DisposeBag()
     var hashTag = BehaviorSubject<[HashTag]>(value: [])
     

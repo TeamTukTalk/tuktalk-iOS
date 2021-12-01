@@ -18,7 +18,7 @@ class InformationViewController: UIViewController {
         return heightFrameValue.asObservable()
     }
     var mentorID: Int?
-    var response : MentorPageResponse?
+    var response: MentorPageResponse?
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -126,6 +126,7 @@ extension InformationViewController : UITableViewDelegate, UITableViewDataSource
             let rectOfCellInTableView = tableView.rectForRow(at: indexPath)
             let rectOfCellInSuperview = tableView.convert(rectOfCellInTableView, to: tableView.superview)
             heightFrameValue.accept(Int(rectOfCellInSuperview.origin.y))
+            cell.setData(data: response?.hashTags ?? [HashTag]())
             return cell
         default:
             return UITableViewCell()

@@ -227,7 +227,7 @@ class MentorInformationViewController: UIViewController {
         
         profileBackground.addSubview(profileLabel)
         profileLabel.snp.makeConstraints {
-            $0.width.height.equalTo(48)
+            $0.height.equalTo(22)
             $0.centerX.centerY.equalToSuperview()
         }
         
@@ -383,6 +383,7 @@ class MentorInformationViewController: UIViewController {
             self.companyLabel.text = response.companyName
             self.jobLabel.text = response.specialty
             self.introduceLabel.text = response.simpleIntroduction
+            self.informationVC.tableView.reloadData()
         }
     }
 }

@@ -40,7 +40,7 @@ class CareerTableViewCell: UITableViewCell {
     }
     
     func setData(text: String) {
-        mainLabel.makeHeightSpacing(thisText: text, fontSize: 14)
+        mainLabel.makeHeightSpacing(thisText: "· \(text)", fontSize: 14)
     }
     
     private func setUI() {
