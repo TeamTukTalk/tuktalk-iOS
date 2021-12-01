@@ -16,7 +16,7 @@ class MentorInformationViewController: UIViewController {
     private var dataSource: [PageCollectionViewDataModel] = []
 
     private lazy var informationVC = InformationViewController()
-    private lazy var portfolioVC = ConsultingViewController()
+    private lazy var portfolioVC = PortfolioViewController()
     private lazy var consultingVC = ConsultingViewController()
     private lazy var reviewVC = ReviewViewController()
     var mentorID: Int?
@@ -50,9 +50,9 @@ class MentorInformationViewController: UIViewController {
         $0.setImage(UIImage(named: "backBtnImg"), for: .normal)
     }
     
-    private let heartBtn = UIButton().then {
-        $0.setImage(UIImage(named: "heartImg"), for: .normal)
-    }
+//    private let heartBtn = UIButton().then {
+//        $0.setImage(UIImage(named: "heartImg"), for: .normal)
+//    }
     
     private let profileView = UIView().then {
         $0.backgroundColor = .white
@@ -192,12 +192,12 @@ class MentorInformationViewController: UIViewController {
             $0.leading.equalToSuperview().offset(8)
         }
         
-        topView.addSubview(heartBtn)
-        heartBtn.snp.makeConstraints {
-            $0.width.height.equalTo(24)
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(16)
-        }
+//        topView.addSubview(heartBtn)
+//        heartBtn.snp.makeConstraints {
+//            $0.width.height.equalTo(24)
+//            $0.centerY.equalToSuperview()
+//            $0.trailing.equalToSuperview().inset(16)
+//        }
         
         view.addSubview(mainScrollView)
         mainScrollView.snp.makeConstraints {
@@ -374,6 +374,7 @@ class MentorInformationViewController: UIViewController {
     
     private func getData() {
         informationVC.mentorID = mentorID
+        portfolioVC.mentorID = mentorID
         viewModel.getMentorInform(id: mentorID ?? -1) { response in
             self.informationVC.response = response
             self.profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: response.profileImageColor)

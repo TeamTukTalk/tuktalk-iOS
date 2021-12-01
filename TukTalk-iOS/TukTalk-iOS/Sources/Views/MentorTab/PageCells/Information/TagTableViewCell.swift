@@ -11,7 +11,6 @@ import RxCocoa
 class TagTableViewCell: UITableViewCell {
     
     public static let identifier : String = "TagTableViewCell"
-    private lazy var viewModel = InformationViewModel()
     var hashTag = BehaviorSubject<[HashTag]>(value: [])
     private let disposeBag = DisposeBag()
     

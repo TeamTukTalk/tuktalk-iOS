@@ -12,7 +12,6 @@ class InformationViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var viewModel = InformationViewModel()
     private let heightFrameValue = BehaviorRelay(value: Int(UIScreen.main.bounds.height))
     var heightFrame: Observable<Int> {
         return heightFrameValue.asObservable()
