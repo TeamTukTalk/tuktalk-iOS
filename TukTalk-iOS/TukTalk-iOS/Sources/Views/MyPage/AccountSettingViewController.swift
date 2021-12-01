@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import Moya
 
 class AccountSettingViewController: UIViewController {
     
@@ -132,10 +133,46 @@ class AccountSettingViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        logoutBtn.rx.tap
+            .bind {
+                let popUpViewController = PopUpViewController()
+                popUpViewController.popUpTitleLabel.text = "로그아웃 하시겠습니까?"
+                popUpViewController.acceptBtn.setTitle("머무르기", for: .normal)
+                popUpViewController.dismissBtn.setTitle("로그아웃", for: .normal)
+                popUpViewController.dismissBtn.addTarget(self, action: #selector(self.logOut), for: .touchUpInside)
+                let naviVC = UINavigationController(rootViewController: popUpViewController)
+                naviVC.modalPresentationStyle = .overCurrentContext
+                naviVC.modalTransitionStyle = .crossDissolve
+                naviVC.navigationBar.isHidden = true
+                self.present(naviVC, animated: true) {
+                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
+                    naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+                }
+            }
+            .disposed(by: disposeBag)
+        
         withdrawBtn.rx.tap
             .bind {
                 self.navigationController?.pushViewController(WithdrawViewController(), animated: true)
             }
             .disposed(by: disposeBag)
+    }
+    
+    @objc private func logOut() {
+        let provider = MoyaProvider<LogOutService>()
+        provider.rx.request(.logOutRequest)
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    print(response)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+        dismiss(animated: false, completion: {
+            self.navigationController?.popToRootViewController(animated: false)
+            self.present(LoginViewController(), animated: true, completion: nil)
+        })
     }
 }

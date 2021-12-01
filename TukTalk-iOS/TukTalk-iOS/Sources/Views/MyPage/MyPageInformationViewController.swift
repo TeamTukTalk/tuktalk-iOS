@@ -32,7 +32,8 @@ class MyPageInformationViewController: UIViewController {
     }
     
     private let nameTextField = UITextField().then {
-        $0.text = "리즈"
+        let nickname = String(data: KeyChain.load(key: "nickname")!, encoding: .utf8)
+        $0.text = nickname
         $0.backgroundColor = .white
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
@@ -40,6 +41,7 @@ class MyPageInformationViewController: UIViewController {
         $0.setLeftPaddingPoints(16)
         $0.textColor = UIColor.GrayScale.sub1
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
+        $0.isEnabled = false
     }
     
     private let emailLabel = UILabel().then {
@@ -49,7 +51,8 @@ class MyPageInformationViewController: UIViewController {
     }
     
     private let emailTextField = UITextField().then {
-        $0.text = "tuktalk@naver.com"
+        let email = String(data: KeyChain.load(key: "email")!, encoding: .utf8)
+        $0.text = email
         $0.backgroundColor = .white
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor

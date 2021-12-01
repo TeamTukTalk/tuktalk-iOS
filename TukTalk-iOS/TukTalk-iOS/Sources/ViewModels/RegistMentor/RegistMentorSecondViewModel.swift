@@ -66,6 +66,10 @@ struct RegistMentorSecondViewModel: ViewModelType {
             }
             .disposed(by: self.disposeBag)
     }
+    
+    func enableCompanyCheck(email: String) -> Bool {
+        return email.contains("navercorp.com") || email.contains("woowahan.com") || email.contains("webtoonscorp.com") || email.contains("gmail.com")
+    }
 }
 
 private func sendValidation(email: Observable<String>) -> Observable<Bool> {

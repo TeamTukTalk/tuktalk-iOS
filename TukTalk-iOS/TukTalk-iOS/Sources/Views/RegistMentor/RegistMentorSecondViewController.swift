@@ -363,8 +363,16 @@ class RegistMentorSecondViewController: UIViewController {
         
         sendBtn.rx.tap
             .bind { _ in
-                self.updateBtnUI()
-                self.viewModel.sendEmailRequest(email: self.emailTextField.text!)
+                if self.viewModel.enableCompanyCheck(email: self.emailTextField.text!) {
+                    self.errorIcon.isHidden = false
+                    self.errorLabel.isHidden = false
+                    self.updateBtnUI()
+                    self.viewModel.sendEmailRequest(email: self.emailTextField.text!)
+                } else {
+                    self.errorLabel.text = "뚝딱에 등록되지 않은 기업입니다."
+                    self.errorIcon.isHidden = false
+                    self.errorLabel.isHidden = false
+                }
             }
             .disposed(by: disposeBag)
         
@@ -386,6 +394,7 @@ class RegistMentorSecondViewController: UIViewController {
                         self.backgroundView.snp.updateConstraints {
                             $0.height.equalTo(407)
                         }
+                        self.errorLabel.text = "이메일 인증을 실패했습니다."
                         self.errorLabel.isHidden = false
                         self.errorIcon.isHidden = false
                     }
