@@ -76,6 +76,9 @@
 		403EC25E2756F09F008A40B9 /* RegistMenteeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC25D2756F09F008A40B9 /* RegistMenteeRequest.swift */; };
 		403EC26227570824008A40B9 /* WithdrawService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26127570824008A40B9 /* WithdrawService.swift */; };
 		403EC26427570B27008A40B9 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26327570B27008A40B9 /* UIWindowExtension.swift */; };
+		403EC267275719F8008A40B9 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC266275719F8008A40B9 /* FirstOnboardingViewController.swift */; };
+		403EC26927571A07008A40B9 /* SecondOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26827571A07008A40B9 /* SecondOnboardingViewController.swift */; };
+		403EC26B27571A12008A40B9 /* FinishOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26A27571A12008A40B9 /* FinishOnboardingViewController.swift */; };
 		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
 		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
 		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
@@ -266,6 +269,9 @@
 		403EC25D2756F09F008A40B9 /* RegistMenteeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeRequest.swift; sourceTree = "<group>"; };
 		403EC26127570824008A40B9 /* WithdrawService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawService.swift; sourceTree = "<group>"; };
 		403EC26327570B27008A40B9 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
+		403EC266275719F8008A40B9 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
+		403EC26827571A07008A40B9 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
+		403EC26A27571A12008A40B9 /* FinishOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishOnboardingViewController.swift; sourceTree = "<group>"; };
 		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -640,6 +646,16 @@
 			path = RegistMentee;
 			sourceTree = "<group>";
 		};
+		403EC265275719E3008A40B9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				403EC266275719F8008A40B9 /* FirstOnboardingViewController.swift */,
+				403EC26827571A07008A40B9 /* SecondOnboardingViewController.swift */,
+				403EC26A27571A12008A40B9 /* FinishOnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		4041C0D127198803007D09E7 = {
 			isa = PBXGroup;
 			children = (
@@ -705,6 +721,7 @@
 		4041C10E27198820007D09E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				403EC265275719E3008A40B9 /* Onboarding */,
 				404C57012746A37000B31F64 /* Network */,
 				4011847E271D9AB700A5657A /* Protocols */,
 				40118469271C8DF100A5657A /* Fonts */,
@@ -1434,6 +1451,7 @@
 				406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */,
 				403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */,
 				40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */,
+				403EC26927571A07008A40B9 /* SecondOnboardingViewController.swift in Sources */,
 				40DCF33A273832F100A82CC6 /* BannerDataModel.swift in Sources */,
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				40FAED6227553CF70006490E /* PreviewService.swift in Sources */,
@@ -1448,6 +1466,7 @@
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
 				404C57132746C89000B31F64 /* SecondFieldCategoryCVCell.swift in Sources */,
+				403EC267275719F8008A40B9 /* FirstOnboardingViewController.swift in Sources */,
 				403EC22C27565D16008A40B9 /* RegistMentorService.swift in Sources */,
 				403EC23127565F15008A40B9 /* UserMentorRegist.swift in Sources */,
 				402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */,
@@ -1549,6 +1568,7 @@
 				40CC20C6274E7A01008A3967 /* RegistPortfolioThirdViewController.swift in Sources */,
 				4065FF0B27453BD2005AAE0F /* InformationViewModel.swift in Sources */,
 				403EC221275576C9008A40B9 /* PortfolioRequest.swift in Sources */,
+				403EC26B27571A12008A40B9 /* FinishOnboardingViewController.swift in Sources */,
 				404C57032746A3A500B31F64 /* APIConstants.swift in Sources */,
 				40FAED43275355490006490E /* WithdrawViewController.swift in Sources */,
 				404E687227245220005AA5DD /* RegistMentorSecondViewModel.swift in Sources */,

@@ -309,7 +309,13 @@ class LoginViewController: UIViewController {
                                 if let email = loginResponse?.email.data(using: String.Encoding.utf8) {
                                     KeyChain.save(key: "email", data: email)
                                 }
-                                self.present(nextVC, animated: true, completion: nil)
+                                
+                                if !UserDefaults.standard.bool(forKey: "first") {
+                                    let onboardingVC = FirstOnboardingViewController()
+                                    self.navigationController?.pushViewController(onboardingVC, animated: true)
+                                } else {
+                                    self.present(nextVC, animated: true, completion: nil)
+                                }
                             } else {
                                 self.alertView.alpha = 1
                                 UIView.animate(withDuration: 3, animations: {

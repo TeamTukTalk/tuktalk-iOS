@@ -129,7 +129,11 @@ class SignUpFinishViewController: UIViewController {
         homeBtn.rx.tap
             .bind { _ in
                 self.navigationController?.popToRootViewController(animated: true)
-                self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+                if UserDefaults.standard.bool(forKey: "first") == nil {
+                    self.navigationController?.pushViewController(FirstOnboardingViewController(), animated: true)
+                } else {
+                    self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+                }
             }
             .disposed(by: disposeBag)
     }
