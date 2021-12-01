@@ -1,5 +1,5 @@
 //
-//  LogOutService.swift
+//  WithdrawService.swift
 //  TukTalk-iOS
 //
 //  Created by 한상진 on 2021/12/01.
@@ -7,32 +7,32 @@
 
 import Moya
 
-enum LogOutService {
-    case logOutRequest
+enum WithdrawService {
+    case withdrawRequest
 }
 
-extension LogOutService: TargetType {
+extension WithdrawService: TargetType {
     var baseURL: URL {
         return URL(string: APIConstants.baseURL)!
     }
     
     var path: String {
         switch self {
-        case .logOutRequest:
-            return APIConstants.logOutURL
+        case .withdrawRequest:
+            return APIConstants.withdrawURL
         }
     }
     
     var method: Method {
         switch self {
-        case .logOutRequest:
-            return .post
+        case .withdrawRequest:
+            return .delete
         }
     }
     
     var task: Task {
         switch self {
-        case .logOutRequest:
+        case .withdrawRequest:
             return .requestPlain
         }
     }
@@ -40,7 +40,7 @@ extension LogOutService: TargetType {
     var headers: [String : String]? {
         guard let token = APIConstants.token else { return nil }
         switch self {
-        case .logOutRequest:
+        case .withdrawRequest:
             return [
                 "Authorization": token,
                 "Content-Type": "application/json"

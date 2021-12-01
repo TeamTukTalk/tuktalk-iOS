@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import Moya
 
 final class WithdrawViewModel: ViewModelType {
     var dependency: Dependency
@@ -33,6 +34,20 @@ final class WithdrawViewModel: ViewModelType {
         
         self.input = Input()
         self.output = Output(withdrawBtnCheck: withdrawBtnCheck$)
+    }
+    
+    func withdrawRequest() {
+        let provider = MoyaProvider<WithdrawService>()
+        provider.rx.request(.withdrawRequest)
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    print(response)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
 }

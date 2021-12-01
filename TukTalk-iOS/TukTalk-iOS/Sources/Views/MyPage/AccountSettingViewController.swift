@@ -159,20 +159,13 @@ class AccountSettingViewController: UIViewController {
     }
     
     @objc private func logOut() {
-        let provider = MoyaProvider<LogOutService>()
-        provider.rx.request(.logOutRequest)
-            .subscribe { result in
-                switch result {
-                case let .success(response):
-                    print(response)
-                case let .failure(error):
-                    print(error.localizedDescription)
-                }
-            }
-            .disposed(by: disposeBag)
-        dismiss(animated: false, completion: {
-            self.navigationController?.popToRootViewController(animated: false)
-            self.present(LoginViewController(), animated: true, completion: nil)
-        })
+        KeyChain.delete(key: "token")
+        KeyChain.delete(key: "role")
+        KeyChain.delete(key: "nickname")
+        KeyChain.delete(key: "firstLetter")
+        KeyChain.delete(key: "profileImageColor")
+        KeyChain.delete(key: "email")
+        let loginVC = UINavigationController(rootViewController: LoginViewController())
+        UIApplication.shared.windows.filter { $0.isKeyWindow }.first!.replaceRootViewController(loginVC, animated: true, completion: nil)
     }
 }

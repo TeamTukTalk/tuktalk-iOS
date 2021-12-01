@@ -74,7 +74,8 @@
 		403EC2592756ED9F008A40B9 /* MenteeProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2582756ED9F008A40B9 /* MenteeProfileViewModel.swift */; };
 		403EC25C2756EFCA008A40B9 /* RegistMenteeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC25B2756EFCA008A40B9 /* RegistMenteeService.swift */; };
 		403EC25E2756F09F008A40B9 /* RegistMenteeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC25D2756F09F008A40B9 /* RegistMenteeRequest.swift */; };
-		403EC260275705D6008A40B9 /* LogOutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC25F275705D5008A40B9 /* LogOutService.swift */; };
+		403EC26227570824008A40B9 /* WithdrawService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26127570824008A40B9 /* WithdrawService.swift */; };
+		403EC26427570B27008A40B9 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26327570B27008A40B9 /* UIWindowExtension.swift */; };
 		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
 		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
 		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
@@ -263,7 +264,8 @@
 		403EC2582756ED9F008A40B9 /* MenteeProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeProfileViewModel.swift; sourceTree = "<group>"; };
 		403EC25B2756EFCA008A40B9 /* RegistMenteeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeService.swift; sourceTree = "<group>"; };
 		403EC25D2756F09F008A40B9 /* RegistMenteeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeRequest.swift; sourceTree = "<group>"; };
-		403EC25F275705D5008A40B9 /* LogOutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutService.swift; sourceTree = "<group>"; };
+		403EC26127570824008A40B9 /* WithdrawService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawService.swift; sourceTree = "<group>"; };
+		403EC26327570B27008A40B9 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */,
 				4065FEEB27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift */,
 				40CC20CF274FFA55008A3967 /* UIResponderExtension.swift */,
+				403EC26327570B27008A40B9 /* UIWindowExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -599,7 +602,7 @@
 				403EC24727569C50008A40B9 /* MenteeProfileResponse.swift */,
 				403EC24E2756C536008A40B9 /* MentorProfileService.swift */,
 				403EC2502756C582008A40B9 /* MentorProfileResponse.swift */,
-				403EC25F275705D5008A40B9 /* LogOutService.swift */,
+				403EC26127570824008A40B9 /* WithdrawService.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1467,6 +1470,7 @@
 				402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */,
 				4065FF00274404A7005AAE0F /* MentorInformationViewModel.swift in Sources */,
 				404E68742724541E005AA5DD /* RegistMentorFinishViewController.swift in Sources */,
+				403EC26227570824008A40B9 /* WithdrawService.swift in Sources */,
 				4065FEE827435B5F005AAE0F /* TagCollectionViewModel.swift in Sources */,
 				404C570E2746C2F500B31F64 /* SignUpSecondViewModel.swift in Sources */,
 				4065FEFD274402D3005AAE0F /* MentorInformationViewController.swift in Sources */,
@@ -1530,7 +1534,6 @@
 				404E68692724206D005AA5DD /* RegistMentorFirstViewController.swift in Sources */,
 				40FAED5B27537D2B0006490E /* ReviewSearchResponse.swift in Sources */,
 				40FAED4E275373C30006490E /* QuerySearchResponse.swift in Sources */,
-				403EC260275705D6008A40B9 /* LogOutService.swift in Sources */,
 				402B98CB27521B4800EDD668 /* KeyChain.swift in Sources */,
 				403EC2592756ED9F008A40B9 /* MenteeProfileViewModel.swift in Sources */,
 				4065FEE02743506D005AAE0F /* RegistProfileFourthViewModel.swift in Sources */,
@@ -1570,6 +1573,7 @@
 				403EC23327566015008A40B9 /* SendEmailService.swift in Sources */,
 				403EC25C2756EFCA008A40B9 /* RegistMenteeService.swift in Sources */,
 				40AA40F0274A7B2C00F76625 /* EmailValidService.swift in Sources */,
+				403EC26427570B27008A40B9 /* UIWindowExtension.swift in Sources */,
 				4065FEDA274226A4005AAE0F /* RegistProfileThirdViewController.swift in Sources */,
 				403EC24827569C50008A40B9 /* MenteeProfileResponse.swift in Sources */,
 				4065FEE227435587005AAE0F /* TagCollectionViewDataModel.swift in Sources */,

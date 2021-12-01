@@ -181,6 +181,13 @@ class WithdrawViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        withdrawBtn.rx.tap
+            .bind {
+                self.viewModel.withdrawRequest()
+                UIApplication.shared.windows.filter { $0.isKeyWindow }.first!.replaceRootViewController(LoginViewController(), animated: true, completion: nil)
+            }
+            .disposed(by: disposeBag)
+        
         viewModel.output.withdrawBtnCheck
             .drive(onNext: { status in
                 self.withdrawBtn.isEnabled = status
