@@ -38,9 +38,13 @@ extension TopMentorSearchService: TargetType {
     }
     
     var headers: [String : String]? {
+        guard let token = APIConstants.token else { return nil }
         switch self {
         case .topMentorSearchRequest:
-            return ["Content-Type": "application/json"]
+            return [
+                "Authorization": token,
+                "Content-Type": "application/json"
+            ]
         }
     }
 }

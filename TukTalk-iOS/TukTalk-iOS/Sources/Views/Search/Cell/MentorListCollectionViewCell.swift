@@ -68,7 +68,7 @@ class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelega
     }
     
     func setData(mentor: JobSearchResponseElement) {
-        if mentor.profileImageURL == nil {
+        if mentor.profileImageURL == "" {
             profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: mentor.profileImageColor)
             profileLabel.textColor = UIColor.Profile.getNameColor(color: mentor.profileImageColor)
             profileLabel.text = mentor.firstLetter

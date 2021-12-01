@@ -288,8 +288,12 @@ class LoginViewController: UIViewController {
                         case let .success(response):
                             let loginResponse = try? response.map(LoginResponse.self)
                             if response.statusCode == 200 {
-                                print("success Login")
-                                guard let token = loginResponse?.accessToken else { return }
+                                guard let token = loginResponse?.accessToken else {
+                                    self.alertView.alpha = 1
+                                    UIView.animate(withDuration: 3, animations: {
+                                        self.alertView.alpha = 0
+                                    })
+                                    return }
                                 let tokenString = "Bearer " + token
                                 if let role = loginResponse?.role.data(using: String.Encoding.utf8) {
                                     KeyChain.save(key: "role", data: role)
