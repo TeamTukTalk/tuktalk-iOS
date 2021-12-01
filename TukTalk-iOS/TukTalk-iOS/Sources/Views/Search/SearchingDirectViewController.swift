@@ -105,10 +105,12 @@ class SearchingDirectViewController: UIViewController {
         mentorListCV.setCollectionViewLayout(mentorListCVLayout, animated: false)
         mentorListCV.backgroundColor = .white
         mentorListCV.showsVerticalScrollIndicator = false
-        mentorListCV.register(MentorListCollectionViewCell.self, forCellWithReuseIdentifier: "MentorListCollectionViewCell")
+        mentorListCV.register(TopMentorCollectionViewCell.self, forCellWithReuseIdentifier: "TopMentorCollectionViewCell")
     }
     
     private func binding() {
+        mentorCVModel.query = searchTextBtn.titleLabel?.text
+        reloadMentorData()
         searchTextBtn.rx.tap
             .bind { _ in
                 self.navigationController?.pushViewController(SearchDirectViewController(), animated: false)
@@ -132,16 +134,23 @@ class SearchingDirectViewController: UIViewController {
     private func bindingCollectionView() {
         mentorListCV.rx.setDelegate(self).disposed(by: disposeBag)
         
-//        mentorCVModel.output.searchingMentorListData
-//            .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-//                if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
-//                    
-//                    cell.setData(mentor: item)
-//                    return cell
-//                }
-//                return UICollectionViewCell()
-//            }
-//            .disposed(by: disposeBag)
+        mentorCVModel.mentorDataList
+            .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "TopMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? TopMentorCollectionViewCell {
+                    
+                    cell.setData(mentor: item)
+                    return cell
+                }
+                return UICollectionViewCell()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func reloadMentorData() {
+        self.mentorCVModel.getSearchMentorList(query: self.mentorCVModel.query!, companySize: self.mentorCVModel.companySize, subSpecialty: self.mentorCVModel.subSpecialty, startYear: self.mentorCVModel.startYear) { response in
+            self.mentorCVModel.mentorDataList.onNext(response)
+            print(response)
+        }
     }
 }
 
