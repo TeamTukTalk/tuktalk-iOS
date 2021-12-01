@@ -16,12 +16,14 @@ class RegistMenteeProfileViewController: UIViewController {
     
     //MARK:- UI Components
     
-    private let backBtn = UIButton(type: .system).then {
+    private let backBtn = UIButton().then {
         $0.setImage(UIImage(named: "backBtnImg"), for: .normal)
-        $0.setTitle("프로필 등록/수정", for: .normal)
-        $0.titleLabel?.font = UIFont.TTFont(type: .SDBold, size: 16)
-        $0.setTitleColor(UIColor.GrayScale.normal, for: .normal)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: -15)
+    }
+    
+    private let backBtnLabel = UILabel().then {
+        $0.text = "프로필 등록/수정"
+        $0.font = UIFont.TTFont(type: .SDBold, size: 16)
+        $0.textColor = UIColor.GrayScale.normal
     }
     
 //    private let profileImg = UIImageView().then {
@@ -49,7 +51,6 @@ class RegistMenteeProfileViewController: UIViewController {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
         $0.layer.cornerRadius = 8
-        $0.isEnabled = false
         $0.setLeftPaddingPoints(16)
     }
     
@@ -84,6 +85,13 @@ class RegistMenteeProfileViewController: UIViewController {
             $0.leading.equalToSuperview().offset(8)
         }
         
+        view.addSubview(backBtnLabel)
+        backBtnLabel.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.top.equalTo(backBtn)
+            $0.leading.equalTo(backBtn.snp.trailing).offset(4)
+        }
+        
         view.addSubview(profileBackground)
         profileBackground.snp.makeConstraints {
             $0.width.height.equalTo(70)
@@ -108,6 +116,13 @@ class RegistMenteeProfileViewController: UIViewController {
             $0.height.equalTo(44)
             $0.top.equalTo(nameLabel.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        view.addSubview(saveBtn)
+        saveBtn.snp.makeConstraints {
+            $0.height.equalTo(52)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().offset(-42)
         }
     }
     

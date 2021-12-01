@@ -134,6 +134,7 @@ class MyPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setProfileData()
         navigationController?.navigationBar.isHidden = true
         navigationController?.setNavigationBarHidden(true, animated: false)
         tabBarController?.tabBar.isHidden = false
@@ -420,9 +421,12 @@ class MyPageViewController: UIViewController {
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                 naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
             }
-        } else {
+        } else if self.mentorEmailValid == true && user == "MENTOR" {
             self.tabBarController?.tabBar.isHidden = true
             self.navigationController?.pushViewController(RegistProfileFirstViewController(), animated: true)
+        } else if user == "MENTEE" {
+            self.tabBarController?.tabBar.isHidden = true
+            self.navigationController?.pushViewController(RegistMenteeProfileViewController(), animated: true)
         }
     }
 }
