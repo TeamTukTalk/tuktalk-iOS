@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         KeyChain.delete(key: "profileImageColor")
         KeyChain.delete(key: "email")
         if KeyChain.load(key: "token") == nil {
-            window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+            window?.rootViewController = UINavigationController(rootViewController: MentorInformationViewController())
         } else {
             window?.rootViewController = UINavigationController(rootViewController: TabBarViewController())
         }

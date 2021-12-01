@@ -79,6 +79,10 @@
 		403EC267275719F8008A40B9 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC266275719F8008A40B9 /* FirstOnboardingViewController.swift */; };
 		403EC26927571A07008A40B9 /* SecondOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26827571A07008A40B9 /* SecondOnboardingViewController.swift */; };
 		403EC26B27571A12008A40B9 /* FinishOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26A27571A12008A40B9 /* FinishOnboardingViewController.swift */; };
+		403EC26E2757328F008A40B9 /* MentorPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26D2757328F008A40B9 /* MentorPageService.swift */; };
+		403EC2702757447C008A40B9 /* ConsultingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26F2757447C008A40B9 /* ConsultingViewController.swift */; };
+		403EC27227574492008A40B9 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC27127574492008A40B9 /* ReviewViewController.swift */; };
+		403EC2742757449C008A40B9 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2732757449C008A40B9 /* PortfolioViewController.swift */; };
 		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
 		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
 		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
@@ -272,6 +276,10 @@
 		403EC266275719F8008A40B9 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
 		403EC26827571A07008A40B9 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
 		403EC26A27571A12008A40B9 /* FinishOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishOnboardingViewController.swift; sourceTree = "<group>"; };
+		403EC26D2757328F008A40B9 /* MentorPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorPageService.swift; sourceTree = "<group>"; };
+		403EC26F2757447C008A40B9 /* ConsultingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultingViewController.swift; sourceTree = "<group>"; };
+		403EC27127574492008A40B9 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		403EC2732757449C008A40B9 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -656,6 +664,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		403EC26C2757326A008A40B9 /* MentorTab */ = {
+			isa = PBXGroup;
+			children = (
+				403EC26D2757328F008A40B9 /* MentorPageService.swift */,
+			);
+			path = MentorTab;
+			sourceTree = "<group>";
+		};
 		4041C0D127198803007D09E7 = {
 			isa = PBXGroup;
 			children = (
@@ -810,6 +826,7 @@
 				404C57052746B82F00B31F64 /* SignUp */,
 				403EC22A27565CEC008A40B9 /* RegistMentor */,
 				403EC25A2756EFBA008A40B9 /* RegistMentee */,
+				403EC26C2757326A008A40B9 /* MentorTab */,
 				403EC24427569B95008A40B9 /* MyPage */,
 			);
 			path = Network;
@@ -953,6 +970,9 @@
 			isa = PBXGroup;
 			children = (
 				4065FF0227453550005AAE0F /* InformationViewController.swift */,
+				403EC2732757449C008A40B9 /* PortfolioViewController.swift */,
+				403EC26F2757447C008A40B9 /* ConsultingViewController.swift */,
+				403EC27127574492008A40B9 /* ReviewViewController.swift */,
 			);
 			path = PageViews;
 			sourceTree = "<group>";
@@ -1469,6 +1489,7 @@
 				403EC267275719F8008A40B9 /* FirstOnboardingViewController.swift in Sources */,
 				403EC22C27565D16008A40B9 /* RegistMentorService.swift in Sources */,
 				403EC23127565F15008A40B9 /* UserMentorRegist.swift in Sources */,
+				403EC2742757449C008A40B9 /* PortfolioViewController.swift in Sources */,
 				402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */,
 				4065FF0D27454E26005AAE0F /* CompanyTableViewCell.swift in Sources */,
 				406C3F86274653B7009EBAB2 /* MenteeReviewTableViewCell.swift in Sources */,
@@ -1481,6 +1502,7 @@
 				4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */,
 				40FAED4A2753701B0006490E /* QuerySearchService.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
+				403EC26E2757328F008A40B9 /* MentorPageService.swift in Sources */,
 				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
 				4065FEE4274355C8005AAE0F /* RegistProfileFifthViewController.swift in Sources */,
 				404C57112746C44900B31F64 /* FirstFieldCategoryCVCell.swift in Sources */,
@@ -1531,6 +1553,7 @@
 				40FAED64275540150006490E /* RegistPortfolioFirthViewModel.swift in Sources */,
 				40FAED4727535C630006490E /* WithdrawViewModel.swift in Sources */,
 				40DCF343273979DD00A82CC6 /* JobMentorCollectionViewCell.swift in Sources */,
+				403EC2702757447C008A40B9 /* ConsultingViewController.swift in Sources */,
 				4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
 				40DCF357273DAA3700A82CC6 /* RegistProfileFirstViewController.swift in Sources */,
@@ -1538,6 +1561,7 @@
 				402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */,
 				40DCF34D273C0F5D00A82CC6 /* JobMentorListViewController.swift in Sources */,
 				4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */,
+				403EC27227574492008A40B9 /* ReviewViewController.swift in Sources */,
 				402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */,
 				4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */,
 				4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */,

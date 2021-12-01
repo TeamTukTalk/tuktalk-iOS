@@ -102,7 +102,7 @@ class RegistMentorFirstViewController: UIViewController {
     }
     
     private let subTitleLabel = UILabel().then {
-        $0.text = "현재 다니고 있는 회사명과 부서를 입력해주세요."
+        $0.text = "현재 다니고 있는 회사명을 입력해주세요."
         $0.font = UIFont.TTFont(type: .SDReg, size: 13)
         $0.textColor = UIColor.GrayScale.sub2
     }

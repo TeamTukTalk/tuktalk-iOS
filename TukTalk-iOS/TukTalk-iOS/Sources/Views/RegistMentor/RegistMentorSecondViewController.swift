@@ -364,8 +364,8 @@ class RegistMentorSecondViewController: UIViewController {
         sendBtn.rx.tap
             .bind { _ in
                 if self.viewModel.enableCompanyCheck(email: self.emailTextField.text!) {
-                    self.errorIcon.isHidden = false
-                    self.errorLabel.isHidden = false
+                    self.errorIcon.isHidden = true
+                    self.errorLabel.isHidden = true
                     self.updateBtnUI()
                     self.viewModel.sendEmailRequest(email: self.emailTextField.text!)
                 } else {

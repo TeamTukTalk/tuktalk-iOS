@@ -16,15 +16,9 @@ class MentorInformationViewController: UIViewController {
     private var dataSource: [PageCollectionViewDataModel] = []
 
     private lazy var informationVC = InformationViewController()
-    private lazy var portfolioVC = UIViewController().then {
-        $0.view.backgroundColor = .red
-    }
-    private lazy var consultingVC = UIViewController().then {
-        $0.view.backgroundColor = .yellow
-    }
-    private lazy var reviewVC = UIViewController().then {
-        $0.view.backgroundColor = .green
-    }
+    private lazy var portfolioVC = ConsultingViewController()
+    private lazy var consultingVC = ConsultingViewController()
+    private lazy var reviewVC = ReviewViewController()
 
     private var currentPage: Int = 0 {
         didSet {
@@ -134,22 +128,12 @@ class MentorInformationViewController: UIViewController {
         $0.textAlignment = .center
     }
     
-    private let consultingBtn = UIButton().then {
-        $0.setTitle("1:1 멘토링 신청", for: .normal)
+    private let openPortfolioBtn = UIButton().then {
+        $0.setTitle("포트폴리오 열람", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
         $0.backgroundColor = UIColor.Primary.primary
         $0.layer.cornerRadius = 22
-    }
-    
-    private let openPortfolioBtn = UIButton().then {
-        $0.setTitle("포트폴리오 유로 열람", for: .normal)
-        $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
-        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
-        $0.backgroundColor = .white
-        $0.layer.cornerRadius = 22
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
     }
 
     //MARK:- Life Cycle
@@ -221,7 +205,7 @@ class MentorInformationViewController: UIViewController {
         
         mainContentView.addSubview(profileView)
         profileView.snp.makeConstraints {
-            $0.height.equalTo(337)
+            $0.height.equalTo(285)
             $0.top.equalToSuperview().offset(4)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
@@ -286,17 +270,10 @@ class MentorInformationViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
-        profileView.addSubview(consultingBtn)
-        consultingBtn.snp.makeConstraints {
-            $0.height.equalTo(44)
-            $0.top.equalTo(devideView.snp.bottom).offset(64)
-            $0.leading.trailing.equalToSuperview().inset(20)
-        }
-        
         profileView.addSubview(openPortfolioBtn)
         openPortfolioBtn.snp.makeConstraints {
             $0.height.equalTo(44)
-            $0.top.equalTo(consultingBtn.snp.bottom).offset(8)
+            $0.top.equalTo(devideView.snp.bottom).offset(64)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
@@ -310,7 +287,7 @@ class MentorInformationViewController: UIViewController {
         mainContentView.addSubview(pageDevideView)
         pageDevideView.snp.makeConstraints {
             $0.height.equalTo(1)
-            $0.top.equalToSuperview().offset(401)
+            $0.top.equalToSuperview().offset(349)
             $0.leading.trailing.equalToSuperview()
         }
 

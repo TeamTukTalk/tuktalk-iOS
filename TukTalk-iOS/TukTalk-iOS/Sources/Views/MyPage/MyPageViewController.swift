@@ -341,24 +341,10 @@ class MyPageViewController: UIViewController {
                 $0.top.equalTo(myServiceBtn.snp.bottom)
             }
             
-            view.addSubview(certifyBtn)
-            certifyBtn.snp.makeConstraints {
-                $0.height.equalTo(50)
-                $0.top.equalTo(secondDevideView.snp.bottom)
-                $0.leading.trailing.equalToSuperview()
-            }
-            
-            certifyBtn.addSubview(certifyLabel)
-            certifyLabel.snp.makeConstraints {
-                $0.height.equalTo(22)
-                $0.centerY.equalToSuperview()
-                $0.leading.equalToSuperview().offset(16)
-            }
-            
             view.addSubview(accountSettingBtn)
             accountSettingBtn.snp.makeConstraints {
                 $0.height.equalTo(50)
-                $0.top.equalTo(certifyBtn.snp.bottom)
+                $0.top.equalTo(secondDevideView.snp.bottom)
                 $0.leading.trailing.equalToSuperview()
             }
             accountSettingBtn.addSubview(accountSettingLabel)
@@ -406,6 +392,12 @@ class MyPageViewController: UIViewController {
         accountSettingBtn.rx.tap
             .bind {
                 self.navigationController?.pushViewController(AccountSettingViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        certifyBtn.rx.tap
+            .bind {
+                self.navigationController?.pushViewController(RegistMentorFirstViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }
