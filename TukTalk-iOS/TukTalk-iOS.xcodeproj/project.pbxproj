@@ -152,6 +152,7 @@
 		4087E943275852E7000E2B6D /* PortfolioResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E942275852E7000E2B6D /* PortfolioResponse.swift */; };
 		4087E94527585D2B000E2B6D /* RegistPortfolioFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94427585D2B000E2B6D /* RegistPortfolioFinishViewController.swift */; };
 		4087E94927587900000E2B6D /* RegistMentorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94827587900000E2B6D /* RegistMentorResponse.swift */; };
+		4087E94B27587EF1000E2B6D /* PortfolioPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94A27587EF1000E2B6D /* PortfolioPageViewModel.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */; };
 		40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */; };
@@ -366,6 +367,7 @@
 		4087E942275852E7000E2B6D /* PortfolioResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioResponse.swift; sourceTree = "<group>"; };
 		4087E94427585D2B000E2B6D /* RegistPortfolioFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFinishViewController.swift; sourceTree = "<group>"; };
 		4087E94827587900000E2B6D /* RegistMentorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorResponse.swift; sourceTree = "<group>"; };
+		4087E94A27587EF1000E2B6D /* PortfolioPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioPageViewModel.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdViewController.swift; sourceTree = "<group>"; };
 		40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableHeaderView.swift; sourceTree = "<group>"; };
@@ -988,6 +990,7 @@
 			isa = PBXGroup;
 			children = (
 				4065FEFF274404A7005AAE0F /* MentorInformationViewModel.swift */,
+				4087E94A27587EF1000E2B6D /* PortfolioPageViewModel.swift */,
 			);
 			path = MentorTab;
 			sourceTree = "<group>";
@@ -1610,6 +1613,7 @@
 				4087E939275812D0000E2B6D /* PortfolioPageService.swift in Sources */,
 				4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */,
 				403EC237275661CC008A40B9 /* EmailVerifyResponse.swift in Sources */,
+				4087E94B27587EF1000E2B6D /* PortfolioPageViewModel.swift in Sources */,
 				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
 				4087E93127580B6C000E2B6D /* PortfolioPreviewTVCell.swift in Sources */,
 				40FAED5727537BD50006490E /* TopMentorSearchResponse.swift in Sources */,

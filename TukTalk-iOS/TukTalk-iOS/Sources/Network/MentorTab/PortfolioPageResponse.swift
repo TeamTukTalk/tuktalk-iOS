@@ -8,15 +8,16 @@
 import Foundation
 
 struct PortfolioPageResponse: Codable {
+    let portfolioID: Int
     let portfolioPageResponseDescription: String
     let projectCount, totalPages, startYear, endYear: Int
     let recommendationTargetDescription: String
-    let price: Int
     let pdfTuktalkFile: String
     let imageFiles: [String]
 
     enum CodingKeys: String, CodingKey {
+        case portfolioID = "portfolioId"
         case portfolioPageResponseDescription = "description"
-        case projectCount, totalPages, startYear, endYear, recommendationTargetDescription, price, pdfTuktalkFile, imageFiles
+        case projectCount, totalPages, startYear, endYear, recommendationTargetDescription, pdfTuktalkFile, imageFiles
     }
 }

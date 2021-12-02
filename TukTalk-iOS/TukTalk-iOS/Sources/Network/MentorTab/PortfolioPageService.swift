@@ -18,8 +18,8 @@ extension PortfolioPageService: TargetType {
     
     var path: String {
         switch self {
-        case .portfolioPageRequest(let id):
-            return "\(APIConstants.mentorPortfolioURL) + \(id)"
+        case .portfolioPageRequest:
+            return APIConstants.mentorPortfolioURL
         }
     }
     
@@ -32,8 +32,9 @@ extension PortfolioPageService: TargetType {
     
     var task: Task {
         switch self {
-        case .portfolioPageRequest:
-            return .requestPlain
+        case let .portfolioPageRequest(id):
+            let param = ["mentorId" : id]
+            return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
         }
     }
     

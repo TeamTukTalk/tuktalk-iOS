@@ -11,6 +11,7 @@ class PortfolioPreviewTVCell: UITableViewCell {
     
     public static let identifier : String = "PortfolioPreviceTVCell"
     private let disposeBag = DisposeBag()
+    private let imageData = BehaviorSubject<[UIImage]>(value: [])
     private var dataList: [UIImage] = []
     
     private let titleLabel = UILabel().then {
@@ -48,6 +49,7 @@ class PortfolioPreviewTVCell: UITableViewCell {
                 let data = try? Data(contentsOf: url)
                 dataList.append(UIImage(data: data ?? Data()) ?? UIImage())
             }
+            imageData.onNext(dataList)
         }
     }
     
@@ -61,7 +63,7 @@ class PortfolioPreviewTVCell: UITableViewCell {
         
         contentView.addSubview(previewCV)
         previewCV.snp.makeConstraints {
-            $0.height.equalTo(320)
+            $0.height.equalTo(180)
             $0.width.equalToSuperview()
             $0.top.equalTo(titleLabel.snp.bottom).offset(12)
             $0.bottom.equalToSuperview().inset(32)
@@ -77,14 +79,14 @@ class PortfolioPreviewTVCell: UITableViewCell {
         previewCV.setCollectionViewLayout(layout, animated: false)
         previewCV.backgroundColor = .white
         previewCV.showsHorizontalScrollIndicator = false
-        previewCV.register(TagListCollectionViewCell.self, forCellWithReuseIdentifier: "TagListCollectionViewCell")
+        previewCV.register(PortfolioPreviewCVCell.self, forCellWithReuseIdentifier: "PortfolioPreviewCVCell")
     }
     
     private func bindingCollectionView() {
-        Observable.of(dataList)
+        imageData
             .bind(to: previewCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.previewCV.dequeueReusableCell(withReuseIdentifier: "PortfolioPreviewCVCell", for: IndexPath.init(row: row, section: 0)) as? PortfolioPreviewCVCell {
-                    
+                    print(item)
                     cell.setData(img: item)
                     return cell
                 }

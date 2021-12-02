@@ -13,12 +13,13 @@ class PortfolioViewController: UIViewController {
     
     //MARK:- Properties
     
+    private lazy var viewModel = PortfolioPageViewModel()
     private let heightFrameValue = BehaviorRelay(value: Int(UIScreen.main.bounds.height))
     var heightFrame: Observable<Int> {
         return heightFrameValue.asObservable()
     }
     var mentorID: Int?
-    var response: PortfolioPageResponse?
+    var response: PortfolioPageResponse? = nil
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -29,8 +30,8 @@ class PortfolioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nilDataView()
         getMentorInform()
-        setUI()
         setTableViewUI()
         bindingTableView()
     }
@@ -64,23 +65,11 @@ class PortfolioViewController: UIViewController {
     }
     
     func getMentorInform() {
-        let provider = MoyaProvider<PortfolioPageService>()
-        provider.rx.request(.portfolioPageRequest(id: mentorID ?? -1))
-            .subscribe { result in
-                switch result {
-                case let .success(response):
-                    let responseData = try? response.map(PortfolioPageResponse.self)
-                    guard let data = responseData else {
-                        self.nilDataView()
-                        return
-                    }
-                    self.response = data
-                    self.tableView.reloadData()
-                case let .failure(error):
-                    print(error.localizedDescription)
-                }
-            }
-            .disposed(by: disposeBag)
+        viewModel.getPortfolioPage(mentorID: mentorID ?? -1) { response in
+            self.response = response
+            self.setUI()
+            self.tableView.reloadData()
+        }
     }
     
     func nilDataView() {

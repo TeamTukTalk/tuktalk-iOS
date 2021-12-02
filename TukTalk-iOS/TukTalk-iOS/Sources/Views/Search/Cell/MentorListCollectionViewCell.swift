@@ -8,8 +8,9 @@
 import RxSwift
 
 class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate {
-    private let hashTagListViewModel = HashTagCollectionViewModel()
+
     private let disposeBag = DisposeBag()
+    var hashTag = BehaviorSubject<[HashTag]>(value: [])
     
     var profileImg = UIImageView().then {
         $0.backgroundColor = UIColor.GrayScale.gray4
@@ -79,6 +80,7 @@ class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelega
         nameLabel.text = mentor.nickname
         companyLabel.text = mentor.companyName
         jobLabel.text = mentor.department
+        hashTag.onNext(mentor.hashTags)
     }
     
     private func setUI() {
@@ -153,20 +155,20 @@ class MentorListCollectionViewCell: UICollectionViewCell, UICollectionViewDelega
         hashTagCVLayout.minimumLineSpacing = 2
         hashTagCVLayout.minimumInteritemSpacing = 4
         hashTagCVLayout.scrollDirection = .vertical
-        hashTagCV.isUserInteractionEnabled = false
         hashTagCV.setCollectionViewLayout(hashTagCVLayout, animated: false)
         hashTagCV.backgroundColor = .white
         hashTagCV.showsHorizontalScrollIndicator = false
+        hashTagCV.isUserInteractionEnabled = false
         hashTagCV.register(HashTagCollectionViewCell.self, forCellWithReuseIdentifier: "HashTagCollectionViewCell")
     }
     private func bindingCollectionView() {
         hashTagCV.rx.setDelegate(self).disposed(by: disposeBag)
         
-        hashTagListViewModel.output.hashTagListData
+        hashTag
             .bind(to: hashTagCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.hashTagCV.dequeueReusableCell(withReuseIdentifier: "HashTagCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? HashTagCollectionViewCell {
                     
-                    cell.configure(name: item.title)
+                    cell.configure(name: item.hashTag)
                     return cell
                 }
                 return UICollectionViewCell()
@@ -179,14 +181,16 @@ extension MentorListCollectionViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var items: [SearchesDataModel] = []
+        var value = CGSize()
         
-        hashTagListViewModel.output.hashTagListData
-            .subscribe(onNext: {data in
-                items = data
-            })
+        hashTag
+            .bind { data in
+                if indexPath.row < data.count {
+                    value = HashTagCollectionViewCell.fittingSize(availableHeight: 18, name: data[indexPath.row].hashTag)
+                }
+            }
             .disposed(by: disposeBag)
         
-        return HashTagCollectionViewCell.fittingSize(availableHeight: 18, name: items[indexPath.row].title)
+        return value
     }
 }
