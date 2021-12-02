@@ -406,6 +406,15 @@ class MyPageViewController: UIViewController {
                 self.navigationController?.pushViewController(RegistMentorFirstViewController(), animated: true)
             }
             .disposed(by: disposeBag)
+        
+        if user == "MENTOR" {
+            myServiceBtn.rx.tap
+                .bind {
+                    self.navigationController?.pushViewController(MyServiceViewController(), animated: true)
+                }
+                .disposed(by: disposeBag)
+        }
+        
     }
     
     @objc private func profileTapAction(_ gesture: UITapGestureRecognizer) {

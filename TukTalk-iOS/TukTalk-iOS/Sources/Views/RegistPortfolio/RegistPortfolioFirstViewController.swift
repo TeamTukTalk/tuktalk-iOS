@@ -86,6 +86,7 @@ class RegistPortfolioFirstViewController: UIViewController {
     //MARK:- Function
     
     private func setNaviBar() {
+        setupAppearance()
         navigationController?.navigationBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: true)
         tabBarController?.navigationController?.setNavigationBarHidden(false, animated: true)

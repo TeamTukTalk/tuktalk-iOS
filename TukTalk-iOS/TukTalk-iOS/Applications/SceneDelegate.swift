@@ -17,12 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                     as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UINavigationController()
-        KeyChain.delete(key: "token")
-        KeyChain.delete(key: "role")
-        KeyChain.delete(key: "nickname")
-        KeyChain.delete(key: "firstLetter")
-        KeyChain.delete(key: "profileImageColor")
-        KeyChain.delete(key: "email")
+//        KeyChain.delete(key: "token")
+//        KeyChain.delete(key: "role")
+//        KeyChain.delete(key: "nickname")
+//        KeyChain.delete(key: "firstLetter")
+//        KeyChain.delete(key: "profileImageColor")
+//        KeyChain.delete(key: "email")
         if KeyChain.load(key: "token") == nil {
             window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         } else {

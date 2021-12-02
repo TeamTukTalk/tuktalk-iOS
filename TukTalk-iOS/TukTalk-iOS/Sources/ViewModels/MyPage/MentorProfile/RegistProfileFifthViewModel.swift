@@ -40,13 +40,17 @@ struct RegistProfileFifthViewModel: ViewModelType {
         self.output = Output(nextBtnEnable: nextBtnEnable$)
     }
     
-    func registProfile(param: RegistMentorRequest) {
+    func registProfile(param: RegistMentorRequest, completion: @escaping (RegistMentorResponse) -> ()) {
         let provider = MoyaProvider<RegistMentorService>()
         provider.rx.request(.registMentorRequest(param: param))
             .subscribe { result in
                 switch result {
                 case let .success(response):
                     print(response)
+                    let responseData = try? response.map(RegistMentorResponse.self)
+                    guard let data = responseData else { return }
+                    print(data.mentorId)
+                    completion(data)
                 case let .failure(error):
                     print(error.localizedDescription)
                 }

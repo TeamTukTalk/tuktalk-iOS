@@ -84,24 +84,13 @@ class PortfolioViewController: UIViewController {
     }
     
     func nilDataView() {
-        let tempImg = UIImageView().then {
-            $0.image = UIImage(named: "updateImg")
-        }
-        
-        let tempLabel = UILabel().then {
-            $0.text = "등록된 포트폴리오가 없습니다."
-            $0.font = UIFont.TTFont(type: .SDBold, size: 14)
-            $0.textColor = UIColor.GrayScale.sub3
+        let emptyImg = UIImageView().then {
+            $0.image = UIImage(named: "emptyIcon")
         }
         tableView.removeFromSuperview()
-        view.addSubview(tempImg)
-        tempImg.snp.makeConstraints {
+        view.addSubview(emptyImg)
+        emptyImg.snp.makeConstraints {
             $0.top.equalToSuperview().offset(30)
-            $0.centerX.equalToSuperview()
-        }
-        view.addSubview(tempLabel)
-        tempLabel.snp.makeConstraints {
-            $0.top.equalTo(tempImg.snp.bottom).offset(10)
             $0.centerX.equalToSuperview()
         }
     }
