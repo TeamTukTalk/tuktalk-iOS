@@ -31,7 +31,7 @@ class MyServiceViewController: UIViewController {
     
     private let uploadBtn = UIButton().then {
         $0.backgroundColor = UIColor.Primary.primary
-        $0.setTitle("열람하기", for: .normal)
+        $0.setTitle("등록하기", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
         $0.layer.cornerRadius = 26

@@ -41,7 +41,7 @@ class FinishOnboardingViewController: UIViewController {
         view.addSubview(titleView)
         titleView.snp.makeConstraints {
             if UIScreen.main.bounds.height <= 667 {
-                $0.top.equalToSuperview().offset(60)
+                $0.top.equalToSuperview().offset(50)
             } else {
                 $0.top.equalToSuperview().offset(124)
             }

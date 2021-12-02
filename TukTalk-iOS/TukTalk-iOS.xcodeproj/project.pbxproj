@@ -153,6 +153,9 @@
 		4087E94527585D2B000E2B6D /* RegistPortfolioFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94427585D2B000E2B6D /* RegistPortfolioFinishViewController.swift */; };
 		4087E94927587900000E2B6D /* RegistMentorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94827587900000E2B6D /* RegistMentorResponse.swift */; };
 		4087E94B27587EF1000E2B6D /* PortfolioPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94A27587EF1000E2B6D /* PortfolioPageViewModel.swift */; };
+		4087E94D27589750000E2B6D /* UserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94C27589750000E2B6D /* UserInfoService.swift */; };
+		4087E94F275897E1000E2B6D /* UserInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94E275897E1000E2B6D /* UserInfoResponse.swift */; };
+		4087E9512758A364000E2B6D /* MyServicePortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E9502758A364000E2B6D /* MyServicePortfolioViewController.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */; };
 		40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */; };
@@ -368,6 +371,9 @@
 		4087E94427585D2B000E2B6D /* RegistPortfolioFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFinishViewController.swift; sourceTree = "<group>"; };
 		4087E94827587900000E2B6D /* RegistMentorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorResponse.swift; sourceTree = "<group>"; };
 		4087E94A27587EF1000E2B6D /* PortfolioPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioPageViewModel.swift; sourceTree = "<group>"; };
+		4087E94C27589750000E2B6D /* UserInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoService.swift; sourceTree = "<group>"; };
+		4087E94E275897E1000E2B6D /* UserInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponse.swift; sourceTree = "<group>"; };
+		4087E9502758A364000E2B6D /* MyServicePortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServicePortfolioViewController.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdViewController.swift; sourceTree = "<group>"; };
 		40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableHeaderView.swift; sourceTree = "<group>"; };
@@ -561,6 +567,7 @@
 				40FAED4027534F860006490E /* MyPageInformationViewController.swift */,
 				40FAED42275355490006490E /* WithdrawViewController.swift */,
 				4087E94027584672000E2B6D /* MyServiceViewController.swift */,
+				4087E9502758A364000E2B6D /* MyServicePortfolioViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -890,6 +897,8 @@
 				404C57172746D6B100B31F64 /* LoginService.swift */,
 				404C57142746D62800B31F64 /* LoginRequest.swift */,
 				402B98CC2752245400EDD668 /* LoginResponse.swift */,
+				4087E94C27589750000E2B6D /* UserInfoService.swift */,
+				4087E94E275897E1000E2B6D /* UserInfoResponse.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1551,6 +1560,7 @@
 				404E6870272449B6005AA5DD /* RegistMentorFirstViewModel.swift in Sources */,
 				4087E943275852E7000E2B6D /* PortfolioResponse.swift in Sources */,
 				402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */,
+				4087E9512758A364000E2B6D /* MyServicePortfolioViewController.swift in Sources */,
 				4065FF00274404A7005AAE0F /* MentorInformationViewModel.swift in Sources */,
 				404E68742724541E005AA5DD /* RegistMentorFinishViewController.swift in Sources */,
 				403EC26227570824008A40B9 /* WithdrawService.swift in Sources */,
@@ -1565,6 +1575,7 @@
 				403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */,
 				402D65A12726D64400F4ED8F /* SearchDirectViewController.swift in Sources */,
 				40FAED522753796A0006490E /* JobSearchResponse.swift in Sources */,
+				4087E94F275897E1000E2B6D /* UserInfoResponse.swift in Sources */,
 				402D65972726848800F4ED8F /* HomeViewController.swift in Sources */,
 				40CC20BE274E4423008A3967 /* TipViewController.swift in Sources */,
 				40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */,
@@ -1600,6 +1611,7 @@
 				403EC2702757447C008A40B9 /* ConsultingViewController.swift in Sources */,
 				4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
+				4087E94D27589750000E2B6D /* UserInfoService.swift in Sources */,
 				40DCF357273DAA3700A82CC6 /* RegistProfileFirstViewController.swift in Sources */,
 				403EC2532756C787008A40B9 /* SignUpResponse.swift in Sources */,
 				403EC27627579C76008A40B9 /* QuerySearchRequest.swift in Sources */,

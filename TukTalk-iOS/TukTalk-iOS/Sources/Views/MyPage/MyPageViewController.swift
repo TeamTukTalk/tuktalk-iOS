@@ -19,9 +19,9 @@ class MyPageViewController: UIViewController {
     
     //MARK:- UI Components
     
-//    private let settingBtn = UIButton().then {
-//        $0.setImage(UIImage(named: "settingBtn"), for: .normal)
-//    }
+    //    private let settingBtn = UIButton().then {
+    //        $0.setImage(UIImage(named: "settingBtn"), for: .normal)
+    //    }
     
     private let profileImg = UIImageView().then {
         $0.backgroundColor = UIColor.GrayScale.gray4
@@ -162,17 +162,35 @@ class MyPageViewController: UIViewController {
             self.profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: color ?? "")
             self.profileLabel.textColor = UIColor.Profile.getNameColor(color: color ?? "")
         }
+        
+        if user == "MENTOR" {
+            let provider = MoyaProvider<PortfolioPageService>()
+            viewModel.getUserInfo() { userInfo in
+                provider.rx.request(.portfolioPageRequest(id: userInfo.mentorId ?? -1))
+                    .subscribe { result in
+                        switch result {
+                        case let .success(response):
+                            let responseData = try? response.map(PortfolioPageResponse.self)
+                            guard let data = responseData else { return }
+                            self.setMentorServiceUI(response: data)
+                        case let .failure(error):
+                            print(error.localizedDescription)
+                        }
+                    }
+                    .disposed(by: self.disposeBag)
+            }
+        }
     }
     
     private func setUI() {
         view.backgroundColor = .white
         
-//        view.addSubview(settingBtn)
-//        settingBtn.snp.makeConstraints {
-//            $0.width.height.equalTo(24)
-//            $0.top.equalToSuperview().offset(54)
-//            $0.trailing.equalToSuperview().inset(16)
-//        }
+        //        view.addSubview(settingBtn)
+        //        settingBtn.snp.makeConstraints {
+        //            $0.width.height.equalTo(24)
+        //            $0.top.equalToSuperview().offset(54)
+        //            $0.trailing.equalToSuperview().inset(16)
+        //        }
         view.addSubview(profileImg)
         profileImg.snp.makeConstraints {
             $0.width.height.equalTo(70)
@@ -380,12 +398,12 @@ class MyPageViewController: UIViewController {
     }
     
     private func binding() {
-//        profileBtn.rx.tap
-//            .bind {
-//                self.tabBarController?.tabBar.isHidden = true
-//                self.navigationController?.pushViewController(RegistProfileFirstViewController(), animated: true)
-//            }
-//            .disposed(by: disposeBag)
+        //        profileBtn.rx.tap
+        //            .bind {
+        //                self.tabBarController?.tabBar.isHidden = true
+        //                self.navigationController?.pushViewController(RegistProfileFirstViewController(), animated: true)
+        //            }
+        //            .disposed(by: disposeBag)
         let profileTapAction = UITapGestureRecognizer(target: self, action: #selector(profileTapAction(_:)))
         profileBackground.addGestureRecognizer(profileTapAction)
         
@@ -415,6 +433,85 @@ class MyPageViewController: UIViewController {
                 .disposed(by: disposeBag)
         }
         
+    }
+    
+    private func setMentorServiceUI(response: PortfolioPageResponse) {
+        mentorServiceNilImg.removeFromSuperview()
+        mentorServiceNilLabel.removeFromSuperview()
+        
+        mentorServiceView.snp.updateConstraints {
+            $0.height.equalTo(191)
+        }
+        
+        mentorServiceView.backgroundColor = .white
+        mentorServiceView.layer.cornerRadius = 8
+        mentorServiceView.layer.borderColor = UIColor.GrayScale.gray3.cgColor
+        mentorServiceView.layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 14, spread: 0)
+        
+        let portfolioIcon = UIImageView().then {
+            $0.image = UIImage(named: "portfolioImg")
+        }
+        let titleLabel = UILabel().then {
+            $0.text = "포트폴리오"
+            $0.textColor = UIColor.GrayScale.normal
+            $0.font = UIFont.TTFont(type: .SFBold, size: 14)
+        }
+        let devideView = UIView().then {
+            $0.backgroundColor = UIColor.GrayScale.gray4
+        }
+        let contentsLabel = UILabel().then {
+            $0.font = UIFont.TTFont(type: .SDReg, size: 12)
+            $0.textColor = UIColor.GrayScale.sub2
+            $0.makeHeightSpacing(thisText: response.portfolioPageResponseDescription, fontSize: 12)
+            $0.numberOfLines = 2
+        }
+        let viewDetails = UIButton().then {
+            $0.setTitle("상세보기", for: .normal)
+            $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
+            $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
+            $0.backgroundColor = .white
+            $0.layer.borderWidth = 1
+            $0.layer.cornerRadius = 22
+            $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
+        }
+        
+        mentorServiceView.addSubview(portfolioIcon)
+        portfolioIcon.snp.makeConstraints {
+            $0.width.height.equalTo(20)
+            $0.top.equalToSuperview().offset(18)
+            $0.leading.equalToSuperview().offset(20)
+        }
+        mentorServiceView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.equalTo(portfolioIcon.snp.top)
+            $0.leading.equalTo(portfolioIcon.snp.trailing).offset(8)
+        }
+        mentorServiceView.addSubview(devideView)
+        devideView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(30)
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        mentorServiceView.addSubview(contentsLabel)
+        contentsLabel.snp.makeConstraints {
+            $0.top.equalTo(devideView.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        mentorServiceView.addSubview(viewDetails)
+        viewDetails.snp.makeConstraints {
+            $0.height.equalTo(44)
+            $0.top.equalTo(contentsLabel.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        viewDetails.rx.tap
+            .bind {
+                let nextVC = MyServicePortfolioViewController()
+                nextVC.response = response
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     @objc private func profileTapAction(_ gesture: UITapGestureRecognizer) {
