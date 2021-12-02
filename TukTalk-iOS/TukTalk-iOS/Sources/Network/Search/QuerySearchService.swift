@@ -43,17 +43,6 @@ extension QuerySearchService: TargetType {
             if param.startYear != nil {
                 params["startYear"] = param.startYear
             }
-            print(params)
-//            if param.
-//            var params: [String: Any] = ["query": "\(param.query)", "companySize": "\(param.CompanySize)", "subSpecialty": "\(param.subSpecialty)", "startYear": param.startYear]
-//            for (key, value) in params {
-//                let nummable: Any = value
-//                if case Optional<Any>.none = nummable {
-//                    print(key)
-//                    print(123)
-//                }
-//                print("\(key) : \(value)")
-//            }
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
         }
     }

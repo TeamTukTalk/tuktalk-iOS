@@ -127,7 +127,8 @@ class SignUpFinishViewController: UIViewController {
                 if !UserDefaults.standard.bool(forKey: "first") {
                     self.navigationController?.pushViewController(FirstOnboardingViewController(), animated: true)
                 } else {
-                    self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+                    let tabbarVC = UINavigationController(rootViewController: TabBarViewController())
+                    UIApplication.shared.windows.filter { $0.isKeyWindow }.first!.replaceRootViewController(tabbarVC, animated: true, completion: nil)
                 }
             }
             .disposed(by: disposeBag)

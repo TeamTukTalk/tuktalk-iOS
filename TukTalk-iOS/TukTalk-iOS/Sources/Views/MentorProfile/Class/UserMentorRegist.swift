@@ -18,10 +18,11 @@ class UserMentorRegist {
     var companyName: String?
     var department: String?
     var position: String?
-    var career: Career?
+    var months: Int?
+    var years: Int?
     var careerDescription: String?
     var companySize: String?
-    var hashTags: [HashTag] = []
+    var hashTags: [String] = []
 
     private init() {}
 }

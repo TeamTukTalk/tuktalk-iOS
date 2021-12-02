@@ -239,13 +239,28 @@ class RegistProfileFifthViewController: UIViewController {
                     self.progressIsHiddenValue.accept(valid)
                 })
                 .disposed(by: self.disposeBag)
-                UserMentorRegist.shared.companySize = self.viewModel.company
+                UserMentorRegist.shared.companySize = self.viewModel.company?.trimmingCharacters(in: ["#"])
                 var hashTag: [HashTag] = []
                 for i in Range(0...self.viewModel.hashTag.count - 1) {
-                    hashTag.append(HashTag(hashTag: self.viewModel.hashTag[i]))
+//                    hashTag.append(HashTag(hashTag: self.viewModel.hashTag[i].trimmingCharacters(in: ["#"])))
+                    hashTag.append(HashTag(hashTag: self.viewModel.hashTag[i].trimmingCharacters(in: ["#"])))
                 }
-                UserMentorRegist.shared.hashTags = hashTag
-                self.viewModel.registProfile(param: RegistMentorRequest(nickname: UserMentorRegist.shared.nickname!, simpleIntroDuction: UserMentorRegist.shared.simpleIntroDuction!, detailedIntroduction: UserMentorRegist.shared.detailedIntroduction!, specialty: UserMentorRegist.shared.specialty!, subSpecialties: UserMentorRegist.shared.subSpecialties, companyName: UserMentorRegist.shared.companyName!, department: UserMentorRegist.shared.department!, position: UserMentorRegist.shared.position!, career: UserMentorRegist.shared.career!, careerDescription: UserMentorRegist.shared.careerDescription!, companySize: UserMentorRegist.shared.companyName!, hashTags: UserMentorRegist.shared.hashTags))
+//                UserMentorRegist.shared.hashTags = hashTag
+                self.viewModel.registProfile(param: RegistMentorRequest(nickname: UserMentorRegist.shared.nickname!, simpleIntroduction: UserMentorRegist.shared.simpleIntroDuction!, detailedIntroduction: UserMentorRegist.shared.detailedIntroduction!, specialty: UserMentorRegist.shared.specialty!, subSpecialties: UserMentorRegist.shared.subSpecialties, companyName: UserMentorRegist.shared.companyName!, department: UserMentorRegist.shared.department!, position: UserMentorRegist.shared.position!, career: Career(months: UserMentorRegist.shared.months!, years: UserMentorRegist.shared.years!), careerDescription: UserMentorRegist.shared.careerDescription!, companySize: UserMentorRegist.shared.companyName!, hashTags: hashTag))
+                print("@@@@@@@@@@@@@@@@@@@@@@@")
+                print(UserMentorRegist.shared.nickname!)
+                print(UserMentorRegist.shared.simpleIntroDuction!)
+                print(UserMentorRegist.shared.detailedIntroduction!)
+                print(UserMentorRegist.shared.subSpecialties)
+                print(UserMentorRegist.shared.companyName!)
+                print(UserMentorRegist.shared.department!)
+                print(UserMentorRegist.shared.position!)
+                print(UserMentorRegist.shared.months!)
+                print(UserMentorRegist.shared.years!)
+                print(UserMentorRegist.shared.careerDescription!)
+                print(UserMentorRegist.shared.companySize!)
+                print(hashTag)
+                print("@@@@@@@@@@@@@@@@@@@@@@@")
                 self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)

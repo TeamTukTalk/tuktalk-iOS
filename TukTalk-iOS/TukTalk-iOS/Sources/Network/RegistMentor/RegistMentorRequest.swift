@@ -8,17 +8,11 @@
 import Foundation
 
 struct RegistMentorRequest: Codable {
-    let nickname: String
-    let simpleIntroDuction: String
-    let detailedIntroduction: String
-    let specialty: String
+    let nickname, simpleIntroduction, detailedIntroduction, specialty: String
     let subSpecialties: [String]
-    let companyName: String
-    let department: String
-    let position: String
+    let companyName, department, position: String
     let career: Career
-    let careerDescription: String
-    let companySize: String
+    let careerDescription, companySize: String
     let hashTags: [HashTag]
 }
 

@@ -265,8 +265,10 @@ class SearchingViewController: UIViewController {
             .disposed(by: disposeBag)
         
         mentorListCV.rx.modelSelected(TopMentorSearchResponseElement.self)
-            .bind { _ in
-                self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
+            .bind { model in
+                let nextVC = MentorInformationViewController()
+                nextVC.mentorID = model.id
+                self.navigationController?.pushViewController(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
     }

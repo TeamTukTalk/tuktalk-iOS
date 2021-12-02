@@ -53,7 +53,7 @@ class RegistProfileThirdViewController: UIViewController {
     }
     
     private let companyTextField = UITextField().then {
-        $0.text = "뚝딱회사"
+        $0.text = ""
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
         $0.setLeftPaddingPoints(16)
@@ -207,6 +207,12 @@ class RegistProfileThirdViewController: UIViewController {
     
     private func setUI() {
         view.backgroundColor = .white
+        if let email = String(data: KeyChain.load(key: "email") ?? Data(), encoding: .utf8) {
+            viewModel.getCompanyName(email: email) { response in
+                UserMentorRegist.shared.companyName = response.companyName
+                self.companyTextField.text = response.companyName
+            }
+        }
         
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
@@ -446,7 +452,8 @@ class RegistProfileThirdViewController: UIViewController {
                     
                     UserMentorRegist.shared.department = self.departMentTextField.text
                     UserMentorRegist.shared.position = self.rankTextField.text
-                    UserMentorRegist.shared.career = Career(months: Int(self.employmentMonthTextField.text!)!, years: Int(self.employmentYearTextField.text!)!)
+                    UserMentorRegist.shared.months = Int(self.employmentMonthTextField.text!)
+                    UserMentorRegist.shared.years = Int(self.employmentYearTextField.text!)
                     self.navigationController?.pushViewController(nextVC, animated: false)
                 }
             }

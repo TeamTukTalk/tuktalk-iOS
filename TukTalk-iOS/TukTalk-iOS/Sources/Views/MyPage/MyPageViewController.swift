@@ -135,6 +135,7 @@ class MyPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setProfileData()
+        mentorEmailValidationCheck()
         navigationController?.navigationBar.isHidden = true
         navigationController?.setNavigationBarHidden(true, animated: false)
         tabBarController?.tabBar.isHidden = false
@@ -304,7 +305,6 @@ class MyPageViewController: UIViewController {
                 $0.centerY.equalToSuperview()
                 $0.leading.equalToSuperview().offset(16)
             }
-            mentorEmailValidation()
         } else if user == "MENTEE" {
             view.addSubview(devideView)
             devideView.snp.makeConstraints {
@@ -370,6 +370,12 @@ class MyPageViewController: UIViewController {
                 }
             }
             self.mentorEmailValid = response.certifiedMentor
+        }
+    }
+    
+    private func mentorEmailValidationCheck() {
+        if user == "MENTOR" {
+            mentorEmailValidation()
         }
     }
     

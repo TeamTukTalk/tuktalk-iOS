@@ -273,10 +273,6 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func setProfileData() {
-        if let nickname = KeyChain.load(key: "nickname") {
-            let name = String(data: nickname, encoding: .utf8)
-            self.nameLabel.text = "\(name ?? "")님"
-        }
         if let firstLetter = KeyChain.load(key: "firstLetter") {
             let first = String(data: firstLetter, encoding: .utf8)
             self.profileLabel.text = first

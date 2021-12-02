@@ -1,38 +1,38 @@
 //
-//  SendEmailService.swift
+//  GetCompanyNameService.swift
 //  TukTalk-iOS
 //
-//  Created by 한상진 on 2021/11/30.
+//  Created by 한상진 on 2021/12/02.
 //
 
 import Moya
 
-enum SendEmailService {
-    case sendEmailRequest(_ email: String? = nil)
+enum GetCompanyNameService {
+    case companyNameRequest(_ email: String? = nil)
 }
 
-extension SendEmailService: TargetType {
+extension GetCompanyNameService: TargetType {
     var baseURL: URL {
         return URL(string: APIConstants.baseURL)!
     }
     
     var path: String {
         switch self {
-        case .sendEmailRequest:
-            return APIConstants.sendEmailURL
+        case .companyNameRequest:
+            return APIConstants.companyNameURL
         }
     }
     
     var method: Method {
         switch self {
-        case .sendEmailRequest:
-            return .post
+        case .companyNameRequest:
+            return .get
         }
     }
     
     var task: Task {
         switch self {
-        case .sendEmailRequest(let email):
+        case .companyNameRequest(let email):
             let params: [String: String] = ["email": email!]
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
         }
@@ -41,7 +41,7 @@ extension SendEmailService: TargetType {
     var headers: [String : String]? {
         guard let token = APIConstants.token else { return nil }
         switch self {
-        case .sendEmailRequest:
+        case .companyNameRequest:
             return [
                 "Authorization": token,
                 "Content-Type": "application/json"
@@ -49,4 +49,3 @@ extension SendEmailService: TargetType {
         }
     }
 }
-

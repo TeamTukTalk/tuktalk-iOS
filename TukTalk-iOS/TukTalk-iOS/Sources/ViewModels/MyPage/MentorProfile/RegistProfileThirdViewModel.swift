@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import Moya
 
 struct RegistProfileThirdViewModel: ViewModelType {
     
@@ -45,6 +46,22 @@ struct RegistProfileThirdViewModel: ViewModelType {
         
         self.input = Input(department: department$.asObserver(), rankTitle: rankTitle$.asObserver(), inputYear: inputYear$.asObserver(), inputMonth: inputMonth$.asObserver())
         self.output = Output(nextBtnEnable: nextBtnEnable$, monthEnable: monthEnable$)
+    }
+    
+    func getCompanyName(email: String, completion: @escaping (GetCompanyNameResponse) -> ()) {
+        let provider = MoyaProvider<GetCompanyNameService>()
+        provider.rx.request(.companyNameRequest(email))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    let responseData = try? response.map(GetCompanyNameResponse.self)
+                    guard let data = responseData else { return }
+                    completion(data)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: self.disposeBag)
     }
 }
 
