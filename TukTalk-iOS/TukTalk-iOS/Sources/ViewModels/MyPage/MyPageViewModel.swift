@@ -43,6 +43,23 @@ class MyPageViewModel {
             .disposed(by: disposeBag)
     }
     
+    func getHistory(completion: @escaping (HistoryPortfolioResponse) -> ()) {
+        let provider = MoyaProvider<HistoryPortfolioService>()
+        provider.rx.request(.historyRequest)
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    print(response)
+                    let responseData = try? response.map(HistoryPortfolioResponse.self)
+                    guard let data = responseData else { return }
+                    completion(data)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
 //    func getMenteeProfileData(completion: @escaping (MenteeProfileResponse) -> ()) {
 //        let provider = MoyaProvider<MenteeProfileService>()
 //        provider.rx.request(.menteeProfileRequest)

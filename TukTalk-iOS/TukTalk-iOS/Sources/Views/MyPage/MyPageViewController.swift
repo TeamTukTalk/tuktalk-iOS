@@ -14,7 +14,11 @@ class MyPageViewController: UIViewController {
     
     private lazy var viewModel = MyPageViewModel()
     private var mentorEmailValid: Bool?
+    private var mentorID: Int?
+    private var menteeID: Int?
     private var user: String?
+    private var response: PortfolioPageResponse?
+    private var historyResponse: HistoryPortfolioResponse?
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -128,6 +132,7 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setProfileData()
+        mentorEmailValidationCheck()
         setUI()
         binding()
     }
@@ -135,6 +140,7 @@ class MyPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setProfileData()
+        setHistoryResponse()
         mentorEmailValidationCheck()
         navigationController?.navigationBar.isHidden = true
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -166,12 +172,14 @@ class MyPageViewController: UIViewController {
         if user == "MENTOR" {
             let provider = MoyaProvider<PortfolioPageService>()
             viewModel.getUserInfo() { userInfo in
+                self.mentorID = userInfo.menteeId
                 provider.rx.request(.portfolioPageRequest(id: userInfo.mentorId ?? -1))
                     .subscribe { result in
                         switch result {
                         case let .success(response):
                             let responseData = try? response.map(PortfolioPageResponse.self)
                             guard let data = responseData else { return }
+                            self.response = data
                             self.setMentorServiceUI(response: data)
                         case let .failure(error):
                             print(error.localizedDescription)
@@ -424,15 +432,32 @@ class MyPageViewController: UIViewController {
                 self.navigationController?.pushViewController(RegistMentorFirstViewController(), animated: true)
             }
             .disposed(by: disposeBag)
-        
         if user == "MENTOR" {
             myServiceBtn.rx.tap
                 .bind {
-                    self.navigationController?.pushViewController(MyServiceViewController(), animated: true)
+                    let nextVC = MentorMyServiceViewController()
+                    nextVC.response = self.response
+                    self.navigationController?.pushViewController(nextVC, animated: true)
+                }
+                .disposed(by: disposeBag)
+        } else {
+            myServiceBtn.rx.tap
+                .bind {
+                    let nextVC = MenteeMyServiceViewController()
+                    nextVC.response = self.historyResponse
+                    self.navigationController?.pushViewController(nextVC, animated: true)
                 }
                 .disposed(by: disposeBag)
         }
         
+    }
+    
+    private func setHistoryResponse() {
+        if user == "MENTEE" {
+            viewModel.getHistory() { history in
+                self.historyResponse = history
+            }
+        }
     }
     
     private func setMentorServiceUI(response: PortfolioPageResponse) {

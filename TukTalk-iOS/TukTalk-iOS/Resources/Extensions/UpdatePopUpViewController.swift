@@ -20,7 +20,7 @@ final class UpdatePopUpViewController: UIViewController {
         $0.image = UIImage(named: "updateImg")
     }
     
-    private let popUpTitleLabel = UILabel().then {
+    var popUpTitleLabel = UILabel().then {
         $0.text = "업데이트 준비중입니다. 잠시만 기다려주세요."
         $0.textColor = UIColor.GrayScale.sub3
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)

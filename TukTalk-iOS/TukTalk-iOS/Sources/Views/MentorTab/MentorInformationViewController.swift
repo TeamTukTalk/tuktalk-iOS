@@ -347,6 +347,29 @@ class MentorInformationViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: self.disposeBag)
+        
+        openPortfolioBtn.rx.tap
+            .bind {
+                self.viewModel.openPortfolio(id: self.mentorID ?? -1 , completion: { response in
+                    self.viewModel.viewPortfolio(id: response.portfolioID)
+                    guard let url = URL(string: response.pdfTuktalkFile), UIApplication.shared.canOpenURL(url) else { return }
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }, status: { status in
+                    if !status {
+                        let popUpViewController = UpdatePopUpViewController()
+                        popUpViewController.popUpTitleLabel.text = "포트폴리오가 존재하지 않습니다."
+                        let naviVC = UINavigationController(rootViewController: popUpViewController)
+                        naviVC.modalPresentationStyle = .overCurrentContext
+                        naviVC.modalTransitionStyle = .crossDissolve
+                        naviVC.navigationBar.isHidden = true
+                        self.present(naviVC, animated: true) {
+                            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
+                            naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+                        }
+                    }
+                })
+            }
+            .disposed(by: disposeBag)
     }
 
     private func bindingCollectionView() {

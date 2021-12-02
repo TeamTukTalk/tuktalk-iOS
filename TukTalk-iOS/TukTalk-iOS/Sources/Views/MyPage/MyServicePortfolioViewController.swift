@@ -37,6 +37,7 @@ class MyServicePortfolioViewController: UIViewController {
         super.viewDidLoad()
         setUI()
         setTableViewUI()
+        binding()
         bindingTableView()
     }
     
@@ -72,6 +73,14 @@ class MyServicePortfolioViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.bounces = false
         tableView.flashScrollIndicators()
+    }
+    
+    private func binding() {
+        backBtn.rx.tap
+            .bind {
+                self.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindingTableView() {

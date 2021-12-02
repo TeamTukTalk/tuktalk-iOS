@@ -49,6 +49,37 @@ final class MentorInformationViewModel: ViewModelType {
             .disposed(by: disposeBag)
     }
     
+    func openPortfolio(id: Int, completion: @escaping (PortfolioPageResponse) -> (), status: @escaping (_ status: Bool) -> ()) {
+        let provider = MoyaProvider<PortfolioPageService>()
+        provider.rx.request(.portfolioPageRequest(id: id))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    let responseData = try? response.map(PortfolioPageResponse.self)
+                    status(responseData != nil)
+                    guard let data = responseData else { return }
+                    completion(data)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func viewPortfolio(id: Int) {
+        let provider = MoyaProvider<ViewPortfolioService>()
+        provider.rx.request(.viewPortfolio(portfolioId: id))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    print(response)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
     init(dependency: Dependency = Dependency()) {
         self.dependency = Dependency()
         let pageData$ = Observable<[PageCollectionViewDataModel]>.just(pageList)
