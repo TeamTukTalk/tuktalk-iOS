@@ -27,7 +27,8 @@ class WithdrawViewController: UIViewController {
     }
     
     private let titleLabel = UILabel().then {
-        $0.text = "리즈님\n정말 탈퇴하시겠어요?"
+        let name = String(data: KeyChain.load(key: "nickname")!, encoding: .utf8)
+        $0.text = "\(name!)님\n정말 탈퇴하시겠어요?"
         $0.font = UIFont.TTFont(type: .SDHeader, size: 20)
         $0.textColor = UIColor.GrayScale.normal
         $0.makeHeightSpacing(thisText: $0.text, fontSize: 20)
