@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 struct LoginViewModel: ViewModelType {
     
@@ -15,34 +16,29 @@ struct LoginViewModel: ViewModelType {
     let output: Output
     
     struct Dependency {
-        var email :String?
-        var password: String?
     }
     
     struct Input {
-        var emailText: AnyObserver<String>
-        var passwordText: AnyObserver<String>
+        var emailText: AnyObserver<String?>
+        var passwordText: AnyObserver<String?>
     }
     
     struct Output {
-        var emailIsValid: Observable<Bool>
+        var emailIsValid: Driver<Bool>
     }
     
-    init(dependency: Dependency = Dependency(email: nil, password: nil)) {
-        self.dependency = dependency
-        
-        let emailText$ = BehaviorSubject<String>(value: "")
-        let passwordText$ = BehaviorSubject<String>(value: "")
-        let emailIsValid$ = emailValidation(email: emailText$)
+    init(dependency: Dependency = Dependency()) {
+        self.dependency = Dependency()
+        let emailText$ = BehaviorSubject<String?>(value: nil)
+        let passwordText$ = BehaviorSubject<String?>(value: nil)
+        let emailIsValid$ = emailText$.map(emailValidation).asDriver(onErrorJustReturn: false)
         
         self.input = Input(emailText: emailText$.asObserver(), passwordText: passwordText$.asObserver())
         self.output = Output(emailIsValid: emailIsValid$)
     }
 }
 
-private func emailValidation(email: Observable<String>) -> Observable<Bool> {
-    return email.asObservable()
-        .map { email in
-            return email.contains("@") && email.contains(".")
-        }
+private func emailValidation(email: String?) -> Bool {
+    guard let email = email else { return false }
+    return email.contains("@") && email.contains(".")
 }

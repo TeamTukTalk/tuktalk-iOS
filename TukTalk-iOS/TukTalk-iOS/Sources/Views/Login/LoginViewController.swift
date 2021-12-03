@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     
     private var keyboardFrame: NSValue?
     private let screenHeight = UIScreen.main.bounds.height
-    private lazy var loginViewModel = LoginViewModel()
+    private lazy var viewModel = LoginViewModel()
     private lazy var provider = MoyaProvider<LoginService>()
     private let disposeBag = DisposeBag()
     
@@ -231,12 +231,12 @@ class LoginViewController: UIViewController {
     private func binding() {
         emailTextField.rx.text
             .orEmpty
-            .bind(to: loginViewModel.input.emailText)
+            .bind(to: viewModel.input.emailText)
             .disposed(by: disposeBag)
         
         passwordTextField.rx.text
             .orEmpty
-            .bind(to: loginViewModel.input.passwordText)
+            .bind(to: viewModel.input.passwordText)
             .disposed(by: disposeBag)
         
         emailTextField.rx.controlEvent(.editingDidBegin)
@@ -248,18 +248,12 @@ class LoginViewController: UIViewController {
         emailTextField.rx.controlEvent(.editingDidEnd)
             .bind {
                 self.emailTextField.setUnderline(false)
-                self.loginViewModel.output.emailIsValid.take(1)
-                    .filter {!$0}
-                    .bind { status in
+                self.viewModel.output.emailIsValid
+                    .drive(onNext: { status in
                         self.emailErrorMsg.isHidden = status
                         self.errorIcon.isHidden = status
-                    }.disposed(by: self.disposeBag)
-                self.loginViewModel.output.emailIsValid.take(1)
-                    .filter {$0}
-                    .bind { status in
-                        self.emailErrorMsg.isHidden = status
-                        self.errorIcon.isHidden = status
-                    }.disposed(by: self.disposeBag)
+                    })
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
