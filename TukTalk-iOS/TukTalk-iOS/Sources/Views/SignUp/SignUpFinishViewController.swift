@@ -124,11 +124,11 @@ class SignUpFinishViewController: UIViewController {
             .disposed(by: disposeBag)
         homeBtn.rx.tap
             .bind { _ in
-                if !UserDefaults.standard.bool(forKey: "first") {
-                    self.navigationController?.pushViewController(FirstOnboardingViewController(), animated: true)
-                } else {
+                if UserDefaults.standard.bool(forKey: "first") {
                     let tabbarVC = UINavigationController(rootViewController: TabBarViewController())
                     UIApplication.shared.windows.filter { $0.isKeyWindow }.first!.replaceRootViewController(tabbarVC, animated: true, completion: nil)
+                } else {
+                    self.navigationController?.pushViewController(FirstOnboardingViewController(), animated: true)
                 }
             }
             .disposed(by: disposeBag)

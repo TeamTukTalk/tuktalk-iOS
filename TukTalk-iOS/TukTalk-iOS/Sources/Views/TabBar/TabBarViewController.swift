@@ -20,7 +20,17 @@ class TabBarViewController: UITabBarController {
         $0.navigationItem.largeTitleDisplayMode = .always
     }
     
-    let vc3 = MyPageViewController().then {
+    let vc3 = UIViewController().then {
+        $0.tabBarItem = UITabBarItem(title: "커뮤니티", image: UIImage(named: "communityOffImg"), selectedImage: UIImage(named: "communityOnImg")?.withRenderingMode(.alwaysOriginal))
+        $0.navigationItem.largeTitleDisplayMode = .always
+    }
+    
+    let vc4 = UIViewController().then {
+        $0.tabBarItem = UITabBarItem(title: "상담", image: UIImage(named: "consultingOffImg"), selectedImage: UIImage(named: "consultiongOnImg")?.withRenderingMode(.alwaysOriginal))
+        $0.navigationItem.largeTitleDisplayMode = .always
+    }
+    
+    let vc5 = MyPageViewController().then {
         $0.tabBarItem = UITabBarItem(title: "마이뚝딱", image: UIImage(named: "mypageOffImg"), selectedImage: UIImage(named: "mypageOnImg")?.withRenderingMode(.alwaysOriginal))
         $0.navigationItem.largeTitleDisplayMode = .always
     }
@@ -55,7 +65,13 @@ class TabBarViewController: UITabBarController {
         let nav3 = UINavigationController(rootViewController: vc3).then {
             $0.navigationBar.prefersLargeTitles = true
         }
-        setViewControllers([nav1, nav2, nav3], animated: false)
+        let nav4 = UINavigationController(rootViewController: vc4).then {
+            $0.navigationBar.prefersLargeTitles = true
+        }
+        let nav5 = UINavigationController(rootViewController: vc5).then {
+            $0.navigationBar.prefersLargeTitles = true
+        }
+        setViewControllers([nav1, nav2, nav3, nav4, nav5], animated: false)
     }
 
 }

@@ -115,8 +115,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        [emailTextField, passwordTextField].forEach { $0.text = ""}
-        NotificationCenter.default.removeObserver(self)
+        setDisappear()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -241,13 +240,13 @@ class LoginViewController: UIViewController {
             .disposed(by: disposeBag)
         
         emailTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.emailTextField.setUnderline(true)
             }
             .disposed(by: disposeBag)
 
         emailTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.emailTextField.setUnderline(false)
                 self.loginViewModel.output.emailIsValid.take(1)
                     .filter {!$0}
@@ -265,13 +264,13 @@ class LoginViewController: UIViewController {
             .disposed(by: disposeBag)
         
         passwordTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.passwordTextField.setUnderline(true)
             }
             .disposed(by: disposeBag)
 
         passwordTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.passwordTextField.setUnderline(false)
             }
             .disposed(by: disposeBag)
@@ -279,8 +278,6 @@ class LoginViewController: UIViewController {
         loginBtn.rx.tap
             .bind {
                 self.view.endEditing(true)
-                let nextVC = TabBarViewController()
-                nextVC.modalPresentationStyle = .fullScreen
                 
                 self.provider.rx.request(.login(param: LoginRequest(email: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "")))
                     .subscribe { result in
@@ -288,49 +285,13 @@ class LoginViewController: UIViewController {
                         case let .success(response):
                             let loginResponse = try? response.map(LoginResponse.self)
                             if response.statusCode == 200 {
-                                guard let token = loginResponse?.accessToken else {
-                                    self.alertView.alpha = 1
-                                    UIView.animate(withDuration: 3, animations: {
-                                        self.alertView.alpha = 0
-                                    })
-                                    return }
-                                let tokenString = "Bearer " + token
-                                if let role = loginResponse?.role.data(using: String.Encoding.utf8) {
-                                    KeyChain.save(key: "role", data: role)
-                                }
-                                if let token = tokenString.data(using: String.Encoding.utf8) {
-                                    KeyChain.save(key: "token", data: token)
-                                }
-                                if let name = loginResponse?.nickname.data(using: String.Encoding.utf8) {
-                                    KeyChain.save(key: "nickname", data: name)
-                                }
-                                if let firstLetter = loginResponse?.firstLetter.data(using: String.Encoding.utf8) {
-                                    KeyChain.save(key: "firstLetter", data: firstLetter)
-                                }
-                                if let profileImageColor = loginResponse?.profileImageColor.data(using: String.Encoding.utf8) {
-                                    KeyChain.save(key: "profileImageColor", data: profileImageColor)
-                                }
-                                if let email = loginResponse?.email.data(using: String.Encoding.utf8) {
-                                    KeyChain.save(key: "email", data: email)
-                                }
-                                
-                                if !UserDefaults.standard.bool(forKey: "first") {
-                                    let onboardingVC = FirstOnboardingViewController()
-                                    self.navigationController?.pushViewController(onboardingVC, animated: true)
-                                } else {
-                                    self.present(nextVC, animated: true, completion: nil)
-                                }
+                                self.inputKeyChain(loginResponse: loginResponse)
+                                self.checkOnboarding()
                             } else {
-                                self.alertView.alpha = 1
-                                UIView.animate(withDuration: 3, animations: {
-                                    self.alertView.alpha = 0
-                                })
+                                self.loginFailureAlert()
                             }
                         case let .failure(error):
-                            self.alertView.alpha = 1
-                            UIView.animate(withDuration: 3, animations: {
-                                self.alertView.alpha = 0
-                            })
+                            self.loginFailureAlert()
                             print(error.localizedDescription)
                         }
                     }
@@ -340,10 +301,55 @@ class LoginViewController: UIViewController {
         
         signUpBtn.rx.tap
             .bind {
-                let nextVC = SignUpFirstViewController()
-                self.navigationController?.pushViewController(nextVC, animated: true)
+                self.navigationController?.pushViewController(SignUpFirstViewController(), animated: true)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func loginFailureAlert() {
+        self.alertView.alpha = 1
+        UIView.animate(withDuration: 3, animations: { self.alertView.alpha = 0 })
+    }
+    
+    private func inputKeyChain(loginResponse: LoginResponse?) {
+        guard let token = loginResponse?.accessToken else {
+            loginFailureAlert()
+            return
+        }
+        let tokenString = "Bearer " + token
+        if let role = loginResponse?.role.data(using: String.Encoding.utf8) {
+            KeyChain.save(key: "role", data: role)
+        }
+        if let token = tokenString.data(using: String.Encoding.utf8) {
+            KeyChain.save(key: "token", data: token)
+        }
+        if let name = loginResponse?.nickname.data(using: String.Encoding.utf8) {
+            KeyChain.save(key: "nickname", data: name)
+        }
+        if let firstLetter = loginResponse?.firstLetter.data(using: String.Encoding.utf8) {
+            KeyChain.save(key: "firstLetter", data: firstLetter)
+        }
+        if let profileImageColor = loginResponse?.profileImageColor.data(using: String.Encoding.utf8) {
+            KeyChain.save(key: "profileImageColor", data: profileImageColor)
+        }
+        if let email = loginResponse?.email.data(using: String.Encoding.utf8) {
+            KeyChain.save(key: "email", data: email)
+        }
+    }
+    
+    private func checkOnboarding() {
+        let nextVC = TabBarViewController()
+        nextVC.modalPresentationStyle = .fullScreen
+        if UserDefaults.standard.bool(forKey: "first") {
+            self.present(nextVC, animated: true, completion: nil)
+        } else {
+            self.navigationController?.pushViewController(FirstOnboardingViewController(), animated: true)
+        }
+    }
+    
+    private func setDisappear() {
+        [emailTextField, passwordTextField].forEach { $0.text = ""}
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func keyboardObserver() {
