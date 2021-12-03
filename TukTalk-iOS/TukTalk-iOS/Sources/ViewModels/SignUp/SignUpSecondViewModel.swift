@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 final class SignUpSecondViewModel: ViewModelType {
     var dependency: Dependency
@@ -17,13 +18,13 @@ final class SignUpSecondViewModel: ViewModelType {
     }
     
     struct Input {
-        var selectedNum: AnyObserver<Int>
+        var selectedNum: AnyObserver<Int?>
     }
     
     struct Output {
         var designData: Observable<[FieldCategoryDataModel]>
         var itDevData: Observable<[FieldCategoryDataModel]>
-        var nextBtnEnable: Observable<Bool>
+        var nextBtnEnable: Driver<Bool>
     }
     
     var designDataList: [FieldCategoryDataModel] = [
@@ -46,8 +47,8 @@ final class SignUpSecondViewModel: ViewModelType {
     
     init(dependency: Dependency = Dependency()) {
         self.dependency = Dependency()
-        let selectedNum$ = BehaviorSubject<Int>(value: 0)
-        let nextBtnEnable$ = btnValidation(selectedNum: selectedNum$)
+        let selectedNum$ = BehaviorSubject<Int?>(value: nil)
+        let nextBtnEnable$ = selectedNum$.map(btnValidation).asDriver(onErrorJustReturn: false)
         let designData$ = Observable<[FieldCategoryDataModel]>.just(designDataList)
         let itDevData$ = Observable<[FieldCategoryDataModel]>.just(itDevDataList)
         
@@ -56,8 +57,8 @@ final class SignUpSecondViewModel: ViewModelType {
     }
 }
 
-private func btnValidation(selectedNum: Observable<Int>) -> Observable<Bool> {
-    return selectedNum.map { num in
-        return num > 0
-    }
+private func btnValidation(selectedNum: Int?) -> Bool {
+    guard let num = selectedNum else { return false }
+    
+    return num > 0
 }
