@@ -13,8 +13,7 @@ import Moya
 class RegistPortfolioFirthViewController: UIViewController {
     
     //MARK:- Properties
-    private lazy var portfolioProvider = MoyaProvider<PDFService>()
-    private lazy var previewProvider = MoyaProvider<PreviewService>()
+    private lazy var viewModel = RegistPortfolioFirthViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(1.0))
     private let progressIsHiddenValue = BehaviorRelay(value: false)
@@ -24,8 +23,6 @@ class RegistPortfolioFirthViewController: UIViewController {
     var progressIsHidden: Observable<Bool> {
         return progressIsHiddenValue.asObservable()
     }
-    var formData: [MultipartFormData] = []
-    var imgData = BehaviorSubject(value: [])
     
     //MARK:- UI Components
     
@@ -264,7 +261,7 @@ class RegistPortfolioFirthViewController: UIViewController {
     private func bindingCollectionView() {
         previewCV.rx.setDelegate(self).disposed(by: disposeBag)
         
-        imgData
+        viewModel.imgData
             .bind(to: self.previewCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.previewCV.dequeueReusableCell(withReuseIdentifier: "PreviewCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? PreviewCollectionViewCell {
                     
@@ -280,61 +277,45 @@ class RegistPortfolioFirthViewController: UIViewController {
     
     private func uploadPDF(pdfData: Data?, fileName: String) {
         guard let pdfData = pdfData else { return }
-        portfolioProvider.rx.request(.pdfRequest(pdfData, fileName: fileName))
-            .subscribe { result in
-                switch result {
-                case let .success(response):
-                    guard let responseData = try? response.map(PDFResponse.self) else { return }
-                    UserPortfolio.shared.pdfFileId = responseData.id
-                    print(response)
-                    print("PDF 아이디: \(responseData.id)")
-                    if response.statusCode == 200 {
-                        self.nextBtn.isEnabled = true
-                        self.nextBtn.backgroundColor = UIColor.Primary.primary
-                        self.nextBtn.setTitleColor(.white, for: .normal)
-                    }
-                case let .failure(error):
-                    print(error.localizedDescription)
-                }
+        viewModel.postPDFRequest(pdfData: pdfData, fileName: fileName, status: { response in
+            if response == 200 {
+                self.nextBtn.isEnabled = true
+                self.nextBtn.backgroundColor = UIColor.Primary.primary
+                self.nextBtn.setTitleColor(.white, for: .normal)
             }
-            .disposed(by: self.disposeBag)
+        }, completion: { response in
+            UserPortfolio.shared.pdfFileId = response.id
+            print(response)
+            print("PDF 아이디: \(response.id)")
+        })
     }
     
     private func uploadImg(imgData: Data?, fileName: String) {
         guard let imgData = imgData else { return }
-        formData.append(MultipartFormData(provider: .data(imgData), name: "image", fileName: fileName, mimeType: "image/png"))
+        viewModel.formData.append(MultipartFormData(provider: .data(imgData), name: "image", fileName: fileName, mimeType: "image/png"))
     }
     
     private func uploadPreview() {
-        previewProvider.rx.request(.previewRequest(formData))
-            .subscribe { result in
-                switch result {
-                case let .success(response):
-                    guard let responseData = try? response.map(PreviewResponse.self) else { return }
-                    print(response)
-                    for data in responseData {
-                        UserPortfolio.shared.imageFileIds.append(data.id)
-                        print("프리뷰 : \(data.id)")
-                    }
-                    self.navigationController?.pushViewController(RegistPortfolioFinishViewController(), animated: true)
-                case let .failure(error):
-                    print(error)
-                }
+        viewModel.postPreviewRequest() { response in
+            for data in response {
+                UserPortfolio.shared.imageFileIds.append(data.id)
+                print("프리뷰 : \(data.id)")
             }
-            .disposed(by: disposeBag)
+            self.navigationController?.pushViewController(RegistPortfolioFinishViewController(), animated: true)
+        }
     }
     
     @objc func deletePreview(_ sender: UICollectionViewCell) {
         var array: [Any] = []
-        imgData
+        viewModel.imgData
             .bind { data in
                 array = data
             }
             .disposed(by: disposeBag)
         let i = sender.layer.value(forKey: "index") as! Int
         array.remove(at: i)
-        formData.remove(at: i)
-        imgData.onNext(array)
+        viewModel.formData.remove(at: i)
+        viewModel.imgData.onNext(array)
         previewUploadBtn.setTitle("사진 \(array.count)/5", for: .normal)
     }
 }
@@ -374,8 +355,8 @@ extension RegistPortfolioFirthViewController: UIImagePickerControllerDelegate, U
         guard let myURL = info[.imageURL] as? NSURL else { return }
         guard let fileName = myURL.lastPathComponent else { return }
         do {
-            try imgData.onNext(imgData.value() + [selectedImage])
-            try previewUploadBtn.setTitle("사진 \(imgData.value().count)/5", for: .normal)
+            try viewModel.imgData.onNext(viewModel.imgData.value() + [selectedImage])
+            try previewUploadBtn.setTitle("사진 \(viewModel.imgData.value().count)/5", for: .normal)
         } catch {
             print("fail to add Image")
         }
