@@ -153,14 +153,14 @@ class RegistPortfolioFirstViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.navigationController?.viewControllers[0].tabBarController?.tabBar.isHidden = false
                 self.navigationController?.popViewController(animated: true)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "포트폴리오 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -172,11 +172,11 @@ class RegistPortfolioFirstViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         tipBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let tipViewController = TipViewController()
                 let naviVC = UINavigationController(rootViewController: tipViewController)
                 naviVC.modalPresentationStyle = .overCurrentContext
@@ -188,7 +188,7 @@ class RegistPortfolioFirstViewController: UIViewController {
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let nextVC = RegistPortfolioSecondViewController()
                 nextVC.progressPercent.subscribe(onNext: { percent in
                     self.progressBar.setProgress(percent, animated: true)
@@ -220,7 +220,7 @@ class RegistPortfolioFirstViewController: UIViewController {
         viewModel.input.initText.onNext(initText)
         
         mainTextView.rx.didBeginEditing
-            .bind { _ in
+            .bind {
                 self.mainTextView.textColor = UIColor.GrayScale.sub1
                 if self.mainTextView.text == initText {
                     self.mainTextView.text = ""
@@ -229,7 +229,7 @@ class RegistPortfolioFirstViewController: UIViewController {
             .disposed(by: disposeBag)
         
         mainTextView.rx.didEndEditing
-            .bind { _ in
+            .bind {
                 if self.mainTextView.text == "" {
                     self.mainTextView.textColor = UIColor.GrayScale.sub4
                     self.mainTextView.text = initText
