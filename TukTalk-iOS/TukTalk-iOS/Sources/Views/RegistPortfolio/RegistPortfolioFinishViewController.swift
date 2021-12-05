@@ -13,7 +13,7 @@ class RegistPortfolioFinishViewController: UIViewController {
     
     //MARK:- Properties
     
-    let provider = MoyaProvider<PortfolioService>()
+    private lazy var viewModel = RegistPortfolioFinishViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -43,7 +43,7 @@ class RegistPortfolioFinishViewController: UIViewController {
         $0.layer.borderColor = UIColor.GrayScale.gray2.cgColor
         $0.layer.cornerRadius = 26
     }
-
+    
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
@@ -86,7 +86,7 @@ class RegistPortfolioFinishViewController: UIViewController {
             $0.bottom.equalTo(titleLabel.snp.top)
             $0.centerX.equalToSuperview()
         }
-
+        
         view.addSubview(homeBtn)
         homeBtn.snp.makeConstraints {
             $0.height.equalTo(52)
@@ -106,27 +106,9 @@ class RegistPortfolioFinishViewController: UIViewController {
     private func uploadPortfolio() {
         let user = UserPortfolio.shared
         let param = PortfolioRequest(description: user.description!, projectCount: user.projectCount!, totalPages: user.totalPages!, startYear: user.startYear!, endYear: user.endYear!, recommendationTargetDescription: user.recommendationTargetDescription!, pdfFileId: user.pdfFileId!, imageFileIds: user.imageFileIds)
-        getTest(param: param) { response in
+        viewModel.portfolioRequest(param: param) { response in
             print(response.id)
             self.navigationController?.popToRootViewController(animated: true)
         }
-    }
-    
-    func getTest(param: PortfolioRequest, completion: @escaping (PortfolioResponse) -> ()) {
-        let provider = MoyaProvider<PortfolioService>()
-        provider.rx.request(.portfolioRequest(param: param))
-            .subscribe { result in
-                switch result {
-                case let .success(response):
-                    print(response)
-                    let responseData = try? response.map(PortfolioResponse.self)
-                    guard let data = responseData else { return }
-                    print(data)
-                    completion(data)
-                case let .failure(error):
-                    print(error.localizedDescription)
-                }
-            }
-            .disposed(by: disposeBag)
     }
 }
