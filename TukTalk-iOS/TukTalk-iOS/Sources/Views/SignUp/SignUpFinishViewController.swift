@@ -118,12 +118,12 @@ class SignUpFinishViewController: UIViewController {
     
     private func binding() {
         mainBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.pushViewController(RegistMenteeProfileViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         homeBtn.rx.tap
-            .bind { _ in
+            .bind {
                 if UserDefaults.standard.bool(forKey: "first") {
                     let tabbarVC = UINavigationController(rootViewController: TabBarViewController())
                     UIApplication.shared.windows.filter { $0.isKeyWindow }.first!.replaceRootViewController(tabbarVC, animated: true, completion: nil)

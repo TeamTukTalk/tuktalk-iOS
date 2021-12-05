@@ -70,7 +70,7 @@ class TermsViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
@@ -127,6 +127,4 @@ extension TermsViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
-    
 }
