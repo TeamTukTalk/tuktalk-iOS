@@ -13,7 +13,7 @@ class RegistMentorFirstViewController: UIViewController {
     
     private var keyboardFrame: NSValue?
     private let screenHeight = UIScreen.main.bounds.height
-    private lazy var registFirstViewModel = RegistMentorFirstViewModel()
+    private lazy var viewModel = RegistMentorFirstViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -269,50 +269,38 @@ class RegistMentorFirstViewController: UIViewController {
     private func binding() {
         
         companyTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.companyTextField.setUnderline(true)
             }
             .disposed(by: disposeBag)
         
         companyTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.companyTextField.setUnderline(false)
             }
             .disposed(by: disposeBag)
         
         companyTextField.rx.text
             .orEmpty
-            .bind(to: registFirstViewModel.input.companyText)
+            .bind(to: viewModel.input.companyText)
             .disposed(by: disposeBag)
         
-        registFirstViewModel.output.nextIsValid
-            .filter {$0}
-            .bind { _ in
-                self.nextBtn.setTitleColor(.white, for: .normal)
-                self.nextBtn.backgroundColor = UIColor.Primary.primary
-            }
-            .disposed(by: disposeBag)
-        
-        registFirstViewModel.output.nextIsValid
-            .filter {!$0}
-            .bind { _ in
-                self.nextBtn.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
-                self.nextBtn.backgroundColor = UIColor.GrayScale.gray4
-            }
-            .disposed(by: disposeBag)
-        
-        registFirstViewModel.output.nextIsValid
-            .bind(to: nextBtn.rx.isEnabled)
+        viewModel.output.nextIsValid
+            .drive(onNext: { status in
+                self.nextBtn.setTitleColor(status ? .white : UIColor.GrayScale.gray4, for: .normal)
+                self.nextBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.nextBtn.isEnabled = status
+            })
             .disposed(by: disposeBag)
         
         backBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: false)
             }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "멘토등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -327,7 +315,7 @@ class RegistMentorFirstViewController: UIViewController {
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.pushViewController(RegistMentorSecondViewController(), animated: false)
             }
             .disposed(by: disposeBag)

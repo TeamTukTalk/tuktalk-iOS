@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 struct RegistMentorFirstViewModel: ViewModelType {
     
@@ -15,32 +16,29 @@ struct RegistMentorFirstViewModel: ViewModelType {
     let output: Output
     
     struct Dependency {
-        var company :String?
-        var department: String?
     }
     
     struct Input {
-        var companyText: AnyObserver<String>
+        var companyText: AnyObserver<String?>
     }
     
     struct Output {
-        var nextIsValid: Observable<Bool>
+        var nextIsValid: Driver<Bool>
     }
     
-    init(dependency: Dependency = Dependency(company: nil, department: nil)) {
-        self.dependency = dependency
+    init(dependency: Dependency = Dependency()) {
+        self.dependency = Dependency()
         
-        let companyText$ = BehaviorSubject<String>(value: "")
-        let nextIsValid$ = nextValidation(company: companyText$)
+        let companyText$ = BehaviorSubject<String?>(value: nil)
+        let nextIsValid$ = companyText$.map(nextValidation).asDriver(onErrorJustReturn: false)
         
         self.input = Input(companyText: companyText$.asObserver())
         self.output = Output(nextIsValid: nextIsValid$)
     }
 }
 
-private func nextValidation(company: Observable<String>) -> Observable<Bool> {
+private func nextValidation(company: String?) -> Bool {
+    guard let company = company else { return false }
     
-    return company.map { text in
-        return !text.isEmpty
-    }
+    return !company.isEmpty
 }
