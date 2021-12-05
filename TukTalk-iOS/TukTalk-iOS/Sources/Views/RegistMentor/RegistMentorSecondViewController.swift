@@ -318,13 +318,13 @@ class RegistMentorSecondViewController: UIViewController {
     
     private func binding() {
         backBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: false)
             }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "멘토등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -339,7 +339,7 @@ class RegistMentorSecondViewController: UIViewController {
             .disposed(by: disposeBag)
         
         emailTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.emailTextField.setUnderline(true)
             }
             .disposed(by: disposeBag)
@@ -362,7 +362,7 @@ class RegistMentorSecondViewController: UIViewController {
             .disposed(by: disposeBag)
         
         sendBtn.rx.tap
-            .bind { _ in
+            .bind {
                 if self.viewModel.enableCompanyCheck(email: self.emailTextField.text!) {
                     self.errorIcon.isHidden = true
                     self.errorLabel.isHidden = true
