@@ -123,14 +123,14 @@ class RegistPortfolioThirdViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.progressPercentValue.accept(0.5)
                 self.navigationController?.popViewController(animated: false)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "포트폴리오 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -142,11 +142,11 @@ class RegistPortfolioThirdViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let nextVC = RegistPortfolioFirthViewController()
                 nextVC.progressPercent.subscribe(onNext: { percent in
                     self.progressPercentValue.accept(percent)
@@ -179,7 +179,7 @@ class RegistPortfolioThirdViewController: UIViewController {
         viewModel.input.initText.onNext(initText)
         
         mainTextView.rx.didBeginEditing
-            .bind { _ in
+            .bind {
                 self.mainTextView.textColor = UIColor.GrayScale.sub1
                 if self.mainTextView.text == initText {
                     self.mainTextView.text = ""
@@ -188,7 +188,7 @@ class RegistPortfolioThirdViewController: UIViewController {
             .disposed(by: disposeBag)
         
         mainTextView.rx.didEndEditing
-            .bind { _ in
+            .bind {
                 if self.mainTextView.text == "" {
                     self.mainTextView.textColor = UIColor.GrayScale.sub4
                     self.mainTextView.text = initText
