@@ -196,7 +196,7 @@ class RegistMentorFinishViewController: UIViewController {
     
     private func binding() {
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popToRootViewController(animated: true)
             }
             .disposed(by: disposeBag)
