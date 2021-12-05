@@ -84,6 +84,22 @@ final class SignUpThirdViewModel: ViewModelType {
             .disposed(by: self.disposeBag)
     }
     
+    func emailValidation(email: String, completion: @escaping (EmailValidResponse) -> ()) {
+        let provider = MoyaProvider<EmailValidService>()
+        provider.rx.request(.emailRequest(email))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    let emailValid = try? response.map(EmailValidResponse.self)
+                    guard let response = emailValid else { return }
+                    completion(response)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: self.disposeBag)
+    }
+    
 }
 
 private func nicknameValidation(nickname: String?) -> Bool {

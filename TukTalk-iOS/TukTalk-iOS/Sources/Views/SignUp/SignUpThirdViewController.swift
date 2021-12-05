@@ -15,7 +15,6 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
     private var keyboardFrame: NSValue?
     private let screenHeight = UIScreen.main.bounds.height
     private lazy var viewModel = SignUpThirdViewModel()
-    private let provider = MoyaProvider<EmailValidService>()
     private let user = UserSignUp.shared
     private var emailValid: Bool?
     private let disposeBag = DisposeBag()
@@ -88,7 +87,7 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
         $0.setUnderline(false)
     }
     private let emailErrorLabel = UILabel().then {
-        $0.text = "중복확인을 진행해주세요."
+//        $0.text = "중복확인을 진행해주세요."
         $0.font = UIFont.TTFont(type: .SDReg, size: 10)
         $0.textColor = UIColor.State.error
         $0.isHidden = true
@@ -387,45 +386,40 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
     
     private func binding() {
         nameTextField.rx.controlEvent(.editingDidBegin)
-            .subscribe { _ in
+            .bind {
                 self.nameTextField.setUnderline(true)
             }
             .disposed(by: disposeBag)
         
         nameTextField.rx.controlEvent(.editingDidEnd)
-            .subscribe { _ in
+            .bind {
                 self.nameTextField.setUnderline(false)
                 self.viewModel.output.nicknameCheck
-                    .drive(onNext: { value in
-                        switch value {
-                        case true:
-                            self.nameErrorLabel.isHidden = true
-                            self.nameErrorIcon.image = UIImage(named: "successIcon")
-                        case false:
-                            self.nameErrorLabel.isHidden = false
-                            self.nameErrorIcon.image = UIImage(named: "errorIcon")
-                        }
+                    .drive(onNext: { status in
+                        self.nameErrorLabel.isHidden = status
+                        self.nameErrorIcon.image = status ? UIImage(named: "successIcon") : UIImage(named: "errorIcon")
                     })
                     .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
         emailTextField.rx.controlEvent(.editingDidBegin)
-            .subscribe { _ in
+            .bind {
                 self.emailTextField.setUnderline(true)
             }
             .disposed(by: disposeBag)
         
         emailTextField.rx.controlEvent(.editingChanged)
-            .subscribe { _ in
+            .bind {
                 self.viewModel.emailChecked.onNext(nil)
+                self.emailErrorLabel.text = ""
                 self.emailErrorLabel.textColor = UIColor.State.error
                 self.emailErrorLabel.isHidden = true
             }
             .disposed(by: disposeBag)
         
         emailTextField.rx.controlEvent(.editingDidEnd)
-            .subscribe { _ in
+            .bind {
                 self.emailTextField.setUnderline(false)
                 if self.emailValid == nil {
                     self.emailErrorLabel.text = "중복확인을 진행해주세요."
@@ -436,37 +430,37 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
             .disposed(by: disposeBag)
         
         passwordTextField.rx.controlEvent(.editingDidBegin)
-            .subscribe { _ in
+            .bind {
                 self.passwordTextField.setUnderline(true)
             }
             .disposed(by: disposeBag)
         
         passwordTextField.rx.controlEvent(.editingDidEnd)
-            .subscribe { _ in
+            .bind {
                 self.passwordTextField.setUnderline(false)
                 self.viewModel.output.passwordCheck
-                    .drive(onNext: { value in
-                        self.passwordErrorLabel.isHidden = value
-                        self.passwordErrorIcon.image = value ? UIImage(named: "successIcon") : UIImage(named: "errorIcon")
+                    .drive(onNext: { status in
+                        self.passwordErrorLabel.isHidden = status
+                        self.passwordErrorIcon.image = status ? UIImage(named: "successIcon") : UIImage(named: "errorIcon")
                     })
                     .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
         passwordCheckTextField.rx.controlEvent(.editingDidBegin)
-            .subscribe { _ in
+            .bind {
                 self.passwordCheckTextField.setUnderline(true)
                 self.viewModel.output.passwordConfirmCheck
-                    .drive(onNext: { value in
-                        self.passwordCheckErrorLabel.isHidden = value
-                        self.passwordCheckErrorIcon.image = value ? UIImage(named: "successIcon") : UIImage(named: "errorIcon")
+                    .drive(onNext: { status in
+                        self.passwordCheckErrorLabel.isHidden = status
+                        self.passwordCheckErrorIcon.image = status ? UIImage(named: "successIcon") : UIImage(named: "errorIcon")
                     })
                     .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
         passwordCheckTextField.rx.controlEvent(.editingDidEnd)
-            .subscribe { _ in
+            .bind {
                 self.passwordCheckTextField.setUnderline(false)
             }
             .disposed(by: disposeBag)
@@ -484,7 +478,7 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
             .disposed(by: disposeBag)
         
         emailCheckBtn.rx.tap
-            .bind { _ in
+            .bind {
                 if let text = self.emailTextField.text {
                     if !text.contains("@") || !text.contains(".") {
                         self.emailErrorLabel.text = "이메일 형식에 맞게 입력해주세요."
@@ -493,31 +487,23 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
                         return
                     }
                 }
-                self.provider.rx.request(.emailRequest(self.emailTextField.text))
-                    .subscribe { result in
-                        switch result {
-                        case let .success(response):
-                            let emailValid = try? response.map(EmailValidResponse.self)
-                            if let result = emailValid?.existingEmail {
-                                switch result {
-                                case true:
-                                    self.emailErrorLabel.isHidden = false
-                                    self.emailErrorLabel.text = "이미 등록된 계정입니다."
-                                    self.emailErrorIcon.image = UIImage(named: "errorIcon")
-                                    self.viewModel.emailChecked.onNext(false)
-                                case false:
-                                    self.emailErrorLabel.isHidden = false
-                                    self.emailErrorLabel.text = "사용할 수 있는 아이디입니다."
-                                    self.emailErrorLabel.textColor = UIColor.GrayScale.sub3
-                                    self.emailErrorIcon.image = UIImage(named: "successIcon")
-                                    self.viewModel.emailChecked.onNext(true)
-                                }
-                        }
-                        case let .failure(error):
-                            print(error.localizedDescription)
-                        }
+                self.viewModel.emailValidation(email: self.emailTextField.text!) { response in
+                    switch response.existingEmail {
+                    case true:
+                        self.emailErrorLabel.isHidden = false
+                        self.emailErrorLabel.text = "이미 등록된 계정입니다."
+                        self.emailErrorIcon.image = UIImage(named: "errorIcon")
+                        self.viewModel.emailChecked.onNext(false)
+                        return
+                    case false:
+                        self.emailErrorLabel.isHidden = false
+                        self.emailErrorLabel.text = "사용할 수 있는 아이디입니다."
+                        self.emailErrorLabel.textColor = UIColor.GrayScale.sub3
+                        self.emailErrorIcon.image = UIImage(named: "successIcon")
+                        self.viewModel.emailChecked.onNext(true)
+                        return
                     }
-                    .disposed(by: self.disposeBag)
+                }
             }
             .disposed(by: disposeBag)
         
@@ -532,28 +518,21 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
             .disposed(by: disposeBag)
         
         viewModel.emailChecked
-            .bind(onNext: { value in
-                self.emailValid = value
+            .bind(onNext: { status in
+                self.emailValid = status
             })
             .disposed(by: disposeBag)
         
         viewModel.output.signUpBtnCheck
-            .drive(onNext: { value in
-                switch value {
-                case false:
-                    self.signUpBtn.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
-                    self.signUpBtn.backgroundColor = UIColor.GrayScale.gray4
-                    self.signUpBtn.isEnabled = value
-                case true:
-                    self.signUpBtn.setTitleColor(.white, for: .normal)
-                    self.signUpBtn.backgroundColor = UIColor.Primary.primary
-                    self.signUpBtn.isEnabled = value
-                }
+            .drive(onNext: { status in
+                self.signUpBtn.setTitleColor(status ? .white : UIColor.GrayScale.sub4, for: .normal)
+                self.signUpBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.signUpBtn.isEnabled = status
             })
             .disposed(by: disposeBag)
         
         signUpBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.user.nickname = self.nameTextField.text
                 self.user.email = self.emailTextField.text
                 self.user.password = self.passwordTextField.text
@@ -572,13 +551,13 @@ class SignUpThirdViewController: UIViewController, UIScrollViewDelegate {
             .disposed(by: disposeBag)
         
         backBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind {_ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
                 naviVC.modalPresentationStyle = .overCurrentContext
