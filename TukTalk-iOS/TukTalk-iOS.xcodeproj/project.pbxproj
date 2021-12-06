@@ -45,7 +45,6 @@
 		402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */; };
 		403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */; };
 		403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013F272DAAE80093160D /* HashTagCollectionViewCell.swift */; };
-		403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */; };
 		403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */; };
 		403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D33271B784800B834A6 /* UIColorExtension.swift */; };
 		403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */; };
@@ -263,7 +262,6 @@
 		402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDirectViewModel.swift; sourceTree = "<group>"; };
 		403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewModel.swift; sourceTree = "<group>"; };
 		403B013F272DAAE80093160D /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewModel.swift; sourceTree = "<group>"; };
 		403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		403B2D33271B784800B834A6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -941,7 +939,6 @@
 				402D65A9272730A100F4ED8F /* SearchesCollectionViewModel.swift */,
 				4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */,
 				403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */,
-				403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */,
 			);
 			path = CollectionViewModel;
 			sourceTree = "<group>";
@@ -1542,7 +1539,6 @@
 				40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */,
 				403EC225275617E6008A40B9 /* TermsTVTitleCell.swift in Sources */,
 				406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */,
-				403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */,
 				40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */,
 				403EC26927571A07008A40B9 /* SecondOnboardingViewController.swift in Sources */,
 				40DCF33A273832F100A82CC6 /* BannerDataModel.swift in Sources */,
