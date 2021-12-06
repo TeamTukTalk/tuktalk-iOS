@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 struct RegistMentorFourthViewModel: ViewModelType {
     
@@ -18,30 +19,26 @@ struct RegistMentorFourthViewModel: ViewModelType {
     }
     
     struct Input {
-        var inputText: AnyObserver<String>
+        var inputText: AnyObserver<String?>
     }
     
     struct Output {
-        var textChanged: Observable<Bool>
+        var textChanged: Driver<Bool>
     }
     
     init(dependency: Dependency = Dependency()) {
         self.dependency = dependency
         
-        let inputText$ = BehaviorSubject<String>(value: "")
-        let textChanged$ = textCheck(text: inputText$)
+        let inputText$ = BehaviorSubject<String?>(value: nil)
+        let textChanged$ = inputText$.map(textCheck).asDriver(onErrorJustReturn: false)
         
         self.input = Input(inputText: inputText$.asObserver())
         self.output = Output(textChanged: textChanged$)
     }
 }
 
-private func textCheck(text: Observable<String>) -> Observable<Bool> {
-    return text.map { text in
-        if text.count == 0 {
-            return false
-        } else {
-            return true
-        }
-    }
+private func textCheck(text: String?) -> Bool {
+    guard let text = text else { return false }
+    
+    return !text.isEmpty
 }

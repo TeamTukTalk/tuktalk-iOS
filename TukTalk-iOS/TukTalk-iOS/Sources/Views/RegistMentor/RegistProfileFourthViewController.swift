@@ -169,8 +169,8 @@ class RegistProfileFourthViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.textChanged
-            .bind(onNext: { bool in
-                self.nextBtn.setTitle(bool ? "다음" : "건너뛰기", for: .normal)
+            .drive(onNext: { status in
+                self.nextBtn.setTitle(status ? "다음" : "건너뛰기", for: .normal)
             })
             .disposed(by: disposeBag)
         
