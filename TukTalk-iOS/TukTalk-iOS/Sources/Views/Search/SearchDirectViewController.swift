@@ -12,7 +12,7 @@ class SearchDirectViewController: UIViewController {
     //MARK:- Properties
     
     private let disposeBag = DisposeBag()
-    private lazy var collectionViewModel = SearchesCollectionViewModel()
+//    private lazy var collectionViewModel = SearchesCollectionViewModel()
     private lazy var viewModel = SearchDirectViewModel()
     private var nextText = ""
     
@@ -57,9 +57,9 @@ class SearchDirectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        setCollectionViewUI()
+//        setCollectionViewUI()
         binding()
-        bindingCollectionView()
+//        bindingCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,7 +155,7 @@ class SearchDirectViewController: UIViewController {
             .disposed(by: disposeBag)
         
         searchTextField.rx.controlEvent(.editingDidEndOnExit)
-            .bind { _ in
+            .bind {
                 let nextVC = SearchingDirectViewController()
                 nextVC.searchTextBtn.setTitle(self.nextText, for: .normal)
                 nextVC.searchTextBtn.setTitleColor(UIColor.GrayScale.normal, for: .normal)
@@ -164,7 +164,7 @@ class SearchDirectViewController: UIViewController {
             .disposed(by: disposeBag)
         
         searchBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let nextVC = SearchingDirectViewController()
                 nextVC.searchTextBtn.setTitle(self.nextText, for: .normal)
                 nextVC.searchTextBtn.setTitleColor(UIColor.GrayScale.normal, for: .normal)
@@ -173,7 +173,7 @@ class SearchDirectViewController: UIViewController {
             .disposed(by: disposeBag)
         
         backBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: false)
             }
             .disposed(by: disposeBag)
