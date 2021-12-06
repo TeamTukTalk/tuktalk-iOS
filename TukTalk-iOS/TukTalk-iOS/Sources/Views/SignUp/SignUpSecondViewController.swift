@@ -139,13 +139,13 @@ class SignUpSecondViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
                 naviVC.modalPresentationStyle = .overCurrentContext
@@ -195,16 +195,16 @@ class SignUpSecondViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.nextBtnEnable
-            .bind(onNext: { valid in
-                self.nextBtn.isEnabled = valid
-                self.nextBtn.backgroundColor = valid ? UIColor.Primary.primary : UIColor.GrayScale.gray4
-                self.nextBtn.setTitleColor(valid ? .white : UIColor.GrayScale.sub4, for: .normal)
+            .drive(onNext: { status in
+                self.nextBtn.isEnabled = status
+                self.nextBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.nextBtn.setTitleColor(status ? .white : UIColor.GrayScale.sub4, for: .normal)
                 
             })
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.pushViewController(SignUpThirdViewController(), animated: true)
             }
             .disposed(by: disposeBag)

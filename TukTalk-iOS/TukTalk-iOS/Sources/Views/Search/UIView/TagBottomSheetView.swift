@@ -17,6 +17,7 @@ final class TagBottomSheetView: UIViewController {
     
     let companyTagTitle = BehaviorSubject(value: "")
     let careerTagTitle = BehaviorSubject(value: "")
+    let closeBottomSheet = BehaviorSubject(value: false)
     
     //MARK:- UI Components
 
@@ -191,19 +192,20 @@ final class TagBottomSheetView: UIViewController {
     
     private func binding() {
         applyBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.tagViewModel.output.companyText
                     .bind(to: self.companyTagTitle)
                     .disposed(by: self.disposeBag)
                 self.tagViewModel.output.careerText
                     .bind(to: self.careerTagTitle)
                     .disposed(by: self.disposeBag)
+                self.closeBottomSheet.onNext(true)
                 self.dismiss(animated: false)
             }
             .disposed(by: disposeBag)
         
         resetBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.companyCV.allowsSelection = false
                 self.companyCV.allowsSelection = true
                 self.tagViewModel.input.companyTitle.onNext("")
@@ -214,7 +216,7 @@ final class TagBottomSheetView: UIViewController {
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.dismiss(animated: false, completion: nil)
             }
             .disposed(by: disposeBag)

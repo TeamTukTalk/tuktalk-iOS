@@ -6,11 +6,12 @@
 //
 
 import RxSwift
+import RxCocoa
 
 class TagTableViewCell: UITableViewCell {
     
     public static let identifier : String = "TagTableViewCell"
-    private lazy var viewModel = InformationViewModel()
+    var hashTag = BehaviorSubject<[HashTag]>(value: [])
     private let disposeBag = DisposeBag()
     
     private let titleLabel = UILabel().then {
@@ -19,7 +20,7 @@ class TagTableViewCell: UITableViewCell {
         $0.textColor = UIColor.GrayScale.normal
     }
     
-    var tagListCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    var hashTagCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,6 +41,10 @@ class TagTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setData(data: [HashTag]) {
+        hashTag.onNext(data)
+    }
+    
     private func setUI() {
         
         contentView.addSubview(titleLabel)
@@ -48,8 +53,8 @@ class TagTableViewCell: UITableViewCell {
             $0.top.leading.equalToSuperview()
         }
         
-        contentView.addSubview(tagListCV)
-        tagListCV.snp.makeConstraints {
+        contentView.addSubview(hashTagCV)
+        hashTagCV.snp.makeConstraints {
             $0.height.equalTo(60)
             $0.top.equalTo(titleLabel.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview()
@@ -57,25 +62,24 @@ class TagTableViewCell: UITableViewCell {
     }
     
     private func setColectionView() {
-        tagListCV.rx.setDelegate(self).disposed(by: disposeBag)
+        hashTagCV.rx.setDelegate(self).disposed(by: disposeBag)
         
         let layout: UICollectionViewFlowLayout = LeftAlignedCollectionViewFlowLayout()
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 4
         layout.scrollDirection = .vertical
-        tagListCV.setCollectionViewLayout(layout, animated: false)
-        tagListCV.backgroundColor = .white
-        tagListCV.showsHorizontalScrollIndicator = false
-        tagListCV.allowsMultipleSelection = true
-        tagListCV.register(TagListCollectionViewCell.self, forCellWithReuseIdentifier: "TagListCollectionViewCell")
+        hashTagCV.setCollectionViewLayout(layout, animated: false)
+        hashTagCV.backgroundColor = .white
+        hashTagCV.showsHorizontalScrollIndicator = false
+        hashTagCV.register(TagListCollectionViewCell.self, forCellWithReuseIdentifier: "TagListCollectionViewCell")
     }
     private func bindingCollectionView() {
         
-        viewModel.output.tagCellData
-            .bind(to: tagListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                if let cell = self.tagListCV.dequeueReusableCell(withReuseIdentifier: "TagListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? TagListCollectionViewCell {
-
-                    cell.configure(title: item.title)
+        hashTag
+            .bind(to: hashTagCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.hashTagCV.dequeueReusableCell(withReuseIdentifier: "TagListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? TagListCollectionViewCell {
+                    
+                    cell.configure(title: item.hashTag)
                     return cell
                 }
                 return UICollectionViewCell()
@@ -89,13 +93,16 @@ extension TagTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var items: [TagCollectionViewDataModel] = []
-        viewModel.output.tagCellData
-            .subscribe(onNext: {data in
-                items = data
-            })
+        var value = CGSize()
+        
+        hashTag
+            .bind { data in
+                if indexPath.row < data.count {
+                    value = TagListCollectionViewCell.fittingSize(availableHeight: 26, title: data[indexPath.row].hashTag)
+                }
+            }
             .disposed(by: disposeBag)
         
-        return TagListCollectionViewCell.fittingSize(availableHeight: 26, title: items[indexPath.row].title)
+        return value
     }
 }

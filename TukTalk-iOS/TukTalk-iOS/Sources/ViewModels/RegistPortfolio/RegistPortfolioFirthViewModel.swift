@@ -2,46 +2,46 @@
 //  RegistPortfolioFirthViewModel.swift
 //  TukTalk-iOS
 //
-//  Created by 한상진 on 2021/11/25.
+//  Created by 한상진 on 2021/12/06.
 //
 
 import RxSwift
 import RxCocoa
+import Moya
 
-struct RegistPortfolioFirthViewModel: ViewModelType {
+struct RegistPortfolioFirthViewModel {
+    var formData: [MultipartFormData] = []
+    var imgData = BehaviorSubject(value: [])
+    private let disposeBag = DisposeBag()
     
-    let dependency: Dependency
-    var disposeBag: DisposeBag = DisposeBag()
-    let input: Input
-    let output: Output
-    
-    struct Dependency {
+    func postPDFRequest(pdfData: Data, fileName: String, status: @escaping (Int) -> (), completion: @escaping (PDFResponse) -> ()) {
+        let provider = MoyaProvider<PDFService>()
+        provider.rx.request(.pdfRequest(pdfData, fileName: fileName))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    status(response.statusCode)
+                    guard let responseData = try? response.map(PDFResponse.self) else { return }
+                    completion(responseData)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: self.disposeBag)
     }
-    
-    struct Input {
-        var inputText: AnyObserver<String?>
+    func postPreviewRequest(completion: @escaping (PreviewResponse) -> ()) {
+        let provider = MoyaProvider<PreviewService>()
+        provider.rx.request(.previewRequest(self.formData))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    guard let responseData = try? response.map(PreviewResponse.self) else { return }
+                    print(response)
+                    completion(responseData)
+                case let .failure(error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
     }
-    
-    struct Output {
-        var priceEnable: Driver<Bool>
-    }
-    
-    init(dependency: Dependency = Dependency()) {
-        self.dependency = dependency
-        
-        let inputText$ = BehaviorSubject<String?>(value: nil)
-        let priceEnable$ = inputText$.map(priceCheck).asDriver(onErrorJustReturn: false)
-        
-        self.input = Input(inputText: inputText$.asObserver())
-        self.output = Output(priceEnable: priceEnable$)
-    }
-}
-
-private func priceCheck(priceInput: String?) -> Bool {
-    guard let priceInput = priceInput else { return false }
-    
-    if let price = Int(priceInput) {
-        return price > 0 && price <= 100000
-    }
-    return false
 }

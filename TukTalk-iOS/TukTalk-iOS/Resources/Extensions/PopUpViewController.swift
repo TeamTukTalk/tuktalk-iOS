@@ -22,14 +22,14 @@ final class PopUpViewController: UIViewController {
         $0.font = UIFont.TTFont(type: .SDMed, size: 14)
     }
     
-    private let dismissBtn = UIButton().then {
+    let dismissBtn = UIButton().then {
         $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
         $0.setTitle("나가기", for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
         $0.addTarget(self, action: #selector(dismissBtnAction), for: .touchUpInside)
     }
     
-    private let acceptBtn = UIButton().then {
+    let acceptBtn = UIButton().then {
         $0.setTitleColor(UIColor.Primary.primary, for: .normal)
         $0.setTitle("계속 작성", for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)

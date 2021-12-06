@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4000F8A12721B14D0067C6B6 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8A02721B14D0067C6B6 /* SignUpSecondViewController.swift */; };
 		4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */; };
-		400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */; };
+		400A3D3427287FB100921BE0 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400A3D3327287FB100921BE0 /* CategoryCollectionViewCell.swift */; };
 		4011846D271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
 		4011846E271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
 		4011846F271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */; };
@@ -30,12 +30,10 @@
 		40118482271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011847F271D9ACB00A5657A /* ViewModelProtocol.swift */; };
 		402B98CB27521B4800EDD668 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B98CA27521B4800EDD668 /* KeyChain.swift */; };
 		402B98CD2752245400EDD668 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B98CC2752245400EDD668 /* LoginResponse.swift */; };
+		402B98D127524AE600EDD668 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B98D027524AE600EDD668 /* MyPageViewController.swift */; };
 		402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D658F272683FC00F4ED8F /* TabBarViewController.swift */; };
 		402D65972726848800F4ED8F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65962726848800F4ED8F /* HomeViewController.swift */; };
 		402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65982726849E00F4ED8F /* SearchMainViewController.swift */; };
-		402D659B272684A600F4ED8F /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D659A272684A600F4ED8F /* CommunityViewController.swift */; };
-		402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D659C272684AE00F4ED8F /* ConsultingViewController.swift */; };
-		402D659F272684B500F4ED8F /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D659E272684B500F4ED8F /* MyPageViewController.swift */; };
 		402D65A12726D64400F4ED8F /* SearchDirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A02726D64400F4ED8F /* SearchDirectViewController.swift */; };
 		402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */; };
 		402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */; };
@@ -44,14 +42,44 @@
 		402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65AB2727C4D500F4ED8F /* RecommendView.swift */; };
 		402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65B02727D64400F4ED8F /* SearchingViewController.swift */; };
 		402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */; };
-		40384BF6273199FA00605246 /* MyPageTVDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40384BF5273199FA00605246 /* MyPageTVDataModel.swift */; };
-		403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013B272D9AFD0093160D /* MentorListDataModel.swift */; };
 		403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */; };
 		403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013F272DAAE80093160D /* HashTagCollectionViewCell.swift */; };
-		403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */; };
 		403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */; };
 		403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D33271B784800B834A6 /* UIColorExtension.swift */; };
 		403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */; };
+		403EC21F2755767B008A40B9 /* PortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC21E2755767B008A40B9 /* PortfolioService.swift */; };
+		403EC221275576C9008A40B9 /* PortfolioRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC220275576C9008A40B9 /* PortfolioRequest.swift */; };
+		403EC223275614B5008A40B9 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC222275614B5008A40B9 /* TermsViewController.swift */; };
+		403EC225275617E6008A40B9 /* TermsTVTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC224275617E6008A40B9 /* TermsTVTitleCell.swift */; };
+		403EC22727561CA9008A40B9 /* TermsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC22627561CA9008A40B9 /* TermsTableViewModel.swift */; };
+		403EC22927562928008A40B9 /* TermsTVContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC22827562928008A40B9 /* TermsTVContentCell.swift */; };
+		403EC22C27565D16008A40B9 /* RegistMentorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC22B27565D16008A40B9 /* RegistMentorService.swift */; };
+		403EC22E27565D3D008A40B9 /* RegistMentorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC22D27565D3D008A40B9 /* RegistMentorRequest.swift */; };
+		403EC23127565F15008A40B9 /* UserMentorRegist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23027565F15008A40B9 /* UserMentorRegist.swift */; };
+		403EC23327566015008A40B9 /* SendEmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23227566015008A40B9 /* SendEmailService.swift */; };
+		403EC23527566131008A40B9 /* EmailVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23427566131008A40B9 /* EmailVerifyService.swift */; };
+		403EC237275661CC008A40B9 /* EmailVerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC236275661CC008A40B9 /* EmailVerifyResponse.swift */; };
+		403EC23D27568DAB008A40B9 /* UpdatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC23C27568DAA008A40B9 /* UpdatePopUpViewController.swift */; };
+		403EC24627569BD0008A40B9 /* MenteeProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC24527569BD0008A40B9 /* MenteeProfileService.swift */; };
+		403EC24827569C50008A40B9 /* MenteeProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC24727569C50008A40B9 /* MenteeProfileResponse.swift */; };
+		403EC24A27569E1B008A40B9 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC24927569E1B008A40B9 /* MyPageViewModel.swift */; };
+		403EC24D2756A908008A40B9 /* RegistMenteeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC24C2756A908008A40B9 /* RegistMenteeProfileViewController.swift */; };
+		403EC2532756C787008A40B9 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2522756C787008A40B9 /* SignUpResponse.swift */; };
+		403EC2562756D289008A40B9 /* MentorCertifyPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2552756D289008A40B9 /* MentorCertifyPopUp.swift */; };
+		403EC2592756ED9F008A40B9 /* RegistMenteeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2582756ED9F008A40B9 /* RegistMenteeViewModel.swift */; };
+		403EC25C2756EFCA008A40B9 /* RegistMenteeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC25B2756EFCA008A40B9 /* RegistMenteeService.swift */; };
+		403EC25E2756F09F008A40B9 /* RegistMenteeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC25D2756F09F008A40B9 /* RegistMenteeRequest.swift */; };
+		403EC26227570824008A40B9 /* WithdrawService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26127570824008A40B9 /* WithdrawService.swift */; };
+		403EC26427570B27008A40B9 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26327570B27008A40B9 /* UIWindowExtension.swift */; };
+		403EC267275719F8008A40B9 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC266275719F8008A40B9 /* FirstOnboardingViewController.swift */; };
+		403EC26927571A07008A40B9 /* SecondOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26827571A07008A40B9 /* SecondOnboardingViewController.swift */; };
+		403EC26B27571A12008A40B9 /* FinishOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26A27571A12008A40B9 /* FinishOnboardingViewController.swift */; };
+		403EC26E2757328F008A40B9 /* MentorPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26D2757328F008A40B9 /* MentorPageService.swift */; };
+		403EC2702757447C008A40B9 /* ConsultingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26F2757447C008A40B9 /* ConsultingViewController.swift */; };
+		403EC27227574492008A40B9 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC27127574492008A40B9 /* ReviewViewController.swift */; };
+		403EC2742757449C008A40B9 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2732757449C008A40B9 /* PortfolioViewController.swift */; };
+		403EC27627579C76008A40B9 /* QuerySearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC27527579C76008A40B9 /* QuerySearchRequest.swift */; };
+		403EC27B2757D99B008A40B9 /* MentorPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC27A2757D99B008A40B9 /* MentorPageResponse.swift */; };
 		4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DD27198803007D09E7 /* AppDelegate.swift */; };
 		4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041C0DF27198803007D09E7 /* SceneDelegate.swift */; };
 		4041C0E727198806007D09E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4041C0E627198806007D09E7 /* Assets.xcassets */; };
@@ -69,11 +97,11 @@
 		404C57132746C89000B31F64 /* SecondFieldCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */; };
 		404C57152746D62800B31F64 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57142746D62800B31F64 /* LoginRequest.swift */; };
 		404C57182746D6B100B31F64 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C57172746D6B100B31F64 /* LoginService.swift */; };
-		404E68692724206D005AA5DD /* RegistMentorFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68682724206D005AA5DD /* RegistMentorFirstViewController.swift */; };
-		404E686D272439C7005AA5DD /* RegistMentorSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686C272439C7005AA5DD /* RegistMentorSecondViewController.swift */; };
-		404E6870272449B6005AA5DD /* RegistMentorFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686F272449B6005AA5DD /* RegistMentorFirstViewModel.swift */; };
-		404E687227245220005AA5DD /* RegistMentorSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E687127245220005AA5DD /* RegistMentorSecondViewModel.swift */; };
-		404E68742724541E005AA5DD /* RegistMentorFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* RegistMentorFinishViewController.swift */; };
+		404E68692724206D005AA5DD /* CertifyMentorFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68682724206D005AA5DD /* CertifyMentorFirstViewController.swift */; };
+		404E686D272439C7005AA5DD /* CertifyMentorSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686C272439C7005AA5DD /* CertifyMentorSecondViewController.swift */; };
+		404E6870272449B6005AA5DD /* CertifyMentorFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E686F272449B6005AA5DD /* CertifyMentorFirstViewModel.swift */; };
+		404E687227245220005AA5DD /* CertifyMentorSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E687127245220005AA5DD /* CertifyMentorSecondViewModel.swift */; };
+		404E68742724541E005AA5DD /* CertifyMentorFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* CertifyMentorFinishViewController.swift */; };
 		4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A9572729BFF90087E98C /* TagBottomSheetView.swift */; };
 		4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */; };
 		4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */; };
@@ -82,16 +110,16 @@
 		406324D3273FF3E4009F62A3 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324D2273FF3E4009F62A3 /* FieldTableViewCell.swift */; };
 		406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */; };
 		4065FEDA274226A4005AAE0F /* RegistProfileThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */; };
-		4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */; };
+		4065FEDC27423EDE005AAE0F /* RegistMentorThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDB27423EDE005AAE0F /* RegistMentorThirdViewModel.swift */; };
 		4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */; };
-		4065FEE02743506D005AAE0F /* RegistProfileFourthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDF2743506D005AAE0F /* RegistProfileFourthViewModel.swift */; };
+		4065FEE02743506D005AAE0F /* RegistMentorFourthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDF2743506D005AAE0F /* RegistMentorFourthViewModel.swift */; };
 		4065FEE227435587005AAE0F /* TagCollectionViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE127435587005AAE0F /* TagCollectionViewDataModel.swift */; };
 		4065FEE4274355C8005AAE0F /* RegistProfileFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE3274355C8005AAE0F /* RegistProfileFifthViewController.swift */; };
 		4065FEE627435A1D005AAE0F /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE527435A1D005AAE0F /* CompanyCollectionViewCell.swift */; };
 		4065FEE827435B5F005AAE0F /* TagCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */; };
 		4065FEEA27435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE927435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift */; };
 		4065FEEC27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEEB27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift */; };
-		4065FEEE274397D4005AAE0F /* RegistProfileFifthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEED274397D4005AAE0F /* RegistProfileFifthViewModel.swift */; };
+		4065FEEE274397D4005AAE0F /* RegistMentorFifthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEED274397D4005AAE0F /* RegistMentorFifthViewModel.swift */; };
 		4065FEF227439F0A005AAE0F /* RegistProfileFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEF127439F0A005AAE0F /* RegistProfileFinishViewController.swift */; };
 		4065FEF92743CDE7005AAE0F /* PageCollectionViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEF82743CDE7005AAE0F /* PageCollectionViewDataModel.swift */; };
 		4065FEFB2743CE31005AAE0F /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEFA2743CE31005AAE0F /* PageCollectionViewCell.swift */; };
@@ -99,7 +127,6 @@
 		4065FF00274404A7005AAE0F /* MentorInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEFF274404A7005AAE0F /* MentorInformationViewModel.swift */; };
 		4065FF0327453550005AAE0F /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF0227453550005AAE0F /* InformationViewController.swift */; };
 		4065FF07274539AC005AAE0F /* IntroduceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF06274539AC005AAE0F /* IntroduceTableViewCell.swift */; };
-		4065FF0B27453BD2005AAE0F /* InformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF0A27453BD2005AAE0F /* InformationViewModel.swift */; };
 		4065FF0D27454E26005AAE0F /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF0C27454E26005AAE0F /* CompanyTableViewCell.swift */; };
 		4065FF0F274578F1005AAE0F /* CareerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF0E274578F1005AAE0F /* CareerTableViewCell.swift */; };
 		4065FF11274579E0005AAE0F /* SpecialtyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FF10274579E0005AAE0F /* SpecialtyTableViewCell.swift */; };
@@ -109,11 +136,34 @@
 		406C3F8427464F9C009EBAB2 /* MenteeReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406C3F8327464F9C009EBAB2 /* MenteeReviewViewController.swift */; };
 		406C3F86274653B7009EBAB2 /* MenteeReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406C3F85274653B7009EBAB2 /* MenteeReviewTableViewCell.swift */; };
 		40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40746D0B271EE94400B54CBB /* UILabelExtension.swift */; };
+		4087E92F27580B40000E2B6D /* PortfolioTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E92E27580B40000E2B6D /* PortfolioTVCell.swift */; };
+		4087E93127580B6C000E2B6D /* PortfolioPreviewTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E93027580B6C000E2B6D /* PortfolioPreviewTVCell.swift */; };
+		4087E93327580CB7000E2B6D /* PortfolioPreviewCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E93227580CB7000E2B6D /* PortfolioPreviewCVCell.swift */; };
+		4087E9352758103E000E2B6D /* PortfolioInformTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E9342758103E000E2B6D /* PortfolioInformTVCell.swift */; };
+		4087E937275811AA000E2B6D /* PortfolioRecommendTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E936275811AA000E2B6D /* PortfolioRecommendTVCell.swift */; };
+		4087E939275812D0000E2B6D /* PortfolioPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E938275812D0000E2B6D /* PortfolioPageService.swift */; };
+		4087E93B2758133A000E2B6D /* PortfolioPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E93A2758133A000E2B6D /* PortfolioPageResponse.swift */; };
+		4087E93D27581DA7000E2B6D /* GetCompanyNameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E93C27581DA7000E2B6D /* GetCompanyNameService.swift */; };
+		4087E93F27581E42000E2B6D /* GetCompanyNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E93E27581E42000E2B6D /* GetCompanyNameResponse.swift */; };
+		4087E94127584672000E2B6D /* MentorMyServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94027584672000E2B6D /* MentorMyServiceViewController.swift */; };
+		4087E943275852E7000E2B6D /* PortfolioResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E942275852E7000E2B6D /* PortfolioResponse.swift */; };
+		4087E94527585D2B000E2B6D /* RegistPortfolioFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94427585D2B000E2B6D /* RegistPortfolioFinishViewController.swift */; };
+		4087E94927587900000E2B6D /* RegistMentorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94827587900000E2B6D /* RegistMentorResponse.swift */; };
+		4087E94B27587EF1000E2B6D /* PortfolioPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94A27587EF1000E2B6D /* PortfolioPageViewModel.swift */; };
+		4087E94D27589750000E2B6D /* UserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94C27589750000E2B6D /* UserInfoService.swift */; };
+		4087E94F275897E1000E2B6D /* UserInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E94E275897E1000E2B6D /* UserInfoResponse.swift */; };
+		4087E9512758A364000E2B6D /* MyServicePortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E9502758A364000E2B6D /* MyServicePortfolioViewController.swift */; };
+		4087E9542758ACCE000E2B6D /* HistoryPortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E9532758ACCE000E2B6D /* HistoryPortfolioService.swift */; };
+		4087E9562758AE2C000E2B6D /* HistoryPortfolioResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E9552758AE2C000E2B6D /* HistoryPortfolioResponse.swift */; };
+		4087E9582758B14A000E2B6D /* MyServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E9572758B14A000E2B6D /* MyServiceCVCell.swift */; };
+		4087E95A2758B908000E2B6D /* MenteeMyServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E9592758B908000E2B6D /* MenteeMyServiceViewController.swift */; };
+		4087E95C2758D0A7000E2B6D /* ViewPortfolioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E95B2758D0A7000E2B6D /* ViewPortfolioService.swift */; };
+		4087E95E275D25DC000E2B6D /* RegistPortfolioFirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E95D275D25DC000E2B6D /* RegistPortfolioFirthViewModel.swift */; };
+		4087E960275D2B8D000E2B6D /* RegistPortfolioFinishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087E95F275D2B8D000E2B6D /* RegistPortfolioFinishViewModel.swift */; };
 		4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */; };
-		40A387B82731A5CB00BA5D5D /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */; };
 		40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */; };
-		40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */; };
+		40A8F851273F17D8007360C9 /* RegistMentorFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8F850273F17D8007360C9 /* RegistMentorFirstViewModel.swift */; };
 		40AA40EC27494AAC00F76625 /* UserSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40EB27494AAC00F76625 /* UserSignUp.swift */; };
 		40AA40EE274A7AFB00F76625 /* EmailValidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40ED274A7AFB00F76625 /* EmailValidResponse.swift */; };
 		40AA40F0274A7B2C00F76625 /* EmailValidService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40EF274A7B2C00F76625 /* EmailValidService.swift */; };
@@ -126,11 +176,8 @@
 		40CC20C2274E7578008A3967 /* RegistPortfolioSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20C1274E7578008A3967 /* RegistPortfolioSecondViewModel.swift */; };
 		40CC20C6274E7A01008A3967 /* RegistPortfolioThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20C5274E7A01008A3967 /* RegistPortfolioThirdViewController.swift */; };
 		40CC20C8274E7D86008A3967 /* RegistPortfolioThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20C7274E7D86008A3967 /* RegistPortfolioThirdViewModel.swift */; };
-		40CC20CA274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20C9274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift */; };
-		40CC20CC274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20CB274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift */; };
-		40CC20CE274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20CD274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift */; };
+		40CC20CE274EC0DC008A3967 /* RegistPortfolioFirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20CD274EC0DC008A3967 /* RegistPortfolioFirthViewController.swift */; };
 		40CC20D0274FFA55008A3967 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC20CF274FFA55008A3967 /* UIResponderExtension.swift */; };
-		40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */; };
 		40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */; };
 		40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */; };
 		40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF336273831B900A82CC6 /* BannerCollectionViewCell.swift */; };
@@ -146,6 +193,24 @@
 		40DCF357273DAA3700A82CC6 /* RegistProfileFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */; };
 		40DCF359273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */; };
 		40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */; };
+		40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */; };
+		40FAED4127534F860006490E /* MyPageInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4027534F860006490E /* MyPageInformationViewController.swift */; };
+		40FAED43275355490006490E /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED42275355490006490E /* WithdrawViewController.swift */; };
+		40FAED4727535C630006490E /* WithdrawViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4627535C630006490E /* WithdrawViewModel.swift */; };
+		40FAED4A2753701B0006490E /* QuerySearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED492753701B0006490E /* QuerySearchService.swift */; };
+		40FAED4E275373C30006490E /* QuerySearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4D275373C30006490E /* QuerySearchResponse.swift */; };
+		40FAED502753744E0006490E /* JobSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4F2753744E0006490E /* JobSearchService.swift */; };
+		40FAED522753796A0006490E /* JobSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED512753796A0006490E /* JobSearchResponse.swift */; };
+		40FAED5527537AE10006490E /* TopMentorSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5427537AE10006490E /* TopMentorSearchService.swift */; };
+		40FAED5727537BD50006490E /* TopMentorSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5627537BD50006490E /* TopMentorSearchResponse.swift */; };
+		40FAED5927537CA40006490E /* ReviewSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5827537CA40006490E /* ReviewSearchService.swift */; };
+		40FAED5B27537D2B0006490E /* ReviewSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5A27537D2B0006490E /* ReviewSearchResponse.swift */; };
+		40FAED5E275390050006490E /* PDFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED5D275390050006490E /* PDFService.swift */; };
+		40FAED6227553CF70006490E /* PreviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED6127553CF70006490E /* PreviewService.swift */; };
+		40FAED66275543110006490E /* PDFResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED65275543110006490E /* PDFResponse.swift */; };
+		40FAED682755433B0006490E /* PreviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED672755433B0006490E /* PreviewResponse.swift */; };
+		40FAED6B275543B30006490E /* UserPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED6A275543B30006490E /* UserPortfolio.swift */; };
+		40FAED6E275549470006490E /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED6D275549470006490E /* PreviewCollectionViewCell.swift */; };
 		CB6689EEEEA5C4F487F913F3 /* Pods_TukTalk_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */; };
 		D946EC43736DAE80E1B92F11 /* Pods_TukTalk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */; };
 		FE47055C235FE7AE896976B1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77C77FD87FFB639D54A00E1 /* Pods_TukTalk_iOS_TukTalk_iOSUITests.framework */; };
@@ -172,7 +237,7 @@
 		25FC350EF778AB1F6E37D05A /* Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOS-TukTalk-iOSUITests/Pods-TukTalk-iOS-TukTalk-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4000F8A02721B14D0067C6B6 /* SignUpSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondViewController.swift; sourceTree = "<group>"; };
 		4000F8AC27220DA00067C6B6 /* FieldCategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCategoryDataModel.swift; sourceTree = "<group>"; };
-		400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCollectionViewCell.swift; sourceTree = "<group>"; };
+		400A3D3327287FB100921BE0 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4011846A271C8E9C00A5657A /* SFProDisplay-MEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-MEDIUM.OTF"; sourceTree = "<group>"; };
 		4011846B271C8E9C00A5657A /* SFProDisplay-BOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-BOLD.OTF"; sourceTree = "<group>"; };
 		4011846C271C8E9C00A5657A /* SFProDisplay-REGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-REGULAR.OTF"; sourceTree = "<group>"; };
@@ -181,12 +246,10 @@
 		4011847F271D9ACB00A5657A /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		402B98CA27521B4800EDD668 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		402B98CC2752245400EDD668 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		402B98D027524AE600EDD668 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		402D658F272683FC00F4ED8F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		402D65962726848800F4ED8F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		402D65982726849E00F4ED8F /* SearchMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainViewController.swift; sourceTree = "<group>"; };
-		402D659A272684A600F4ED8F /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
-		402D659C272684AE00F4ED8F /* ConsultingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultingViewController.swift; sourceTree = "<group>"; };
-		402D659E272684B500F4ED8F /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		402D65A02726D64400F4ED8F /* SearchDirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDirectViewController.swift; sourceTree = "<group>"; };
 		402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendDataModel.swift; sourceTree = "<group>"; };
 		402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchesDataModel.swift; sourceTree = "<group>"; };
@@ -195,14 +258,44 @@
 		402D65AB2727C4D500F4ED8F /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		402D65B02727D64400F4ED8F /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
 		402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDirectViewModel.swift; sourceTree = "<group>"; };
-		40384BF5273199FA00605246 /* MyPageTVDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTVDataModel.swift; sourceTree = "<group>"; };
-		403B013B272D9AFD0093160D /* MentorListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListDataModel.swift; sourceTree = "<group>"; };
 		403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewModel.swift; sourceTree = "<group>"; };
 		403B013F272DAAE80093160D /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewModel.swift; sourceTree = "<group>"; };
 		403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		403B2D33271B784800B834A6 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		403EC21E2755767B008A40B9 /* PortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioService.swift; sourceTree = "<group>"; };
+		403EC220275576C9008A40B9 /* PortfolioRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioRequest.swift; sourceTree = "<group>"; };
+		403EC222275614B5008A40B9 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		403EC224275617E6008A40B9 /* TermsTVTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTVTitleCell.swift; sourceTree = "<group>"; };
+		403EC22627561CA9008A40B9 /* TermsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTableViewModel.swift; sourceTree = "<group>"; };
+		403EC22827562928008A40B9 /* TermsTVContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTVContentCell.swift; sourceTree = "<group>"; };
+		403EC22B27565D16008A40B9 /* RegistMentorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorService.swift; sourceTree = "<group>"; };
+		403EC22D27565D3D008A40B9 /* RegistMentorRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorRequest.swift; sourceTree = "<group>"; };
+		403EC23027565F15008A40B9 /* UserMentorRegist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMentorRegist.swift; sourceTree = "<group>"; };
+		403EC23227566015008A40B9 /* SendEmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailService.swift; sourceTree = "<group>"; };
+		403EC23427566131008A40B9 /* EmailVerifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyService.swift; sourceTree = "<group>"; };
+		403EC236275661CC008A40B9 /* EmailVerifyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyResponse.swift; sourceTree = "<group>"; };
+		403EC23C27568DAA008A40B9 /* UpdatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePopUpViewController.swift; sourceTree = "<group>"; };
+		403EC24527569BD0008A40B9 /* MenteeProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeProfileService.swift; sourceTree = "<group>"; };
+		403EC24727569C50008A40B9 /* MenteeProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeProfileResponse.swift; sourceTree = "<group>"; };
+		403EC24927569E1B008A40B9 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
+		403EC24C2756A908008A40B9 /* RegistMenteeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeProfileViewController.swift; sourceTree = "<group>"; };
+		403EC2522756C787008A40B9 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		403EC2552756D289008A40B9 /* MentorCertifyPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorCertifyPopUp.swift; sourceTree = "<group>"; };
+		403EC2582756ED9F008A40B9 /* RegistMenteeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeViewModel.swift; sourceTree = "<group>"; };
+		403EC25B2756EFCA008A40B9 /* RegistMenteeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeService.swift; sourceTree = "<group>"; };
+		403EC25D2756F09F008A40B9 /* RegistMenteeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeRequest.swift; sourceTree = "<group>"; };
+		403EC26127570824008A40B9 /* WithdrawService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawService.swift; sourceTree = "<group>"; };
+		403EC26327570B27008A40B9 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
+		403EC266275719F8008A40B9 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
+		403EC26827571A07008A40B9 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
+		403EC26A27571A12008A40B9 /* FinishOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishOnboardingViewController.swift; sourceTree = "<group>"; };
+		403EC26D2757328F008A40B9 /* MentorPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorPageService.swift; sourceTree = "<group>"; };
+		403EC26F2757447C008A40B9 /* ConsultingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultingViewController.swift; sourceTree = "<group>"; };
+		403EC27127574492008A40B9 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		403EC2732757449C008A40B9 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
+		403EC27527579C76008A40B9 /* QuerySearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySearchRequest.swift; sourceTree = "<group>"; };
+		403EC27A2757D99B008A40B9 /* MentorPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorPageResponse.swift; sourceTree = "<group>"; };
 		4041C0DA27198803007D09E7 /* TukTalk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TukTalk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041C0DD27198803007D09E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4041C0DF27198803007D09E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,11 +319,11 @@
 		404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFieldCategoryCVCell.swift; sourceTree = "<group>"; };
 		404C57142746D62800B31F64 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		404C57172746D6B100B31F64 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		404E68682724206D005AA5DD /* RegistMentorFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFirstViewController.swift; sourceTree = "<group>"; };
-		404E686C272439C7005AA5DD /* RegistMentorSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorSecondViewController.swift; sourceTree = "<group>"; };
-		404E686F272449B6005AA5DD /* RegistMentorFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFirstViewModel.swift; sourceTree = "<group>"; };
-		404E687127245220005AA5DD /* RegistMentorSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorSecondViewModel.swift; sourceTree = "<group>"; };
-		404E68732724541E005AA5DD /* RegistMentorFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFinishViewController.swift; sourceTree = "<group>"; };
+		404E68682724206D005AA5DD /* CertifyMentorFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifyMentorFirstViewController.swift; sourceTree = "<group>"; };
+		404E686C272439C7005AA5DD /* CertifyMentorSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifyMentorSecondViewController.swift; sourceTree = "<group>"; };
+		404E686F272449B6005AA5DD /* CertifyMentorFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifyMentorFirstViewModel.swift; sourceTree = "<group>"; };
+		404E687127245220005AA5DD /* CertifyMentorSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifyMentorSecondViewModel.swift; sourceTree = "<group>"; };
+		404E68732724541E005AA5DD /* CertifyMentorFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifyMentorFinishViewController.swift; sourceTree = "<group>"; };
 		4060A9572729BFF90087E98C /* TagBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetView.swift; sourceTree = "<group>"; };
 		4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewModel.swift; sourceTree = "<group>"; };
 		4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -239,16 +332,16 @@
 		406324D2273FF3E4009F62A3 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
 		406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewDataModel.swift; sourceTree = "<group>"; };
 		4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileThirdViewController.swift; sourceTree = "<group>"; };
-		4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileThirdViewModel.swift; sourceTree = "<group>"; };
+		4065FEDB27423EDE005AAE0F /* RegistMentorThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorThirdViewModel.swift; sourceTree = "<group>"; };
 		4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFourthViewController.swift; sourceTree = "<group>"; };
-		4065FEDF2743506D005AAE0F /* RegistProfileFourthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFourthViewModel.swift; sourceTree = "<group>"; };
+		4065FEDF2743506D005AAE0F /* RegistMentorFourthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFourthViewModel.swift; sourceTree = "<group>"; };
 		4065FEE127435587005AAE0F /* TagCollectionViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewDataModel.swift; sourceTree = "<group>"; };
 		4065FEE3274355C8005AAE0F /* RegistProfileFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFifthViewController.swift; sourceTree = "<group>"; };
 		4065FEE527435A1D005AAE0F /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewModel.swift; sourceTree = "<group>"; };
 		4065FEE927435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendHashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		4065FEEB27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		4065FEED274397D4005AAE0F /* RegistProfileFifthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFifthViewModel.swift; sourceTree = "<group>"; };
+		4065FEED274397D4005AAE0F /* RegistMentorFifthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFifthViewModel.swift; sourceTree = "<group>"; };
 		4065FEF127439F0A005AAE0F /* RegistProfileFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFinishViewController.swift; sourceTree = "<group>"; };
 		4065FEF82743CDE7005AAE0F /* PageCollectionViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewDataModel.swift; sourceTree = "<group>"; };
 		4065FEFA2743CE31005AAE0F /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -256,7 +349,6 @@
 		4065FEFF274404A7005AAE0F /* MentorInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorInformationViewModel.swift; sourceTree = "<group>"; };
 		4065FF0227453550005AAE0F /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		4065FF06274539AC005AAE0F /* IntroduceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceTableViewCell.swift; sourceTree = "<group>"; };
-		4065FF0A27453BD2005AAE0F /* InformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewModel.swift; sourceTree = "<group>"; };
 		4065FF0C27454E26005AAE0F /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
 		4065FF0E274578F1005AAE0F /* CareerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerTableViewCell.swift; sourceTree = "<group>"; };
 		4065FF10274579E0005AAE0F /* SpecialtyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyTableViewCell.swift; sourceTree = "<group>"; };
@@ -266,11 +358,34 @@
 		406C3F8327464F9C009EBAB2 /* MenteeReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeReviewViewController.swift; sourceTree = "<group>"; };
 		406C3F85274653B7009EBAB2 /* MenteeReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeReviewTableViewCell.swift; sourceTree = "<group>"; };
 		40746D0B271EE94400B54CBB /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		4087E92E27580B40000E2B6D /* PortfolioTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioTVCell.swift; sourceTree = "<group>"; };
+		4087E93027580B6C000E2B6D /* PortfolioPreviewTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioPreviewTVCell.swift; sourceTree = "<group>"; };
+		4087E93227580CB7000E2B6D /* PortfolioPreviewCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioPreviewCVCell.swift; sourceTree = "<group>"; };
+		4087E9342758103E000E2B6D /* PortfolioInformTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioInformTVCell.swift; sourceTree = "<group>"; };
+		4087E936275811AA000E2B6D /* PortfolioRecommendTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioRecommendTVCell.swift; sourceTree = "<group>"; };
+		4087E938275812D0000E2B6D /* PortfolioPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioPageService.swift; sourceTree = "<group>"; };
+		4087E93A2758133A000E2B6D /* PortfolioPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioPageResponse.swift; sourceTree = "<group>"; };
+		4087E93C27581DA7000E2B6D /* GetCompanyNameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompanyNameService.swift; sourceTree = "<group>"; };
+		4087E93E27581E42000E2B6D /* GetCompanyNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompanyNameResponse.swift; sourceTree = "<group>"; };
+		4087E94027584672000E2B6D /* MentorMyServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorMyServiceViewController.swift; sourceTree = "<group>"; };
+		4087E942275852E7000E2B6D /* PortfolioResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioResponse.swift; sourceTree = "<group>"; };
+		4087E94427585D2B000E2B6D /* RegistPortfolioFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFinishViewController.swift; sourceTree = "<group>"; };
+		4087E94827587900000E2B6D /* RegistMentorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorResponse.swift; sourceTree = "<group>"; };
+		4087E94A27587EF1000E2B6D /* PortfolioPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioPageViewModel.swift; sourceTree = "<group>"; };
+		4087E94C27589750000E2B6D /* UserInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoService.swift; sourceTree = "<group>"; };
+		4087E94E275897E1000E2B6D /* UserInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponse.swift; sourceTree = "<group>"; };
+		4087E9502758A364000E2B6D /* MyServicePortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServicePortfolioViewController.swift; sourceTree = "<group>"; };
+		4087E9532758ACCE000E2B6D /* HistoryPortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPortfolioService.swift; sourceTree = "<group>"; };
+		4087E9552758AE2C000E2B6D /* HistoryPortfolioResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPortfolioResponse.swift; sourceTree = "<group>"; };
+		4087E9572758B14A000E2B6D /* MyServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServiceCVCell.swift; sourceTree = "<group>"; };
+		4087E9592758B908000E2B6D /* MenteeMyServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeMyServiceViewController.swift; sourceTree = "<group>"; };
+		4087E95B2758D0A7000E2B6D /* ViewPortfolioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPortfolioService.swift; sourceTree = "<group>"; };
+		4087E95D275D25DC000E2B6D /* RegistPortfolioFirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirthViewModel.swift; sourceTree = "<group>"; };
+		4087E95F275D2B8D000E2B6D /* RegistPortfolioFinishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFinishViewModel.swift; sourceTree = "<group>"; };
 		4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdViewController.swift; sourceTree = "<group>"; };
-		40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 		40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableHeaderView.swift; sourceTree = "<group>"; };
-		40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFirstViewModel.swift; sourceTree = "<group>"; };
+		40A8F850273F17D8007360C9 /* RegistMentorFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFirstViewModel.swift; sourceTree = "<group>"; };
 		40AA40EB27494AAC00F76625 /* UserSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUp.swift; sourceTree = "<group>"; };
 		40AA40ED274A7AFB00F76625 /* EmailValidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidResponse.swift; sourceTree = "<group>"; };
 		40AA40EF274A7B2C00F76625 /* EmailValidService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidService.swift; sourceTree = "<group>"; };
@@ -283,11 +398,8 @@
 		40CC20C1274E7578008A3967 /* RegistPortfolioSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioSecondViewModel.swift; sourceTree = "<group>"; };
 		40CC20C5274E7A01008A3967 /* RegistPortfolioThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioThirdViewController.swift; sourceTree = "<group>"; };
 		40CC20C7274E7D86008A3967 /* RegistPortfolioThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioThirdViewModel.swift; sourceTree = "<group>"; };
-		40CC20C9274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirthViewController.swift; sourceTree = "<group>"; };
-		40CC20CB274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirthViewModel.swift; sourceTree = "<group>"; };
-		40CC20CD274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFifthViewController.swift; sourceTree = "<group>"; };
+		40CC20CD274EC0DC008A3967 /* RegistPortfolioFirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPortfolioFirthViewController.swift; sourceTree = "<group>"; };
 		40CC20CF274FFA55008A3967 /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
-		40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewModel.swift; sourceTree = "<group>"; };
 		40D3483D272B00E80081FC5F /* TagBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetViewModel.swift; sourceTree = "<group>"; };
 		40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewCell.swift; sourceTree = "<group>"; };
 		40DCF336273831B900A82CC6 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -303,6 +415,24 @@
 		40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFirstViewController.swift; sourceTree = "<group>"; };
 		40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileSecondViewController.swift; sourceTree = "<group>"; };
 		40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishViewController.swift; sourceTree = "<group>"; };
+		40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
+		40FAED4027534F860006490E /* MyPageInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInformationViewController.swift; sourceTree = "<group>"; };
+		40FAED42275355490006490E /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
+		40FAED4627535C630006490E /* WithdrawViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewModel.swift; sourceTree = "<group>"; };
+		40FAED492753701B0006490E /* QuerySearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySearchService.swift; sourceTree = "<group>"; };
+		40FAED4D275373C30006490E /* QuerySearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySearchResponse.swift; sourceTree = "<group>"; };
+		40FAED4F2753744E0006490E /* JobSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchService.swift; sourceTree = "<group>"; };
+		40FAED512753796A0006490E /* JobSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchResponse.swift; sourceTree = "<group>"; };
+		40FAED5427537AE10006490E /* TopMentorSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMentorSearchService.swift; sourceTree = "<group>"; };
+		40FAED5627537BD50006490E /* TopMentorSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMentorSearchResponse.swift; sourceTree = "<group>"; };
+		40FAED5827537CA40006490E /* ReviewSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSearchService.swift; sourceTree = "<group>"; };
+		40FAED5A27537D2B0006490E /* ReviewSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSearchResponse.swift; sourceTree = "<group>"; };
+		40FAED5D275390050006490E /* PDFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFService.swift; sourceTree = "<group>"; };
+		40FAED6127553CF70006490E /* PreviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewService.swift; sourceTree = "<group>"; };
+		40FAED65275543110006490E /* PDFResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFResponse.swift; sourceTree = "<group>"; };
+		40FAED672755433B0006490E /* PreviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewResponse.swift; sourceTree = "<group>"; };
+		40FAED6A275543B30006490E /* UserPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPortfolio.swift; sourceTree = "<group>"; };
+		40FAED6D275549470006490E /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		55850F1025F11A787912F4AD /* Pods-TukTalk-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TukTalk-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-TukTalk-iOSTests/Pods-TukTalk-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		66E7023554152BBE9452E15A /* Pods_TukTalk_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F9CAAC62AF0832DB93AA11 /* Pods_TukTalk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TukTalk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,7 +491,6 @@
 				40DCF338273832B600A82CC6 /* Home */,
 				400A3D382729705600921BE0 /* Search */,
 				4065FEF72743CDBA005AAE0F /* MentorTab */,
-				40D0CE6D273115B9003AB9A7 /* MyPage */,
 				406324D4273FF494009F62A3 /* MentorProfile */,
 			);
 			path = Models;
@@ -380,7 +509,6 @@
 			children = (
 				402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */,
 				402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */,
-				403B013B272D9AFD0093160D /* MentorListDataModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -435,28 +563,19 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		402D65932726846300F4ED8F /* Comunity */ = {
-			isa = PBXGroup;
-			children = (
-				402D659A272684A600F4ED8F /* CommunityViewController.swift */,
-			);
-			path = Comunity;
-			sourceTree = "<group>";
-		};
-		402D65942726846700F4ED8F /* Consulting */ = {
-			isa = PBXGroup;
-			children = (
-				402D659C272684AE00F4ED8F /* ConsultingViewController.swift */,
-			);
-			path = Consulting;
-			sourceTree = "<group>";
-		};
 		402D65952726846C00F4ED8F /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				40384BF727319BF700605246 /* Cell */,
+				4087E9522758AAC7000E2B6D /* Cell */,
+				403EC2542756D26E008A40B9 /* PopUp */,
 				40A387B92731AA8100BA5D5D /* UIView */,
-				402D659E272684B500F4ED8F /* MyPageViewController.swift */,
+				402B98D027524AE600EDD668 /* MyPageViewController.swift */,
+				40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */,
+				40FAED4027534F860006490E /* MyPageInformationViewController.swift */,
+				40FAED42275355490006490E /* WithdrawViewController.swift */,
+				4087E94027584672000E2B6D /* MentorMyServiceViewController.swift */,
+				4087E9592758B908000E2B6D /* MenteeMyServiceViewController.swift */,
+				4087E9502758A364000E2B6D /* MyServicePortfolioViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -484,18 +603,10 @@
 			isa = PBXGroup;
 			children = (
 				402D65A6272716F700F4ED8F /* SearchDirectCollectionViewCell.swift */,
-				400A3D3327287FB100921BE0 /* SearchingCollectionViewCell.swift */,
+				400A3D3327287FB100921BE0 /* CategoryCollectionViewCell.swift */,
 				4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */,
 				40D3483F272C02980081FC5F /* MentorListCollectionViewCell.swift */,
 				403B013F272DAAE80093160D /* HashTagCollectionViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		40384BF727319BF700605246 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				40A387B72731A5CB00BA5D5D /* MyPageTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -506,14 +617,100 @@
 				403B2D2D271B45A400B834A6 /* UITextFieldExtension.swift */,
 				403B2D33271B784800B834A6 /* UIColorExtension.swift */,
 				403B2D35271B7A4A00B834A6 /* PopUpViewController.swift */,
+				403EC23C27568DAA008A40B9 /* UpdatePopUpViewController.swift */,
 				40118476271C90D800A5657A /* UIFontExtension.swift */,
 				4011847A271CA41E00A5657A /* CALayerExtension.swift */,
 				40746D0B271EE94400B54CBB /* UILabelExtension.swift */,
 				40AFDE0327354CE600422930 /* UIViewControllerExtension.swift */,
 				4065FEEB27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift */,
 				40CC20CF274FFA55008A3967 /* UIResponderExtension.swift */,
+				403EC26327570B27008A40B9 /* UIWindowExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		403EC22A27565CEC008A40B9 /* RegistMentor */ = {
+			isa = PBXGroup;
+			children = (
+				403EC22B27565D16008A40B9 /* RegistMentorService.swift */,
+				403EC22D27565D3D008A40B9 /* RegistMentorRequest.swift */,
+				4087E94827587900000E2B6D /* RegistMentorResponse.swift */,
+				4087E93C27581DA7000E2B6D /* GetCompanyNameService.swift */,
+				4087E93E27581E42000E2B6D /* GetCompanyNameResponse.swift */,
+			);
+			path = RegistMentor;
+			sourceTree = "<group>";
+		};
+		403EC22F27565EFE008A40B9 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				403EC23027565F15008A40B9 /* UserMentorRegist.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		403EC24427569B95008A40B9 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				403EC24527569BD0008A40B9 /* MenteeProfileService.swift */,
+				403EC24727569C50008A40B9 /* MenteeProfileResponse.swift */,
+				403EC26127570824008A40B9 /* WithdrawService.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		403EC24B2756A895008A40B9 /* RegistMentee */ = {
+			isa = PBXGroup;
+			children = (
+				403EC24C2756A908008A40B9 /* RegistMenteeProfileViewController.swift */,
+			);
+			path = RegistMentee;
+			sourceTree = "<group>";
+		};
+		403EC2542756D26E008A40B9 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				403EC2552756D289008A40B9 /* MentorCertifyPopUp.swift */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		403EC2572756ED8F008A40B9 /* RegistMentee */ = {
+			isa = PBXGroup;
+			children = (
+				403EC2582756ED9F008A40B9 /* RegistMenteeViewModel.swift */,
+			);
+			path = RegistMentee;
+			sourceTree = "<group>";
+		};
+		403EC25A2756EFBA008A40B9 /* RegistMentee */ = {
+			isa = PBXGroup;
+			children = (
+				403EC25B2756EFCA008A40B9 /* RegistMenteeService.swift */,
+				403EC25D2756F09F008A40B9 /* RegistMenteeRequest.swift */,
+			);
+			path = RegistMentee;
+			sourceTree = "<group>";
+		};
+		403EC265275719E3008A40B9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				403EC266275719F8008A40B9 /* FirstOnboardingViewController.swift */,
+				403EC26827571A07008A40B9 /* SecondOnboardingViewController.swift */,
+				403EC26A27571A12008A40B9 /* FinishOnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		403EC26C2757326A008A40B9 /* MentorTab */ = {
+			isa = PBXGroup;
+			children = (
+				403EC26D2757328F008A40B9 /* MentorPageService.swift */,
+				403EC27A2757D99B008A40B9 /* MentorPageResponse.swift */,
+				4087E938275812D0000E2B6D /* PortfolioPageService.swift */,
+				4087E93A2758133A000E2B6D /* PortfolioPageResponse.swift */,
+			);
+			path = MentorTab;
 			sourceTree = "<group>";
 		};
 		4041C0D127198803007D09E7 = {
@@ -581,6 +778,7 @@
 		4041C10E27198820007D09E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				403EC265275719E3008A40B9 /* Onboarding */,
 				404C57012746A37000B31F64 /* Network */,
 				4011847E271D9AB700A5657A /* Protocols */,
 				40118469271C8DF100A5657A /* Fonts */,
@@ -606,16 +804,15 @@
 			children = (
 				4041C11327198917007D09E7 /* Login */,
 				4088F16A2719E15700527A77 /* SignUp */,
-				404E686727242017005AA5DD /* RegistMentor */,
 				40CC20B6274E35B7008A3967 /* RegistPortfolio */,
 				402D658E272683DA00F4ED8F /* TabBar */,
 				402D65912726845500F4ED8F /* Home */,
 				402D65922726845E00F4ED8F /* Search */,
 				4065FEF32743C9A3005AAE0F /* MentorTab */,
-				402D65932726846300F4ED8F /* Comunity */,
-				402D65942726846700F4ED8F /* Consulting */,
 				402D65952726846C00F4ED8F /* MyPage */,
-				40AFDE0027354B2E00422930 /* MentorProfile */,
+				40AFDE0027354B2E00422930 /* RegistMentor */,
+				403EC24B2756A895008A40B9 /* RegistMentee */,
+				404E686727242017005AA5DD /* CertifyMentor */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -626,11 +823,11 @@
 				4041C1142719891F007D09E7 /* Login */,
 				4088F16D271ADAE700527A77 /* SignUp */,
 				4065FEFE27440495005AAE0F /* MentorTab */,
-				404E686E272449A4005AA5DD /* RegistMentor */,
 				40CC20B9274E394D008A3967 /* RegistPortfolio */,
 				40DCF33B273833A900A82CC6 /* Home */,
 				402D65A82727306E00F4ED8F /* Search */,
 				40D0CE6A2731158D003AB9A7 /* MyPage */,
+				404E686E272449A4005AA5DD /* CertifyMentor */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -663,8 +860,16 @@
 		404C57042746B82900B31F64 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				40FAED5C27538FED0006490E /* Portfolio */,
+				40FAED5327537A9E0006490E /* Home */,
+				40FAED4827536FE40006490E /* Search */,
 				404C57162746D6A900B31F64 /* Login */,
 				404C57052746B82F00B31F64 /* SignUp */,
+				403EC22A27565CEC008A40B9 /* RegistMentor */,
+				403EC25A2756EFBA008A40B9 /* RegistMentee */,
+				403EC26C2757326A008A40B9 /* MentorTab */,
+				403EC24427569B95008A40B9 /* MyPage */,
+				4087E961275E23A7000E2B6D /* CertifyMentor */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -673,6 +878,7 @@
 			isa = PBXGroup;
 			children = (
 				404C57062746B89100B31F64 /* SignUpService.swift */,
+				403EC2522756C787008A40B9 /* SignUpResponse.swift */,
 				404C57092746BB2F00B31F64 /* SignUpRequest.swift */,
 				40AA40EF274A7B2C00F76625 /* EmailValidService.swift */,
 				40AA40ED274A7AFB00F76625 /* EmailValidResponse.swift */,
@@ -685,6 +891,8 @@
 			children = (
 				404C57102746C44900B31F64 /* FirstFieldCategoryCVCell.swift */,
 				404C57122746C89000B31F64 /* SecondFieldCategoryCVCell.swift */,
+				403EC224275617E6008A40B9 /* TermsTVTitleCell.swift */,
+				403EC22827562928008A40B9 /* TermsTVContentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -695,27 +903,29 @@
 				404C57172746D6B100B31F64 /* LoginService.swift */,
 				404C57142746D62800B31F64 /* LoginRequest.swift */,
 				402B98CC2752245400EDD668 /* LoginResponse.swift */,
+				4087E94C27589750000E2B6D /* UserInfoService.swift */,
+				4087E94E275897E1000E2B6D /* UserInfoResponse.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
 		};
-		404E686727242017005AA5DD /* RegistMentor */ = {
+		404E686727242017005AA5DD /* CertifyMentor */ = {
 			isa = PBXGroup;
 			children = (
-				404E68682724206D005AA5DD /* RegistMentorFirstViewController.swift */,
-				404E686C272439C7005AA5DD /* RegistMentorSecondViewController.swift */,
-				404E68732724541E005AA5DD /* RegistMentorFinishViewController.swift */,
+				404E68682724206D005AA5DD /* CertifyMentorFirstViewController.swift */,
+				404E686C272439C7005AA5DD /* CertifyMentorSecondViewController.swift */,
+				404E68732724541E005AA5DD /* CertifyMentorFinishViewController.swift */,
 			);
-			path = RegistMentor;
+			path = CertifyMentor;
 			sourceTree = "<group>";
 		};
-		404E686E272449A4005AA5DD /* RegistMentor */ = {
+		404E686E272449A4005AA5DD /* CertifyMentor */ = {
 			isa = PBXGroup;
 			children = (
-				404E686F272449B6005AA5DD /* RegistMentorFirstViewModel.swift */,
-				404E687127245220005AA5DD /* RegistMentorSecondViewModel.swift */,
+				404E686F272449B6005AA5DD /* CertifyMentorFirstViewModel.swift */,
+				404E687127245220005AA5DD /* CertifyMentorSecondViewModel.swift */,
 			);
-			path = RegistMentor;
+			path = CertifyMentor;
 			sourceTree = "<group>";
 		};
 		4052BFC927512541007F2368 /* CollectionViewModel */ = {
@@ -724,7 +934,6 @@
 				402D65A9272730A100F4ED8F /* SearchesCollectionViewModel.swift */,
 				4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */,
 				403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */,
-				403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */,
 			);
 			path = CollectionViewModel;
 			sourceTree = "<group>";
@@ -794,8 +1003,8 @@
 		4065FEFE27440495005AAE0F /* MentorTab */ = {
 			isa = PBXGroup;
 			children = (
-				4065FF0927453BB6005AAE0F /* PageViewModels */,
 				4065FEFF274404A7005AAE0F /* MentorInformationViewModel.swift */,
+				4087E94A27587EF1000E2B6D /* PortfolioPageViewModel.swift */,
 			);
 			path = MentorTab;
 			sourceTree = "<group>";
@@ -804,6 +1013,9 @@
 			isa = PBXGroup;
 			children = (
 				4065FF0227453550005AAE0F /* InformationViewController.swift */,
+				403EC2732757449C008A40B9 /* PortfolioViewController.swift */,
+				403EC26F2757447C008A40B9 /* ConsultingViewController.swift */,
+				403EC27127574492008A40B9 /* ReviewViewController.swift */,
 			);
 			path = PageViews;
 			sourceTree = "<group>";
@@ -812,6 +1024,7 @@
 			isa = PBXGroup;
 			children = (
 				4065FF0527453984005AAE0F /* Information */,
+				4087E92D27580B15000E2B6D /* Portfolio */,
 			);
 			path = PageCells;
 			sourceTree = "<group>";
@@ -829,12 +1042,34 @@
 			path = Information;
 			sourceTree = "<group>";
 		};
-		4065FF0927453BB6005AAE0F /* PageViewModels */ = {
+		4087E92D27580B15000E2B6D /* Portfolio */ = {
 			isa = PBXGroup;
 			children = (
-				4065FF0A27453BD2005AAE0F /* InformationViewModel.swift */,
+				4087E92E27580B40000E2B6D /* PortfolioTVCell.swift */,
+				4087E93027580B6C000E2B6D /* PortfolioPreviewTVCell.swift */,
+				4087E93227580CB7000E2B6D /* PortfolioPreviewCVCell.swift */,
+				4087E9342758103E000E2B6D /* PortfolioInformTVCell.swift */,
+				4087E936275811AA000E2B6D /* PortfolioRecommendTVCell.swift */,
 			);
-			path = PageViewModels;
+			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		4087E9522758AAC7000E2B6D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4087E9572758B14A000E2B6D /* MyServiceCVCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4087E961275E23A7000E2B6D /* CertifyMentor */ = {
+			isa = PBXGroup;
+			children = (
+				403EC23227566015008A40B9 /* SendEmailService.swift */,
+				403EC23427566131008A40B9 /* EmailVerifyService.swift */,
+				403EC236275661CC008A40B9 /* EmailVerifyResponse.swift */,
+			);
+			path = CertifyMentor;
 			sourceTree = "<group>";
 		};
 		4088F16A2719E15700527A77 /* SignUp */ = {
@@ -846,6 +1081,7 @@
 				4000F8A02721B14D0067C6B6 /* SignUpSecondViewController.swift */,
 				4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */,
 				40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */,
+				403EC222275614B5008A40B9 /* TermsViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -855,6 +1091,7 @@
 			children = (
 				404C570D2746C2F500B31F64 /* SignUpSecondViewModel.swift */,
 				40AA40F1274A990D00F76625 /* SignUpThirdViewModel.swift */,
+				403EC22627561CA9008A40B9 /* TermsTableViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -867,17 +1104,17 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
-		40A8F84F273F1796007360C9 /* MentorProfile */ = {
+		40A8F84F273F1796007360C9 /* RegistMentor */ = {
 			isa = PBXGroup;
 			children = (
 				406324CE273FF1D1009F62A3 /* UIViewModel */,
 				4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */,
-				40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */,
-				4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */,
-				4065FEDF2743506D005AAE0F /* RegistProfileFourthViewModel.swift */,
-				4065FEED274397D4005AAE0F /* RegistProfileFifthViewModel.swift */,
+				40A8F850273F17D8007360C9 /* RegistMentorFirstViewModel.swift */,
+				4065FEDB27423EDE005AAE0F /* RegistMentorThirdViewModel.swift */,
+				4065FEDF2743506D005AAE0F /* RegistMentorFourthViewModel.swift */,
+				4065FEED274397D4005AAE0F /* RegistMentorFifthViewModel.swift */,
 			);
-			path = MentorProfile;
+			path = RegistMentor;
 			sourceTree = "<group>";
 		};
 		40AA40EA27494A8E00F76625 /* Class */ = {
@@ -888,9 +1125,10 @@
 			path = Class;
 			sourceTree = "<group>";
 		};
-		40AFDE0027354B2E00422930 /* MentorProfile */ = {
+		40AFDE0027354B2E00422930 /* RegistMentor */ = {
 			isa = PBXGroup;
 			children = (
+				403EC22F27565EFE008A40B9 /* Class */,
 				406324D1273FF3CA009F62A3 /* Cell */,
 				406324CB273FF131009F62A3 /* UIView */,
 				40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */,
@@ -900,18 +1138,20 @@
 				4065FEE3274355C8005AAE0F /* RegistProfileFifthViewController.swift */,
 				4065FEF127439F0A005AAE0F /* RegistProfileFinishViewController.swift */,
 			);
-			path = MentorProfile;
+			path = RegistMentor;
 			sourceTree = "<group>";
 		};
 		40CC20B6274E35B7008A3967 /* RegistPortfolio */ = {
 			isa = PBXGroup;
 			children = (
+				40FAED6C275548A20006490E /* Cell */,
+				40FAED69275543A50006490E /* Class */,
 				40CC20BC274E4417008A3967 /* UIView */,
 				40CC20B7274E35EA008A3967 /* RegistPortfolioFirstViewController.swift */,
 				40CC20BF274E620C008A3967 /* RegistPortfolioSecondViewController.swift */,
 				40CC20C5274E7A01008A3967 /* RegistPortfolioThirdViewController.swift */,
-				40CC20C9274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift */,
-				40CC20CD274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift */,
+				40CC20CD274EC0DC008A3967 /* RegistPortfolioFirthViewController.swift */,
+				4087E94427585D2B000E2B6D /* RegistPortfolioFinishViewController.swift */,
 			);
 			path = RegistPortfolio;
 			sourceTree = "<group>";
@@ -922,7 +1162,8 @@
 				40CC20BA274E3966008A3967 /* RegistPortfolioFirstViewModel.swift */,
 				40CC20C1274E7578008A3967 /* RegistPortfolioSecondViewModel.swift */,
 				40CC20C7274E7D86008A3967 /* RegistPortfolioThirdViewModel.swift */,
-				40CC20CB274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift */,
+				4087E95D275D25DC000E2B6D /* RegistPortfolioFirthViewModel.swift */,
+				4087E95F275D2B8D000E2B6D /* RegistPortfolioFinishViewModel.swift */,
 			);
 			path = RegistPortfolio;
 			sourceTree = "<group>";
@@ -938,16 +1179,10 @@
 		40D0CE6A2731158D003AB9A7 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				40A8F84F273F1796007360C9 /* MentorProfile */,
-				40D0CE6B273115AA003AB9A7 /* MyPageTableViewModel.swift */,
-			);
-			path = MyPage;
-			sourceTree = "<group>";
-		};
-		40D0CE6D273115B9003AB9A7 /* MyPage */ = {
-			isa = PBXGroup;
-			children = (
-				40384BF5273199FA00605246 /* MyPageTVDataModel.swift */,
+				403EC2572756ED8F008A40B9 /* RegistMentee */,
+				40A8F84F273F1796007360C9 /* RegistMentor */,
+				40FAED4627535C630006490E /* WithdrawViewModel.swift */,
+				403EC24927569E1B008A40B9 /* MyPageViewModel.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -981,6 +1216,62 @@
 				40DCF34E273D202D00A82CC6 /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		40FAED4827536FE40006490E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				40FAED492753701B0006490E /* QuerySearchService.swift */,
+				40FAED4D275373C30006490E /* QuerySearchResponse.swift */,
+				403EC27527579C76008A40B9 /* QuerySearchRequest.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		40FAED5327537A9E0006490E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				40FAED4F2753744E0006490E /* JobSearchService.swift */,
+				40FAED512753796A0006490E /* JobSearchResponse.swift */,
+				40FAED5427537AE10006490E /* TopMentorSearchService.swift */,
+				40FAED5627537BD50006490E /* TopMentorSearchResponse.swift */,
+				40FAED5827537CA40006490E /* ReviewSearchService.swift */,
+				40FAED5A27537D2B0006490E /* ReviewSearchResponse.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		40FAED5C27538FED0006490E /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				40FAED5D275390050006490E /* PDFService.swift */,
+				40FAED65275543110006490E /* PDFResponse.swift */,
+				40FAED6127553CF70006490E /* PreviewService.swift */,
+				40FAED672755433B0006490E /* PreviewResponse.swift */,
+				403EC21E2755767B008A40B9 /* PortfolioService.swift */,
+				403EC220275576C9008A40B9 /* PortfolioRequest.swift */,
+				4087E942275852E7000E2B6D /* PortfolioResponse.swift */,
+				4087E9532758ACCE000E2B6D /* HistoryPortfolioService.swift */,
+				4087E9552758AE2C000E2B6D /* HistoryPortfolioResponse.swift */,
+				4087E95B2758D0A7000E2B6D /* ViewPortfolioService.swift */,
+			);
+			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		40FAED69275543A50006490E /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				40FAED6A275543B30006490E /* UserPortfolio.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		40FAED6C275548A20006490E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				40FAED6D275549470006490E /* PreviewCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		9238CF2D4D09587F33AF1237 /* Frameworks */ = {
@@ -1240,124 +1531,189 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4087E94527585D2B000E2B6D /* RegistPortfolioFinishViewController.swift in Sources */,
+				40FAED5E275390050006490E /* PDFService.swift in Sources */,
 				4065FF11274579E0005AAE0F /* SpecialtyTableViewCell.swift in Sources */,
 				404C57182746D6B100B31F64 /* LoginService.swift in Sources */,
+				403EC22927562928008A40B9 /* TermsTVContentCell.swift in Sources */,
+				40FAED6E275549470006490E /* PreviewCollectionViewCell.swift in Sources */,
+				4087E9352758103E000E2B6D /* PortfolioInformTVCell.swift in Sources */,
+				403EC223275614B5008A40B9 /* TermsViewController.swift in Sources */,
 				4041C11627198933007D09E7 /* LoginViewController.swift in Sources */,
 				4065FEF227439F0A005AAE0F /* RegistProfileFinishViewController.swift in Sources */,
 				40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */,
+				403EC225275617E6008A40B9 /* TermsTVTitleCell.swift in Sources */,
 				406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */,
-				403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */,
+				40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */,
+				403EC26927571A07008A40B9 /* SecondOnboardingViewController.swift in Sources */,
 				40DCF33A273832F100A82CC6 /* BannerDataModel.swift in Sources */,
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
+				40FAED6227553CF70006490E /* PreviewService.swift in Sources */,
 				4041C0DE27198803007D09E7 /* AppDelegate.swift in Sources */,
+				403EC23527566131008A40B9 /* EmailVerifyService.swift in Sources */,
 				40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */,
 				4000F8A12721B14D0067C6B6 /* SignUpSecondViewController.swift in Sources */,
+				4087E960275D2B8D000E2B6D /* RegistPortfolioFinishViewModel.swift in Sources */,
 				40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */,
-				404E686D272439C7005AA5DD /* RegistMentorSecondViewController.swift in Sources */,
+				404E686D272439C7005AA5DD /* CertifyMentorSecondViewController.swift in Sources */,
 				40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
 				404C57132746C89000B31F64 /* SecondFieldCategoryCVCell.swift in Sources */,
-				40D0CE6C273115AA003AB9A7 /* MyPageTableViewModel.swift in Sources */,
+				403EC267275719F8008A40B9 /* FirstOnboardingViewController.swift in Sources */,
+				403EC22C27565D16008A40B9 /* RegistMentorService.swift in Sources */,
+				403EC23127565F15008A40B9 /* UserMentorRegist.swift in Sources */,
+				403EC2742757449C008A40B9 /* PortfolioViewController.swift in Sources */,
 				402D65A7272716F700F4ED8F /* SearchDirectCollectionViewCell.swift in Sources */,
+				4087E93327580CB7000E2B6D /* PortfolioPreviewCVCell.swift in Sources */,
 				4065FF0D27454E26005AAE0F /* CompanyTableViewCell.swift in Sources */,
 				406C3F86274653B7009EBAB2 /* MenteeReviewTableViewCell.swift in Sources */,
+				403EC24627569BD0008A40B9 /* MenteeProfileService.swift in Sources */,
 				4065FF1327457B8C005AAE0F /* TagTableViewCell.swift in Sources */,
 				4065FF0F274578F1005AAE0F /* CareerTableViewCell.swift in Sources */,
-				400A3D3427287FB100921BE0 /* SearchingCollectionViewCell.swift in Sources */,
+				4087E93D27581DA7000E2B6D /* GetCompanyNameService.swift in Sources */,
+				400A3D3427287FB100921BE0 /* CategoryCollectionViewCell.swift in Sources */,
 				40CC20C8274E7D86008A3967 /* RegistPortfolioThirdViewModel.swift in Sources */,
+				40FAED4127534F860006490E /* MyPageInformationViewController.swift in Sources */,
+				4087E9582758B14A000E2B6D /* MyServiceCVCell.swift in Sources */,
 				4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */,
+				40FAED4A2753701B0006490E /* QuerySearchService.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
+				403EC26E2757328F008A40B9 /* MentorPageService.swift in Sources */,
 				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
 				4065FEE4274355C8005AAE0F /* RegistProfileFifthViewController.swift in Sources */,
 				404C57112746C44900B31F64 /* FirstFieldCategoryCVCell.swift in Sources */,
 				40AA40EE274A7AFB00F76625 /* EmailValidResponse.swift in Sources */,
-				404E6870272449B6005AA5DD /* RegistMentorFirstViewModel.swift in Sources */,
+				4087E93F27581E42000E2B6D /* GetCompanyNameResponse.swift in Sources */,
+				4087E92F27580B40000E2B6D /* PortfolioTVCell.swift in Sources */,
+				404E6870272449B6005AA5DD /* CertifyMentorFirstViewModel.swift in Sources */,
+				4087E943275852E7000E2B6D /* PortfolioResponse.swift in Sources */,
 				402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */,
+				4087E9512758A364000E2B6D /* MyServicePortfolioViewController.swift in Sources */,
 				4065FF00274404A7005AAE0F /* MentorInformationViewModel.swift in Sources */,
-				40384BF6273199FA00605246 /* MyPageTVDataModel.swift in Sources */,
-				404E68742724541E005AA5DD /* RegistMentorFinishViewController.swift in Sources */,
+				404E68742724541E005AA5DD /* CertifyMentorFinishViewController.swift in Sources */,
+				403EC26227570824008A40B9 /* WithdrawService.swift in Sources */,
 				4065FEE827435B5F005AAE0F /* TagCollectionViewModel.swift in Sources */,
 				404C570E2746C2F500B31F64 /* SignUpSecondViewModel.swift in Sources */,
 				4065FEFD274402D3005AAE0F /* MentorInformationViewController.swift in Sources */,
 				40DCF34B2739894B00A82CC6 /* ReviewDataModel.swift in Sources */,
+				403EC21F2755767B008A40B9 /* PortfolioService.swift in Sources */,
+				40FAED5527537AE10006490E /* TopMentorSearchService.swift in Sources */,
 				40DCF359273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift in Sources */,
+				4087E94127584672000E2B6D /* MentorMyServiceViewController.swift in Sources */,
 				403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */,
 				402D65A12726D64400F4ED8F /* SearchDirectViewController.swift in Sources */,
+				40FAED522753796A0006490E /* JobSearchResponse.swift in Sources */,
+				4087E94F275897E1000E2B6D /* UserInfoResponse.swift in Sources */,
 				402D65972726848800F4ED8F /* HomeViewController.swift in Sources */,
 				40CC20BE274E4423008A3967 /* TipViewController.swift in Sources */,
 				40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */,
 				406324CD273FF15E009F62A3 /* FieldViewController.swift in Sources */,
 				40D34840272C02980081FC5F /* MentorListCollectionViewCell.swift in Sources */,
-				40CC20CC274E8E0A008A3967 /* RegistPortfolioFirthViewModel.swift in Sources */,
 				404C57152746D62800B31F64 /* LoginRequest.swift in Sources */,
 				4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */,
 				40DCF34F273D202D00A82CC6 /* HomeViewModel.swift in Sources */,
-				40CC20CE274EC0DC008A3967 /* RegistPortfolioFifthViewController.swift in Sources */,
+				40CC20CE274EC0DC008A3967 /* RegistPortfolioFirthViewController.swift in Sources */,
 				403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */,
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
-				402D659D272684AE00F4ED8F /* ConsultingViewController.swift in Sources */,
+				40FAED502753744E0006490E /* JobSearchService.swift in Sources */,
+				4087E9562758AE2C000E2B6D /* HistoryPortfolioResponse.swift in Sources */,
 				4065FF1527457D05005AAE0F /* TagListCollectionViewCell.swift in Sources */,
 				4065FEEC27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */,
-				403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */,
+				4087E95E275D25DC000E2B6D /* RegistPortfolioFirthViewModel.swift in Sources */,
+				4087E94927587900000E2B6D /* RegistMentorResponse.swift in Sources */,
+				403EC2562756D289008A40B9 /* MentorCertifyPopUp.swift in Sources */,
 				4067CE06275136D100FFC8AF /* SearchingDirectViewController.swift in Sources */,
 				404C570A2746BB2F00B31F64 /* SignUpRequest.swift in Sources */,
+				4087E9542758ACCE000E2B6D /* HistoryPortfolioService.swift in Sources */,
+				40FAED5927537CA40006490E /* ReviewSearchService.swift in Sources */,
 				4065FEEA27435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift in Sources */,
-				40A387B82731A5CB00BA5D5D /* MyPageTableViewCell.swift in Sources */,
 				4065FEF92743CDE7005AAE0F /* PageCollectionViewDataModel.swift in Sources */,
 				406C3F8427464F9C009EBAB2 /* MenteeReviewViewController.swift in Sources */,
 				40CC20D0274FFA55008A3967 /* UIResponderExtension.swift in Sources */,
 				402D65A52726F7D900F4ED8F /* SearchesDataModel.swift in Sources */,
+				403EC24D2756A908008A40B9 /* RegistMenteeProfileViewController.swift in Sources */,
 				40AA40EC27494AAC00F76625 /* UserSignUp.swift in Sources */,
+				40FAED4727535C630006490E /* WithdrawViewModel.swift in Sources */,
+				403EC27B2757D99B008A40B9 /* MentorPageResponse.swift in Sources */,
 				40DCF343273979DD00A82CC6 /* JobMentorCollectionViewCell.swift in Sources */,
+				403EC2702757447C008A40B9 /* ConsultingViewController.swift in Sources */,
 				4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
+				4087E94D27589750000E2B6D /* UserInfoService.swift in Sources */,
 				40DCF357273DAA3700A82CC6 /* RegistProfileFirstViewController.swift in Sources */,
+				403EC2532756C787008A40B9 /* SignUpResponse.swift in Sources */,
+				403EC27627579C76008A40B9 /* QuerySearchRequest.swift in Sources */,
 				402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */,
 				40DCF34D273C0F5D00A82CC6 /* JobMentorListViewController.swift in Sources */,
 				4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */,
+				403EC27227574492008A40B9 /* ReviewViewController.swift in Sources */,
 				402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */,
-				40CC20CA274E7EBD008A3967 /* RegistPortfolioFirthViewController.swift in Sources */,
 				4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */,
-				4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */,
+				4065FEDC27423EDE005AAE0F /* RegistMentorThirdViewModel.swift in Sources */,
+				4087E939275812D0000E2B6D /* PortfolioPageService.swift in Sources */,
 				4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */,
+				403EC237275661CC008A40B9 /* EmailVerifyResponse.swift in Sources */,
+				4087E94B27587EF1000E2B6D /* PortfolioPageViewModel.swift in Sources */,
 				40746D0C271EE94400B54CBB /* UILabelExtension.swift in Sources */,
+				4087E93127580B6C000E2B6D /* PortfolioPreviewTVCell.swift in Sources */,
+				40FAED5727537BD50006490E /* TopMentorSearchResponse.swift in Sources */,
 				402B98CD2752245400EDD668 /* LoginResponse.swift in Sources */,
+				403EC25E2756F09F008A40B9 /* RegistMenteeRequest.swift in Sources */,
+				403EC24A27569E1B008A40B9 /* MyPageViewModel.swift in Sources */,
 				40DCF3492739891F00A82CC6 /* ReviewCollectionViewModel.swift in Sources */,
 				402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */,
-				404E68692724206D005AA5DD /* RegistMentorFirstViewController.swift in Sources */,
-				402D659F272684B500F4ED8F /* MyPageViewController.swift in Sources */,
+				404E68692724206D005AA5DD /* CertifyMentorFirstViewController.swift in Sources */,
+				40FAED5B27537D2B0006490E /* ReviewSearchResponse.swift in Sources */,
+				40FAED4E275373C30006490E /* QuerySearchResponse.swift in Sources */,
 				402B98CB27521B4800EDD668 /* KeyChain.swift in Sources */,
-				4065FEE02743506D005AAE0F /* RegistProfileFourthViewModel.swift in Sources */,
-				402D659B272684A600F4ED8F /* CommunityViewController.swift in Sources */,
+				4087E95A2758B908000E2B6D /* MenteeMyServiceViewController.swift in Sources */,
+				403EC2592756ED9F008A40B9 /* RegistMenteeViewModel.swift in Sources */,
+				4065FEE02743506D005AAE0F /* RegistMentorFourthViewModel.swift in Sources */,
+				403EC22E27565D3D008A40B9 /* RegistMentorRequest.swift in Sources */,
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
 				406324D3273FF3E4009F62A3 /* FieldTableViewCell.swift in Sources */,
 				402D65AA272730A100F4ED8F /* SearchesCollectionViewModel.swift in Sources */,
+				40FAED682755433B0006490E /* PreviewResponse.swift in Sources */,
 				4065FEE627435A1D005AAE0F /* CompanyCollectionViewCell.swift in Sources */,
 				403B2D34271B784800B834A6 /* UIColorExtension.swift in Sources */,
 				4065FF07274539AC005AAE0F /* IntroduceTableViewCell.swift in Sources */,
 				402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */,
 				40CC20C6274E7A01008A3967 /* RegistPortfolioThirdViewController.swift in Sources */,
-				4065FF0B27453BD2005AAE0F /* InformationViewModel.swift in Sources */,
+				403EC221275576C9008A40B9 /* PortfolioRequest.swift in Sources */,
+				4087E937275811AA000E2B6D /* PortfolioRecommendTVCell.swift in Sources */,
+				403EC26B27571A12008A40B9 /* FinishOnboardingViewController.swift in Sources */,
 				404C57032746A3A500B31F64 /* APIConstants.swift in Sources */,
-				404E687227245220005AA5DD /* RegistMentorSecondViewModel.swift in Sources */,
+				40FAED43275355490006490E /* WithdrawViewController.swift in Sources */,
+				404E687227245220005AA5DD /* CertifyMentorSecondViewModel.swift in Sources */,
 				406324D0273FF1E1009F62A3 /* FieldViewModel.swift in Sources */,
-				40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */,
+				40A8F851273F17D8007360C9 /* RegistMentorFirstViewModel.swift in Sources */,
 				40CC20C0274E620C008A3967 /* RegistPortfolioSecondViewController.swift in Sources */,
 				404C57072746B89100B31F64 /* SignUpService.swift in Sources */,
+				40FAED66275543110006490E /* PDFResponse.swift in Sources */,
+				402B98D127524AE600EDD668 /* MyPageViewController.swift in Sources */,
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
+				403EC23D27568DAB008A40B9 /* UpdatePopUpViewController.swift in Sources */,
+				40FAED6B275543B30006490E /* UserPortfolio.swift in Sources */,
+				403EC22727561CA9008A40B9 /* TermsTableViewModel.swift in Sources */,
 				40CC20C2274E7578008A3967 /* RegistPortfolioSecondViewModel.swift in Sources */,
 				4065FEFB2743CE31005AAE0F /* PageCollectionViewCell.swift in Sources */,
 				40DCF33D273833C000A82CC6 /* BannerCollectionViewModel.swift in Sources */,
 				40AA40F2274A990D00F76625 /* SignUpThirdViewModel.swift in Sources */,
 				40DCF3472739884F00A82CC6 /* ReviewCollectionViewCell.swift in Sources */,
 				40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */,
+				403EC23327566015008A40B9 /* SendEmailService.swift in Sources */,
+				4087E95C2758D0A7000E2B6D /* ViewPortfolioService.swift in Sources */,
+				403EC25C2756EFCA008A40B9 /* RegistMenteeService.swift in Sources */,
 				40AA40F0274A7B2C00F76625 /* EmailValidService.swift in Sources */,
+				403EC26427570B27008A40B9 /* UIWindowExtension.swift in Sources */,
 				4065FEDA274226A4005AAE0F /* RegistProfileThirdViewController.swift in Sources */,
+				403EC24827569C50008A40B9 /* MenteeProfileResponse.swift in Sources */,
+				4087E93B2758133A000E2B6D /* PortfolioPageResponse.swift in Sources */,
 				4065FEE227435587005AAE0F /* TagCollectionViewDataModel.swift in Sources */,
-				4065FEEE274397D4005AAE0F /* RegistProfileFifthViewModel.swift in Sources */,
+				4065FEEE274397D4005AAE0F /* RegistMentorFifthViewModel.swift in Sources */,
 				4065FF0327453550005AAE0F /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1534,17 +1890,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3TAJ2UVSWN;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 69F5355JYF;
 				INFOPLIST_FILE = "TukTalk-iOS/Applications/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.SJHAN.TukTalk-iOS";
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SJHAN.Tuktalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1555,17 +1913,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3TAJ2UVSWN;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 69F5355JYF;
 				INFOPLIST_FILE = "TukTalk-iOS/Applications/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.SJHAN.TukTalk-iOS";
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SJHAN.Tuktalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

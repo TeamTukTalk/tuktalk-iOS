@@ -37,7 +37,7 @@ final class SearchesCollectionViewModel: ViewModelType {
     ]
     
     var designCategoryList: [SearchesDataModel] = [
-        SearchesDataModel(title: "UXUI디자인"),
+        SearchesDataModel(title: "UXUI 디자인"),
         SearchesDataModel(title: "웹 디자인"),
         SearchesDataModel(title: "브랜드 디자인"),
         SearchesDataModel(title: "그래픽 디자인"),

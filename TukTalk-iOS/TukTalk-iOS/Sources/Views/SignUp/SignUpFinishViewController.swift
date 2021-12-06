@@ -33,6 +33,7 @@ class SignUpFinishViewController: UIViewController {
     }
     
     private let mainBtn = UIButton().then {
+        $0.setTitle("프로필 등록하기", for: .normal)
         $0.setTitleColor(UIColor.Primary.primary, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
         $0.backgroundColor = .white
@@ -94,42 +95,41 @@ class SignUpFinishViewController: UIViewController {
             $0.centerX.equalToSuperview()
         }
         
-        switch user.role {
-        case "MENTEE":
-            mainBtn.setTitle("프로필 등록하기", for: .normal)
-        default:
-            mainBtn.setTitle("멘토 인증하기", for: .normal)
-        }
-        view.addSubview(mainBtn)
-        mainBtn.snp.makeConstraints {
-            $0.height.equalTo(52)
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(32)
-            $0.leading.trailing.equalToSuperview().inset(16)
+        if user.role == "MENTEE" {
+            view.addSubview(mainBtn)
+            mainBtn.snp.makeConstraints {
+                $0.height.equalTo(52)
+                $0.top.equalTo(subTitleLabel.snp.bottom).offset(32)
+                $0.leading.trailing.equalToSuperview().inset(16)
+            }
         }
         
         view.addSubview(homeBtn)
         homeBtn.snp.makeConstraints {
             $0.height.equalTo(52)
-            $0.top.equalTo(mainBtn.snp.bottom).offset(8)
+            if user.role == "MENTEE" {
+                $0.top.equalTo(mainBtn.snp.bottom).offset(8)
+            } else {
+                $0.top.equalTo(subTitleLabel.snp.bottom).offset(32)
+            }
             $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
     
     private func binding() {
         mainBtn.rx.tap
-            .bind { _ in
-                switch self.user.role {
-                case "MENTEE":
-                    print("미구현")
-                default:
-                    self.navigationController?.pushViewController(RegistProfileFirstViewController(), animated: true)
-                }
+            .bind {
+                self.navigationController?.pushViewController(RegistMenteeProfileViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         homeBtn.rx.tap
-            .bind { _ in
-                self.navigationController?.popToRootViewController(animated: true)
-                self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+            .bind {
+                if UserDefaults.standard.bool(forKey: "first") {
+                    let tabbarVC = UINavigationController(rootViewController: TabBarViewController())
+                    UIApplication.shared.windows.filter { $0.isKeyWindow }.first!.replaceRootViewController(tabbarVC, animated: true, completion: nil)
+                } else {
+                    self.navigationController?.pushViewController(FirstOnboardingViewController(), animated: true)
+                }
             }
             .disposed(by: disposeBag)
     }

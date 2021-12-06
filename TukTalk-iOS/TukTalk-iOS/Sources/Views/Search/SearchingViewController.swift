@@ -13,9 +13,10 @@ class SearchingViewController: UIViewController {
     
     private lazy var searchCVModel = SearchesCollectionViewModel()
     private lazy var mentorCVModel = MentorListCollectionViewModel()
+    private let closeBottomSheet = BehaviorSubject<Bool>(value: false)
     private var categorySelected = false
     private let disposeBag = DisposeBag()
-
+    
     //MARK:- UI Components
     
     let searchTextBtn = UIButton().then {
@@ -23,6 +24,8 @@ class SearchingViewController: UIViewController {
         $0.contentHorizontalAlignment = .left
         $0.setTitleColor(UIColor.GrayScale.sub1, for: .normal)
     }
+    
+    private let name = String(data: KeyChain.load(key: "nickname")!, encoding: .utf8)
     
     private let searchTextUnderline = UIView().then {
         $0.backgroundColor = UIColor.GrayScale.gray1
@@ -110,7 +113,7 @@ class SearchingViewController: UIViewController {
             $0.top.equalToSuperview().offset(64)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
-
+        
         searchTextBtn.addSubview(clearBtn)
         clearBtn.snp.makeConstraints {
             $0.height.width.equalTo(20)
@@ -214,7 +217,7 @@ class SearchingViewController: UIViewController {
         categoryCV.setCollectionViewLayout(categoryCVLayout, animated: false)
         categoryCV.backgroundColor = .white
         categoryCV.showsHorizontalScrollIndicator = false
-        categoryCV.register(SearchingCollectionViewCell.self, forCellWithReuseIdentifier: "SearchingCollectionViewCell")
+        categoryCV.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         
         let mentorListCVLayout = UICollectionViewFlowLayout()
         mentorListCVLayout.minimumLineSpacing = 8
@@ -224,44 +227,50 @@ class SearchingViewController: UIViewController {
         mentorListCV.setCollectionViewLayout(mentorListCVLayout, animated: false)
         mentorListCV.backgroundColor = .white
         mentorListCV.showsVerticalScrollIndicator = false
-        mentorListCV.register(MentorListCollectionViewCell.self, forCellWithReuseIdentifier: "MentorListCollectionViewCell")
+        mentorListCV.register(TopMentorCollectionViewCell.self, forCellWithReuseIdentifier: "TopMentorCollectionViewCell")
     }
     
     private func binding() {
         searchTextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.pushViewController(SearchDirectViewController(), animated: false)
             }
             .disposed(by: disposeBag)
         
         clearBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popToRootViewController(animated: false)
             }
             .disposed(by: disposeBag)
         
         companyCategoryBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.openBottomSheet()
             }
             .disposed(by: disposeBag)
         
         careerCategoryBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.openBottomSheet()
             }
             .disposed(by: disposeBag)
         
-        categoryCV.rx.itemSelected
-            .bind { _ in
+        categoryCV.rx.modelSelected(SearchesDataModel.self)
+            .bind { model in
                 self.categorySelected = true
-                self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
+                self.mentorCVModel.subSpecialty = model.title
+                self.titleLabel.text = "\(self.name!)님을 도와줄 멘토를 만나보세요!☺️"
+                self.mentorCVModel.getSearchMentorList(query: self.searchTextBtn.titleLabel?.text ?? "", companySize: self.companyExtraLabel.text, subSpecialty: model.title, startYear: self.careerExtraLabel.text) { response in
+                    self.mentorCVModel.mentorDataList.onNext(response)
+                }
             }
             .disposed(by: disposeBag)
         
-        mentorListCV.rx.modelSelected(MentorListDataModel.self)
-            .bind { _ in
-                self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
+        mentorListCV.rx.modelSelected(TopMentorSearchResponseElement.self)
+            .bind { model in
+                let nextVC = MentorInformationViewController()
+                nextVC.mentorID = model.id
+                self.navigationController?.pushViewController(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
     }
@@ -273,10 +282,12 @@ class SearchingViewController: UIViewController {
         if companyExtraLabel.text != "" {
             bottomSheet.tagViewModel.input.companyTitle.onNext(companyExtraLabel.text ?? "")
             bottomSheet.companyTagTitle.onNext(companyExtraLabel.text ?? "")
+            self.mentorCVModel.companySize = nil
         }
         if careerExtraLabel.text != "" {
             bottomSheet.tagViewModel.input.careerTitle.onNext(careerExtraLabel.text ?? "")
             bottomSheet.careerTagTitle.onNext(careerExtraLabel.text ?? "")
+            self.mentorCVModel.startYear = nil
         }
         
         let naviVC = UINavigationController(rootViewController: bottomSheet)
@@ -289,7 +300,8 @@ class SearchingViewController: UIViewController {
                 self.companyCategoryBtn.snp.updateConstraints {
                     $0.width.equalTo(text.count == 3 ? 118 : 130)
                 }
-                self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
+                self.mentorCVModel.companySize = text
+                self.titleLabel.text = "\(self.name!)님을 도와줄 멘토를 만나보세요!☺️"
             }
             .disposed(by: self.disposeBag)
         bottomSheet.careerTagTitle
@@ -299,15 +311,19 @@ class SearchingViewController: UIViewController {
                 self.careerCategoryBtn.snp.updateConstraints {
                     $0.width.equalTo(text.count == 4 ? 118 : 130)
                 }
-                self.titleLabel.text = "OO님을 도와줄 멘토를 만나보세요!☺️"
+                self.mentorCVModel.startYear = String(text.prefix(1))
+                self.titleLabel.text = "\(self.name!)님을 도와줄 멘토를 만나보세요!☺️"
             }
             .disposed(by: self.disposeBag)
         bottomSheet.companyTagTitle
             .filter {$0.isEmpty}
             .bind { text in
                 self.companyExtraLabel.text = text
+                self.mentorCVModel.companySize = nil
                 if self.companyExtraLabel.text == text && self.careerExtraLabel.text == text && !self.categorySelected {
                     self.titleLabel.text = "관심 분야의 멘토와 포트폴리오를 찾아보세요!"
+                    self.mentorCVModel.companySize = nil
+                    self.mentorCVModel.startYear = nil
                 }
                 self.companyCategoryBtn.snp.updateConstraints {
                     $0.width.equalTo(73)
@@ -318,12 +334,21 @@ class SearchingViewController: UIViewController {
             .filter {$0.isEmpty}
             .bind { text in
                 self.careerExtraLabel.text = text
+                self.mentorCVModel.startYear = nil
                 if self.companyExtraLabel.text == text && self.careerExtraLabel.text == text && !self.categorySelected {
                     self.titleLabel.text = "관심 분야의 멘토와 포트폴리오를 찾아보세요!"
+                    self.mentorCVModel.companySize = nil
+                    self.mentorCVModel.startYear = nil
                 }
                 self.careerCategoryBtn.snp.updateConstraints {
                     $0.width.equalTo(73)
                 }
+            }
+            .disposed(by: self.disposeBag)
+        bottomSheet.closeBottomSheet
+            .filter {$0}
+            .bind { _ in
+                self.reloadMentorData()
             }
             .disposed(by: self.disposeBag)
         self.present(naviVC, animated: false)
@@ -332,12 +357,14 @@ class SearchingViewController: UIViewController {
     private func bindingCollectionView() {
         categoryCV.rx.setDelegate(self).disposed(by: disposeBag)
         mentorListCV.rx.setDelegate(self).disposed(by: disposeBag)
-
+        
         if searchTextBtn.titleLabel?.text == "디자인" {
+            self.mentorCVModel.query = "디자인"
+            self.reloadMentorData()
             searchCVModel.output.designCategoryData
                 .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                    if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
-
+                    if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? CategoryCollectionViewCell {
+                        
                         cell.configure(name: item.title)
                         return cell
                     }
@@ -345,10 +372,12 @@ class SearchingViewController: UIViewController {
                 }
                 .disposed(by: disposeBag)
         } else if searchTextBtn.titleLabel?.text == "IT/개발" {
+            self.mentorCVModel.query = "IT/개발"
+            self.reloadMentorData()
             searchCVModel.output.itDevCategoryData
                 .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                    if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
-
+                    if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? CategoryCollectionViewCell {
+                        
                         cell.configure(name: item.title)
                         return cell
                     }
@@ -357,16 +386,31 @@ class SearchingViewController: UIViewController {
                 .disposed(by: disposeBag)
         }
         
-        mentorCVModel.output.searchingMentorListData
-            .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
-                    
+        //        mentorCVModel.output.searchingMentorListData
+        //            .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+        //                if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "MentorListCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? MentorListCollectionViewCell {
+        //
+        //                    cell.setData(mentor: item)
+        //                    return cell
+        //                }
+        //                return UICollectionViewCell()
+        //            }
+        //            .disposed(by: disposeBag)
+        mentorCVModel.mentorDataList
+            .bind(to: self.mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "TopMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? TopMentorCollectionViewCell {
                     cell.setData(mentor: item)
                     return cell
                 }
                 return UICollectionViewCell()
             }
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func reloadMentorData() {
+        self.mentorCVModel.getSearchMentorList(query: self.mentorCVModel.query!, companySize: self.mentorCVModel.companySize, subSpecialty: self.mentorCVModel.subSpecialty, startYear: self.mentorCVModel.startYear) { response in
+            self.mentorCVModel.mentorDataList.onNext(response)
+        }
     }
 }
 
@@ -393,7 +437,7 @@ extension SearchingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         var items: [SearchesDataModel] = []
-
+        
         if searchTextBtn.titleLabel?.text == "디자인" {
             searchCVModel.output.designCategoryData
                 .subscribe(onNext: {data in
@@ -411,7 +455,7 @@ extension SearchingViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == mentorListCV {
             return CGSize(width: UIScreen.main.bounds.width - 32, height: 135)
         } else {
-            return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
+            return CategoryCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
         }
     }
 }

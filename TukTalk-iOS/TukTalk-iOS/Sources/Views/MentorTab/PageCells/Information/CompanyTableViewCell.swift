@@ -17,15 +17,34 @@ class CompanyTableViewCell: UITableViewCell {
         $0.textColor = UIColor.GrayScale.normal
     }
     
-    var mainLabel = UILabel().then {
+    var companyLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
     }
-
+    
+    var confirmImage = UIImageView().then {
+        $0.image = UIImage(named: "mentorConfirmImg")
+    }
+    
+    var specialtyLabel = UILabel().then {
+        $0.font = UIFont.TTFont(type: .SDReg, size: 14)
+        $0.textColor = UIColor.GrayScale.sub1
+    }
+    
+    var positionLabel = UILabel().then {
+        $0.font = UIFont.TTFont(type: .SDReg, size: 14)
+        $0.textColor = UIColor.GrayScale.sub1
+    }
+    
+    var careerLabel = UILabel().then {
+        $0.font = UIFont.TTFont(type: .SDReg, size: 14)
+        $0.textColor = UIColor.GrayScale.sub1
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -39,8 +58,15 @@ class CompanyTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(text: String) {
-        mainLabel.makeHeightSpacing(thisText: text, fontSize: 14)
+    func setData(company: String, specialty: String, position: String, year: String, month: String) {
+        companyLabel.text = "· \(company)"
+        specialtyLabel.text = "· \(specialty)"
+        positionLabel.text = "· \(position)"
+        if month != "0" {
+            careerLabel.text = "· \(year)년 \(month)개월"
+        } else {
+            careerLabel.text = "· \(year)년"
+        }
     }
     
     private func setUI() {
@@ -51,12 +77,40 @@ class CompanyTableViewCell: UITableViewCell {
             $0.top.leading.equalToSuperview()
         }
         
-        contentView.addSubview(mainLabel)
-        mainLabel.snp.makeConstraints {
+        contentView.addSubview(companyLabel)
+        companyLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
             $0.top.equalTo(titleLabel.snp.bottom).offset(12)
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.equalTo(titleLabel.snp.leading)
+        }
+        
+        contentView.addSubview(confirmImage)
+        confirmImage.snp.makeConstraints {
+            $0.width.height.equalTo(16)
+            $0.top.equalTo(companyLabel).offset(1)
+            $0.leading.equalTo(companyLabel.snp.trailing)
+        }
+        
+        contentView.addSubview(specialtyLabel)
+        specialtyLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.equalTo(companyLabel.snp.bottom).offset(12)
+            $0.leading.equalTo(companyLabel.snp.leading)
+        }
+        
+        contentView.addSubview(positionLabel)
+        positionLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.equalTo(specialtyLabel.snp.bottom).offset(12)
+            $0.leading.equalTo(specialtyLabel.snp.leading)
+        }
+        
+        contentView.addSubview(careerLabel)
+        careerLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.top.equalTo(positionLabel.snp.bottom).offset(12)
+            $0.leading.equalTo(positionLabel.snp.leading)
             $0.bottom.equalToSuperview().inset(32)
         }
     }
-
 }

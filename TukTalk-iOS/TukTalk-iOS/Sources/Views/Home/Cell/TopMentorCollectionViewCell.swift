@@ -6,16 +6,25 @@
 //
 
 import RxSwift
+import RxCocoa
 
 class TopMentorCollectionViewCell: UICollectionViewCell {
-    private let hashTagListViewModel = HashTagCollectionViewModel()
     private let disposeBag = DisposeBag()
+    var hashTag = BehaviorSubject<[HashTag]>(value: [])
     
     var profileImg = UIImageView().then {
         $0.backgroundColor = UIColor.GrayScale.gray4
         $0.layer.masksToBounds = true
         $0.layer.cornerRadius = 22
         $0.contentMode = .scaleAspectFill
+        $0.isHidden = true
+    }
+    var profileBackground = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray4
+        $0.layer.cornerRadius = 22
+    }
+    var profileLabel = UILabel().then {
+        $0.font = UIFont.TTFont(type: .SDBold, size: 15)
     }
     var nameLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
@@ -59,11 +68,26 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
         bindingCollectionView()
     }
     
-    func setData(mentor: MentorListDataModel) {
-        profileImg.image = mentor.image
-        nameLabel.text = mentor.name
-        companyLabel.text = mentor.company
-        jobLabel.text = mentor.job
+    func setData(mentor: TopMentorSearchResponseElement) {
+        if mentor.profileImageURL == "" {
+            profileBackground.isHidden = false
+            profileLabel.isHidden = false
+            profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: mentor.profileImageColor)
+            profileLabel.textColor = UIColor.Profile.getNameColor(color: mentor.profileImageColor)
+            profileLabel.text = mentor.firstLetter
+            profileImg.isHidden = true
+        } else {
+            let url = URL(string: mentor.profileImageURL)
+            let data = try? Data(contentsOf: url!)
+            profileImg.image = UIImage(data: data!)
+            profileImg.isHidden = false
+            profileBackground.isHidden = true
+            profileLabel.isHidden = true
+        }
+        nameLabel.text = mentor.nickname
+        companyLabel.text = mentor.companyName
+        jobLabel.text = mentor.department
+        hashTag.onNext(mentor.hashTags)
     }
     
     private func setUI() {
@@ -73,6 +97,8 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 8
         layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 14, spread: 0)
         contentView.addSubview(profileImg)
+        contentView.addSubview(profileBackground)
+        profileBackground.addSubview(profileLabel)
         contentView.addSubview(nameLabel)
         contentView.addSubview(mentorConfirmImg)
         contentView.addSubview(companyLabel)
@@ -84,6 +110,14 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
         profileImg.snp.makeConstraints {
             $0.width.height.equalTo(44)
             $0.top.leading.equalToSuperview().inset(20)
+        }
+        profileBackground.snp.makeConstraints {
+            $0.width.height.equalTo(44)
+            $0.top.leading.equalToSuperview().inset(20)
+        }
+        profileLabel.snp.makeConstraints {
+            $0.height.equalTo(22)
+            $0.centerX.centerY.equalToSuperview()
         }
         nameLabel.snp.makeConstraints {
             $0.height.equalTo(20)
@@ -135,11 +169,11 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
     private func bindingCollectionView() {
         hashTagCV.rx.setDelegate(self).disposed(by: disposeBag)
         
-        hashTagListViewModel.output.hashTagListData
+        hashTag
             .bind(to: hashTagCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.hashTagCV.dequeueReusableCell(withReuseIdentifier: "HashTagCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? HashTagCollectionViewCell {
                     
-                    cell.configure(name: item.title)
+                    cell.configure(name: item.hashTag)
                     return cell
                 }
                 return UICollectionViewCell()
@@ -152,14 +186,16 @@ extension TopMentorCollectionViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var items: [SearchesDataModel] = []
+        var value = CGSize()
         
-        hashTagListViewModel.output.hashTagListData
-            .subscribe(onNext: {data in
-                items = data
-            })
+        hashTag
+            .bind { data in
+                if indexPath.row < data.count {
+                    value = HashTagCollectionViewCell.fittingSize(availableHeight: 18, name: data[indexPath.row].hashTag)
+                }
+            }
             .disposed(by: disposeBag)
         
-        return HashTagCollectionViewCell.fittingSize(availableHeight: 18, name: items[indexPath.row].title)
+        return value
     }
 }

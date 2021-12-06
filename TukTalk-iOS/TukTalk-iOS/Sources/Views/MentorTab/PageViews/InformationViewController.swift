@@ -12,11 +12,12 @@ class InformationViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var informationViewModel = InformationViewModel()
     private let heightFrameValue = BehaviorRelay(value: Int(UIScreen.main.bounds.height))
     var heightFrame: Observable<Int> {
         return heightFrameValue.asObservable()
     }
+    var mentorID: Int?
+    var response: MentorPageResponse?
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -105,41 +106,26 @@ extension InformationViewController : UITableViewDelegate, UITableViewDataSource
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: IntroduceTableViewCell.identifier, for: indexPath) as? IntroduceTableViewCell else { return UITableViewCell() }
-            informationViewModel.output.introduceCellData
-                .bind(onNext: { text in
-                    cell.setData(text: text)
-                })
-                .disposed(by: disposeBag)
+            cell.setData(text: response?.detailedIntroduction ?? "")
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CompanyTableViewCell.identifier, for: indexPath) as? CompanyTableViewCell else { return UITableViewCell() }
-            informationViewModel.output.companyCellData
-                .bind(onNext: { text in
-                    cell.setData(text: text)
-                })
-                .disposed(by: disposeBag)
+            cell.setData(company: response?.companyName ?? "", specialty: response?.specialty ?? "", position: response?.position ?? "", year: String((response?.career.years) ?? 0), month: String((response?.career.months) ?? 0))
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CareerTableViewCell.identifier, for: indexPath) as? CareerTableViewCell else { return UITableViewCell() }
-            informationViewModel.output.careerCellData
-                .bind(onNext: { text in
-                    cell.setData(text: text)
-                })
-                .disposed(by: disposeBag)
+            cell.setData(text: response?.careerDescription ?? "")
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SpecialtyTableViewCell.identifier, for: indexPath) as? SpecialtyTableViewCell else { return UITableViewCell() }
-            informationViewModel.output.specialtyCellData
-                .bind(onNext: { text in
-                    cell.setData(text: text)
-                })
-                .disposed(by: disposeBag)
+            cell.setData(data: response?.subSpecialties ?? [SubSpecialty]())
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TagTableViewCell.identifier, for: indexPath) as? TagTableViewCell else { return UITableViewCell() }
             let rectOfCellInTableView = tableView.rectForRow(at: indexPath)
             let rectOfCellInSuperview = tableView.convert(rectOfCellInTableView, to: tableView.superview)
             heightFrameValue.accept(Int(rectOfCellInSuperview.origin.y))
+            cell.setData(data: response?.hashTags ?? [HashTag]())
             return cell
         default:
             return UITableViewCell()

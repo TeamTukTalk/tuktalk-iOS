@@ -16,15 +16,10 @@ class MentorInformationViewController: UIViewController {
     private var dataSource: [PageCollectionViewDataModel] = []
 
     private lazy var informationVC = InformationViewController()
-    private lazy var portfolioVC = UIViewController().then {
-        $0.view.backgroundColor = .red
-    }
-    private lazy var consultingVC = UIViewController().then {
-        $0.view.backgroundColor = .yellow
-    }
-    private lazy var reviewVC = UIViewController().then {
-        $0.view.backgroundColor = .green
-    }
+    private lazy var portfolioVC = PortfolioViewController()
+    private lazy var consultingVC = ConsultingViewController()
+    private lazy var reviewVC = ReviewViewController()
+    var mentorID: Int?
 
     private var currentPage: Int = 0 {
         didSet {
@@ -55,9 +50,9 @@ class MentorInformationViewController: UIViewController {
         $0.setImage(UIImage(named: "backBtnImg"), for: .normal)
     }
     
-    private let heartBtn = UIButton().then {
-        $0.setImage(UIImage(named: "heartImg"), for: .normal)
-    }
+//    private let heartBtn = UIButton().then {
+//        $0.setImage(UIImage(named: "heartImg"), for: .normal)
+//    }
     
     private let profileView = UIView().then {
         $0.backgroundColor = .white
@@ -67,15 +62,21 @@ class MentorInformationViewController: UIViewController {
         $0.layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 14, spread: 0)
     }
     
-    private let profileImage = UIImageView().then {
-        $0.image = UIImage(named: "tempProfileImg")
-        $0.contentMode = .scaleAspectFill
-        $0.layer.masksToBounds = true
-    }
-    
-    private let profileImageView = UIView().then {
-        $0.backgroundColor = UIColor.GrayScale.gray4
+//    private let profileImage = UIImageView().then {
+//        $0.image = UIImage(named: "tempProfileImg")
+//        $0.contentMode = .scaleAspectFill
+//        $0.layer.masksToBounds = true
+//    }
+//
+//    private let profileImageView = UIView().then {
+//        $0.backgroundColor = UIColor.GrayScale.gray4
+//        $0.layer.cornerRadius = 35
+//    }
+    private let profileBackground = UIView().then {
         $0.layer.cornerRadius = 35
+    }
+    private let profileLabel = UILabel().then {
+        $0.font = UIFont.TTFont(type: .SDBold, size: 24)
     }
     
     private let nameStackView = UIStackView().then {
@@ -134,28 +135,19 @@ class MentorInformationViewController: UIViewController {
         $0.textAlignment = .center
     }
     
-    private let consultingBtn = UIButton().then {
-        $0.setTitle("1:1 멘토링 신청", for: .normal)
+    private let openPortfolioBtn = UIButton().then {
+        $0.setTitle("포트폴리오 열람", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
         $0.backgroundColor = UIColor.Primary.primary
         $0.layer.cornerRadius = 22
-    }
-    
-    private let openPortfolioBtn = UIButton().then {
-        $0.setTitle("포트폴리오 유로 열람", for: .normal)
-        $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
-        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
-        $0.backgroundColor = .white
-        $0.layer.cornerRadius = 22
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.GrayScale.gray1.cgColor
     }
 
     //MARK:- Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         setScrollView()
         setUI()
         setPageView()
@@ -200,12 +192,12 @@ class MentorInformationViewController: UIViewController {
             $0.leading.equalToSuperview().offset(8)
         }
         
-        topView.addSubview(heartBtn)
-        heartBtn.snp.makeConstraints {
-            $0.width.height.equalTo(24)
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(16)
-        }
+//        topView.addSubview(heartBtn)
+//        heartBtn.snp.makeConstraints {
+//            $0.width.height.equalTo(24)
+//            $0.centerY.equalToSuperview()
+//            $0.trailing.equalToSuperview().inset(16)
+//        }
         
         view.addSubview(mainScrollView)
         mainScrollView.snp.makeConstraints {
@@ -221,21 +213,21 @@ class MentorInformationViewController: UIViewController {
         
         mainContentView.addSubview(profileView)
         profileView.snp.makeConstraints {
-            $0.height.equalTo(337)
+            $0.height.equalTo(285)
             $0.top.equalToSuperview().offset(4)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        profileView.addSubview(profileImageView)
-        profileImageView.snp.makeConstraints {
+        profileView.addSubview(profileBackground)
+        profileBackground.snp.makeConstraints {
             $0.width.height.equalTo(70)
             $0.top.equalToSuperview().offset(20)
             $0.centerX.equalToSuperview()
         }
         
-        profileImageView.addSubview(profileImage)
-        profileImage.snp.makeConstraints {
-            $0.width.height.equalTo(48)
+        profileBackground.addSubview(profileLabel)
+        profileLabel.snp.makeConstraints {
+            $0.height.equalTo(22)
             $0.centerX.centerY.equalToSuperview()
         }
         
@@ -250,7 +242,7 @@ class MentorInformationViewController: UIViewController {
         nameStackView.addArrangedSubview(confirmImage)
         nameStackView.snp.makeConstraints {
             $0.height.equalTo(24)
-            $0.top.equalTo(profileImageView.snp.bottom).offset(8)
+            $0.top.equalTo(profileBackground.snp.bottom).offset(8)
             $0.centerX.equalToSuperview()
         }
         
@@ -286,17 +278,10 @@ class MentorInformationViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
-        profileView.addSubview(consultingBtn)
-        consultingBtn.snp.makeConstraints {
-            $0.height.equalTo(44)
-            $0.top.equalTo(devideView.snp.bottom).offset(64)
-            $0.leading.trailing.equalToSuperview().inset(20)
-        }
-        
         profileView.addSubview(openPortfolioBtn)
         openPortfolioBtn.snp.makeConstraints {
             $0.height.equalTo(44)
-            $0.top.equalTo(consultingBtn.snp.bottom).offset(8)
+            $0.top.equalTo(devideView.snp.bottom).offset(64)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
@@ -310,7 +295,7 @@ class MentorInformationViewController: UIViewController {
         mainContentView.addSubview(pageDevideView)
         pageDevideView.snp.makeConstraints {
             $0.height.equalTo(1)
-            $0.top.equalToSuperview().offset(401)
+            $0.top.equalToSuperview().offset(349)
             $0.leading.trailing.equalToSuperview()
         }
 
@@ -358,10 +343,33 @@ class MentorInformationViewController: UIViewController {
         .disposed(by: self.disposeBag)
         
         backBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: self.disposeBag)
+        
+        openPortfolioBtn.rx.tap
+            .bind {
+                self.viewModel.openPortfolio(id: self.mentorID ?? -1 , completion: { response in
+                    self.viewModel.viewPortfolio(id: response.portfolioID)
+                    guard let url = URL(string: response.pdfTuktalkFile), UIApplication.shared.canOpenURL(url) else { return }
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }, status: { status in
+                    if !status {
+                        let popUpViewController = UpdatePopUpViewController()
+                        popUpViewController.popUpTitleLabel.text = "포트폴리오가 존재하지 않습니다."
+                        let naviVC = UINavigationController(rootViewController: popUpViewController)
+                        naviVC.modalPresentationStyle = .overCurrentContext
+                        naviVC.modalTransitionStyle = .crossDissolve
+                        naviVC.navigationBar.isHidden = true
+                        self.present(naviVC, animated: true) {
+                            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
+                            naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+                        }
+                    }
+                })
+            }
+            .disposed(by: disposeBag)
     }
 
     private func bindingCollectionView() {
@@ -385,6 +393,22 @@ class MentorInformationViewController: UIViewController {
         pageViewController.setViewControllers([dataViewControllers[currentPage]], direction: direction, animated: true, completion: nil)
 
         collectionView.selectItem(at: IndexPath(item: currentPage, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+    }
+    
+    private func getData() {
+        informationVC.mentorID = mentorID
+        portfolioVC.mentorID = mentorID
+        viewModel.getMentorInform(id: mentorID ?? -1) { response in
+            self.informationVC.response = response
+            self.profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: response.profileImageColor)
+            self.profileLabel.text = response.firstLetter
+            self.profileLabel.textColor = UIColor.Profile.getNameColor(color: response.profileImageColor)
+            self.profileNameLabel.text = response.nickname
+            self.companyLabel.text = response.companyName
+            self.jobLabel.text = response.specialty
+            self.introduceLabel.text = response.simpleIntroduction
+            self.informationVC.tableView.reloadData()
+        }
     }
 }
 

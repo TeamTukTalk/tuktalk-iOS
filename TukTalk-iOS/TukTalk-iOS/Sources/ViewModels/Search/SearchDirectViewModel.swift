@@ -15,7 +15,6 @@ struct SearchDirectViewModel: ViewModelType {
     let output: Output
     
     struct Dependency {
-        var text: String?
     }
     
     struct Input {
@@ -26,8 +25,8 @@ struct SearchDirectViewModel: ViewModelType {
         var resultText: Observable<String>
     }
     
-    init(dependency: Dependency = Dependency(text: nil)) {
-        self.dependency = dependency
+    init(dependency: Dependency = Dependency()) {
+        self.dependency = Dependency()
         
         let searchText$ = BehaviorSubject<String>(value: "")
         let resultText$ = searchText$

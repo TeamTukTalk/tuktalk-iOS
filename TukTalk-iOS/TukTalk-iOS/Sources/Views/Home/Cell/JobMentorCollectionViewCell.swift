@@ -10,7 +10,18 @@ import UIKit
 class JobMentorCollectionViewCell: UICollectionViewCell {
     
     var profileImg = UIImageView().then {
-        $0.layer.cornerRadius = $0.frame.height / 2
+        $0.backgroundColor = UIColor.GrayScale.gray4
+        $0.layer.masksToBounds = true
+        $0.layer.cornerRadius = 22
+        $0.contentMode = .scaleAspectFill
+        $0.isHidden = true
+    }
+    var profileBackground = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray4
+        $0.layer.cornerRadius = 22
+    }
+    var profileLabel = UILabel().then {
+        $0.font = UIFont.TTFont(type: .SDBold, size: 15)
     }
     var nameLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
@@ -44,11 +55,25 @@ class JobMentorCollectionViewCell: UICollectionViewCell {
         setUI()
     }
     
-    func setData(mentor: MentorListDataModel) {
-        profileImg.image = mentor.image
-        nameLabel.text = mentor.name
-        companyLabel.text = mentor.company
-        jobLabel.text = mentor.job
+    func setData(mentor: JobSearchResponseElement) {
+        if mentor.profileImageURL == "" {
+            profileBackground.isHidden = false
+            profileLabel.isHidden = false
+            profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: mentor.profileImageColor)
+            profileLabel.textColor = UIColor.Profile.getNameColor(color: mentor.profileImageColor)
+            profileLabel.text = mentor.firstLetter
+            profileImg.isHidden = true
+        } else {
+            let url = URL(string: mentor.profileImageURL)
+            let data = try? Data(contentsOf: url!)
+            profileImg.image = UIImage(data: data!)
+            profileImg.isHidden = false
+            profileBackground.isHidden = true
+            profileLabel.isHidden = true
+        }
+        nameLabel.text = mentor.nickname
+        companyLabel.text = mentor.companyName
+        jobLabel.text = mentor.department
     }
     
     private func setUI() {
@@ -58,6 +83,8 @@ class JobMentorCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 8
         layer.applyShadow(color: .black, alpha: 0.05, x: 4, y: 4, blur: 14, spread: 0)
         contentView.addSubview(profileImg)
+        contentView.addSubview(profileBackground)
+        profileBackground.addSubview(profileLabel)
         contentView.addSubview(nameLabel)
         contentView.addSubview(mentorConfirmImg)
         contentView.addSubview(companyLabel)
@@ -67,6 +94,14 @@ class JobMentorCollectionViewCell: UICollectionViewCell {
         profileImg.snp.makeConstraints {
             $0.width.height.equalTo(44)
             $0.top.leading.equalToSuperview().inset(20)
+        }
+        profileBackground.snp.makeConstraints {
+            $0.width.height.equalTo(44)
+            $0.top.leading.equalToSuperview().inset(20)
+        }
+        profileLabel.snp.makeConstraints {
+            $0.height.equalTo(22)
+            $0.centerX.centerY.equalToSuperview()
         }
         nameLabel.snp.makeConstraints {
             $0.height.equalTo(20)

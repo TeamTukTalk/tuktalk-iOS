@@ -11,6 +11,8 @@ class SpecialtyTableViewCell: UITableViewCell {
     
     public static let identifier : String = "SpecialtyTableViewCell"
     
+    var textData: [SubSpecialty] = []
+    
     private let titleLabel = UILabel().then {
         $0.text = "전문분야 🛠"
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
@@ -18,6 +20,8 @@ class SpecialtyTableViewCell: UITableViewCell {
     }
     
     var mainLabel = UILabel().then {
+        $0.text = ""
+        $0.numberOfLines = 0
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub1
     }
@@ -39,8 +43,11 @@ class SpecialtyTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(text: String) {
-        mainLabel.makeHeightSpacing(thisText: text, fontSize: 14)
+    func setData(data: [SubSpecialty]) {
+        textData = data
+        for text in textData {
+            mainLabel.text! += "· \(text.value)\n\n"
+        }
     }
     
     private func setUI() {
@@ -53,9 +60,9 @@ class SpecialtyTableViewCell: UITableViewCell {
         
         contentView.addSubview(mainLabel)
         mainLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(12)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(32)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.leading.equalTo(titleLabel.snp.leading)
+            $0.bottom.equalToSuperview().inset(12)
         }
     }
 

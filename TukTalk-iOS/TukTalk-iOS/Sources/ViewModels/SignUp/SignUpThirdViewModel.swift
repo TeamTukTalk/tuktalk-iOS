@@ -54,8 +54,45 @@ final class SignUpThirdViewModel: ViewModelType {
         provider.rx.request(.signUp(param: param))
             .subscribe { result in
                 switch result {
-                case .success(_):
-                    print("success SignUp")
+                case let .success(response):
+                    let responseData = try? response.map(SignUpResponse.self)
+                    
+                    guard let token = responseData?.accessToken else { return }
+                    let tokenString = "Bearer " + token
+                    if let token = tokenString.data(using: String.Encoding.utf8) {
+                        KeyChain.save(key: "token", data: token)
+                    }
+                    if let role = responseData?.role.data(using: String.Encoding.utf8) {
+                        KeyChain.save(key: "role", data: role)
+                    }
+                    if let name = responseData?.nickname.data(using: String.Encoding.utf8) {
+                        KeyChain.save(key: "nickname", data: name)
+                    }
+                    if let firstLetter = responseData?.firstLetter.data(using: String.Encoding.utf8) {
+                        KeyChain.save(key: "firstLetter", data: firstLetter)
+                    }
+                    if let profileImageColor = responseData?.profileImageColor.data(using: String.Encoding.utf8) {
+                        KeyChain.save(key: "profileImageColor", data: profileImageColor)
+                    }
+                    if let email = responseData?.email.data(using: String.Encoding.utf8) {
+                        KeyChain.save(key: "email", data: email)
+                    }
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: self.disposeBag)
+    }
+    
+    func emailValidation(email: String, completion: @escaping (EmailValidResponse) -> ()) {
+        let provider = MoyaProvider<EmailValidService>()
+        provider.rx.request(.emailRequest(email))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    let emailValid = try? response.map(EmailValidResponse.self)
+                    guard let response = emailValid else { return }
+                    completion(response)
                 case let .failure(error):
                     print(error.localizedDescription)
                 }

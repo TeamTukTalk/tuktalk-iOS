@@ -14,7 +14,7 @@ class RegistPortfolioSecondViewController: UIViewController {
     
     private lazy var viewModel = RegistPortfolioSecondViewModel()
     private let disposeBag = DisposeBag()
-    private let progressPercentValue = BehaviorRelay(value: Float(0.4))
+    private let progressPercentValue = BehaviorRelay(value: Float(0.5))
     private let progressIsHiddenValue = BehaviorRelay(value: false)
     var progressPercent: Observable<Float> {
         return progressPercentValue.asObservable()
@@ -273,13 +273,13 @@ class RegistPortfolioSecondViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: false)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "프로필 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -291,11 +291,11 @@ class RegistPortfolioSecondViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let nextVC = RegistPortfolioThirdViewController()
                 nextVC.progressPercent.subscribe(onNext: { percent in
                     self.progressPercentValue.accept(percent)
@@ -305,55 +305,55 @@ class RegistPortfolioSecondViewController: UIViewController {
                     self.progressIsHiddenValue.accept(valid)
                 })
                 .disposed(by: self.disposeBag)
-                
+                self.viewModel.insertData(projectCount: self.projectCountTextField.text, pageCount: self.pageCountTextField.text, startYear: self.startYearTextField.text, endYear: self.endYearTextField.text)
                 self.navigationController?.pushViewController(nextVC, animated: false)
             }
             .disposed(by: disposeBag)
         
         projectCountTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.projectCountTextField.layer.borderColor = UIColor.Primary.primary.cgColor
             }
             .disposed(by: disposeBag)
 
         projectCountTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.projectCountTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
             }
             .disposed(by: disposeBag)
         
         pageCountTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.pageCountTextField.layer.borderColor = UIColor.Primary.primary.cgColor
             }
             .disposed(by: disposeBag)
 
         pageCountTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.pageCountTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
             }
             .disposed(by: disposeBag)
         
         startYearTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.startYearTextField.layer.borderColor = UIColor.Primary.primary.cgColor
             }
             .disposed(by: disposeBag)
 
         startYearTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.startYearTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
             }
             .disposed(by: disposeBag)
         
         endYearTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.endYearTextField.layer.borderColor = UIColor.Primary.primary.cgColor
             }
             .disposed(by: disposeBag)
 
         endYearTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.endYearTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
             }
             .disposed(by: disposeBag)

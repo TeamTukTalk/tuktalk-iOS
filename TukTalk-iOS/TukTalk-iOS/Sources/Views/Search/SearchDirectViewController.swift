@@ -12,7 +12,7 @@ class SearchDirectViewController: UIViewController {
     //MARK:- Properties
     
     private let disposeBag = DisposeBag()
-    private lazy var collectionViewModel = SearchesCollectionViewModel()
+//    private lazy var collectionViewModel = SearchesCollectionViewModel()
     private lazy var viewModel = SearchDirectViewModel()
     private var nextText = ""
     
@@ -36,13 +36,13 @@ class SearchDirectViewController: UIViewController {
         $0.setImage(UIImage(named: "searchImg"), for: .normal)
     }
     
-    private let titleLabel = UILabel().then {
-        $0.text = "최근 검색어"
-        $0.font = UIFont.TTFont(type: .SDBold, size: 14)
-        $0.textColor = UIColor.GrayScale.normal
-    }
-    
-    private let recentSearchCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+//    private let titleLabel = UILabel().then {
+//        $0.text = "최근 검색어"
+//        $0.font = UIFont.TTFont(type: .SDBold, size: 14)
+//        $0.textColor = UIColor.GrayScale.normal
+//    }
+//
+//    private let recentSearchCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private let subTitleLabel = UILabel().then {
         $0.text = "뚝딱이 추천하는 검색어"
@@ -57,9 +57,9 @@ class SearchDirectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        setCollectionViewUI()
+//        setCollectionViewUI()
         binding()
-        bindingCollectionView()
+//        bindingCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,22 +102,22 @@ class SearchDirectViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.top.equalTo(searchTextField.snp.bottom).offset(32)
-            $0.leading.equalToSuperview().offset(16)
-        }
-        
-        view.addSubview(recentSearchCV)
-        recentSearchCV.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(11)
-            $0.leading.trailing.equalToSuperview()
-        }
+//        view.addSubview(titleLabel)
+//        titleLabel.snp.makeConstraints {
+//            $0.top.equalTo(searchTextField.snp.bottom).offset(32)
+//            $0.leading.equalToSuperview().offset(16)
+//        }
+//
+//        view.addSubview(recentSearchCV)
+//        recentSearchCV.snp.makeConstraints {
+//            $0.height.equalTo(50)
+//            $0.top.equalTo(titleLabel.snp.bottom).offset(11)
+//            $0.leading.trailing.equalToSuperview()
+//        }
         
         view.addSubview(subTitleLabel)
         subTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(recentSearchCV.snp.bottom).offset(35)
+            $0.top.equalTo(searchTextField.snp.bottom).offset(32)
             $0.leading.equalToSuperview().offset(16)
         }
         
@@ -129,16 +129,16 @@ class SearchDirectViewController: UIViewController {
     }
     
     private func setCollectionViewUI() {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = .zero
-        flowLayout.minimumInteritemSpacing = 8
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.sectionInset = .init(top: 5, left: 4, bottom: 5, right: 4)
-        recentSearchCV.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
-        recentSearchCV.setCollectionViewLayout(flowLayout, animated: false)
-        recentSearchCV.backgroundColor = .white
-        recentSearchCV.showsHorizontalScrollIndicator = false
-        recentSearchCV.register(SearchDirectCollectionViewCell.self, forCellWithReuseIdentifier: "SearchDirectCollectionViewCell")
+//        let flowLayout = UICollectionViewFlowLayout()
+//        flowLayout.minimumLineSpacing = .zero
+//        flowLayout.minimumInteritemSpacing = 8
+//        flowLayout.scrollDirection = .horizontal
+//        flowLayout.sectionInset = .init(top: 5, left: 4, bottom: 5, right: 4)
+//        recentSearchCV.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+//        recentSearchCV.setCollectionViewLayout(flowLayout, animated: false)
+//        recentSearchCV.backgroundColor = .white
+//        recentSearchCV.showsHorizontalScrollIndicator = false
+//        recentSearchCV.register(SearchDirectCollectionViewCell.self, forCellWithReuseIdentifier: "SearchDirectCollectionViewCell")
     }
     
     private func binding() {
@@ -155,7 +155,7 @@ class SearchDirectViewController: UIViewController {
             .disposed(by: disposeBag)
         
         searchTextField.rx.controlEvent(.editingDidEndOnExit)
-            .bind { _ in
+            .bind {
                 let nextVC = SearchingDirectViewController()
                 nextVC.searchTextBtn.setTitle(self.nextText, for: .normal)
                 nextVC.searchTextBtn.setTitleColor(UIColor.GrayScale.normal, for: .normal)
@@ -164,7 +164,7 @@ class SearchDirectViewController: UIViewController {
             .disposed(by: disposeBag)
         
         searchBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let nextVC = SearchingDirectViewController()
                 nextVC.searchTextBtn.setTitle(self.nextText, for: .normal)
                 nextVC.searchTextBtn.setTitleColor(UIColor.GrayScale.normal, for: .normal)
@@ -173,40 +173,40 @@ class SearchDirectViewController: UIViewController {
             .disposed(by: disposeBag)
         
         backBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: false)
             }
             .disposed(by: disposeBag)
     }
     
     private func bindingCollectionView() {
-        recentSearchCV.rx.setDelegate(self).disposed(by: disposeBag)
-        
-        collectionViewModel.output.recentSearchesData
-            .bind(to: recentSearchCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                if let cell = self.recentSearchCV.dequeueReusableCell(withReuseIdentifier: "SearchDirectCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchDirectCollectionViewCell {
-                    
-                    cell.configure(name: item.title)
-                    return cell
-                }
-                return UICollectionViewCell()
-            }
-            .disposed(by: disposeBag)
+//        recentSearchCV.rx.setDelegate(self).disposed(by: disposeBag)
+//
+//        collectionViewModel.output.recentSearchesData
+//            .bind(to: recentSearchCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+//                if let cell = self.recentSearchCV.dequeueReusableCell(withReuseIdentifier: "SearchDirectCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchDirectCollectionViewCell {
+//
+//                    cell.configure(name: item.title)
+//                    return cell
+//                }
+//                return UICollectionViewCell()
+//            }
+//            .disposed(by: disposeBag)
     }
 }
 
 extension SearchDirectViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        var items: [SearchesDataModel] = []
-        
-        collectionViewModel.output.recentSearchesData
-            .subscribe(onNext: {data in
-                items = data
-            })
-            .disposed(by: disposeBag)
-        
-        return SearchDirectCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        
+//        var items: [SearchesDataModel] = []
+//        
+//        collectionViewModel.output.recentSearchesData
+//            .subscribe(onNext: {data in
+//                items = data
+//            })
+//            .disposed(by: disposeBag)
+//        
+//        return SearchDirectCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
+//    }
 }
