@@ -659,12 +659,12 @@
 			path = MyPage;
 			sourceTree = "<group>";
 		};
-		403EC24B2756A895008A40B9 /* MenteeProfile */ = {
+		403EC24B2756A895008A40B9 /* RegistMentee */ = {
 			isa = PBXGroup;
 			children = (
 				403EC24C2756A908008A40B9 /* RegistMenteeProfileViewController.swift */,
 			);
-			path = MenteeProfile;
+			path = RegistMentee;
 			sourceTree = "<group>";
 		};
 		403EC2542756D26E008A40B9 /* PopUp */ = {
@@ -811,8 +811,8 @@
 				402D65922726845E00F4ED8F /* Search */,
 				4065FEF32743C9A3005AAE0F /* MentorTab */,
 				402D65952726846C00F4ED8F /* MyPage */,
-				40AFDE0027354B2E00422930 /* MentorProfile */,
-				403EC24B2756A895008A40B9 /* MenteeProfile */,
+				40AFDE0027354B2E00422930 /* RegistMentor */,
+				403EC24B2756A895008A40B9 /* RegistMentee */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1125,7 +1125,7 @@
 			path = Class;
 			sourceTree = "<group>";
 		};
-		40AFDE0027354B2E00422930 /* MentorProfile */ = {
+		40AFDE0027354B2E00422930 /* RegistMentor */ = {
 			isa = PBXGroup;
 			children = (
 				403EC22F27565EFE008A40B9 /* Class */,
@@ -1138,7 +1138,7 @@
 				4065FEE3274355C8005AAE0F /* RegistProfileFifthViewController.swift */,
 				4065FEF127439F0A005AAE0F /* RegistProfileFinishViewController.swift */,
 			);
-			path = MentorProfile;
+			path = RegistMentor;
 			sourceTree = "<group>";
 		};
 		40CC20B6274E35B7008A3967 /* RegistPortfolio */ = {
