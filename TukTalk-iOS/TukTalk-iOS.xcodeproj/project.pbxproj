@@ -43,7 +43,6 @@
 		402D65AC2727C4D500F4ED8F /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65AB2727C4D500F4ED8F /* RecommendView.swift */; };
 		402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65B02727D64400F4ED8F /* SearchingViewController.swift */; };
 		402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */; };
-		403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013B272D9AFD0093160D /* MentorListDataModel.swift */; };
 		403B013E272D9BC00093160D /* MentorListCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */; };
 		403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B013F272DAAE80093160D /* HashTagCollectionViewCell.swift */; };
 		403B0142272DABA60093160D /* HashTagCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */; };
@@ -262,7 +261,6 @@
 		402D65AB2727C4D500F4ED8F /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		402D65B02727D64400F4ED8F /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
 		402D65B22727DDCD00F4ED8F /* SearchDirectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDirectViewModel.swift; sourceTree = "<group>"; };
-		403B013B272D9AFD0093160D /* MentorListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListDataModel.swift; sourceTree = "<group>"; };
 		403B013D272D9BC00093160D /* MentorListCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListCollectionViewModel.swift; sourceTree = "<group>"; };
 		403B013F272DAAE80093160D /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		403B0141272DABA60093160D /* HashTagCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -515,7 +513,6 @@
 			children = (
 				402D65A22726F75900F4ED8F /* SearchRecommendDataModel.swift */,
 				402D65A42726F7D900F4ED8F /* SearchesDataModel.swift */,
-				403B013B272D9AFD0093160D /* MentorListDataModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1626,7 +1623,6 @@
 				4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */,
 				4087E95E275D25DC000E2B6D /* RegistPortfolioFirthViewModel.swift in Sources */,
 				4087E94927587900000E2B6D /* RegistMentorResponse.swift in Sources */,
-				403B013C272D9AFD0093160D /* MentorListDataModel.swift in Sources */,
 				403EC2562756D289008A40B9 /* MentorCertifyPopUp.swift in Sources */,
 				4067CE06275136D100FFC8AF /* SearchingDirectViewController.swift in Sources */,
 				404C570A2746BB2F00B31F64 /* SignUpRequest.swift in Sources */,

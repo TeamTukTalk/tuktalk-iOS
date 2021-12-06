@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchingCollectionViewCell: UICollectionViewCell {
+class CategoryCollectionViewCell: UICollectionViewCell {
     
     var titleLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDMed, size: 14)
@@ -38,7 +38,7 @@ class SearchingCollectionViewCell: UICollectionViewCell {
     }
     
     static func fittingSize(availableHeight: CGFloat, name: String?) -> CGSize {
-        let cell = SearchingCollectionViewCell()
+        let cell = CategoryCollectionViewCell()
         cell.configure(name: name)
         let targetSize = CGSize(width: UIView.layoutFittingCompressedSize.width, height: availableHeight)
         return cell.contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .required)

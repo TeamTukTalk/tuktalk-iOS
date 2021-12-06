@@ -229,7 +229,7 @@ class HomeViewController: UIViewController {
         }
         
         jobViewAllBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let nextVC = JobMentorListViewController()
                 self.homeViewModel.jobMentorDataList.bind(onNext: { data in
                     nextVC.jobMentorDataList.onNext(data)
@@ -334,7 +334,7 @@ class HomeViewController: UIViewController {
         categoryCV.setCollectionViewLayout(categoryCVLayout, animated: false)
         categoryCV.backgroundColor = .white
         categoryCV.showsHorizontalScrollIndicator = false
-        categoryCV.register(SearchingCollectionViewCell.self, forCellWithReuseIdentifier: "SearchingCollectionViewCell")
+        categoryCV.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         
         let jobMentorCVLayout = UICollectionViewFlowLayout()
         jobMentorCVLayout.minimumLineSpacing = 8
@@ -377,7 +377,7 @@ class HomeViewController: UIViewController {
         
         categoryViewModel.output.jobCategoryData
             .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
+                if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? CategoryCollectionViewCell {
                     if row == 0 {
                         cell.isSelected = true
                         self.categoryCV.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .init())
@@ -417,7 +417,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
                     items = data
                 })
                 .disposed(by: disposeBag)
-            return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
+            return CategoryCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
         case jobMentorCV:
             return CGSize(width: 156, height: 140)
         default:

@@ -143,7 +143,7 @@ class JobMentorListViewController: UIViewController {
         categoryCV.setCollectionViewLayout(categoryCVLayout, animated: false)
         categoryCV.backgroundColor = .white
         categoryCV.showsHorizontalScrollIndicator = false
-        categoryCV.register(SearchingCollectionViewCell.self, forCellWithReuseIdentifier: "SearchingCollectionViewCell")
+        categoryCV.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         
         let mentorListCVLayout = UICollectionViewFlowLayout()
         mentorListCVLayout.minimumLineSpacing = 8
@@ -162,7 +162,7 @@ class JobMentorListViewController: UIViewController {
         
         categoryViewModel.output.jobCategoryData
             .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
+                if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? CategoryCollectionViewCell {
                     if row == self.category {
                         cell.isSelected = true
                         self.categoryCV.selectItem(at: IndexPath(row: row, section: 0), animated: false, scrollPosition: .init())
@@ -217,7 +217,7 @@ extension JobMentorListViewController: UICollectionViewDelegateFlowLayout {
                     items = data
                 })
                 .disposed(by: disposeBag)
-            return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
+            return CategoryCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
         case mentorListCV:
             return CGSize(width: UIScreen.main.bounds.width - 32, height: 135)
         default:

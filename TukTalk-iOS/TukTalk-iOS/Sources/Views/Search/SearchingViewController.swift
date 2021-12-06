@@ -217,7 +217,7 @@ class SearchingViewController: UIViewController {
         categoryCV.setCollectionViewLayout(categoryCVLayout, animated: false)
         categoryCV.backgroundColor = .white
         categoryCV.showsHorizontalScrollIndicator = false
-        categoryCV.register(SearchingCollectionViewCell.self, forCellWithReuseIdentifier: "SearchingCollectionViewCell")
+        categoryCV.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         
         let mentorListCVLayout = UICollectionViewFlowLayout()
         mentorListCVLayout.minimumLineSpacing = 8
@@ -363,7 +363,7 @@ class SearchingViewController: UIViewController {
             self.reloadMentorData()
             searchCVModel.output.designCategoryData
                 .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                    if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
+                    if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? CategoryCollectionViewCell {
                         
                         cell.configure(name: item.title)
                         return cell
@@ -376,7 +376,7 @@ class SearchingViewController: UIViewController {
             self.reloadMentorData()
             searchCVModel.output.itDevCategoryData
                 .bind(to: categoryCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                    if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "SearchingCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? SearchingCollectionViewCell {
+                    if let cell = self.categoryCV.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? CategoryCollectionViewCell {
                         
                         cell.configure(name: item.title)
                         return cell
@@ -455,7 +455,7 @@ extension SearchingViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == mentorListCV {
             return CGSize(width: UIScreen.main.bounds.width - 32, height: 135)
         } else {
-            return SearchingCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
+            return CategoryCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
         }
     }
 }
