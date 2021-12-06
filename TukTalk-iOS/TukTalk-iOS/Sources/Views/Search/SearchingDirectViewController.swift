@@ -11,7 +11,7 @@ class SearchingDirectViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var mentorCVModel = MentorListCollectionViewModel()
+    private lazy var viewModel = MentorListCollectionViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -109,7 +109,7 @@ class SearchingDirectViewController: UIViewController {
     }
     
     private func binding() {
-        mentorCVModel.query = searchTextBtn.titleLabel?.text
+        viewModel.query = searchTextBtn.titleLabel?.text
         reloadMentorData()
         searchTextBtn.rx.tap
             .bind {
@@ -136,7 +136,7 @@ class SearchingDirectViewController: UIViewController {
     private func bindingCollectionView() {
         mentorListCV.rx.setDelegate(self).disposed(by: disposeBag)
         
-        mentorCVModel.mentorDataList
+        viewModel.mentorDataList
             .bind(to: mentorListCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.mentorListCV.dequeueReusableCell(withReuseIdentifier: "TopMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? TopMentorCollectionViewCell {
                     
@@ -149,8 +149,30 @@ class SearchingDirectViewController: UIViewController {
     }
     
     private func reloadMentorData() {
-        self.mentorCVModel.getSearchMentorList(query: self.mentorCVModel.query ?? "", companySize: self.mentorCVModel.companySize, subSpecialty: self.mentorCVModel.subSpecialty, startYear: self.mentorCVModel.startYear) { response in
-            self.mentorCVModel.mentorDataList.onNext(response)
+        self.viewModel.getSearchMentorList(query: self.viewModel.query ?? "", companySize: self.viewModel.companySize, subSpecialty: self.viewModel.subSpecialty, startYear: self.viewModel.startYear) { response in
+            self.viewModel.mentorDataList.onNext(response)
+            if response.count == 0 {
+                let img = UIImageView().then {
+                    $0.image = UIImage(named: "nilAlertImg")
+                }
+                let text = UILabel().then {
+                    $0.text = "검색 결과가 없습니다."
+                    $0.font = UIFont.TTFont(type: .SDReg, size: 12)
+                    $0.textColor = UIColor.GrayScale.sub4
+                }
+                self.view.addSubview(img)
+                self.view.addSubview(text)
+                img.snp.makeConstraints {
+                    $0.width.height.equalTo(24)
+                    $0.top.equalTo(self.devideLineView.snp.bottom).offset(116)
+                    $0.centerX.equalToSuperview()
+                }
+                text.snp.makeConstraints {
+                    $0.height.equalTo(18)
+                    $0.top.equalTo(img.snp.bottom).offset(8)
+                    $0.centerX.equalToSuperview()
+                }
+            }
             print(response)
         }
     }
