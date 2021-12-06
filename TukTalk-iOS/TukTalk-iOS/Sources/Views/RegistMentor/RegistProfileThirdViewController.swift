@@ -14,7 +14,7 @@ class RegistProfileThirdViewController: UIViewController {
     
     private var keyboardFrame: NSValue?
     private let screenHeight = UIScreen.main.bounds.height
-    private lazy var viewModel = RegistProfileThirdViewModel()
+    private lazy var viewModel = RegistMentorThirdViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(0.6))
     private var monthEnable: Bool?

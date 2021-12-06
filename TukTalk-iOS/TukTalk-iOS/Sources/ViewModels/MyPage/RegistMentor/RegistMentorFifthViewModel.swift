@@ -8,7 +8,7 @@
 import RxSwift
 import Moya
 
-struct RegistProfileFifthViewModel: ViewModelType {
+struct RegistMentorFifthViewModel: ViewModelType {
     
     let dependency: Dependency
     var disposeBag: DisposeBag = DisposeBag()

@@ -12,7 +12,7 @@ class RegistProfileFourthViewController: UIViewController {
     
     //MARK:- Properties
     
-    private let viewModel = RegistProfileFourthViewModel()
+    private let viewModel = RegistMentorFourthViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(0.8))
     private let progressIsHiddenValue = BehaviorRelay(value: false)

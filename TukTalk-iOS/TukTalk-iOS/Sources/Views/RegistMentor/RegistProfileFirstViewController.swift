@@ -14,7 +14,7 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
     private var keyboardFrame: NSValue?
     private let screenHeight = UIScreen.main.bounds.height
     private let disposeBag = DisposeBag()
-    private lazy var firstViewModel = RegistProfileFirstViewModel()
+    private lazy var firstViewModel = RegistMentorFirstViewModel()
     
     //MARK:- UI Components
     

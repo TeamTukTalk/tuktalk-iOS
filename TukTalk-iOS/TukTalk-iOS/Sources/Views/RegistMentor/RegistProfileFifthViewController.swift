@@ -13,7 +13,7 @@ class RegistProfileFifthViewController: UIViewController {
     //MARK:- Properties
     
     private lazy var collectionViewModel = TagCollectionViewModel()
-    private lazy var viewModel = RegistProfileFifthViewModel()
+    private lazy var viewModel = RegistMentorFifthViewModel()
     private let disposeBag = DisposeBag()
     private let progressPercentValue = BehaviorRelay(value: Float(1))
     private var hashTagSelectedNumber = 0

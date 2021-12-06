@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 import Moya
 
-struct RegistProfileThirdViewModel: ViewModelType {
+struct RegistMentorThirdViewModel: ViewModelType {
     
     let dependency: Dependency
     var disposeBag: DisposeBag = DisposeBag()

@@ -11,7 +11,7 @@ class RegistMenteeProfileViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var viewModel = MenteeProfileViewModel()
+    private lazy var viewModel = RegistMenteeViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components

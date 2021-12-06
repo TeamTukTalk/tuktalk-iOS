@@ -66,7 +66,7 @@
 		403EC24D2756A908008A40B9 /* RegistMenteeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC24C2756A908008A40B9 /* RegistMenteeProfileViewController.swift */; };
 		403EC2532756C787008A40B9 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2522756C787008A40B9 /* SignUpResponse.swift */; };
 		403EC2562756D289008A40B9 /* MentorCertifyPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2552756D289008A40B9 /* MentorCertifyPopUp.swift */; };
-		403EC2592756ED9F008A40B9 /* MenteeProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2582756ED9F008A40B9 /* MenteeProfileViewModel.swift */; };
+		403EC2592756ED9F008A40B9 /* RegistMenteeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC2582756ED9F008A40B9 /* RegistMenteeViewModel.swift */; };
 		403EC25C2756EFCA008A40B9 /* RegistMenteeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC25B2756EFCA008A40B9 /* RegistMenteeService.swift */; };
 		403EC25E2756F09F008A40B9 /* RegistMenteeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC25D2756F09F008A40B9 /* RegistMenteeRequest.swift */; };
 		403EC26227570824008A40B9 /* WithdrawService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EC26127570824008A40B9 /* WithdrawService.swift */; };
@@ -110,16 +110,16 @@
 		406324D3273FF3E4009F62A3 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324D2273FF3E4009F62A3 /* FieldTableViewCell.swift */; };
 		406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */; };
 		4065FEDA274226A4005AAE0F /* RegistProfileThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */; };
-		4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */; };
+		4065FEDC27423EDE005AAE0F /* RegistMentorThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDB27423EDE005AAE0F /* RegistMentorThirdViewModel.swift */; };
 		4065FEDE27434A1E005AAE0F /* RegistProfileFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */; };
-		4065FEE02743506D005AAE0F /* RegistProfileFourthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDF2743506D005AAE0F /* RegistProfileFourthViewModel.swift */; };
+		4065FEE02743506D005AAE0F /* RegistMentorFourthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEDF2743506D005AAE0F /* RegistMentorFourthViewModel.swift */; };
 		4065FEE227435587005AAE0F /* TagCollectionViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE127435587005AAE0F /* TagCollectionViewDataModel.swift */; };
 		4065FEE4274355C8005AAE0F /* RegistProfileFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE3274355C8005AAE0F /* RegistProfileFifthViewController.swift */; };
 		4065FEE627435A1D005AAE0F /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE527435A1D005AAE0F /* CompanyCollectionViewCell.swift */; };
 		4065FEE827435B5F005AAE0F /* TagCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */; };
 		4065FEEA27435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEE927435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift */; };
 		4065FEEC27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEEB27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift */; };
-		4065FEEE274397D4005AAE0F /* RegistProfileFifthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEED274397D4005AAE0F /* RegistProfileFifthViewModel.swift */; };
+		4065FEEE274397D4005AAE0F /* RegistMentorFifthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEED274397D4005AAE0F /* RegistMentorFifthViewModel.swift */; };
 		4065FEF227439F0A005AAE0F /* RegistProfileFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEF127439F0A005AAE0F /* RegistProfileFinishViewController.swift */; };
 		4065FEF92743CDE7005AAE0F /* PageCollectionViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEF82743CDE7005AAE0F /* PageCollectionViewDataModel.swift */; };
 		4065FEFB2743CE31005AAE0F /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065FEFA2743CE31005AAE0F /* PageCollectionViewCell.swift */; };
@@ -163,7 +163,7 @@
 		4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */; };
 		4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */; };
 		40A387BB2731AAAD00BA5D5D /* MyPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */; };
-		40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */; };
+		40A8F851273F17D8007360C9 /* RegistMentorFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8F850273F17D8007360C9 /* RegistMentorFirstViewModel.swift */; };
 		40AA40EC27494AAC00F76625 /* UserSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40EB27494AAC00F76625 /* UserSignUp.swift */; };
 		40AA40EE274A7AFB00F76625 /* EmailValidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40ED274A7AFB00F76625 /* EmailValidResponse.swift */; };
 		40AA40F0274A7B2C00F76625 /* EmailValidService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA40EF274A7B2C00F76625 /* EmailValidService.swift */; };
@@ -282,7 +282,7 @@
 		403EC24C2756A908008A40B9 /* RegistMenteeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeProfileViewController.swift; sourceTree = "<group>"; };
 		403EC2522756C787008A40B9 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		403EC2552756D289008A40B9 /* MentorCertifyPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorCertifyPopUp.swift; sourceTree = "<group>"; };
-		403EC2582756ED9F008A40B9 /* MenteeProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeProfileViewModel.swift; sourceTree = "<group>"; };
+		403EC2582756ED9F008A40B9 /* RegistMenteeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeViewModel.swift; sourceTree = "<group>"; };
 		403EC25B2756EFCA008A40B9 /* RegistMenteeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeService.swift; sourceTree = "<group>"; };
 		403EC25D2756F09F008A40B9 /* RegistMenteeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMenteeRequest.swift; sourceTree = "<group>"; };
 		403EC26127570824008A40B9 /* WithdrawService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawService.swift; sourceTree = "<group>"; };
@@ -332,16 +332,16 @@
 		406324D2273FF3E4009F62A3 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
 		406324D5273FF4C3009F62A3 /* FieldTableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewDataModel.swift; sourceTree = "<group>"; };
 		4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileThirdViewController.swift; sourceTree = "<group>"; };
-		4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileThirdViewModel.swift; sourceTree = "<group>"; };
+		4065FEDB27423EDE005AAE0F /* RegistMentorThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorThirdViewModel.swift; sourceTree = "<group>"; };
 		4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFourthViewController.swift; sourceTree = "<group>"; };
-		4065FEDF2743506D005AAE0F /* RegistProfileFourthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFourthViewModel.swift; sourceTree = "<group>"; };
+		4065FEDF2743506D005AAE0F /* RegistMentorFourthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFourthViewModel.swift; sourceTree = "<group>"; };
 		4065FEE127435587005AAE0F /* TagCollectionViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewDataModel.swift; sourceTree = "<group>"; };
 		4065FEE3274355C8005AAE0F /* RegistProfileFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFifthViewController.swift; sourceTree = "<group>"; };
 		4065FEE527435A1D005AAE0F /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewModel.swift; sourceTree = "<group>"; };
 		4065FEE927435FB8005AAE0F /* RecommendHashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendHashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		4065FEEB27438C8F005AAE0F /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		4065FEED274397D4005AAE0F /* RegistProfileFifthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFifthViewModel.swift; sourceTree = "<group>"; };
+		4065FEED274397D4005AAE0F /* RegistMentorFifthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFifthViewModel.swift; sourceTree = "<group>"; };
 		4065FEF127439F0A005AAE0F /* RegistProfileFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFinishViewController.swift; sourceTree = "<group>"; };
 		4065FEF82743CDE7005AAE0F /* PageCollectionViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewDataModel.swift; sourceTree = "<group>"; };
 		4065FEFA2743CE31005AAE0F /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -385,7 +385,7 @@
 		4088F16B2719E16E00527A77 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
 		4088F170271AE4CE00527A77 /* SignUpThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdViewController.swift; sourceTree = "<group>"; };
 		40A387BA2731AAAD00BA5D5D /* MyPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableHeaderView.swift; sourceTree = "<group>"; };
-		40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFirstViewModel.swift; sourceTree = "<group>"; };
+		40A8F850273F17D8007360C9 /* RegistMentorFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistMentorFirstViewModel.swift; sourceTree = "<group>"; };
 		40AA40EB27494AAC00F76625 /* UserSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUp.swift; sourceTree = "<group>"; };
 		40AA40ED274A7AFB00F76625 /* EmailValidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidResponse.swift; sourceTree = "<group>"; };
 		40AA40EF274A7B2C00F76625 /* EmailValidService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidService.swift; sourceTree = "<group>"; };
@@ -675,12 +675,12 @@
 			path = PopUp;
 			sourceTree = "<group>";
 		};
-		403EC2572756ED8F008A40B9 /* MenteeProfile */ = {
+		403EC2572756ED8F008A40B9 /* RegistMentee */ = {
 			isa = PBXGroup;
 			children = (
-				403EC2582756ED9F008A40B9 /* MenteeProfileViewModel.swift */,
+				403EC2582756ED9F008A40B9 /* RegistMenteeViewModel.swift */,
 			);
-			path = MenteeProfile;
+			path = RegistMentee;
 			sourceTree = "<group>";
 		};
 		403EC25A2756EFBA008A40B9 /* RegistMentee */ = {
@@ -1104,17 +1104,17 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
-		40A8F84F273F1796007360C9 /* MentorProfile */ = {
+		40A8F84F273F1796007360C9 /* RegistMentor */ = {
 			isa = PBXGroup;
 			children = (
 				406324CE273FF1D1009F62A3 /* UIViewModel */,
 				4065FEE727435B5F005AAE0F /* TagCollectionViewModel.swift */,
-				40A8F850273F17D8007360C9 /* RegistProfileFirstViewModel.swift */,
-				4065FEDB27423EDE005AAE0F /* RegistProfileThirdViewModel.swift */,
-				4065FEDF2743506D005AAE0F /* RegistProfileFourthViewModel.swift */,
-				4065FEED274397D4005AAE0F /* RegistProfileFifthViewModel.swift */,
+				40A8F850273F17D8007360C9 /* RegistMentorFirstViewModel.swift */,
+				4065FEDB27423EDE005AAE0F /* RegistMentorThirdViewModel.swift */,
+				4065FEDF2743506D005AAE0F /* RegistMentorFourthViewModel.swift */,
+				4065FEED274397D4005AAE0F /* RegistMentorFifthViewModel.swift */,
 			);
-			path = MentorProfile;
+			path = RegistMentor;
 			sourceTree = "<group>";
 		};
 		40AA40EA27494A8E00F76625 /* Class */ = {
@@ -1179,8 +1179,8 @@
 		40D0CE6A2731158D003AB9A7 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				403EC2572756ED8F008A40B9 /* MenteeProfile */,
-				40A8F84F273F1796007360C9 /* MentorProfile */,
+				403EC2572756ED8F008A40B9 /* RegistMentee */,
+				40A8F84F273F1796007360C9 /* RegistMentor */,
 				40FAED4627535C630006490E /* WithdrawViewModel.swift */,
 				403EC24927569E1B008A40B9 /* MyPageViewModel.swift */,
 			);
@@ -1651,7 +1651,7 @@
 				403EC27227574492008A40B9 /* ReviewViewController.swift in Sources */,
 				402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */,
 				4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */,
-				4065FEDC27423EDE005AAE0F /* RegistProfileThirdViewModel.swift in Sources */,
+				4065FEDC27423EDE005AAE0F /* RegistMentorThirdViewModel.swift in Sources */,
 				4087E939275812D0000E2B6D /* PortfolioPageService.swift in Sources */,
 				4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */,
 				403EC237275661CC008A40B9 /* EmailVerifyResponse.swift in Sources */,
@@ -1669,8 +1669,8 @@
 				40FAED4E275373C30006490E /* QuerySearchResponse.swift in Sources */,
 				402B98CB27521B4800EDD668 /* KeyChain.swift in Sources */,
 				4087E95A2758B908000E2B6D /* MenteeMyServiceViewController.swift in Sources */,
-				403EC2592756ED9F008A40B9 /* MenteeProfileViewModel.swift in Sources */,
-				4065FEE02743506D005AAE0F /* RegistProfileFourthViewModel.swift in Sources */,
+				403EC2592756ED9F008A40B9 /* RegistMenteeViewModel.swift in Sources */,
+				4065FEE02743506D005AAE0F /* RegistMentorFourthViewModel.swift in Sources */,
 				403EC22E27565D3D008A40B9 /* RegistMentorRequest.swift in Sources */,
 				402D65A32726F75900F4ED8F /* SearchRecommendDataModel.swift in Sources */,
 				406324D3273FF3E4009F62A3 /* FieldTableViewCell.swift in Sources */,
@@ -1688,7 +1688,7 @@
 				40FAED43275355490006490E /* WithdrawViewController.swift in Sources */,
 				404E687227245220005AA5DD /* CertifyMentorSecondViewModel.swift in Sources */,
 				406324D0273FF1E1009F62A3 /* FieldViewModel.swift in Sources */,
-				40A8F851273F17D8007360C9 /* RegistProfileFirstViewModel.swift in Sources */,
+				40A8F851273F17D8007360C9 /* RegistMentorFirstViewModel.swift in Sources */,
 				40CC20C0274E620C008A3967 /* RegistPortfolioSecondViewController.swift in Sources */,
 				404C57072746B89100B31F64 /* SignUpService.swift in Sources */,
 				40FAED66275543110006490E /* PDFResponse.swift in Sources */,
@@ -1713,7 +1713,7 @@
 				403EC24827569C50008A40B9 /* MenteeProfileResponse.swift in Sources */,
 				4087E93B2758133A000E2B6D /* PortfolioPageResponse.swift in Sources */,
 				4065FEE227435587005AAE0F /* TagCollectionViewDataModel.swift in Sources */,
-				4065FEEE274397D4005AAE0F /* RegistProfileFifthViewModel.swift in Sources */,
+				4065FEEE274397D4005AAE0F /* RegistMentorFifthViewModel.swift in Sources */,
 				4065FF0327453550005AAE0F /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
