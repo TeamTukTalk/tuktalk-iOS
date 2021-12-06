@@ -142,12 +142,16 @@ class MyPageViewController: UIViewController {
         setProfileData()
         setHistoryResponse()
         mentorEmailValidationCheck()
+        setBar()
+    }
+    
+    //MARK:- Function
+    
+    private func setBar() {
         navigationController?.navigationBar.isHidden = true
         navigationController?.setNavigationBarHidden(true, animated: false)
         tabBarController?.tabBar.isHidden = false
     }
-    
-    //MARK:- Function
     
     private func setProfileData() {
         if let role = KeyChain.load(key: "role") {

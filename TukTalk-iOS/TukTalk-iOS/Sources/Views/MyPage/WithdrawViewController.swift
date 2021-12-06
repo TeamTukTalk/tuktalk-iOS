@@ -87,11 +87,15 @@ class WithdrawViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        tabBarController?.tabBar.isHidden = true
+        setBar()
     }
     
     //MARK:- Function
+    
+    private func setBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        tabBarController?.tabBar.isHidden = true
+    }
     
     private func setUI() {
         view.backgroundColor = .white

@@ -59,12 +59,16 @@ class MentorMyServiceViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        tabBarController?.tabBar.isHidden = true
+        setBar()
         setData()
     }
     
     //MARK:- Function
+    
+    private func setBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        tabBarController?.tabBar.isHidden = true
+    }
     
     private func setData() {
         if response != nil {

@@ -77,8 +77,7 @@ class MyPageInformationViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        tabBarController?.tabBar.isHidden = true
+        setBar()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -86,6 +85,11 @@ class MyPageInformationViewController: UIViewController {
     }
     
     //MARK:- Function
+    
+    private func setBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        tabBarController?.tabBar.isHidden = true
+    }
     
     private func setUI() {
         view.backgroundColor = .white

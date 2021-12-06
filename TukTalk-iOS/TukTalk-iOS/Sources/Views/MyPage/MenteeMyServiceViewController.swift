@@ -54,13 +54,17 @@ class MenteeMyServiceViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        tabBarController?.tabBar.isHidden = true
+        setBar()
         setData()
     }
     
     //MARK:- Function
+    
+    private func setBar() {
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        tabBarController?.tabBar.isHidden = true
+    }
     
     private func setUI() {
         view.backgroundColor = .white
