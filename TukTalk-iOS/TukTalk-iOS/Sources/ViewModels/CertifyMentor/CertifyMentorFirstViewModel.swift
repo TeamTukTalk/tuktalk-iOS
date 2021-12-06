@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-struct RegistMentorFirstViewModel: ViewModelType {
+struct CertifyMentorFirstViewModel: ViewModelType {
     
     let dependency: Dependency
     var disposeBag: DisposeBag = DisposeBag()

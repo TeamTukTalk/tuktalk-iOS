@@ -8,11 +8,11 @@
 import RxSwift
 import Moya
 
-class RegistMentorSecondViewController: UIViewController {
+class CertifyMentorSecondViewController: UIViewController {
     
     //MARK:- Properties
     
-    private lazy var viewModel = RegistMentorSecondViewModel()
+    private lazy var viewModel = CertifyMentorSecondViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -386,7 +386,7 @@ class RegistMentorSecondViewController: UIViewController {
             .bind {
                 self.viewModel.verifyEmailRequest() { response in
                     if response.certifiedMentor {
-                        self.navigationController?.pushViewController(RegistMentorFinishViewController(), animated: true)
+                        self.navigationController?.pushViewController(CertifyMentorFinishViewController(), animated: true)
                     } else {
                         self.resendBtn.snp.updateConstraints {
                             $0.top.equalTo(self.emailTextField.snp.bottom).offset(46)

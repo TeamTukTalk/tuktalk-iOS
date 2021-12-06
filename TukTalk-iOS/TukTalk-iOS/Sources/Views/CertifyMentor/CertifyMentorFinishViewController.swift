@@ -7,7 +7,7 @@
 
 import RxSwift
 
-class RegistMentorFinishViewController: UIViewController {
+class CertifyMentorFinishViewController: UIViewController {
     
     //MARK:- Properties
     

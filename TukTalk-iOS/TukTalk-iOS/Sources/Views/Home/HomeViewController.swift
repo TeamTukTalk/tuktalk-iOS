@@ -303,7 +303,7 @@ class HomeViewController: UIViewController {
         
         bottomFirstBannerBtn.rx.tap
             .bind {
-                self.navigationController?.pushViewController(RegistMentorFirstViewController(), animated: true)
+                self.navigationController?.pushViewController(CertifyMentorFirstViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }

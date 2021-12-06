@@ -417,7 +417,7 @@ class MyPageViewController: UIViewController {
         
         notiBtn.rx.tap
             .bind {
-                self.navigationController?.pushViewController(RegistMentorFirstViewController(), animated: true)
+                self.navigationController?.pushViewController(CertifyMentorFirstViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         
@@ -429,7 +429,7 @@ class MyPageViewController: UIViewController {
         
         certifyBtn.rx.tap
             .bind {
-                self.navigationController?.pushViewController(RegistMentorFirstViewController(), animated: true)
+                self.navigationController?.pushViewController(CertifyMentorFirstViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         if user == "MENTOR" {

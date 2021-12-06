@@ -7,13 +7,13 @@
 
 import RxSwift
 
-class RegistMentorFirstViewController: UIViewController {
+class CertifyMentorFirstViewController: UIViewController {
     
     //MARK:- Properties
     
     private var keyboardFrame: NSValue?
     private let screenHeight = UIScreen.main.bounds.height
-    private lazy var viewModel = RegistMentorFirstViewModel()
+    private lazy var viewModel = CertifyMentorFirstViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK:- UI Components
@@ -316,7 +316,7 @@ class RegistMentorFirstViewController: UIViewController {
         
         nextBtn.rx.tap
             .bind {
-                self.navigationController?.pushViewController(RegistMentorSecondViewController(), animated: false)
+                self.navigationController?.pushViewController(CertifyMentorSecondViewController(), animated: false)
             }
             .disposed(by: disposeBag)
     }

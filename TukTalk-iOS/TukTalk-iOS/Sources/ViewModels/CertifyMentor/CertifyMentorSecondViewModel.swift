@@ -8,7 +8,7 @@
 import RxSwift
 import Moya
 
-struct RegistMentorSecondViewModel: ViewModelType {
+struct CertifyMentorSecondViewModel: ViewModelType {
     
     let dependency: Dependency
     var disposeBag: DisposeBag = DisposeBag()
