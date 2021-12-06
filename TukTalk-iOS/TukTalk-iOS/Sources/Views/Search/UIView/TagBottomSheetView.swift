@@ -192,7 +192,7 @@ final class TagBottomSheetView: UIViewController {
     
     private func binding() {
         applyBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.tagViewModel.output.companyText
                     .bind(to: self.companyTagTitle)
                     .disposed(by: self.disposeBag)
@@ -205,7 +205,7 @@ final class TagBottomSheetView: UIViewController {
             .disposed(by: disposeBag)
         
         resetBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.companyCV.allowsSelection = false
                 self.companyCV.allowsSelection = true
                 self.tagViewModel.input.companyTitle.onNext("")
@@ -216,7 +216,7 @@ final class TagBottomSheetView: UIViewController {
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.dismiss(animated: false, completion: nil)
             }
             .disposed(by: disposeBag)
