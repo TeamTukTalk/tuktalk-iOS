@@ -104,14 +104,14 @@ class RegistProfileFinishViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.progressIsHiddenValue.accept(false)
                 self.navigationController?.popViewController(animated: false)
-            })
+            }
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popToRootViewController(animated: true)
             }
             .disposed(by: disposeBag)

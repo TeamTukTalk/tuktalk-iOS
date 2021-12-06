@@ -322,14 +322,14 @@ class RegistProfileThirdViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.progressPercentValue.accept(0.4)
                 self.navigationController?.popViewController(animated: false)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "프로필 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -341,53 +341,53 @@ class RegistProfileThirdViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         departMentTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.departMentTextField.layer.borderColor = UIColor.Primary.primary.cgColor
             }
             .disposed(by: disposeBag)
         
         departMentTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.departMentTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
             }
             .disposed(by: disposeBag)
         
         rankTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.rankTextField.layer.borderColor = UIColor.Primary.primary.cgColor
             }
             .disposed(by: disposeBag)
         
         rankTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.rankTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
             }
             .disposed(by: disposeBag)
         
         employmentYearTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.employmentYearTextField.layer.borderColor = UIColor.Primary.primary.cgColor
             }
             .disposed(by: disposeBag)
         
         employmentYearTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.employmentYearTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
             }
             .disposed(by: disposeBag)
         
         employmentMonthTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.employmentMonthTextField.layer.borderColor = UIColor.Primary.primary.cgColor
             }
             .disposed(by: disposeBag)
         
         employmentMonthTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.employmentMonthTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
             }
             .disposed(by: disposeBag)
@@ -438,7 +438,7 @@ class RegistProfileThirdViewController: UIViewController {
             .disposed(by: self.disposeBag)
         
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 if self.monthValidation(valid: self.monthEnable ?? false) {
                     let nextVC = RegistProfileFourthViewController()
                     nextVC.progressPercent.subscribe(onNext: { percent in

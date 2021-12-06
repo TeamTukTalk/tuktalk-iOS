@@ -175,14 +175,14 @@ class RegistProfileFifthViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.progressPercentValue.accept(0.8)
                 self.navigationController?.popViewController(animated: false)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "프로필 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -194,7 +194,7 @@ class RegistProfileFifthViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         companyCV.rx.modelSelected(TagCollectionViewDataModel.self)
@@ -249,23 +249,6 @@ class RegistProfileFifthViewController: UIViewController {
                 let user = UserMentorRegist.shared
                 let career = Career(months: user.months!, years: user.years!)
                 let param = RegistMentorRequest(nickname: user.nickname!, simpleIntroduction: user.simpleIntroDuction!, detailedIntroduction: user.detailedIntroduction!, specialty: user.specialty!, subSpecialties: user.subSpecialties, companyName: user.companyName!, department: user.department!, position: user.position!, career: career, careerDescription: user.careerDescription!, companySize: user.companySize!, hashTags: hashTag)
-//                UserMentorRegist.shared.hashTags = hashTag
-//                self.viewModel.registProfile(param: RegistMentorRequest(nickname: UserMentorRegist.shared.nickname!, simpleIntroduction: UserMentorRegist.shared.simpleIntroDuction!, detailedIntroduction: UserMentorRegist.shared.detailedIntroduction!, specialty: UserMentorRegist.shared.specialty!, subSpecialties: UserMentorRegist.shared.subSpecialties, companyName: UserMentorRegist.shared.companyName!, department: UserMentorRegist.shared.department!, position: UserMentorRegist.shared.position!, career: Career(months: UserMentorRegist.shared.months!, years: UserMentorRegist.shared.years!), careerDescription: UserMentorRegist.shared.careerDescription!, companySize: UserMentorRegist.shared.companyName!, hashTags: hashTag))
-//                print("@@@@@@@@@@@@@@@@@@@@@@@")
-//                print(UserMentorRegist.shared.nickname!)
-//                print(UserMentorRegist.shared.simpleIntroDuction!)
-//                print(UserMentorRegist.shared.detailedIntroduction!)
-//                print(UserMentorRegist.shared.subSpecialties)
-//                print(UserMentorRegist.shared.companyName!)
-//                print(UserMentorRegist.shared.department!)
-//                print(UserMentorRegist.shared.position!)
-//                print(UserMentorRegist.shared.months!)
-//                print(UserMentorRegist.shared.years!)
-//                print(UserMentorRegist.shared.careerDescription!)
-//                print(UserMentorRegist.shared.companySize!)
-//                print(hashTag)
-//                print("@@@@@@@@@@@@@@@@@@@@@@@")
-//
                 self.viewModel.registProfile(param: param) { response in
                     print(response.mentorId)
                     self.navigationController?.pushViewController(nextVC, animated: false)

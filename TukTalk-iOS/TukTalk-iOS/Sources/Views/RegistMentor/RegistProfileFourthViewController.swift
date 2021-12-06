@@ -118,14 +118,14 @@ class RegistProfileFourthViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.progressPercentValue.accept(0.6)
                 self.navigationController?.popViewController(animated: false)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "프로필 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -137,20 +137,20 @@ class RegistProfileFourthViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         let initText = "최근 커리어에서 주목할 만한 성과나 업무 경험 (큰 프로젝트 참여, 공모전, 대외활동 등등)"
         
         textView.rx.didBeginEditing
-            .bind { _ in
+            .bind {
                 if self.textView.text == initText { self.textView.text = "" }
                 self.textView.textColor = UIColor.GrayScale.sub1
             }
             .disposed(by: disposeBag)
         
         textView.rx.didEndEditing
-            .bind { _ in
+            .bind {
                 if self.textView.text == "" {
                     self.textView.text = initText
                     self.textView.textColor = UIColor.GrayScale.sub4
@@ -175,7 +175,7 @@ class RegistProfileFourthViewController: UIViewController {
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let nextVC = RegistProfileFifthViewController()
                 nextVC.progressPercent.subscribe(onNext: { percent in
                     self.progressPercentValue.accept(percent)

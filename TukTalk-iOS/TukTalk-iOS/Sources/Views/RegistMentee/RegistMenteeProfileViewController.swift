@@ -158,14 +158,14 @@ class RegistMenteeProfileViewController: UIViewController {
             .disposed(by: disposeBag)
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.navigationController?.viewControllers[0].tabBarController?.tabBar.isHidden = false
                 self.navigationController?.popViewController(animated: true)
-            })
+            }
             .disposed(by: disposeBag)
         
         saveBtn.rx.tap
-            .bind { _ in
+            .bind {
                 KeyChain.delete(key: "nickname")
                 KeyChain.delete(key: "firstLetter")
                 KeyChain.save(key: "nickname", data: self.nameTextField.text!.data(using: .utf8)!)

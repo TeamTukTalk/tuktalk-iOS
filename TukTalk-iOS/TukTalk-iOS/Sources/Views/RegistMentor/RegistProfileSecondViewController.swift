@@ -292,13 +292,13 @@ class RegistProfileSecondViewController: UIViewController {
     private func binding() {
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: false)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "프로필 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -310,11 +310,11 @@ class RegistProfileSecondViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         specialityBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let fieldVC = FieldViewController()
                 fieldVC.viewModel.input.selectedBtn.onNext("specialityBtn")
                 fieldVC.outputFieldData.bind(onNext: { field in
@@ -343,7 +343,7 @@ class RegistProfileSecondViewController: UIViewController {
             .disposed(by: disposeBag)
         
         detailFieldBtn.rx.tap
-            .bind { _ in
+            .bind {
                 if self.specialityBtn.titleLabel?.text == "전문분야 선택" {
                     self.alertView.alpha = 1
                     UIView.animate(withDuration: 3, animations: {
@@ -375,7 +375,7 @@ class RegistProfileSecondViewController: UIViewController {
             .disposed(by: disposeBag)
         
         detailFieldBtn2.rx.tap
-            .bind { _ in
+            .bind {
                 let fieldVC = FieldViewController()
                 fieldVC.viewModel.input.selectedBtn.onNext("detailFieldBtn")
                 if let field = self.specialityBtn.titleLabel?.text {
@@ -395,7 +395,7 @@ class RegistProfileSecondViewController: UIViewController {
             .disposed(by: disposeBag)
         
         detailFieldBtn3.rx.tap
-            .bind { _ in
+            .bind {
                 let fieldVC = FieldViewController()
                 fieldVC.viewModel.input.selectedBtn.onNext("detailFieldBtn")
                 if let field = self.specialityBtn.titleLabel?.text {
@@ -415,7 +415,7 @@ class RegistProfileSecondViewController: UIViewController {
             .disposed(by: disposeBag)
         
         addFieldBtn.rx.tap
-            .bind { _ in
+            .bind {
                 if !self.detailFieldBtn2.isHidden && !self.detailFieldBtn3.isHidden {
                     return
                 }
@@ -430,7 +430,7 @@ class RegistProfileSecondViewController: UIViewController {
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let nextVC = RegistProfileThirdViewController()
                 nextVC.progressPercent.subscribe(onNext: { percent in
                     self.progressPercentValue.accept(percent)

@@ -287,14 +287,14 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
     private func binding() {
         
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.navigationController?.viewControllers[0].tabBarController?.tabBar.isHidden = false
                 self.navigationController?.popViewController(animated: true)
-            })
+            }
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "프로필 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -306,11 +306,11 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         nextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 let nextVC = RegistProfileSecondViewController()
                 nextVC.progressPercent.subscribe(onNext: { percent in
                     self.progressBar.setProgress(percent, animated: true)
@@ -328,13 +328,13 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
             .disposed(by: disposeBag)
         
         introduceTextField.rx.controlEvent(.editingDidBegin)
-            .bind { _ in
+            .bind {
                 self.introduceTextField.layer.borderColor = UIColor.Primary.primary.cgColor
             }
             .disposed(by: disposeBag)
         
         introduceTextField.rx.controlEvent(.editingDidEnd)
-            .bind { _ in
+            .bind {
                 self.introduceTextField.layer.borderColor = UIColor.GrayScale.gray1.cgColor
             }
             .disposed(by: disposeBag)
@@ -381,7 +381,7 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
         let initText = "멘티에게 어필할 수 있는 소개글을 자세히 작성해주세요."
         
         detailIntroduceTextView.rx.didBeginEditing
-            .bind { _ in
+            .bind {
                 self.detailIntroduceTextView.textColor = UIColor.GrayScale.sub1
                 self.detailIntroduceTextView.layer.borderColor = UIColor.Primary.primary.cgColor
                 if self.detailIntroduceTextView.text == initText {
@@ -391,7 +391,7 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
             .disposed(by: disposeBag)
         
         detailIntroduceTextView.rx.didEndEditing
-            .bind { _ in
+            .bind {
                 if self.detailIntroduceTextView.text == "" {
                     self.detailIntroduceTextView.text = initText
                     self.detailIntroduceTextView.textColor = UIColor.GrayScale.sub4
