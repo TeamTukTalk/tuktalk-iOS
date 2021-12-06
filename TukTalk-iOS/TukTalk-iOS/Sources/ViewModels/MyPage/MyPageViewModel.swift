@@ -59,36 +59,4 @@ class MyPageViewModel {
             }
             .disposed(by: disposeBag)
     }
-    
-//    func getMenteeProfileData(completion: @escaping (MenteeProfileResponse) -> ()) {
-//        let provider = MoyaProvider<MenteeProfileService>()
-//        provider.rx.request(.menteeProfileRequest)
-//            .subscribe { result in
-//                switch result {
-//                case let .success(response):
-//                    let responseData = try? response.map(MenteeProfileResponse.self)
-//                    guard let data = responseData else { return }
-//                    completion(data)
-//                case let .failure(error):
-//                    print(error.localizedDescription)
-//                }
-//            }
-//            .disposed(by: disposeBag)
-//    }
-//
-//    func getMentorProfileData(completion: @escaping (MentorProfileResponse) -> ()) {
-//        let provider = MoyaProvider<MentorProfileService>()
-//        provider.rx.request(.mentorProfileRequest)
-//            .subscribe { result in
-//                switch result {
-//                case let .success(response):
-//                    let responseData = try? response.map(MentorProfileResponse.self)
-//                    guard let data = responseData else { return }
-//                    completion(data)
-//                case let .failure(error):
-//                    print(error.localizedDescription)
-//                }
-//            }
-//            .disposed(by: disposeBag)
-//    }
 }
