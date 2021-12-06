@@ -362,7 +362,7 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
             .disposed(by: disposeBag)
         
         firstViewModel.output.introduceTextCount
-            .subscribe(onNext: { count in
+            .drive(onNext: { count in
                 if count <= 50 {
                     self.introduceTFCount.text = "\(count)/50"
                 }
@@ -370,7 +370,7 @@ class RegistProfileFirstViewController: UIViewController, UIScrollViewDelegate {
             .disposed(by: disposeBag)
         
         firstViewModel.output.buttonEnable
-            .subscribe(onNext: { status in
+            .drive(onNext: { status in
                 self.nextBtn.isEnabled = status
                 self.nextBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
                 let titleColor = status ? .white : UIColor.GrayScale.sub4

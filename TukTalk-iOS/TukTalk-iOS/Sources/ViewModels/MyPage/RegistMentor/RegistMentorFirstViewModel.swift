@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 struct RegistMentorFirstViewModel: ViewModelType {
     
@@ -18,39 +19,40 @@ struct RegistMentorFirstViewModel: ViewModelType {
     }
     
     struct Input {
-        var introduceText: AnyObserver<String>
-        var detailText: AnyObserver<String>
-        var detailEditingBegin: AnyObserver<Bool>
+        var introduceText: AnyObserver<String?>
+        var detailText: AnyObserver<String?>
+        var detailEditingBegin: AnyObserver<Bool?>
     }
     
     struct Output {
-        var introduceTextCount: Observable<Int>
-        var buttonEnable: Observable<Bool>
+        var introduceTextCount: Driver<Int>
+        var buttonEnable: Driver<Bool>
     }
     
     init(dependency: Dependency = Dependency()) {
         self.dependency = dependency
         
-        let introduceText$ = BehaviorSubject<String>(value: "")
-        let detailText$ = BehaviorSubject<String>(value: "")
-        let detailEditingBegin$ = BehaviorSubject<Bool>(value: false)
-        let introduceTextCount$ = checkCount(text: introduceText$)
-        let buttonEnable$ = checkEnable(intro: introduceText$, detail: detailText$, begin: detailEditingBegin$)
+        let introduceText$ = BehaviorSubject<String?>(value: nil)
+        let detailText$ = BehaviorSubject<String?>(value: nil)
+        let detailEditingBegin$ = BehaviorSubject<Bool?>(value: nil)
+        let introduceTextCount$ = introduceText$.map(checkCount).asDriver(onErrorJustReturn: 0)
+        let buttonEnable$ = Observable.combineLatest(introduceText$, detailText$, detailEditingBegin$).map(checkEnable).asDriver(onErrorJustReturn: false)
         
         self.input = Input(introduceText: introduceText$.asObserver(), detailText: detailText$.asObserver(), detailEditingBegin: detailEditingBegin$.asObserver())
         self.output = Output(introduceTextCount: introduceTextCount$, buttonEnable: buttonEnable$)
     }
 }
 
-private func checkCount(text: Observable<String>) -> Observable<Int> {
-    return text.map { text in
-        return text.count
-    }
+private func checkCount(text: String?) -> Int {
+    guard let text = text else { return 0 }
+    
+    return text.count
 }
 
-private func checkEnable(intro: Observable<String>, detail: Observable<String>, begin: Observable<Bool>) -> Observable<Bool> {
-    return Observable.combineLatest(intro, detail, begin)
-        .map { intro, detail, begin in
-            return intro.count > 0 && detail.count > 0 && begin
-        }
+private func checkEnable(intro: String?, detail: String?, begin: Bool?) -> Bool {
+    guard let intro = intro else { return false}
+    guard let detail = detail else { return false}
+    guard let begin = begin else { return false}
+    
+    return intro.count > 0 && detail.count > 0 && begin
 }
