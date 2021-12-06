@@ -343,7 +343,7 @@ class MentorInformationViewController: UIViewController {
         .disposed(by: self.disposeBag)
         
         backBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: self.disposeBag)
