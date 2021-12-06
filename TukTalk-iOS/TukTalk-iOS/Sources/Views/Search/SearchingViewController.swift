@@ -232,25 +232,25 @@ class SearchingViewController: UIViewController {
     
     private func binding() {
         searchTextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.pushViewController(SearchDirectViewController(), animated: false)
             }
             .disposed(by: disposeBag)
         
         clearBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popToRootViewController(animated: false)
             }
             .disposed(by: disposeBag)
         
         companyCategoryBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.openBottomSheet()
             }
             .disposed(by: disposeBag)
         
         careerCategoryBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.openBottomSheet()
             }
             .disposed(by: disposeBag)
@@ -259,7 +259,7 @@ class SearchingViewController: UIViewController {
             .bind { model in
                 self.categorySelected = true
                 self.mentorCVModel.subSpecialty = model.title
-                self.titleLabel.text = "\(self.name)님을 도와줄 멘토를 만나보세요!☺️"
+                self.titleLabel.text = "\(self.name!)님을 도와줄 멘토를 만나보세요!☺️"
                 self.mentorCVModel.getSearchMentorList(query: self.searchTextBtn.titleLabel?.text ?? "", companySize: self.companyExtraLabel.text, subSpecialty: model.title, startYear: self.careerExtraLabel.text) { response in
                     self.mentorCVModel.mentorDataList.onNext(response)
                 }
@@ -301,7 +301,7 @@ class SearchingViewController: UIViewController {
                     $0.width.equalTo(text.count == 3 ? 118 : 130)
                 }
                 self.mentorCVModel.companySize = text
-                self.titleLabel.text = "\(self.name)님을 도와줄 멘토를 만나보세요!☺️"
+                self.titleLabel.text = "\(self.name!)님을 도와줄 멘토를 만나보세요!☺️"
             }
             .disposed(by: self.disposeBag)
         bottomSheet.careerTagTitle
@@ -312,7 +312,7 @@ class SearchingViewController: UIViewController {
                     $0.width.equalTo(text.count == 4 ? 118 : 130)
                 }
                 self.mentorCVModel.startYear = String(text.prefix(1))
-                self.titleLabel.text = "\(self.name)님을 도와줄 멘토를 만나보세요!☺️"
+                self.titleLabel.text = "\(self.name!)님을 도와줄 멘토를 만나보세요!☺️"
             }
             .disposed(by: self.disposeBag)
         bottomSheet.companyTagTitle

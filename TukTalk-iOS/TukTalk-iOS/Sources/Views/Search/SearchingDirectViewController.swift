@@ -112,13 +112,13 @@ class SearchingDirectViewController: UIViewController {
         mentorCVModel.query = searchTextBtn.titleLabel?.text
         reloadMentorData()
         searchTextBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.pushViewController(SearchDirectViewController(), animated: false)
             }
             .disposed(by: disposeBag)
         
         clearBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popToRootViewController(animated: false)
             }
             .disposed(by: disposeBag)
