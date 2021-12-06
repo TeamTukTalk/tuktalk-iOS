@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 import Moya
 
 struct CertifyMentorSecondViewModel: ViewModelType {
@@ -20,18 +21,18 @@ struct CertifyMentorSecondViewModel: ViewModelType {
     }
     
     struct Input {
-        var emailText: AnyObserver<String>
+        var emailText: AnyObserver<String?>
     }
     
     struct Output {
-        var sendIsValid: Observable<Bool>
+        var sendIsValid: Driver<Bool>
     }
     
     init(dependency: Dependency = Dependency(email: nil)) {
         self.dependency = dependency
         
-        let emailText$ = BehaviorSubject<String>(value: "")
-        let sendIsValid$ = sendValidation(email: emailText$)
+        let emailText$ = BehaviorSubject<String?>(value: nil)
+        let sendIsValid$ = emailText$.map(sendValidation).asDriver(onErrorJustReturn: false)
         
         self.input = Input(emailText: emailText$.asObserver())
         self.output = Output(sendIsValid: sendIsValid$)
@@ -72,9 +73,8 @@ struct CertifyMentorSecondViewModel: ViewModelType {
     }
 }
 
-private func sendValidation(email: Observable<String>) -> Observable<Bool> {
-    return email.asObservable()
-        .map { email in
-            return email.contains("@") && email.contains(".")
-        }
+private func sendValidation(email: String?) -> Bool {
+    guard let email = email else { return false }
+    
+    return email.contains("@") && email.contains(".")
 }

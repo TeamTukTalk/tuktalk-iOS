@@ -804,7 +804,6 @@
 			children = (
 				4041C11327198917007D09E7 /* Login */,
 				4088F16A2719E15700527A77 /* SignUp */,
-				404E686727242017005AA5DD /* CertifyMentor */,
 				40CC20B6274E35B7008A3967 /* RegistPortfolio */,
 				402D658E272683DA00F4ED8F /* TabBar */,
 				402D65912726845500F4ED8F /* Home */,
@@ -813,6 +812,7 @@
 				402D65952726846C00F4ED8F /* MyPage */,
 				40AFDE0027354B2E00422930 /* RegistMentor */,
 				403EC24B2756A895008A40B9 /* RegistMentee */,
+				404E686727242017005AA5DD /* CertifyMentor */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -823,11 +823,11 @@
 				4041C1142719891F007D09E7 /* Login */,
 				4088F16D271ADAE700527A77 /* SignUp */,
 				4065FEFE27440495005AAE0F /* MentorTab */,
-				404E686E272449A4005AA5DD /* CertifyMentor */,
 				40CC20B9274E394D008A3967 /* RegistPortfolio */,
 				40DCF33B273833A900A82CC6 /* Home */,
 				402D65A82727306E00F4ED8F /* Search */,
 				40D0CE6A2731158D003AB9A7 /* MyPage */,
+				404E686E272449A4005AA5DD /* CertifyMentor */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";

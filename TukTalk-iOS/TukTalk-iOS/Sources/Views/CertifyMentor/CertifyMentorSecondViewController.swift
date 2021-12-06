@@ -350,11 +350,7 @@ class CertifyMentorSecondViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.sendIsValid
-            .bind(to: sendBtn.rx.isEnabled)
-            .disposed(by: disposeBag)
-        
-        viewModel.output.sendIsValid
-            .bind { status in
+            .drive { status in
                 self.sendBtn.setTitleColor( status ? .white : UIColor.GrayScale.sub4, for: .normal)
                 self.sendBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
                 self.sendBtn.isEnabled = status
