@@ -41,7 +41,7 @@ class RecommendHashTagCollectionViewCell: UICollectionViewCell {
     }
     
     static func fittingSize(availableHeight: CGFloat, title: String?) -> CGSize {
-        let cell = CompanyCollectionViewCell()
+        let cell = RecommendHashTagCollectionViewCell()
         cell.configure(title: title)
         let targetSize = CGSize(width: UIView.layoutFittingCompressedSize.width, height: availableHeight)
         return cell.contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .required)
