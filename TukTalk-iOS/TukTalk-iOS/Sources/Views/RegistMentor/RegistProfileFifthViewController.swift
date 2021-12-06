@@ -225,10 +225,10 @@ class RegistProfileFifthViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.nextBtnEnable
-            .bind(onNext: { valid in
-                self.nextBtn.backgroundColor = valid ? UIColor.Primary.primary : UIColor.GrayScale.gray4
-                self.nextBtn.setTitleColor(valid ? .white : UIColor.GrayScale.sub4, for: .normal)
-                self.nextBtn.isEnabled = valid
+            .drive(onNext: { status in
+                self.nextBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
+                self.nextBtn.setTitleColor(status ? .white : UIColor.GrayScale.sub4, for: .normal)
+                self.nextBtn.isEnabled = status
             })
             .disposed(by: disposeBag)
         

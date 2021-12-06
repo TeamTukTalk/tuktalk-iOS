@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 import Moya
 
 struct RegistMentorFifthViewModel: ViewModelType {
@@ -19,12 +20,12 @@ struct RegistMentorFifthViewModel: ViewModelType {
     }
     
     struct Input {
-        var companySelected: AnyObserver<Bool>
-        var hashTagSelected: AnyObserver<Int>
+        var companySelected: AnyObserver<Bool?>
+        var hashTagSelected: AnyObserver<Int?>
     }
     
     struct Output {
-        var nextBtnEnable: Observable<Bool>
+        var nextBtnEnable: Driver<Bool>
     }
     var company: String?
     var hashTag: [String] = []
@@ -32,9 +33,9 @@ struct RegistMentorFifthViewModel: ViewModelType {
     init(dependency: Dependency = Dependency()) {
         self.dependency = dependency
         
-        let companySelected$ = BehaviorSubject<Bool>(value: false)
-        let hashTagSelected$ = BehaviorSubject<Int>(value: 0)
-        let nextBtnEnable$ = btnValidation(company: companySelected$, hashTag: hashTagSelected$)
+        let companySelected$ = BehaviorSubject<Bool?>(value: nil)
+        let hashTagSelected$ = BehaviorSubject<Int?>(value: nil)
+        let nextBtnEnable$ = Observable.combineLatest(companySelected$, hashTagSelected$).map(btnValidation).asDriver(onErrorJustReturn: false)
         
         self.input = Input(companySelected: companySelected$.asObserver(), hashTagSelected: hashTagSelected$.asObserver())
         self.output = Output(nextBtnEnable: nextBtnEnable$)
@@ -59,9 +60,9 @@ struct RegistMentorFifthViewModel: ViewModelType {
     }
 }
 
-private func btnValidation(company: Observable<Bool>, hashTag: Observable<Int>) -> Observable<Bool> {
-    return Observable.combineLatest(company, hashTag)
-        .map { com, tag in
-            return com && tag > 0
-        }
+private func btnValidation(company: Bool?, hashTag: Int?) -> Bool {
+    guard let company = company else { return false }
+    guard let hashTag = hashTag else { return false }
+    
+    return company && hashTag > 0
 }
