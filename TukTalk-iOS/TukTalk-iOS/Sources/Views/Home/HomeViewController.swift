@@ -31,9 +31,9 @@ class HomeViewController: UIViewController {
         $0.image = UIImage(named: "logoImg")
     }
     
-//    private let bellBtn = UIButton().then {
-//        $0.setImage(UIImage(named: "bellImg"), for: .normal)
-//    }
+    //    private let bellBtn = UIButton().then {
+    //        $0.setImage(UIImage(named: "bellImg"), for: .normal)
+    //    }
     
     private let bannerCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -83,7 +83,7 @@ class HomeViewController: UIViewController {
         $0.layer.cornerRadius = 8
         $0.layer.applyShadow(color: .black, alpha: 0.12, x: 4, y: 4, blur: 20, spread: 0)
     }
-
+    
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
@@ -140,11 +140,11 @@ class HomeViewController: UIViewController {
             $0.leading.equalToSuperview().offset(16)
         }
         
-//        mainContentView.addSubview(bellBtn)
-//        bellBtn.snp.makeConstraints {
-//            $0.top.equalToSuperview().offset(54)
-//            $0.trailing.equalToSuperview().inset(16)
-//        }
+        //        mainContentView.addSubview(bellBtn)
+        //        bellBtn.snp.makeConstraints {
+        //            $0.top.equalToSuperview().offset(54)
+        //            $0.trailing.equalToSuperview().inset(16)
+        //        }
         
         mainContentView.addSubview(bannerCV)
         bannerCV.snp.makeConstraints {
@@ -351,7 +351,7 @@ class HomeViewController: UIViewController {
         topMentorCV.rx.setDelegate(self).disposed(by: disposeBag)
         categoryCV.rx.setDelegate(self).disposed(by: disposeBag)
         jobMentorCV.rx.setDelegate(self).disposed(by: disposeBag)
-
+        
         bannerViewModel.output.bannerListData
             .bind(to: bannerCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.bannerCV.dequeueReusableCell(withReuseIdentifier: "BannerCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? BannerCollectionViewCell {
@@ -391,13 +391,13 @@ class HomeViewController: UIViewController {
         
         homeViewModel.jobMentorDataList
             .bind(to: self.jobMentorCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
-                    if let cell = self.jobMentorCV.dequeueReusableCell(withReuseIdentifier: "JobMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? JobMentorCollectionViewCell {
-                        cell.setData(mentor: item)
-                        return cell
-                    }
-                    return UICollectionViewCell()
+                if let cell = self.jobMentorCV.dequeueReusableCell(withReuseIdentifier: "JobMentorCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? JobMentorCollectionViewCell {
+                    cell.setData(mentor: item)
+                    return cell
                 }
-                .disposed(by: self.disposeBag)
+                return UICollectionViewCell()
+            }
+            .disposed(by: self.disposeBag)
     }
     
 }
