@@ -8,14 +8,14 @@
 import Foundation
 
 struct TopMentorSearchResponseElement: Codable {
-    let id: Int
-    let nickname, companyName, department: String
-    let profileImageURL: String
+    let mentorID: Int
+    let nickname, companyName, department, profileImageURL: String
     let profileImageColor, firstLetter: String
     let hashTags: [HashTag]
 
     enum CodingKeys: String, CodingKey {
-        case id, nickname, companyName, department
+        case mentorID = "mentorId"
+        case nickname, companyName, department
         case profileImageURL = "profileImageUrl"
         case profileImageColor, firstLetter, hashTags
     }

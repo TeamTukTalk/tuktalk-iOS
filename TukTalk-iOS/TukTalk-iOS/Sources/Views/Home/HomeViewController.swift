@@ -247,7 +247,7 @@ class HomeViewController: UIViewController {
         topMentorCV.rx.modelSelected(TopMentorSearchResponseElement.self)
             .bind { model in
                 let nextVC = MentorInformationViewController()
-                nextVC.mentorID = model.id
+                nextVC.mentorID = model.mentorID
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
@@ -255,7 +255,7 @@ class HomeViewController: UIViewController {
         jobMentorCV.rx.modelSelected(JobSearchResponseElement.self)
             .bind { model in
                 let nextVC = MentorInformationViewController()
-                nextVC.mentorID = model.id
+                nextVC.mentorID = model.mentorID
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
             .disposed(by: disposeBag)

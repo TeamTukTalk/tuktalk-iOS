@@ -126,7 +126,7 @@ class SearchingDirectViewController: UIViewController {
         mentorListCV.rx.modelSelected(TopMentorSearchResponseElement.self)
             .bind { model in
                 let nextVC = MentorInformationViewController()
-                nextVC.mentorID = model.id
+                nextVC.mentorID = model.mentorID
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
