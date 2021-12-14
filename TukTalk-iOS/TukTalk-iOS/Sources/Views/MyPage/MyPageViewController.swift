@@ -536,9 +536,13 @@ class MyPageViewController: UIViewController {
         
         viewDetails.rx.tap
             .bind {
-                let nextVC = MyServicePortfolioViewController()
-                nextVC.response = response
-                self.navigationController?.pushViewController(nextVC, animated: true)
+                self.startLoading()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    let nextVC = MyServicePortfolioViewController()
+                    nextVC.response = response
+                    self.navigationController?.pushViewController(nextVC, animated: true)
+                    self.endLoading()
+                }
             }
             .disposed(by: disposeBag)
     }
