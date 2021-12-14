@@ -34,7 +34,6 @@ class LoadingView: UIView {
         
         self.addSubview(loadingIndicator)
         loadingIndicator.snp.makeConstraints {
-            $0.width.height.equalTo(49)
             $0.centerX.centerY.equalToSuperview()
         }
         
