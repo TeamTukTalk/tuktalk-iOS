@@ -20,6 +20,14 @@ class HomeViewController: UIViewController {
     
     //MARK:- UI Components
     
+    private let topView = UIView(frame: .zero).then {
+        $0.backgroundColor = .white
+    }
+    
+    private let devideView = UIView(frame: .zero).then {
+        $0.backgroundColor = UIColor.GrayScale.gray5
+    }
+    
     private let mainScrollView = UIScrollView().then {
         $0.showsVerticalScrollIndicator = false
         $0.contentInsetAdjustmentBehavior = .never
@@ -132,12 +140,26 @@ class HomeViewController: UIViewController {
             $0.edges.equalTo(mainScrollView.contentSize)
         }
         
-        mainContentView.addSubview(logoImg)
+        view.addSubview(topView)
+        topView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(88)
+        }
+        
+        topView.addSubview(logoImg)
         logoImg.snp.makeConstraints {
             $0.height.equalTo(15)
             $0.width.equalTo(76)
-            $0.top.equalToSuperview().offset(59)
+            $0.bottom.equalToSuperview().offset(-14)
             $0.leading.equalToSuperview().offset(16)
+        }
+        
+        topView.addSubview(devideView)
+        devideView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         //        mainContentView.addSubview(bellBtn)
@@ -150,7 +172,7 @@ class HomeViewController: UIViewController {
         bannerCV.snp.makeConstraints {
             $0.width.equalTo(UIScreen.main.bounds.width)
             $0.height.equalTo(UIScreen.main.bounds.width * 0.656)
-            $0.top.equalTo(logoImg.snp.bottom).offset(14)
+            $0.top.equalToSuperview().offset(88)
             $0.leading.trailing.equalToSuperview()
         }
         
