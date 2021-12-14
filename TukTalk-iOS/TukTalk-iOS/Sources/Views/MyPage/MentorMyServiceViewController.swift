@@ -178,7 +178,7 @@ class MentorMyServiceViewController: UIViewController {
         view.addSubview(backgroundView)
         backgroundView.snp.makeConstraints {
             $0.top.equalTo(backBtnLabel.snp.bottom).offset(48)
-            $0.leading.trailing.bottom.equalToSuperview().inset(16)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
         backgroundView.addSubview(mentorServiceNilImg)
         mentorServiceNilImg.snp.makeConstraints {
