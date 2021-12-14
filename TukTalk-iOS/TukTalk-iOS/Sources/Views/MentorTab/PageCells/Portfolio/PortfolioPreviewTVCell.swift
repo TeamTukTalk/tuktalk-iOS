@@ -86,7 +86,6 @@ class PortfolioPreviewTVCell: UITableViewCell {
         imageData
             .bind(to: previewCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.previewCV.dequeueReusableCell(withReuseIdentifier: "PortfolioPreviewCVCell", for: IndexPath.init(row: row, section: 0)) as? PortfolioPreviewCVCell {
-                    print(item)
                     cell.setData(img: item)
                     return cell
                 }
