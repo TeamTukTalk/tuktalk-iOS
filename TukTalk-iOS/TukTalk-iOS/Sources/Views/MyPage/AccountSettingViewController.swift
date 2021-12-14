@@ -139,19 +139,14 @@ class AccountSettingViewController: UIViewController {
         
         logoutBtn.rx.tap
             .bind {
-                let popUpViewController = PopUpViewController()
-                popUpViewController.popUpTitleLabel.text = "로그아웃 하시겠습니까?"
-                popUpViewController.acceptBtn.setTitle("머무르기", for: .normal)
-                popUpViewController.dismissBtn.setTitle("로그아웃", for: .normal)
-                popUpViewController.dismissBtn.addTarget(self, action: #selector(self.logOut), for: .touchUpInside)
-                let naviVC = UINavigationController(rootViewController: popUpViewController)
-                naviVC.modalPresentationStyle = .overCurrentContext
-                naviVC.modalTransitionStyle = .crossDissolve
-                naviVC.navigationBar.isHidden = true
-                self.present(naviVC, animated: true) {
-                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
-                    naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
-                }
+                KeyChain.delete(key: "token")
+                KeyChain.delete(key: "role")
+                KeyChain.delete(key: "nickname")
+                KeyChain.delete(key: "firstLetter")
+                KeyChain.delete(key: "profileImageColor")
+                KeyChain.delete(key: "email")
+                let loginVC = UINavigationController(rootViewController: LoginViewController())
+                UIApplication.shared.windows.filter { $0.isKeyWindow }.first!.replaceRootViewController(loginVC, animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
         
@@ -160,16 +155,5 @@ class AccountSettingViewController: UIViewController {
                 self.navigationController?.pushViewController(WithdrawViewController(), animated: true)
             }
             .disposed(by: disposeBag)
-    }
-    
-    @objc private func logOut() {
-        KeyChain.delete(key: "token")
-        KeyChain.delete(key: "role")
-        KeyChain.delete(key: "nickname")
-        KeyChain.delete(key: "firstLetter")
-        KeyChain.delete(key: "profileImageColor")
-        KeyChain.delete(key: "email")
-        let loginVC = UINavigationController(rootViewController: LoginViewController())
-        UIApplication.shared.windows.filter { $0.isKeyWindow }.first!.replaceRootViewController(loginVC, animated: true, completion: nil)
     }
 }
