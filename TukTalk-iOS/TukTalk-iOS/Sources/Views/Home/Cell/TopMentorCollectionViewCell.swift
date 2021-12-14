@@ -156,7 +156,7 @@ class TopMentorCollectionViewCell: UICollectionViewCell {
         }
     }
     private func setCollectionViewUI() {
-        let hashTagCVLayout = UICollectionViewFlowLayout()
+        let hashTagCVLayout = LeftAlignedCollectionViewFlowLayout()
         hashTagCVLayout.minimumLineSpacing = 2
         hashTagCVLayout.minimumInteritemSpacing = 4
         hashTagCVLayout.scrollDirection = .vertical
