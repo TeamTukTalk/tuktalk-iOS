@@ -6,7 +6,6 @@
 //
 
 import RxSwift
-import Moya
 
 class MyPageViewController: UIViewController {
     
@@ -174,22 +173,12 @@ class MyPageViewController: UIViewController {
         }
         
         if user == "MENTOR" {
-            let provider = MoyaProvider<PortfolioPageService>()
             viewModel.getUserInfo() { userInfo in
-                self.mentorID = userInfo.menteeId
-                provider.rx.request(.portfolioPageRequest(id: userInfo.mentorId ?? -1))
-                    .subscribe { result in
-                        switch result {
-                        case let .success(response):
-                            let responseData = try? response.map(PortfolioPageResponse.self)
-                            guard let data = responseData else { return }
-                            self.response = data
-                            self.setMentorServiceUI(response: data)
-                        case let .failure(error):
-                            print(error.localizedDescription)
-                        }
-                    }
-                    .disposed(by: self.disposeBag)
+                self.mentorID = userInfo.mentorId
+                self.viewModel.getPortfolioData(id: self.mentorID) { data in
+                    self.response = data
+                    self.setMentorServiceUI(response: data)
+                }
             }
         }
     }

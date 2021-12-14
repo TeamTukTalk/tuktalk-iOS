@@ -43,6 +43,22 @@ class MyPageViewModel {
             .disposed(by: disposeBag)
     }
     
+    func getPortfolioData(id: Int?, completion: @escaping (PortfolioPageResponse) -> ()) {
+        let provider = MoyaProvider<PortfolioPageService>()
+        provider.rx.request(.portfolioPageRequest(id: id ?? -1))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    let responseData = try? response.map(PortfolioPageResponse.self)
+                    guard let data = responseData else { return }
+                    completion(data)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: self.disposeBag)
+    }
+    
     func getHistory(completion: @escaping (HistoryPortfolioResponse) -> ()) {
         let provider = MoyaProvider<HistoryPortfolioService>()
         provider.rx.request(.historyRequest)
