@@ -296,12 +296,14 @@ class RegistPortfolioFirthViewController: UIViewController {
     }
     
     private func uploadPreview() {
+        startLoading()
         viewModel.postPreviewRequest() { response in
             for data in response {
                 UserPortfolio.shared.imageFileIds.append(data.id)
                 print("프리뷰 : \(data.id)")
             }
             self.navigationController?.pushViewController(RegistPortfolioFinishViewController(), animated: true)
+            self.endLoading()
         }
     }
     
