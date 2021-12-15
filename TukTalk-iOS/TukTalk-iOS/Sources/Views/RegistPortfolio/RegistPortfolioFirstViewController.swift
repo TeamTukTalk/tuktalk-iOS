@@ -31,7 +31,6 @@ class RegistPortfolioFirstViewController: UIViewController {
     private let progressBar = UIProgressView().then {
         $0.progressTintColor = UIColor.Primary.primary
         $0.trackTintColor = UIColor.GrayScale.gray4
-        $0.transform = $0.transform.scaledBy(x: 1, y: 2)
         $0.progressViewStyle = .bar
     }
     
