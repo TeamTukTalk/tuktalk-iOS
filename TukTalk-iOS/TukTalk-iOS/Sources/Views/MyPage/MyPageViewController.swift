@@ -380,6 +380,15 @@ class MyPageViewController: UIViewController {
     private func mentorEmailValidation() {
         viewModel.emailValidation() { response in
             if response.certifiedMentor {
+                let confirmImg = UIImageView().then {
+                    $0.image = UIImage(named: "mentorConfirmImg")
+                }
+                self.view.addSubview(confirmImg)
+                confirmImg.snp.makeConstraints {
+                    $0.width.height.equalTo(20)
+                    $0.top.equalTo(self.nameLabel.snp.top)
+                    $0.leading.equalTo(self.nameLabel.snp.trailing)
+                }
                 self.notiBtn.isHidden = true
                 self.devideView.snp.removeConstraints()
                 self.devideView.snp.makeConstraints {
