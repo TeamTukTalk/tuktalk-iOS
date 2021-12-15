@@ -72,7 +72,7 @@ class MyServicePortfolioViewController: UIViewController {
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
         tableView.bounces = false
-        tableView.flashScrollIndicators()
+        tableView.showsVerticalScrollIndicator = false
     }
     
     private func binding() {
