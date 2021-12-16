@@ -126,7 +126,7 @@ class MyServiceCVCell: UICollectionViewCell {
         contentView.addSubview(openBtn)
         openBtn.snp.makeConstraints {
             $0.height.equalTo(44)
-            $0.top.equalTo(contentsLabel.snp.bottom).offset(16)
+            $0.bottom.equalToSuperview().offset(-18)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         

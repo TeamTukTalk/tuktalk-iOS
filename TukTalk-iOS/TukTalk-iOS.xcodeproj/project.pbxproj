@@ -199,6 +199,9 @@
 		40E8CF48276B95E200AFF09D /* DelWishService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF47276B95E200AFF09D /* DelWishService.swift */; };
 		40E8CF4A276B98C000AFF09D /* WishListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF49276B98C000AFF09D /* WishListService.swift */; };
 		40E8CF4C276B98F400AFF09D /* WishListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF4B276B98F400AFF09D /* WishListResponse.swift */; };
+		40E8CF51276BD0A900AFF09D /* ReviewManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF50276BD0A900AFF09D /* ReviewManageViewController.swift */; };
+		40E8CF54276BD10000AFF09D /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF53276BD10000AFF09D /* WriteReviewViewController.swift */; };
+		40E8CF56276BD13C00AFF09D /* WrittenReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF55276BD13C00AFF09D /* WrittenReviewViewController.swift */; };
 		40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */; };
 		40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */; };
 		40FAED4127534F860006490E /* MyPageInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4027534F860006490E /* MyPageInformationViewController.swift */; };
@@ -428,6 +431,9 @@
 		40E8CF47276B95E200AFF09D /* DelWishService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelWishService.swift; sourceTree = "<group>"; };
 		40E8CF49276B98C000AFF09D /* WishListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListService.swift; sourceTree = "<group>"; };
 		40E8CF4B276B98F400AFF09D /* WishListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListResponse.swift; sourceTree = "<group>"; };
+		40E8CF50276BD0A900AFF09D /* ReviewManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManageViewController.swift; sourceTree = "<group>"; };
+		40E8CF53276BD10000AFF09D /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
+		40E8CF55276BD13C00AFF09D /* WrittenReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenReviewViewController.swift; sourceTree = "<group>"; };
 		40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishViewController.swift; sourceTree = "<group>"; };
 		40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
 		40FAED4027534F860006490E /* MyPageInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInformationViewController.swift; sourceTree = "<group>"; };
@@ -588,9 +594,9 @@
 				40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */,
 				40FAED4027534F860006490E /* MyPageInformationViewController.swift */,
 				40FAED42275355490006490E /* WithdrawViewController.swift */,
-				4087E94027584672000E2B6D /* MentorMyServiceViewController.swift */,
-				4087E9592758B908000E2B6D /* MenteeMyServiceViewController.swift */,
 				4087E9502758A364000E2B6D /* MyServicePortfolioViewController.swift */,
+				40E8CF4F276BD05500AFF09D /* Mentor */,
+				40E8CF4E276BD04D00AFF09D /* Mentee */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1247,6 +1253,33 @@
 			path = Wish;
 			sourceTree = "<group>";
 		};
+		40E8CF4E276BD04D00AFF09D /* Mentee */ = {
+			isa = PBXGroup;
+			children = (
+				4087E9592758B908000E2B6D /* MenteeMyServiceViewController.swift */,
+				40E8CF52276BD0BC00AFF09D /* Review */,
+			);
+			path = Mentee;
+			sourceTree = "<group>";
+		};
+		40E8CF4F276BD05500AFF09D /* Mentor */ = {
+			isa = PBXGroup;
+			children = (
+				4087E94027584672000E2B6D /* MentorMyServiceViewController.swift */,
+			);
+			path = Mentor;
+			sourceTree = "<group>";
+		};
+		40E8CF52276BD0BC00AFF09D /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				40E8CF50276BD0A900AFF09D /* ReviewManageViewController.swift */,
+				40E8CF53276BD10000AFF09D /* WriteReviewViewController.swift */,
+				40E8CF55276BD13C00AFF09D /* WrittenReviewViewController.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 		40FAED4827536FE40006490E /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1576,6 +1609,7 @@
 				406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */,
 				40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */,
 				403EC26927571A07008A40B9 /* SecondOnboardingViewController.swift in Sources */,
+				40E8CF56276BD13C00AFF09D /* WrittenReviewViewController.swift in Sources */,
 				40DCF33A273832F100A82CC6 /* BannerDataModel.swift in Sources */,
 				403B2D2E271B45A400B834A6 /* UITextFieldExtension.swift in Sources */,
 				40FAED6227553CF70006490E /* PreviewService.swift in Sources */,
@@ -1672,6 +1706,7 @@
 				403EC2702757447C008A40B9 /* ConsultingViewController.swift in Sources */,
 				4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */,
 				403B2D36271B7A4A00B834A6 /* PopUpViewController.swift in Sources */,
+				40E8CF51276BD0A900AFF09D /* ReviewManageViewController.swift in Sources */,
 				4087E94D27589750000E2B6D /* UserInfoService.swift in Sources */,
 				40DCF357273DAA3700A82CC6 /* RegistProfileFirstViewController.swift in Sources */,
 				403EC2532756C787008A40B9 /* SignUpResponse.swift in Sources */,
@@ -1683,6 +1718,7 @@
 				403EC27227574492008A40B9 /* ReviewViewController.swift in Sources */,
 				402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */,
 				4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */,
+				40E8CF54276BD10000AFF09D /* WriteReviewViewController.swift in Sources */,
 				4065FEDC27423EDE005AAE0F /* RegistMentorThirdViewModel.swift in Sources */,
 				4087E939275812D0000E2B6D /* PortfolioPageService.swift in Sources */,
 				4088F16C2719E16E00527A77 /* SignUpFirstViewController.swift in Sources */,

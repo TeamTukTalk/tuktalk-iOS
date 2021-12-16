@@ -426,7 +426,9 @@ class MyPageViewController: UIViewController {
             
             reviewBtn.rx.tap
                 .bind {
-                    
+                    let nextVC = ReviewManageViewController()
+                    nextVC.portfolioHistoryData = self.historyResponse
+                    self.navigationController?.pushViewController(nextVC, animated: true)
                 }
                 .disposed(by: disposeBag)
             
