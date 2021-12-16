@@ -29,7 +29,6 @@ final class MentorInformationViewModel: ViewModelType {
     var pageList: [PageCollectionViewDataModel] = [
         PageCollectionViewDataModel(title: "멘토정보"),
         PageCollectionViewDataModel(title: "포트폴리오"),
-        PageCollectionViewDataModel(title: "1:1 멘토링"),
         PageCollectionViewDataModel(title: "후기")
     ]
     

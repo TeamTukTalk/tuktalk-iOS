@@ -18,7 +18,6 @@ class MentorInformationViewController: UIViewController {
     private lazy var informationVC = InformationViewController()
     private lazy var portfolioVC = PortfolioViewController()
     private lazy var consultingVC = ConsultingViewController()
-    private lazy var reviewVC = ReviewViewController()
     var mentorID: Int?
     
     private var currentPage: Int = 0 {
@@ -27,7 +26,7 @@ class MentorInformationViewController: UIViewController {
         }
     }
     
-    private lazy var dataViewControllers: [UIViewController] = [informationVC, portfolioVC, consultingVC, reviewVC]
+    private lazy var dataViewControllers: [UIViewController] = [informationVC, portfolioVC, consultingVC]
     
     private let screenWidth = Int(UIScreen.main.bounds.width)
     
@@ -321,10 +320,8 @@ class MentorInformationViewController: UIViewController {
     private func setCollectionViewUI() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = .zero
-        flowLayout.minimumInteritemSpacing = (UIScreen.main.bounds.width - 329) / 3
         flowLayout.scrollDirection = .horizontal
         collectionView.backgroundColor = .white
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         collectionView.setCollectionViewLayout(flowLayout, animated: false)
         collectionView.isScrollEnabled = false
         collectionView.register(PageCollectionViewCell.self, forCellWithReuseIdentifier: "PageCollectionViewCell")
@@ -420,16 +417,8 @@ class MentorInformationViewController: UIViewController {
 extension MentorInformationViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        var items: [PageCollectionViewDataModel] = []
-        
-        viewModel.output.pageData
-            .subscribe(onNext: {data in
-                items = data
-            })
-            .disposed(by: disposeBag)
-        
-        return PageCollectionViewCell.fittingSize(availableHeight: 38, title: items[indexPath.row].title)
+
+        return CGSize(width: UIScreen.main.bounds.width / 3, height: 38)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {

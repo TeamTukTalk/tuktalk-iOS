@@ -25,6 +25,9 @@ class PageCollectionViewCell: UICollectionViewCell {
             self.titleLabel.textColor = isSelected ? UIColor.Primary.primary : UIColor.GrayScale.sub1
             self.titleLabel.font = isSelected ? UIFont.TTFont(type: .SDBold, size: 14) : UIFont.TTFont(type: .SDMed, size: 14)
             self.bottomLineView.isHidden = isSelected ? false : true
+            self.bottomLineView.snp.makeConstraints {
+                $0.width.equalTo(12 * (titleLabel.text!.count))
+            }
             self.titleLabel.snp.updateConstraints {
                 $0.leading.trailing.equalToSuperview().inset(isSelected ? 14 : 16)
             }
@@ -45,13 +48,6 @@ class PageCollectionViewCell: UICollectionViewCell {
         titleLabel.text = title
     }
     
-    static func fittingSize(availableHeight: CGFloat, title: String?) -> CGSize {
-        let cell = CompanyCollectionViewCell()
-        cell.configure(title: title)
-        let targetSize = CGSize(width: UIView.layoutFittingCompressedSize.width, height: availableHeight)
-        return cell.contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .required)
-    }
-    
     private func setUI() {
         backgroundColor = .white
         
@@ -66,7 +62,7 @@ class PageCollectionViewCell: UICollectionViewCell {
         bottomLineView.snp.makeConstraints {
             $0.height.equalTo(2)
             $0.bottom.equalToSuperview().offset(-2)
-            $0.leading.trailing.equalTo(titleLabel).inset(7)
+            $0.centerX.equalTo(titleLabel)
         }
     }
 }
