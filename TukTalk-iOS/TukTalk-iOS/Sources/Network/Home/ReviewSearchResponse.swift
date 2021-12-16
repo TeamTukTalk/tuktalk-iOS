@@ -12,10 +12,21 @@ struct ReviewSearchResponse: Codable {
 
 // MARK: - Review
 struct Review: Codable {
+    let reviewID: Int
+    let profileImageURL, profileImageColor, firstLetter: String
     let mentor: Mentor
     let rating: Int
     let reviewDescription: String
     let mentee: Mentee
+    let portfolioViewedDateTime, reviewCreatedDateTime: String
+
+    enum CodingKeys: String, CodingKey {
+        case reviewID = "reviewId"
+        case profileImageURL = "profileImageUrl"
+        case profileImageColor, firstLetter, mentor, rating
+        case reviewDescription = "description"
+        case mentee, portfolioViewedDateTime, reviewCreatedDateTime
+    }
 }
 
 // MARK: - Mentee

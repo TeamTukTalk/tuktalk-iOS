@@ -476,6 +476,18 @@ class HomeViewController: UIViewController {
                 return UICollectionViewCell()
             }
             .disposed(by: self.disposeBag)
+        
+        reviewListViewModel.getReviewRequest { response in
+            Observable.of(response.reviews)
+                .bind(to: self.reviewCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
+                    if let cell = self.reviewCV.dequeueReusableCell(withReuseIdentifier: "ReviewCollectionViewCell", for: IndexPath.init(row: row, section: 0)) as? ReviewCollectionViewCell {
+                        cell.setData(model: item)
+                        return cell
+                    }
+                    return UICollectionViewCell()
+                }
+                .disposed(by: self.disposeBag)
+        }
     }
     
 }
