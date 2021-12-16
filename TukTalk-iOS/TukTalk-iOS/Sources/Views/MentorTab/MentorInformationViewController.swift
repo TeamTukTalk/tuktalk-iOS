@@ -13,6 +13,8 @@ class MentorInformationViewController: UIViewController {
     
     private lazy var viewModel = MentorInformationViewModel()
     private let disposeBag = DisposeBag()
+    private var responseWish: Bool?
+    private var response: MentorPageResponse?
     private var dataSource: [PageCollectionViewDataModel] = []
     
     private lazy var informationVC = InformationViewController()
@@ -49,9 +51,9 @@ class MentorInformationViewController: UIViewController {
         $0.setImage(UIImage(named: "backBtnImg"), for: .normal)
     }
     
-    //    private let heartBtn = UIButton().then {
-    //        $0.setImage(UIImage(named: "heartImg"), for: .normal)
-    //    }
+    private let heartBtn = UIButton().then {
+        $0.setImage(UIImage(named: "heartImg"), for: .normal)
+    }
     
     private let profileView = UIView().then {
         $0.backgroundColor = .white
@@ -191,12 +193,12 @@ class MentorInformationViewController: UIViewController {
             $0.leading.equalToSuperview().offset(8)
         }
         
-        //        topView.addSubview(heartBtn)
-        //        heartBtn.snp.makeConstraints {
-        //            $0.width.height.equalTo(24)
-        //            $0.centerY.equalToSuperview()
-        //            $0.trailing.equalToSuperview().inset(16)
-        //        }
+        topView.addSubview(heartBtn)
+        heartBtn.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(16)
+        }
         
         view.addSubview(mainScrollView)
         mainScrollView.snp.makeConstraints {
@@ -370,6 +372,32 @@ class MentorInformationViewController: UIViewController {
                 })
             }
             .disposed(by: disposeBag)
+        
+        heartBtn.rx.tap
+            .bind {
+                switch self.responseWish {
+                case true:
+                    self.heartBtn.setImage(UIImage(named: "heartImg"), for: .normal)
+                    self.viewModel.WishListRequest() { list in
+                        for i in list {
+                            if self.response?.mentorID == i.mentorID {
+                                self.viewModel.DelWishRequest(id: i.wishID)
+                            }
+                        }
+                    }
+                    self.responseWish?.toggle()
+                    
+                case false:
+                    self.heartBtn.setImage(UIImage(named: "heartFillImg"), for: .normal)
+                    self.viewModel.AddWishReqeust(id: self.mentorID ?? -1)
+                    self.responseWish?.toggle()
+                case .none:
+                    return
+                case .some(_):
+                    return
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindingCollectionView() {
@@ -401,6 +429,9 @@ class MentorInformationViewController: UIViewController {
         informationVC.mentorID = mentorID
         portfolioVC.mentorID = mentorID
         viewModel.getMentorInform(id: mentorID ?? -1) { response in
+            self.response = response
+            self.responseWish = response.addedToWishList
+            self.heartBtn.setImage(UIImage(named: response.addedToWishList ? "heartFillImg" : "heartImg"), for: .normal)
             self.informationVC.response = response
             self.profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: response.profileImageColor)
             self.profileLabel.text = response.firstLetter
@@ -417,7 +448,7 @@ class MentorInformationViewController: UIViewController {
 extension MentorInformationViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         return CGSize(width: UIScreen.main.bounds.width / 3, height: 38)
     }
     

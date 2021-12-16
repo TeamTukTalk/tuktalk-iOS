@@ -79,6 +79,51 @@ final class MentorInformationViewModel: ViewModelType {
             .disposed(by: disposeBag)
     }
     
+    func AddWishReqeust(id: Int) {
+        let provider = MoyaProvider<AddWishService>()
+        provider.rx.request(.wishRequest(mentorID: id))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    print(response)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func DelWishRequest(id: Int) {
+        let provider = MoyaProvider<DelWishService>()
+        provider.rx.request(.wishRequest(wishID: id))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    print(response)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func WishListRequest(completion: @escaping (WishListResponse) -> ()) {
+        let provider = MoyaProvider<WishListService>()
+        provider.rx.request(.wishRequest)
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    print(response)
+                    let responseData = try? response.map(WishListResponse.self)
+                    guard let data = responseData else { return }
+                    completion(data)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
     init(dependency: Dependency = Dependency()) {
         self.dependency = Dependency()
         let pageData$ = Observable<[PageCollectionViewDataModel]>.just(pageList)

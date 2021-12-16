@@ -8,7 +8,7 @@
 import Moya
 
 enum DelWishService {
-    case wishRequest(mentorID: Int)
+    case wishRequest(wishID: Int)
 }
 
 extension DelWishService: TargetType {
@@ -18,8 +18,8 @@ extension DelWishService: TargetType {
     
     var path: String {
         switch self {
-        case .wishRequest(let mentorId):
-            return "\(APIConstants.wishURL)/\(mentorId)"
+        case .wishRequest(let wishId):
+            return "\(APIConstants.wishURL)/\(String(wishId))"
         }
     }
     
