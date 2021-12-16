@@ -224,7 +224,8 @@ class RegistPortfolioFirthViewController: UIViewController {
             .disposed(by: disposeBag)
         
         closeBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
+                self.view.endEditing(true)
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "포트폴리오 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
@@ -236,7 +237,7 @@ class RegistPortfolioFirthViewController: UIViewController {
                     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
                     naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
                 }
-            })
+            }
             .disposed(by: disposeBag)
         
         portfolioUploadBtn.rx.tap

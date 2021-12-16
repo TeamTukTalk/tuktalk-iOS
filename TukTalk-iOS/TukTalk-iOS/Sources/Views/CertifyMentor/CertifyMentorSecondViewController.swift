@@ -325,6 +325,7 @@ class CertifyMentorSecondViewController: UIViewController {
         
         closeBtn.rx.tap
             .bind {
+                self.view.endEditing(true)
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "멘토등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)

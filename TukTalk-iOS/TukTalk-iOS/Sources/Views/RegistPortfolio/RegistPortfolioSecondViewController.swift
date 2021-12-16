@@ -280,6 +280,7 @@ class RegistPortfolioSecondViewController: UIViewController {
         
         closeBtn.rx.tap
             .bind {
+                self.view.endEditing(true)
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "프로필 등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)

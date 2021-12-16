@@ -155,6 +155,7 @@ class CertifyMentorFirstViewController: UIViewController {
     
     private func setUI() {
         view.backgroundColor = UIColor.GrayScale.gray5
+        tabBarController?.tabBar.isHidden = true
         navigationController?.navigationBar.isHidden = true
         
         view.addSubview(topView)
@@ -301,6 +302,7 @@ class CertifyMentorFirstViewController: UIViewController {
         
         closeBtn.rx.tap
             .bind {
+                self.view.endEditing(true)
                 let popUpViewController = PopUpViewController()
                 popUpViewController.popUpTitleLabel.text = "멘토등록을 중단하시겠습니까?"
                 let naviVC = UINavigationController(rootViewController: popUpViewController)
