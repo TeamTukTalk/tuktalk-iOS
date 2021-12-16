@@ -9,7 +9,9 @@ import UIKit
 
 class PortfolioPreviewCVCell: UICollectionViewCell {
     
-    var previewImg = UIImageView()
+    var previewImg = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +32,7 @@ class PortfolioPreviewCVCell: UICollectionViewCell {
         
         contentView.addSubview(previewImg)
         previewImg.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.width.height.equalToSuperview()
         }
     }
 }
