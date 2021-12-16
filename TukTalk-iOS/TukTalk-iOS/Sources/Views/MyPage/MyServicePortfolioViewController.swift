@@ -137,7 +137,7 @@ extension MyServicePortfolioViewController : UITableViewDelegate, UITableViewDat
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PortfolioTVCell.identifier, for: indexPath) as? PortfolioTVCell else { return UITableViewCell() }
-            cell.setData(text: response?.portfolioPageResponseDescription ?? "")
+            cell.setData(text: response?.reviewSearchResponseDescription ?? "")
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PortfolioPreviewTVCell.identifier, for: indexPath) as? PortfolioPreviewTVCell else { return UITableViewCell() }

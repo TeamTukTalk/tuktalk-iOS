@@ -483,13 +483,34 @@ class MyPageViewController: UIViewController {
             $0.textColor = UIColor.GrayScale.normal
             $0.font = UIFont.TTFont(type: .SFBold, size: 14)
         }
+        let createdLabel = UILabel().then {
+            $0.text = "등록일"
+            $0.font = UIFont.TTFont(type: .SDMed, size: 12)
+            $0.textColor = UIColor.GrayScale.sub2
+        }
+        let devideDot = UILabel().then {
+            $0.text = "·"
+            $0.textColor = UIColor.GrayScale.gray1
+        }
+        let createdDateLabel = UILabel().then {
+            let dateStr = response.createdDateTime
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            guard let convertDate = dateFormatter.date(from: dateStr) else { return }
+            let myDateFormatter = DateFormatter()
+            myDateFormatter.dateFormat = "yyyy.MM.dd"
+            let convertStr = myDateFormatter.string(from: convertDate)
+            $0.text = convertStr
+            $0.font = UIFont.TTFont(type: .SDMed, size: 12)
+            $0.textColor = UIColor.GrayScale.sub2
+        }
         let devideView = UIView().then {
             $0.backgroundColor = UIColor.GrayScale.gray4
         }
         let contentsLabel = UILabel().then {
             $0.font = UIFont.TTFont(type: .SDReg, size: 12)
             $0.textColor = UIColor.GrayScale.sub2
-            $0.makeHeightSpacing(thisText: response.portfolioPageResponseDescription, fontSize: 12)
+            $0.makeHeightSpacing(thisText: response.reviewSearchResponseDescription, fontSize: 12)
             $0.numberOfLines = 2
         }
         let viewDetails = UIButton().then {
@@ -513,6 +534,23 @@ class MyPageViewController: UIViewController {
             $0.height.equalTo(20)
             $0.top.equalTo(portfolioIcon.snp.top)
             $0.leading.equalTo(portfolioIcon.snp.trailing).offset(8)
+        }
+        mentorServiceView.addSubview(createdLabel)
+        createdLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.top.equalTo(portfolioIcon.snp.bottom).offset(4)
+            $0.leading.equalToSuperview().offset(20)
+        }
+        mentorServiceView.addSubview(devideDot)
+        devideDot.snp.makeConstraints {
+            $0.top.equalTo(createdLabel.snp.top).offset(-4)
+            $0.leading.equalTo(createdLabel.snp.trailing).offset(6)
+        }
+        mentorServiceView.addSubview(createdDateLabel)
+        createdDateLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.top.equalTo(createdLabel.snp.top)
+            $0.leading.equalTo(devideDot.snp.trailing).offset(6)
         }
         mentorServiceView.addSubview(devideView)
         devideView.snp.makeConstraints {
