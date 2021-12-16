@@ -23,6 +23,16 @@ class WriteReviewViewController: UIViewController {
     
     private let portfolioCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    private let nillImg = UIImageView().then {
+        $0.image = UIImage(named: "nilAlertImg")
+    }
+    
+    private let nillLabel = UILabel().then {
+        $0.text = "리뷰 내역이 없습니다."
+        $0.font = UIFont.TTFont(type: .SDMed, size: 12)
+        $0.textColor = UIColor.GrayScale.sub4
+    }
+    
     //MARK:- Life Cycle
     
     override func viewDidLoad() {
@@ -75,7 +85,25 @@ class WriteReviewViewController: UIViewController {
                 return UICollectionViewCell()
             }
             .disposed(by: disposeBag)
+        
+        if response?.count == nil || response?.count == 0 {
+            portfolioCV.removeFromSuperview()
+            
+            grayBackgroundView.addSubview(nillImg)
+            nillImg.snp.makeConstraints {
+                $0.width.height.equalTo(24)
+                $0.centerX.equalToSuperview()
+                $0.top.equalToSuperview().offset(100)
+            }
+            
+            grayBackgroundView.addSubview(nillLabel)
+            nillLabel.snp.makeConstraints {
+                $0.height.equalTo(18)
+                $0.centerX.equalToSuperview()
+                $0.top.equalTo(nillImg.snp.bottom).offset(8)
+            }
         }
+    }
     
     @objc private func openBtnAction(sender: UIButton) {
         let nextVC = WriteReviewUploadViewController()
@@ -88,6 +116,6 @@ extension WriteReviewViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 343, height: 191)
+        return CGSize(width: UIScreen.main.bounds.width - 32, height: 191)
     }
 }

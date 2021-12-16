@@ -174,6 +174,6 @@ extension MenteeMyServiceViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 343, height: 191)
+        return CGSize(width: UIScreen.main.bounds.width - 32, height: 191)
     }
 }
