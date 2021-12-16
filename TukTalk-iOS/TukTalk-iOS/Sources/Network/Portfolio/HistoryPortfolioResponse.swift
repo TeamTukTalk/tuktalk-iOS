@@ -8,10 +8,12 @@
 import Foundation
 
 struct HistoryPortfolioResponseElement: Codable {
+    let mentorID: Int
     let mentorNickname, historyPortfolioResponseDescription, createdDateTime: String
     let pdfURL: String
 
     enum CodingKeys: String, CodingKey {
+        case mentorID = "mentorId"
         case mentorNickname
         case historyPortfolioResponseDescription = "description"
         case createdDateTime

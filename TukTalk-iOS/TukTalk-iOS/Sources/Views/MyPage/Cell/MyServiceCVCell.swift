@@ -36,7 +36,7 @@ class MyServiceCVCell: UICollectionViewCell {
         $0.font = UIFont.TTFont(type: .SDReg, size: 12)
         $0.textColor = UIColor.GrayScale.sub2
     }
-    let viewDetails = UIButton().then {
+    let openBtn = UIButton().then {
         $0.setTitle("열람하기", for: .normal)
         $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 14)
@@ -61,8 +61,15 @@ class MyServiceCVCell: UICollectionViewCell {
         nicknameLabel.text = portfolio.mentorNickname
         contentsLabel.makeHeightSpacing(thisText: portfolio.historyPortfolioResponseDescription, fontSize: 12)
         contentsLabel.numberOfLines = 2
-        let dateStr = portfolio.createdDateTime.components(separatedBy: "-")
-        dateLabel.text = "\(dateStr[0]).\(dateStr[1]).\(dateStr[2])"
+        
+        let dateStr = portfolio.createdDateTime
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        guard let convertDate = dateFormatter.date(from: dateStr) else { return }
+        let myDateFormatter = DateFormatter()
+        myDateFormatter.dateFormat = "yyyy.MM.dd"
+        let convertStr = myDateFormatter.string(from: convertDate)
+        dateLabel.text = convertStr
     }
     
     private func setUI() {
@@ -92,11 +99,13 @@ class MyServiceCVCell: UICollectionViewCell {
             $0.top.equalTo(portfolioIcon.snp.bottom).offset(4)
             $0.leading.equalTo(portfolioIcon.snp.leading)
         }
+        contentView.addSubview(devideDot)
         devideDot.snp.makeConstraints {
             $0.height.equalTo(12)
             $0.top.equalTo(nicknameLabel.snp.top).offset(1)
             $0.leading.equalTo(nicknameLabel.snp.trailing).offset(6)
         }
+        contentView.addSubview(dateLabel)
         dateLabel.snp.makeConstraints {
             $0.height.equalTo(18)
             $0.top.equalTo(nicknameLabel.snp.top)
@@ -114,8 +123,8 @@ class MyServiceCVCell: UICollectionViewCell {
             $0.top.equalTo(devideView.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
-        contentView.addSubview(viewDetails)
-        viewDetails.snp.makeConstraints {
+        contentView.addSubview(openBtn)
+        openBtn.snp.makeConstraints {
             $0.height.equalTo(44)
             $0.top.equalTo(contentsLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(20)

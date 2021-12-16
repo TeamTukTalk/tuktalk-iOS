@@ -13,7 +13,6 @@ class MyServicePortfolioViewController: UIViewController {
     
     //MARK:- Properties
     
-    var mentorID: Int?
     var response: PortfolioPageResponse? = nil
     private let disposeBag = DisposeBag()
     

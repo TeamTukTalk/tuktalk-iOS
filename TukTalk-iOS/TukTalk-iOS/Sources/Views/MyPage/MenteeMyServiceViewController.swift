@@ -11,7 +11,7 @@ import Moya
 class MenteeMyServiceViewController: UIViewController {
     
     //MARK:- Properties
-    
+    private lazy var viewModel = MyPageViewModel()
     var response: HistoryPortfolioResponse?
     private let disposeBag = DisposeBag()
     
@@ -49,13 +49,13 @@ class MenteeMyServiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setData()
         binding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setBar()
-        setData()
     }
     
     //MARK:- Function
@@ -147,12 +147,26 @@ class MenteeMyServiceViewController: UIViewController {
                 if let cell = self.portfolioCV.dequeueReusableCell(withReuseIdentifier: "MyServiceCVCell", for: IndexPath.init(row: row, section: 0)) as? MyServiceCVCell {
                     
                     cell.setData(portfolio: item)
+                    cell.openBtn.tag = item.mentorID
+                    cell.openBtn.addTarget(self, action: #selector(self.openBtnAction), for: .touchUpInside)
                     return cell
                 }
                 return UICollectionViewCell()
             }
             .disposed(by: disposeBag)
-            
+    }
+    
+    @objc private func openBtnAction(sender: UIButton) {
+        let id = sender.tag
+        self.startLoading()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.viewModel.getPortfolioData(id: id) { data in
+                let nextVC = MyServicePortfolioViewController()
+                nextVC.response = data
+                self.navigationController?.pushViewController(nextVC, animated: true)
+                self.endLoading()
+            }
+        }
     }
 }
 
