@@ -360,10 +360,61 @@ class MyPageViewController: UIViewController {
                 $0.top.equalTo(myServiceBtn.snp.bottom)
             }
             
+            let reviewBtn = UIButton()
+            let reviewBtnLabel = UILabel().then {
+                $0.text = "리뷰관리"
+                $0.font = UIFont.TTFont(type: .SDMed, size: 14)
+                $0.textColor = UIColor.GrayScale.sub1
+            }
+            view.addSubview(reviewBtn)
+            reviewBtn.addSubview(reviewBtnLabel)
+            
+            reviewBtn.snp.makeConstraints {
+                $0.height.equalTo(50)
+                $0.top.equalTo(secondDevideView.snp.bottom)
+                $0.leading.trailing.equalToSuperview()
+            }
+            reviewBtnLabel.snp.makeConstraints {
+                $0.height.equalTo(22)
+                $0.centerY.equalToSuperview()
+                $0.leading.equalToSuperview().offset(16)
+            }
+            
+            let wishBtn = UIButton()
+            let wishBtnLabel = UILabel().then {
+                $0.text = "찜목록"
+                $0.font = UIFont.TTFont(type: .SDMed, size: 14)
+                $0.textColor = UIColor.GrayScale.sub1
+            }
+            view.addSubview(wishBtn)
+            wishBtn.addSubview(wishBtnLabel)
+            
+            wishBtn.snp.makeConstraints {
+                $0.height.equalTo(50)
+                $0.top.equalTo(reviewBtn.snp.bottom)
+                $0.leading.trailing.equalToSuperview()
+            }
+            wishBtnLabel.snp.makeConstraints {
+                $0.height.equalTo(22)
+                $0.centerY.equalToSuperview()
+                $0.leading.equalToSuperview().offset(16)
+            }
+            
+            let thirdDevideView = UIView(frame: .zero).then {
+                $0.backgroundColor = UIColor.GrayScale.gray4
+            }
+            
+            view.addSubview(thirdDevideView)
+            thirdDevideView.snp.makeConstraints {
+                $0.height.equalTo(6)
+                $0.leading.trailing.equalToSuperview()
+                $0.top.equalTo(wishBtn.snp.bottom)
+            }
+            
             view.addSubview(accountSettingBtn)
             accountSettingBtn.snp.makeConstraints {
                 $0.height.equalTo(50)
-                $0.top.equalTo(secondDevideView.snp.bottom)
+                $0.top.equalTo(thirdDevideView.snp.bottom)
                 $0.leading.trailing.equalToSuperview()
             }
             accountSettingBtn.addSubview(accountSettingLabel)
@@ -372,6 +423,18 @@ class MyPageViewController: UIViewController {
                 $0.centerY.equalToSuperview()
                 $0.leading.equalToSuperview().offset(16)
             }
+            
+            reviewBtn.rx.tap
+                .bind {
+                    
+                }
+                .disposed(by: disposeBag)
+            
+            wishBtn.rx.tap
+                .bind {
+                    
+                }
+                .disposed(by: disposeBag)
         }
         
         
