@@ -32,16 +32,6 @@ class SignUpFinishViewController: UIViewController {
         $0.image = UIImage(named: "conImg")
     }
     
-    private let mainBtn = UIButton().then {
-        $0.setTitle("프로필 등록하기", for: .normal)
-        $0.setTitleColor(UIColor.Primary.primary, for: .normal)
-        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
-        $0.backgroundColor = .white
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.Primary.primary.cgColor
-        $0.layer.cornerRadius = 26
-    }
-    
     private let homeBtn = UIButton().then {
         $0.setTitle("홈으로 가기", for: .normal)
         $0.setTitleColor(UIColor.GrayScale.sub2, for: .normal)
@@ -95,33 +85,15 @@ class SignUpFinishViewController: UIViewController {
             $0.centerX.equalToSuperview()
         }
         
-        if user.role == "MENTEE" {
-            view.addSubview(mainBtn)
-            mainBtn.snp.makeConstraints {
-                $0.height.equalTo(52)
-                $0.top.equalTo(subTitleLabel.snp.bottom).offset(32)
-                $0.leading.trailing.equalToSuperview().inset(16)
-            }
-        }
-        
         view.addSubview(homeBtn)
         homeBtn.snp.makeConstraints {
             $0.height.equalTo(52)
-            if user.role == "MENTEE" {
-                $0.top.equalTo(mainBtn.snp.bottom).offset(8)
-            } else {
-                $0.top.equalTo(subTitleLabel.snp.bottom).offset(32)
-            }
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(32)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
     
     private func binding() {
-        mainBtn.rx.tap
-            .bind {
-                self.navigationController?.pushViewController(RegistMenteeProfileViewController(), animated: true)
-            }
-            .disposed(by: disposeBag)
         homeBtn.rx.tap
             .bind {
                 if UserDefaults.standard.bool(forKey: "first") {
