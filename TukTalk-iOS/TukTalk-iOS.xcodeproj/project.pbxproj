@@ -104,6 +104,7 @@
 		404E68742724541E005AA5DD /* CertifyMentorFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* CertifyMentorFinishViewController.swift */; };
 		40578D402767804C005B822A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40578D3F2767804C005B822A /* LoadingView.swift */; };
 		40578D4227698BCA005B822A /* PortfolioPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40578D4127698BCA005B822A /* PortfolioPreviewView.swift */; };
+		40578D44276B6DB3005B822A /* MentorGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40578D43276B6DB3005B822A /* MentorGuideViewController.swift */; };
 		4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A9572729BFF90087E98C /* TagBottomSheetView.swift */; };
 		4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */; };
 		4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */; };
@@ -328,6 +329,7 @@
 		404E68732724541E005AA5DD /* CertifyMentorFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifyMentorFinishViewController.swift; sourceTree = "<group>"; };
 		40578D3F2767804C005B822A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		40578D4127698BCA005B822A /* PortfolioPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioPreviewView.swift; sourceTree = "<group>"; };
+		40578D43276B6DB3005B822A /* MentorGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorGuideViewController.swift; sourceTree = "<group>"; };
 		4060A9572729BFF90087E98C /* TagBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetView.swift; sourceTree = "<group>"; };
 		4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewModel.swift; sourceTree = "<group>"; };
 		4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				402D65962726848800F4ED8F /* HomeViewController.swift */,
 				40DCF34C273C0F5D00A82CC6 /* JobMentorListViewController.swift */,
 				406C3F8327464F9C009EBAB2 /* MenteeReviewViewController.swift */,
+				40578D43276B6DB3005B822A /* MentorGuideViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1672,6 +1675,7 @@
 				40DCF3492739891F00A82CC6 /* ReviewCollectionViewModel.swift in Sources */,
 				402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */,
 				404E68692724206D005AA5DD /* CertifyMentorFirstViewController.swift in Sources */,
+				40578D44276B6DB3005B822A /* MentorGuideViewController.swift in Sources */,
 				40FAED5B27537D2B0006490E /* ReviewSearchResponse.swift in Sources */,
 				40FAED4E275373C30006490E /* QuerySearchResponse.swift in Sources */,
 				402B98CB27521B4800EDD668 /* KeyChain.swift in Sources */,

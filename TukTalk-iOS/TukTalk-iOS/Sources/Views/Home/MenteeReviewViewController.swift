@@ -108,7 +108,7 @@ class MenteeReviewViewController: UIViewController {
     
     private func binding() {
         backBtn.rx.tap
-            .bind { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
@@ -134,10 +134,11 @@ class MenteeReviewViewController: UIViewController {
                                 $0.bottom.equalToSuperview().offset(-51)
                             }
                         }
+                        cell.profileBtn.tag = item.mentorID
                         cell.profileBtn.addTarget(self, action: #selector(self.profileBtnAction), for: .touchUpInside)
                         cell.viewMoreBtn.rx.tap
                             .take(1)
-                            .bind { _ in
+                            .bind {
                                 cell.viewMoreBtnAction()
                             }
                             .disposed(by: self.disposeBag)
@@ -150,8 +151,10 @@ class MenteeReviewViewController: UIViewController {
         }
     }
     
-    @objc func profileBtnAction() {
-        self.navigationController?.pushViewController(MentorInformationViewController(), animated: true)
+    @objc func profileBtnAction(sender: UIButton) {
+        let nextVC = MentorInformationViewController()
+        nextVC.mentorID = sender.tag
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc func tableViewReloadData() {

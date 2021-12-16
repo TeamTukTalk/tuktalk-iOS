@@ -282,11 +282,13 @@ class HomeViewController: UIViewController {
         bottomFirstBannerBtn.snp.makeConstraints {
             $0.top.equalTo(bottomSubLabel.snp.bottom).offset(24)
             $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(194)
         }
         
         mainContentView.addSubview(bottomSecondBannerBtn)
         bottomSecondBannerBtn.snp.makeConstraints {
             $0.top.equalTo(bottomSubLabel.snp.bottom).offset(24)
+            $0.leading.equalToSuperview().offset(194)
             $0.trailing.equalToSuperview().inset(16)
         }
     }
@@ -343,29 +345,13 @@ class HomeViewController: UIViewController {
         
         bannerCV.rx.itemSelected
             .bind { _ in
-                let popUpViewController = UpdatePopUpViewController()
-                let naviVC = UINavigationController(rootViewController: popUpViewController)
-                naviVC.modalPresentationStyle = .overCurrentContext
-                naviVC.modalTransitionStyle = .crossDissolve
-                naviVC.navigationBar.isHidden = true
-                self.present(naviVC, animated: true) {
-                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
-                    naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
-                }
+                self.navigationController?.pushViewController(MentorGuideViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         
         bottomSecondBannerBtn.rx.tap
             .bind {
-                let popUpViewController = UpdatePopUpViewController()
-                let naviVC = UINavigationController(rootViewController: popUpViewController)
-                naviVC.modalPresentationStyle = .overCurrentContext
-                naviVC.modalTransitionStyle = .crossDissolve
-                naviVC.navigationBar.isHidden = true
-                self.present(naviVC, animated: true) {
-                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissAlertController))
-                    naviVC.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
-                }
+                self.navigationController?.pushViewController(MentorGuideViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         

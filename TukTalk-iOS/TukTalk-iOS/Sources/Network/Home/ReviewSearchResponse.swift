@@ -12,7 +12,7 @@ struct ReviewSearchResponse: Codable {
 
 // MARK: - Review
 struct Review: Codable {
-    let reviewID: Int
+    let reviewID, mentorID: Int
     let profileImageURL, profileImageColor, firstLetter: String
     let mentor: Mentor
     let rating: Int
@@ -22,6 +22,7 @@ struct Review: Codable {
 
     enum CodingKeys: String, CodingKey {
         case reviewID = "reviewId"
+        case mentorID = "mentorId"
         case profileImageURL = "profileImageUrl"
         case profileImageColor, firstLetter, mentor, rating
         case reviewDescription = "description"
