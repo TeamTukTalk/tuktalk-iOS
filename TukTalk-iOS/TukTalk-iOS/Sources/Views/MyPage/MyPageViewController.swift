@@ -434,7 +434,7 @@ class MyPageViewController: UIViewController {
             
             wishBtn.rx.tap
                 .bind {
-                    
+                    self.navigationController?.pushViewController(WishListViewController(), animated: true)
                 }
                 .disposed(by: disposeBag)
         }

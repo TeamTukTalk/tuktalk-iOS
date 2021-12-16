@@ -207,6 +207,9 @@
 		40E8CF62276BEE2200AFF09D /* ReviewUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF61276BEE2200AFF09D /* ReviewUploadService.swift */; };
 		40E8CF64276BEE7000AFF09D /* ReviewUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF63276BEE7000AFF09D /* ReviewUploadRequest.swift */; };
 		40E8CF66276BEF4B00AFF09D /* ReviewUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF65276BEF4B00AFF09D /* ReviewUploadResponse.swift */; };
+		40E8CF69276BF96900AFF09D /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF68276BF96900AFF09D /* WishListViewController.swift */; };
+		40E8CF6B276BFAD500AFF09D /* WishListCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF6A276BFAD500AFF09D /* WishListCVCell.swift */; };
+		40E8CF6D276BFB9700AFF09D /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF6C276BFB9700AFF09D /* WishListViewModel.swift */; };
 		40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */; };
 		40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */; };
 		40FAED4127534F860006490E /* MyPageInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4027534F860006490E /* MyPageInformationViewController.swift */; };
@@ -444,6 +447,9 @@
 		40E8CF61276BEE2200AFF09D /* ReviewUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUploadService.swift; sourceTree = "<group>"; };
 		40E8CF63276BEE7000AFF09D /* ReviewUploadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUploadRequest.swift; sourceTree = "<group>"; };
 		40E8CF65276BEF4B00AFF09D /* ReviewUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUploadResponse.swift; sourceTree = "<group>"; };
+		40E8CF68276BF96900AFF09D /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		40E8CF6A276BFAD500AFF09D /* WishListCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCVCell.swift; sourceTree = "<group>"; };
+		40E8CF6C276BFB9700AFF09D /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
 		40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishViewController.swift; sourceTree = "<group>"; };
 		40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
 		40FAED4027534F860006490E /* MyPageInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInformationViewController.swift; sourceTree = "<group>"; };
@@ -1095,6 +1101,7 @@
 			isa = PBXGroup;
 			children = (
 				4087E9572758B14A000E2B6D /* MyServiceCVCell.swift */,
+				40E8CF6A276BFAD500AFF09D /* WishListCVCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1221,6 +1228,7 @@
 				40FAED4627535C630006490E /* WithdrawViewModel.swift */,
 				403EC24927569E1B008A40B9 /* MyPageViewModel.swift */,
 				40E8CF5F276BEB9F00AFF09D /* WriteReviewUploadViewModel.swift */,
+				40E8CF6C276BFB9700AFF09D /* WishListViewModel.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1270,8 +1278,9 @@
 		40E8CF4E276BD04D00AFF09D /* Mentee */ = {
 			isa = PBXGroup;
 			children = (
-				4087E9592758B908000E2B6D /* MenteeMyServiceViewController.swift */,
 				40E8CF52276BD0BC00AFF09D /* Review */,
+				40E8CF67276BF95200AFF09D /* Wish */,
+				4087E9592758B908000E2B6D /* MenteeMyServiceViewController.swift */,
 			);
 			path = Mentee;
 			sourceTree = "<group>";
@@ -1293,6 +1302,14 @@
 				40E8CF55276BD13C00AFF09D /* WrittenReviewViewController.swift */,
 			);
 			path = Review;
+			sourceTree = "<group>";
+		};
+		40E8CF67276BF95200AFF09D /* Wish */ = {
+			isa = PBXGroup;
+			children = (
+				40E8CF68276BF96900AFF09D /* WishListViewController.swift */,
+			);
+			path = Wish;
 			sourceTree = "<group>";
 		};
 		40FAED4827536FE40006490E /* Search */ = {
@@ -1621,6 +1638,7 @@
 				4065FEF227439F0A005AAE0F /* RegistProfileFinishViewController.swift in Sources */,
 				40DCF33F27390CAD00A82CC6 /* TopMentorCollectionViewCell.swift in Sources */,
 				403EC225275617E6008A40B9 /* TermsTVTitleCell.swift in Sources */,
+				40E8CF6B276BFAD500AFF09D /* WishListCVCell.swift in Sources */,
 				406324D6273FF4C3009F62A3 /* FieldTableViewDataModel.swift in Sources */,
 				40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */,
 				403EC26927571A07008A40B9 /* SecondOnboardingViewController.swift in Sources */,
@@ -1669,6 +1687,7 @@
 				40E8CF48276B95E200AFF09D /* DelWishService.swift in Sources */,
 				4087E93F27581E42000E2B6D /* GetCompanyNameResponse.swift in Sources */,
 				4087E92F27580B40000E2B6D /* PortfolioTVCell.swift in Sources */,
+				40E8CF69276BF96900AFF09D /* WishListViewController.swift in Sources */,
 				404E6870272449B6005AA5DD /* CertifyMentorFirstViewModel.swift in Sources */,
 				4087E943275852E7000E2B6D /* PortfolioResponse.swift in Sources */,
 				402D65B32727DDCD00F4ED8F /* SearchDirectViewModel.swift in Sources */,
@@ -1753,6 +1772,7 @@
 				40DCF3492739891F00A82CC6 /* ReviewCollectionViewModel.swift in Sources */,
 				402D65B12727D64400F4ED8F /* SearchingViewController.swift in Sources */,
 				404E68692724206D005AA5DD /* CertifyMentorFirstViewController.swift in Sources */,
+				40E8CF6D276BFB9700AFF09D /* WishListViewModel.swift in Sources */,
 				40578D44276B6DB3005B822A /* MentorGuideViewController.swift in Sources */,
 				40FAED5B27537D2B0006490E /* ReviewSearchResponse.swift in Sources */,
 				40FAED4E275373C30006490E /* QuerySearchResponse.swift in Sources */,
