@@ -195,6 +195,10 @@
 		40DCF34F273D202D00A82CC6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF34E273D202D00A82CC6 /* HomeViewModel.swift */; };
 		40DCF357273DAA3700A82CC6 /* RegistProfileFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */; };
 		40DCF359273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */; };
+		40E8CF46276B94CF00AFF09D /* AddWishService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF45276B94CF00AFF09D /* AddWishService.swift */; };
+		40E8CF48276B95E200AFF09D /* DelWishService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF47276B95E200AFF09D /* DelWishService.swift */; };
+		40E8CF4A276B98C000AFF09D /* WishListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF49276B98C000AFF09D /* WishListService.swift */; };
+		40E8CF4C276B98F400AFF09D /* WishListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF4B276B98F400AFF09D /* WishListResponse.swift */; };
 		40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */; };
 		40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */; };
 		40FAED4127534F860006490E /* MyPageInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4027534F860006490E /* MyPageInformationViewController.swift */; };
@@ -420,6 +424,10 @@
 		40DCF34E273D202D00A82CC6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileFirstViewController.swift; sourceTree = "<group>"; };
 		40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistProfileSecondViewController.swift; sourceTree = "<group>"; };
+		40E8CF45276B94CF00AFF09D /* AddWishService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishService.swift; sourceTree = "<group>"; };
+		40E8CF47276B95E200AFF09D /* DelWishService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelWishService.swift; sourceTree = "<group>"; };
+		40E8CF49276B98C000AFF09D /* WishListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListService.swift; sourceTree = "<group>"; };
+		40E8CF4B276B98F400AFF09D /* WishListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListResponse.swift; sourceTree = "<group>"; };
 		40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishViewController.swift; sourceTree = "<group>"; };
 		40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
 		40FAED4027534F860006490E /* MyPageInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInformationViewController.swift; sourceTree = "<group>"; };
@@ -878,6 +886,7 @@
 				403EC26C2757326A008A40B9 /* MentorTab */,
 				403EC24427569B95008A40B9 /* MyPage */,
 				4087E961275E23A7000E2B6D /* CertifyMentor */,
+				40E8CF44276B949300AFF09D /* Wish */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1225,6 +1234,17 @@
 				40DCF34E273D202D00A82CC6 /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		40E8CF44276B949300AFF09D /* Wish */ = {
+			isa = PBXGroup;
+			children = (
+				40E8CF45276B94CF00AFF09D /* AddWishService.swift */,
+				40E8CF47276B95E200AFF09D /* DelWishService.swift */,
+				40E8CF49276B98C000AFF09D /* WishListService.swift */,
+				40E8CF4B276B98F400AFF09D /* WishListResponse.swift */,
+			);
+			path = Wish;
 			sourceTree = "<group>";
 		};
 		40FAED4827536FE40006490E /* Search */ = {
@@ -1594,6 +1614,7 @@
 				4065FEE4274355C8005AAE0F /* RegistProfileFifthViewController.swift in Sources */,
 				404C57112746C44900B31F64 /* FirstFieldCategoryCVCell.swift in Sources */,
 				40AA40EE274A7AFB00F76625 /* EmailValidResponse.swift in Sources */,
+				40E8CF48276B95E200AFF09D /* DelWishService.swift in Sources */,
 				4087E93F27581E42000E2B6D /* GetCompanyNameResponse.swift in Sources */,
 				4087E92F27580B40000E2B6D /* PortfolioTVCell.swift in Sources */,
 				404E6870272449B6005AA5DD /* CertifyMentorFirstViewModel.swift in Sources */,
@@ -1656,6 +1677,7 @@
 				403EC2532756C787008A40B9 /* SignUpResponse.swift in Sources */,
 				403EC27627579C76008A40B9 /* QuerySearchRequest.swift in Sources */,
 				402D65992726849E00F4ED8F /* SearchMainViewController.swift in Sources */,
+				40E8CF4C276B98F400AFF09D /* WishListResponse.swift in Sources */,
 				40DCF34D273C0F5D00A82CC6 /* JobMentorListViewController.swift in Sources */,
 				4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */,
 				403EC27227574492008A40B9 /* ReviewViewController.swift in Sources */,
@@ -1705,6 +1727,7 @@
 				40FAED66275543110006490E /* PDFResponse.swift in Sources */,
 				402B98D127524AE600EDD668 /* MyPageViewController.swift in Sources */,
 				40AFDE0427354CE600422930 /* UIViewControllerExtension.swift in Sources */,
+				40E8CF4A276B98C000AFF09D /* WishListService.swift in Sources */,
 				40118477271C90D800A5657A /* UIFontExtension.swift in Sources */,
 				403EC23D27568DAB008A40B9 /* UpdatePopUpViewController.swift in Sources */,
 				40FAED6B275543B30006490E /* UserPortfolio.swift in Sources */,
@@ -1716,6 +1739,7 @@
 				40AA40F2274A990D00F76625 /* SignUpThirdViewModel.swift in Sources */,
 				40DCF3472739884F00A82CC6 /* ReviewCollectionViewCell.swift in Sources */,
 				40D3483E272B00E80081FC5F /* TagBottomSheetViewModel.swift in Sources */,
+				40E8CF46276B94CF00AFF09D /* AddWishService.swift in Sources */,
 				403EC23327566015008A40B9 /* SendEmailService.swift in Sources */,
 				4087E95C2758D0A7000E2B6D /* ViewPortfolioService.swift in Sources */,
 				403EC25C2756EFCA008A40B9 /* RegistMenteeService.swift in Sources */,
