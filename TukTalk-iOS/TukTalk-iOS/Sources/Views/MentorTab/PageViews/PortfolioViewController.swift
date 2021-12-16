@@ -131,6 +131,14 @@ extension PortfolioViewController : UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PortfolioPreviewTVCell.identifier, for: indexPath) as? PortfolioPreviewTVCell else { return UITableViewCell() }
+            cell.previewCV.rx.itemSelected
+                .bind { index in
+                    let nextVC = PortfolioPreviewView()
+                    nextVC.modalPresentationStyle = .overFullScreen
+                    nextVC.imageView.image = cell.dataList[index.last!]
+                    self.present(nextVC, animated: true, completion: nil)
+                }
+                .disposed(by: disposeBag)
             cell.setData(urlString: response?.imageFiles ?? [""])
             return cell
         case 2:

@@ -103,6 +103,7 @@
 		404E687227245220005AA5DD /* CertifyMentorSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E687127245220005AA5DD /* CertifyMentorSecondViewModel.swift */; };
 		404E68742724541E005AA5DD /* CertifyMentorFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E68732724541E005AA5DD /* CertifyMentorFinishViewController.swift */; };
 		40578D402767804C005B822A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40578D3F2767804C005B822A /* LoadingView.swift */; };
+		40578D4227698BCA005B822A /* PortfolioPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40578D4127698BCA005B822A /* PortfolioPreviewView.swift */; };
 		4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A9572729BFF90087E98C /* TagBottomSheetView.swift */; };
 		4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */; };
 		4060A95E2729DC980087E98C /* BottomSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */; };
@@ -326,6 +327,7 @@
 		404E687127245220005AA5DD /* CertifyMentorSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifyMentorSecondViewModel.swift; sourceTree = "<group>"; };
 		404E68732724541E005AA5DD /* CertifyMentorFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifyMentorFinishViewController.swift; sourceTree = "<group>"; };
 		40578D3F2767804C005B822A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		40578D4127698BCA005B822A /* PortfolioPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioPreviewView.swift; sourceTree = "<group>"; };
 		4060A9572729BFF90087E98C /* TagBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBottomSheetView.swift; sourceTree = "<group>"; };
 		4060A95B2729DB790087E98C /* BottomSheetCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewModel.swift; sourceTree = "<group>"; };
 		4060A95D2729DC980087E98C /* BottomSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1053,6 +1055,7 @@
 				4087E93227580CB7000E2B6D /* PortfolioPreviewCVCell.swift */,
 				4087E9342758103E000E2B6D /* PortfolioInformTVCell.swift */,
 				4087E936275811AA000E2B6D /* PortfolioRecommendTVCell.swift */,
+				40578D4127698BCA005B822A /* PortfolioPreviewView.swift */,
 			);
 			path = Portfolio;
 			sourceTree = "<group>";
@@ -1536,6 +1539,7 @@
 			files = (
 				4087E94527585D2B000E2B6D /* RegistPortfolioFinishViewController.swift in Sources */,
 				40FAED5E275390050006490E /* PDFService.swift in Sources */,
+				40578D4227698BCA005B822A /* PortfolioPreviewView.swift in Sources */,
 				4065FF11274579E0005AAE0F /* SpecialtyTableViewCell.swift in Sources */,
 				404C57182746D6B100B31F64 /* LoginService.swift in Sources */,
 				403EC22927562928008A40B9 /* TermsTVContentCell.swift in Sources */,

@@ -12,7 +12,7 @@ class PortfolioPreviewTVCell: UITableViewCell {
     public static let identifier : String = "PortfolioPreviceTVCell"
     private let disposeBag = DisposeBag()
     private let imageData = BehaviorSubject<[UIImage]>(value: [])
-    private var dataList: [UIImage] = []
+    var dataList: [UIImage] = []
     
     private let titleLabel = UILabel().then {
         $0.text = "포트폴리오 미리보기 👀"
@@ -73,7 +73,7 @@ class PortfolioPreviewTVCell: UITableViewCell {
     private func setColectionView() {
         previewCV.rx.setDelegate(self).disposed(by: disposeBag)
         
-        let layout: UICollectionViewFlowLayout = LeftAlignedCollectionViewFlowLayout()
+        let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 12
         layout.scrollDirection = .horizontal
         previewCV.setCollectionViewLayout(layout, animated: false)
