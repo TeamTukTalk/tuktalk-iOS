@@ -374,6 +374,12 @@ class HomeViewController: UIViewController {
                 self.navigationController?.pushViewController(CertifyMentorFirstViewController(), animated: true)
             }
             .disposed(by: disposeBag)
+        
+        reviewViewAllBtn.rx.tap
+            .bind {
+                self.navigationController?.pushViewController(MenteeReviewViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func setCollectionViewUI() {

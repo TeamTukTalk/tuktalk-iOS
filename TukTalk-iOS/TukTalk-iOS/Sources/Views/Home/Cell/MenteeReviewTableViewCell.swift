@@ -28,7 +28,18 @@ class MenteeReviewTableViewCell: UITableViewCell {
     }
     
     var profileImg = UIImageView().then {
-        $0.layer.cornerRadius = $0.frame.height / 2
+        $0.backgroundColor = UIColor.GrayScale.gray4
+        $0.layer.masksToBounds = true
+        $0.layer.cornerRadius = 22
+        $0.contentMode = .scaleAspectFill
+        $0.isHidden = true
+    }
+    var profileBackground = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray4
+        $0.layer.cornerRadius = 22
+    }
+    var profileLabel = UILabel().then {
+        $0.font = UIFont.TTFont(type: .SDBold, size: 15)
     }
     var nameLabel = UILabel().then {
         $0.font = UIFont.TTFont(type: .SDBold, size: 14)
@@ -88,15 +99,38 @@ class MenteeReviewTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(model: ReviewDataModel) {
-        profileImg.image = model.image
-        nameLabel.text = model.name
-        companyLabel.text = model.company
-        jobLabel.text = model.job
-        starImageView.image = model.star
-        contentsLabel.text = model.contents
-        menteeNameLabel.text = model.menteeName
-        reviewDateLabel.text = model.date
+    func setData(model: Review) {
+        if model.profileImageURL == "" {
+            profileBackground.isHidden = false
+            profileLabel.isHidden = false
+            profileBackground.backgroundColor = UIColor.Profile.getProfileColor(color: model.profileImageColor)
+            profileLabel.textColor = UIColor.Profile.getNameColor(color: model.profileImageColor)
+            profileLabel.text = model.firstLetter
+            profileImg.isHidden = true
+        } else {
+            let url = URL(string: model.profileImageURL)
+            let data = try? Data(contentsOf: url!)
+            profileImg.image = UIImage(data: data!)
+            profileImg.isHidden = false
+            profileBackground.isHidden = true
+            profileLabel.isHidden = true
+        }
+        nameLabel.text = model.mentor.nickname
+        companyLabel.text = model.mentor.companyName
+        jobLabel.text = model.mentor.subSpecialty
+        starImageView.image = UIImage(named: "star\(model.rating)")
+        contentsLabel.text = model.reviewDescription
+        menteeNameLabel.text = model.mentee.nickname
+        reviewDateLabel.text = model.reviewCreatedDateTime
+        
+        let dateStr = model.reviewCreatedDateTime
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        guard let convertDate = dateFormatter.date(from: dateStr) else { return }
+        let myDateFormatter = DateFormatter()
+        myDateFormatter.dateFormat = "yyyy.MM.dd"
+        let convertStr = myDateFormatter.string(from: convertDate)
+        reviewDateLabel.text = convertStr
     }
     
     func viewMoreBtnAction() {
@@ -126,6 +160,8 @@ class MenteeReviewTableViewCell: UITableViewCell {
         
         cellBackgroundView.addSubview(profileBtn)
         profileBtn.addSubview(profileImg)
+        profileBtn.addSubview(profileBackground)
+        profileBackground.addSubview(profileLabel)
         profileBtn.addSubview(nameLabel)
         profileBtn.addSubview(mentorConfirmImg)
         profileBtn.addSubview(companyLabel)
@@ -148,6 +184,14 @@ class MenteeReviewTableViewCell: UITableViewCell {
         profileImg.snp.makeConstraints {
             $0.width.height.equalTo(44)
             $0.top.leading.equalToSuperview()
+        }
+        profileBackground.snp.makeConstraints {
+            $0.width.height.equalTo(44)
+            $0.top.leading.equalToSuperview()
+        }
+        profileLabel.snp.makeConstraints {
+            $0.height.equalTo(22)
+            $0.centerX.centerY.equalToSuperview()
         }
         nameLabel.snp.makeConstraints {
             $0.height.equalTo(20)
