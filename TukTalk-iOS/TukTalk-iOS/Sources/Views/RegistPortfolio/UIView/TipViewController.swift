@@ -37,9 +37,7 @@ final class TipViewController: UIViewController {
         $0.addTarget(self, action: #selector(dismissAlertController), for: .touchUpInside)
     }
     
-    private let contentTextView = UITextView().then {
-        $0.isUserInteractionEnabled = false
-    }
+    private let contentTextView = UITextView()
     
     //MARK:- Life Cycle
     
