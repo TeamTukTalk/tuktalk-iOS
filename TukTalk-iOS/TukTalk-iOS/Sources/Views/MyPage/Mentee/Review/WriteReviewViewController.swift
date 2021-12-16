@@ -32,7 +32,7 @@ class WriteReviewViewController: UIViewController {
         bindingCollectionView()
     }
     
-    //MARK: Function
+    //MARK:- Function
     
     private func setUI() {
         view.addSubview(grayBackgroundView)
@@ -67,6 +67,8 @@ class WriteReviewViewController: UIViewController {
             .bind(to: portfolioCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
                 if let cell = self.portfolioCV.dequeueReusableCell(withReuseIdentifier: "MyServiceCVCell", for: IndexPath.init(row: row, section: 0)) as? MyServiceCVCell {
                     cell.openBtn.setTitle("리뷰 작성하기", for: .normal)
+                    cell.openBtn.tag = item.mentorID
+                    cell.openBtn.addTarget(self, action: #selector(self.openBtnAction), for: .touchUpInside)
                     cell.setData(portfolio: item)
                     return cell
                 }
@@ -74,6 +76,12 @@ class WriteReviewViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         }
+    
+    @objc private func openBtnAction(sender: UIButton) {
+        let nextVC = WriteReviewUploadViewController()
+        nextVC.mentorID = sender.tag
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
 
 extension WriteReviewViewController: UICollectionViewDelegateFlowLayout {

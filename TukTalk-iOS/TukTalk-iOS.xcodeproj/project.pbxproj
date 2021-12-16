@@ -202,6 +202,8 @@
 		40E8CF51276BD0A900AFF09D /* ReviewManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF50276BD0A900AFF09D /* ReviewManageViewController.swift */; };
 		40E8CF54276BD10000AFF09D /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF53276BD10000AFF09D /* WriteReviewViewController.swift */; };
 		40E8CF56276BD13C00AFF09D /* WrittenReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF55276BD13C00AFF09D /* WrittenReviewViewController.swift */; };
+		40E8CF5E276BE67400AFF09D /* WriteReviewUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF5D276BE67400AFF09D /* WriteReviewUploadViewController.swift */; };
+		40E8CF60276BEB9F00AFF09D /* WriteReviewUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF5F276BEB9F00AFF09D /* WriteReviewUploadViewModel.swift */; };
 		40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */; };
 		40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */; };
 		40FAED4127534F860006490E /* MyPageInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4027534F860006490E /* MyPageInformationViewController.swift */; };
@@ -434,6 +436,8 @@
 		40E8CF50276BD0A900AFF09D /* ReviewManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManageViewController.swift; sourceTree = "<group>"; };
 		40E8CF53276BD10000AFF09D /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		40E8CF55276BD13C00AFF09D /* WrittenReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenReviewViewController.swift; sourceTree = "<group>"; };
+		40E8CF5D276BE67400AFF09D /* WriteReviewUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewUploadViewController.swift; sourceTree = "<group>"; };
+		40E8CF5F276BEB9F00AFF09D /* WriteReviewUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewUploadViewModel.swift; sourceTree = "<group>"; };
 		40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishViewController.swift; sourceTree = "<group>"; };
 		40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
 		40FAED4027534F860006490E /* MyPageInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInformationViewController.swift; sourceTree = "<group>"; };
@@ -1207,6 +1211,7 @@
 				40A8F84F273F1796007360C9 /* RegistMentor */,
 				40FAED4627535C630006490E /* WithdrawViewModel.swift */,
 				403EC24927569E1B008A40B9 /* MyPageViewModel.swift */,
+				40E8CF5F276BEB9F00AFF09D /* WriteReviewUploadViewModel.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1275,6 +1280,7 @@
 			children = (
 				40E8CF50276BD0A900AFF09D /* ReviewManageViewController.swift */,
 				40E8CF53276BD10000AFF09D /* WriteReviewViewController.swift */,
+				40E8CF5D276BE67400AFF09D /* WriteReviewUploadViewController.swift */,
 				40E8CF55276BD13C00AFF09D /* WrittenReviewViewController.swift */,
 			);
 			path = Review;
@@ -1619,6 +1625,7 @@
 				4000F8A12721B14D0067C6B6 /* SignUpSecondViewController.swift in Sources */,
 				4087E960275D2B8D000E2B6D /* RegistPortfolioFinishViewModel.swift in Sources */,
 				40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */,
+				40E8CF60276BEB9F00AFF09D /* WriteReviewUploadViewModel.swift in Sources */,
 				404E686D272439C7005AA5DD /* CertifyMentorSecondViewController.swift in Sources */,
 				40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
@@ -1643,6 +1650,7 @@
 				4060A9582729BFF90087E98C /* TagBottomSheetView.swift in Sources */,
 				40FAED4A2753701B0006490E /* QuerySearchService.swift in Sources */,
 				4011847B271CA41E00A5657A /* CALayerExtension.swift in Sources */,
+				40E8CF5E276BE67400AFF09D /* WriteReviewUploadViewController.swift in Sources */,
 				403EC26E2757328F008A40B9 /* MentorPageService.swift in Sources */,
 				4041C0E027198803007D09E7 /* SceneDelegate.swift in Sources */,
 				4065FEE4274355C8005AAE0F /* RegistProfileFifthViewController.swift in Sources */,
