@@ -13,14 +13,14 @@ class ReviewViewController: UIViewController {
     
     //MARK:- UI Components
     
-    private let tempImg = UIImageView().then {
-        $0.image = UIImage(named: "updateImg")
+    private let nillImg = UIImageView().then {
+        $0.image = UIImage(named: "nilAlertImg")
     }
     
-    private let tempLabel = UILabel().then {
-        $0.text = "업데이트 준비중입니다. 잠시만 기다려주세요."
-        $0.font = UIFont.TTFont(type: .SDBold, size: 14)
-        $0.textColor = UIColor.GrayScale.sub3
+    private let nillLabel = UILabel().then {
+        $0.text = "작성된 리뷰가 없습니다."
+        $0.font = UIFont.TTFont(type: .SDMed, size: 12)
+        $0.textColor = UIColor.GrayScale.sub4
     }
     
     //MARK:- Life Cycle
@@ -33,15 +33,18 @@ class ReviewViewController: UIViewController {
     //MARK:- Function
     
     private func setUI() {
-        view.addSubview(tempImg)
-        tempImg.snp.makeConstraints {
+        view.addSubview(nillImg)
+        nillImg.snp.makeConstraints {
+            $0.width.height.equalTo(24)
+            $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().offset(30)
-            $0.centerX.equalToSuperview()
         }
-        view.addSubview(tempLabel)
-        tempLabel.snp.makeConstraints {
-            $0.top.equalTo(tempImg.snp.bottom).offset(10)
+        
+        view.addSubview(nillLabel)
+        nillLabel.snp.makeConstraints {
+            $0.height.equalTo(18)
             $0.centerX.equalToSuperview()
+            $0.top.equalTo(nillImg.snp.bottom).offset(8)
         }
     }
 }

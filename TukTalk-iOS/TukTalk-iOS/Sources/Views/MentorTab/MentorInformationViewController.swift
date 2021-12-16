@@ -19,7 +19,7 @@ class MentorInformationViewController: UIViewController {
     
     private lazy var informationVC = InformationViewController()
     private lazy var portfolioVC = PortfolioViewController()
-    private lazy var consultingVC = ConsultingViewController()
+    private lazy var reviewVC = ReviewViewController()
     var mentorID: Int?
     
     private var currentPage: Int = 0 {
@@ -28,7 +28,7 @@ class MentorInformationViewController: UIViewController {
         }
     }
     
-    private lazy var dataViewControllers: [UIViewController] = [informationVC, portfolioVC, consultingVC]
+    private lazy var dataViewControllers: [UIViewController] = [informationVC, portfolioVC, reviewVC]
     
     private let screenWidth = Int(UIScreen.main.bounds.width)
     
