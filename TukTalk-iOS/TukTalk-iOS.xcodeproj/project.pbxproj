@@ -204,6 +204,9 @@
 		40E8CF56276BD13C00AFF09D /* WrittenReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF55276BD13C00AFF09D /* WrittenReviewViewController.swift */; };
 		40E8CF5E276BE67400AFF09D /* WriteReviewUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF5D276BE67400AFF09D /* WriteReviewUploadViewController.swift */; };
 		40E8CF60276BEB9F00AFF09D /* WriteReviewUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF5F276BEB9F00AFF09D /* WriteReviewUploadViewModel.swift */; };
+		40E8CF62276BEE2200AFF09D /* ReviewUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF61276BEE2200AFF09D /* ReviewUploadService.swift */; };
+		40E8CF64276BEE7000AFF09D /* ReviewUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF63276BEE7000AFF09D /* ReviewUploadRequest.swift */; };
+		40E8CF66276BEF4B00AFF09D /* ReviewUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E8CF65276BEF4B00AFF09D /* ReviewUploadResponse.swift */; };
 		40F284B4274C2CD700986F33 /* SignUpFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */; };
 		40FAED3F27534DAB0006490E /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */; };
 		40FAED4127534F860006490E /* MyPageInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAED4027534F860006490E /* MyPageInformationViewController.swift */; };
@@ -438,6 +441,9 @@
 		40E8CF55276BD13C00AFF09D /* WrittenReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenReviewViewController.swift; sourceTree = "<group>"; };
 		40E8CF5D276BE67400AFF09D /* WriteReviewUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewUploadViewController.swift; sourceTree = "<group>"; };
 		40E8CF5F276BEB9F00AFF09D /* WriteReviewUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewUploadViewModel.swift; sourceTree = "<group>"; };
+		40E8CF61276BEE2200AFF09D /* ReviewUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUploadService.swift; sourceTree = "<group>"; };
+		40E8CF63276BEE7000AFF09D /* ReviewUploadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUploadRequest.swift; sourceTree = "<group>"; };
+		40E8CF65276BEF4B00AFF09D /* ReviewUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUploadResponse.swift; sourceTree = "<group>"; };
 		40F284B3274C2CD700986F33 /* SignUpFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishViewController.swift; sourceTree = "<group>"; };
 		40FAED3E27534DAB0006490E /* AccountSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
 		40FAED4027534F860006490E /* MyPageInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInformationViewController.swift; sourceTree = "<group>"; };
@@ -681,6 +687,9 @@
 				403EC24527569BD0008A40B9 /* MenteeProfileService.swift */,
 				403EC24727569C50008A40B9 /* MenteeProfileResponse.swift */,
 				403EC26127570824008A40B9 /* WithdrawService.swift */,
+				40E8CF61276BEE2200AFF09D /* ReviewUploadService.swift */,
+				40E8CF63276BEE7000AFF09D /* ReviewUploadRequest.swift */,
+				40E8CF65276BEF4B00AFF09D /* ReviewUploadResponse.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1627,6 +1636,7 @@
 				40CC20B8274E35EA008A3967 /* RegistPortfolioFirstViewController.swift in Sources */,
 				40E8CF60276BEB9F00AFF09D /* WriteReviewUploadViewModel.swift in Sources */,
 				404E686D272439C7005AA5DD /* CertifyMentorSecondViewController.swift in Sources */,
+				40E8CF64276BEE7000AFF09D /* ReviewUploadRequest.swift in Sources */,
 				40CC20BB274E3966008A3967 /* RegistPortfolioFirstViewModel.swift in Sources */,
 				4041C1182719893E007D09E7 /* LoginViewModel.swift in Sources */,
 				40DCF337273831B900A82CC6 /* BannerCollectionViewCell.swift in Sources */,
@@ -1687,6 +1697,7 @@
 				4060A95C2729DB790087E98C /* BottomSheetCollectionViewModel.swift in Sources */,
 				40DCF34F273D202D00A82CC6 /* HomeViewModel.swift in Sources */,
 				40CC20CE274EC0DC008A3967 /* RegistPortfolioFirthViewController.swift in Sources */,
+				40E8CF66276BEF4B00AFF09D /* ReviewUploadResponse.swift in Sources */,
 				403B0140272DAAE80093160D /* HashTagCollectionViewCell.swift in Sources */,
 				40118480271D9ACB00A5657A /* ViewModelProtocol.swift in Sources */,
 				40FAED502753744E0006490E /* JobSearchService.swift in Sources */,
@@ -1725,6 +1736,7 @@
 				4088F171271AE4CE00527A77 /* SignUpThirdViewController.swift in Sources */,
 				403EC27227574492008A40B9 /* ReviewViewController.swift in Sources */,
 				402D6590272683FC00F4ED8F /* TabBarViewController.swift in Sources */,
+				40E8CF62276BEE2200AFF09D /* ReviewUploadService.swift in Sources */,
 				4000F8AD27220DA00067C6B6 /* FieldCategoryDataModel.swift in Sources */,
 				40E8CF54276BD10000AFF09D /* WriteReviewViewController.swift in Sources */,
 				4065FEDC27423EDE005AAE0F /* RegistMentorThirdViewModel.swift in Sources */,

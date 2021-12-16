@@ -70,6 +70,7 @@ class WriteReviewUploadViewController: UIViewController {
         $0.setTitleColor(UIColor.GrayScale.sub4, for: .normal)
         $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 16)
         $0.layer.cornerRadius = 26
+        $0.isEnabled = false
     }
     
     //MARK:- Life Cycle
@@ -240,6 +241,13 @@ class WriteReviewUploadViewController: UIViewController {
             .bind {
                 self.viewModel.rating = 5
                 self.initStartImageView.image = UIImage(named: "star5")
+            }
+            .disposed(by: disposeBag)
+        
+        uploadBtn.rx.tap
+            .bind {
+                self.viewModel.getReviewUploadRequest(id: self.mentorID ?? -1, description: self.textView.debugDescription)
+                self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
     }

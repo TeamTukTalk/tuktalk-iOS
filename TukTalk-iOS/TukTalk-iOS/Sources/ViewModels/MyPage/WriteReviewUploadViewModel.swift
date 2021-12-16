@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import Moya
 
 struct WriteReviewUploadViewModel: ViewModelType {
     
@@ -40,9 +41,19 @@ struct WriteReviewUploadViewModel: ViewModelType {
         self.output = Output(nextIsValid: nextIsValid$)
     }
     
-    func insertData(text: String?) {
-        guard let text = text else { return }
-        UserPortfolio.shared.description = text
+    func getReviewUploadRequest(id: Int, description: String) {
+        print("id: \(id), rating: \(rating), description: \(description)")
+        let provider = MoyaProvider<ReviewUploadService>()
+        provider.rx.request(.reviewUploadRequest(param: ReviewUploadRequest(mentorId: id, rating: rating, description: description)))
+            .subscribe { result in
+                switch result {
+                case let .success(response):
+                    print(response)
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }
 
