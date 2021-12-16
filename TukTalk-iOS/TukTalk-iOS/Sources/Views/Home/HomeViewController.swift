@@ -69,6 +69,24 @@ class HomeViewController: UIViewController {
     
     private let jobMentorCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    private let grayBackgroundView = UIView().then {
+        $0.backgroundColor = UIColor.GrayScale.gray5
+    }
+    
+    private let reviewLabel = UILabel().then {
+        $0.text = "뚝딱멘티들의 실시간 후기 📋"
+        $0.font = UIFont.TTFont(type: .SDBold, size: 16)
+        $0.textColor = UIColor.GrayScale.normal
+    }
+    
+    private let reviewViewAllBtn = UIButton().then {
+        $0.setTitle("전체보기", for: .normal)
+        $0.titleLabel?.font = UIFont.TTFont(type: .SDMed, size: 13)
+        $0.setTitleColor(UIColor.GrayScale.sub3, for: .normal)
+    }
+    
+    private let reviewCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
     private let bottomTitleLabel = UILabel().then {
         $0.text = "뚝딱멘토 활동을 시작해보세요!"
         $0.font = UIFont.TTFont(type: .SDBold, size: 16)
@@ -116,9 +134,9 @@ class HomeViewController: UIViewController {
         mainScrollView.delegate = self
         mainScrollView.bounces = false
         if UIScreen.main.bounds.height <= 812 {
-            mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1200)
+            mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1582)
         } else {
-            mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1250)
+            mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1632)
         }
         
     }
@@ -218,10 +236,38 @@ class HomeViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
         }
         
+        mainContentView.addSubview(grayBackgroundView)
+        grayBackgroundView.snp.makeConstraints {
+            $0.height.equalTo(362)
+            $0.top.equalTo(jobMentorCV.snp.bottom).offset(22)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        grayBackgroundView.addSubview(reviewLabel)
+        reviewLabel.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.top.equalToSuperview().offset(40)
+            $0.leading.equalToSuperview().offset(40)
+        }
+        
+        grayBackgroundView.addSubview(reviewViewAllBtn)
+        reviewViewAllBtn.snp.makeConstraints {
+            $0.height.equalTo(18)
+            $0.centerY.equalTo(reviewLabel)
+            $0.trailing.equalToSuperview().inset(16)
+        }
+        
+        grayBackgroundView.addSubview(reviewCV)
+        reviewCV.snp.makeConstraints {
+            $0.height.equalTo(262)
+            $0.top.equalTo(reviewLabel.snp.bottom).offset(24)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
         mainContentView.addSubview(bottomTitleLabel)
         bottomTitleLabel.snp.makeConstraints {
             $0.height.equalTo(24)
-            $0.top.equalTo(jobMentorCV.snp.bottom).offset(40)
+            $0.top.equalTo(grayBackgroundView.snp.bottom).offset(40)
             $0.centerX.equalToSuperview()
         }
         
@@ -366,6 +412,15 @@ class HomeViewController: UIViewController {
         jobMentorCV.backgroundColor = .white
         jobMentorCV.showsHorizontalScrollIndicator = false
         jobMentorCV.register(JobMentorCollectionViewCell.self, forCellWithReuseIdentifier: "JobMentorCollectionViewCell")
+        
+        let reviewCVLayout = UICollectionViewFlowLayout()
+        reviewCVLayout.minimumLineSpacing = 12
+        reviewCVLayout.scrollDirection = .horizontal
+        reviewCVLayout.sectionInset = UIEdgeInsets(top: 0, left: 40, bottom: 28, right: 40)
+        reviewCV.setCollectionViewLayout(reviewCVLayout, animated: false)
+        reviewCV.backgroundColor = UIColor.GrayScale.gray5
+        reviewCV.showsHorizontalScrollIndicator = false
+        reviewCV.register(ReviewCollectionViewCell.self, forCellWithReuseIdentifier: "ReviewCollectionViewCell")
     }
     
     private func bindingCollectionView() {
@@ -373,6 +428,7 @@ class HomeViewController: UIViewController {
         topMentorCV.rx.setDelegate(self).disposed(by: disposeBag)
         categoryCV.rx.setDelegate(self).disposed(by: disposeBag)
         jobMentorCV.rx.setDelegate(self).disposed(by: disposeBag)
+        reviewCV.rx.setDelegate(self).disposed(by: disposeBag)
         
         bannerViewModel.output.bannerListData
             .bind(to: bannerCV.rx.items) { (cv, row, item) -> UICollectionViewCell in
@@ -442,6 +498,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             return CategoryCollectionViewCell.fittingSize(availableHeight: 36, name: items[indexPath.row].title)
         case jobMentorCV:
             return CGSize(width: 156, height: 140)
+        case reviewCV:
+            return CGSize(width: 230, height: 234)
         default:
             return CGSize()
         }
