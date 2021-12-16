@@ -287,7 +287,7 @@ class CertifyMentorFirstViewController: UIViewController {
         
         viewModel.output.nextIsValid
             .drive(onNext: { status in
-                self.nextBtn.setTitleColor(status ? .white : UIColor.GrayScale.gray4, for: .normal)
+                self.nextBtn.setTitleColor(status ? .white : UIColor.GrayScale.sub4, for: .normal)
                 self.nextBtn.backgroundColor = status ? UIColor.Primary.primary : UIColor.GrayScale.gray4
                 self.nextBtn.isEnabled = status
             })
