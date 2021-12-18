@@ -50,6 +50,7 @@ class RegistPortfolioFirstViewController: UIViewController {
     }
     
     private let mainTextView = UITextView().then {
+        $0.isEditable = false
         $0.text = "자신의 포트폴리오의 장점, 차별점과 주요 프로젝트의 설명, 제작 과정 등등 자세히 작성해주세요."
         $0.font = UIFont.TTFont(type: .SDReg, size: 14)
         $0.textColor = UIColor.GrayScale.sub4
