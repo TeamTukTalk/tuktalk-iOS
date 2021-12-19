@@ -135,16 +135,14 @@ class CertifyMentorFirstViewController: UIViewController {
         binding()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        NotificationCenter.default.removeObserver(self)
-        companyTextField.text = ""
-//        [companyTextField, departmentTextField].forEach { $0.text = ""}
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         keyboardObserver()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        setDisappear()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -328,6 +326,11 @@ class CertifyMentorFirstViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    private func setDisappear() {
+        NotificationCenter.default.removeObserver(self)
+        companyTextField.text = ""
+    }
+    
     @objc private func keyboardWillShow(_ sender: Notification) {
         let nextBtnBottomPosition = nextBtn.frame.origin.y + nextBtn.frame.height
         keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
@@ -335,13 +338,13 @@ class CertifyMentorFirstViewController: UIViewController {
         if nextBtnBottomPosition < keyboardTopPosition {
             return
         }
-        if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y += keyboardTopPosition - nextBtnBottomPosition - 20
+        if view.frame.origin.y == 0 {
+            view.frame.origin.y += keyboardTopPosition - nextBtnBottomPosition - 20
         }
     }
     
     @objc private func keyboardWillHide(_ sender: Notification) {
-        self.view.frame.origin.y = 0
+        view.frame.origin.y = 0
     }
 
 }
