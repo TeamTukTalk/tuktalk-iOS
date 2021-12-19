@@ -46,7 +46,7 @@ class JobMentorListViewController: UIViewController {
     }
     
     //MARK:- Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -113,9 +113,9 @@ class JobMentorListViewController: UIViewController {
     
     private func binding() {
         backBtn.rx.tap
-            .bind(onNext: { _ in
+            .bind {
                 self.navigationController?.popViewController(animated: true)
-            })
+            }
             .disposed(by: disposeBag)
         
         categoryCV.rx.modelSelected(SearchesDataModel.self)
