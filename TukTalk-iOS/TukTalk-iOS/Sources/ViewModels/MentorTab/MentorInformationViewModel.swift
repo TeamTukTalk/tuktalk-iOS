@@ -24,8 +24,6 @@ final class MentorInformationViewModel: ViewModelType {
         var pageData: Observable<[PageCollectionViewDataModel]>
     }
     
-    // 추후 서버연동 후 변경 예정
-    
     var pageList: [PageCollectionViewDataModel] = [
         PageCollectionViewDataModel(title: "멘토정보"),
         PageCollectionViewDataModel(title: "포트폴리오"),
