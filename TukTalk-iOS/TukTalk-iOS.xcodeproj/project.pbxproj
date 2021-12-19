@@ -980,14 +980,6 @@
 			path = CollectionViewModel;
 			sourceTree = "<group>";
 		};
-		406324CB273FF131009F62A3 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				406324CC273FF15E009F62A3 /* FieldViewController.swift */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
 		406324CE273FF1D1009F62A3 /* UIViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1174,13 +1166,13 @@
 			children = (
 				403EC22F27565EFE008A40B9 /* Class */,
 				406324D1273FF3CA009F62A3 /* Cell */,
-				406324CB273FF131009F62A3 /* UIView */,
 				40DCF356273DAA3700A82CC6 /* RegistProfileFirstViewController.swift */,
 				40DCF358273DCE7A00A82CC6 /* RegistProfileSecondViewController.swift */,
 				4065FED9274226A4005AAE0F /* RegistProfileThirdViewController.swift */,
 				4065FEDD27434A1E005AAE0F /* RegistProfileFourthViewController.swift */,
 				4065FEE3274355C8005AAE0F /* RegistProfileFifthViewController.swift */,
 				4065FEF127439F0A005AAE0F /* RegistProfileFinishViewController.swift */,
+				406324CC273FF15E009F62A3 /* FieldViewController.swift */,
 			);
 			path = RegistMentor;
 			sourceTree = "<group>";
