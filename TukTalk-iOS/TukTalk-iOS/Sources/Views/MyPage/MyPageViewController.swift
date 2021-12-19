@@ -14,7 +14,6 @@ class MyPageViewController: UIViewController {
     private lazy var viewModel = MyPageViewModel()
     private var mentorEmailValid: Bool?
     private var mentorID: Int?
-    private var menteeID: Int?
     private var user: String?
     private var response: PortfolioPageResponse?
     private var historyResponse: HistoryPortfolioResponse?
