@@ -175,7 +175,7 @@ class CertifyMentorSecondViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        emailTextField.text = ""
+        setDisappear()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -427,5 +427,9 @@ class CertifyMentorSecondViewController: UIViewController {
         backgroundView.snp.updateConstraints {
             $0.height.equalTo(393)
         }
+    }
+    
+    private func setDisappear() {
+        emailTextField.text = ""
     }
 }
