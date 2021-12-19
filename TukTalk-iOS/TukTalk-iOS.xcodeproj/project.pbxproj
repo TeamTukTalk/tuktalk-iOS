@@ -596,6 +596,7 @@
 				402D65A02726D64400F4ED8F /* SearchDirectViewController.swift */,
 				402D65B02727D64400F4ED8F /* SearchingViewController.swift */,
 				4067CE05275136D100FFC8AF /* SearchingDirectViewController.swift */,
+				4060A9572729BFF90087E98C /* TagBottomSheetView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -631,7 +632,6 @@
 			isa = PBXGroup;
 			children = (
 				402D65AB2727C4D500F4ED8F /* RecommendView.swift */,
-				4060A9572729BFF90087E98C /* TagBottomSheetView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
