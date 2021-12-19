@@ -1190,12 +1190,12 @@
 			children = (
 				40FAED6C275548A20006490E /* Cell */,
 				40FAED69275543A50006490E /* Class */,
-				40CC20BC274E4417008A3967 /* UIView */,
 				40CC20B7274E35EA008A3967 /* RegistPortfolioFirstViewController.swift */,
 				40CC20BF274E620C008A3967 /* RegistPortfolioSecondViewController.swift */,
 				40CC20C5274E7A01008A3967 /* RegistPortfolioThirdViewController.swift */,
 				40CC20CD274EC0DC008A3967 /* RegistPortfolioFirthViewController.swift */,
 				4087E94427585D2B000E2B6D /* RegistPortfolioFinishViewController.swift */,
+				40CC20BD274E4423008A3967 /* TipViewController.swift */,
 			);
 			path = RegistPortfolio;
 			sourceTree = "<group>";
@@ -1210,14 +1210,6 @@
 				4087E95F275D2B8D000E2B6D /* RegistPortfolioFinishViewModel.swift */,
 			);
 			path = RegistPortfolio;
-			sourceTree = "<group>";
-		};
-		40CC20BC274E4417008A3967 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				40CC20BD274E4423008A3967 /* TipViewController.swift */,
-			);
-			path = UIView;
 			sourceTree = "<group>";
 		};
 		40D0CE6A2731158D003AB9A7 /* MyPage */ = {
