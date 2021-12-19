@@ -123,9 +123,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = false
-        topMentorCV.reloadData()
-        jobMentorCV.reloadData()
+        reloadView()
     }
     
     //MARK:- Function
@@ -138,7 +136,6 @@ class HomeViewController: UIViewController {
         } else {
             mainScrollView.contentSize = CGSize(width:self.view.frame.size.width, height: 1632)
         }
-        
     }
     
     private func setUI() {
@@ -482,6 +479,11 @@ class HomeViewController: UIViewController {
         }
     }
     
+    private func reloadView() {
+        tabBarController?.tabBar.isHidden = false
+        topMentorCV.reloadData()
+        jobMentorCV.reloadData()
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
