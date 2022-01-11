@@ -6,7 +6,7 @@
 
 **개발 기간 : 2021.10.16 🔨~ 2021.12.18**
 
-**앱스토어 출시일 : 2021.12.04** [링크✈](https://apps.apple.com/kr/app/%EB%9A%9D%EB%94%B1-tuktalk/id1598319949)
+**앱스토어 출시일 : 2021.12.04** [링크✈](https://apps.apple.com/kr/app/%EB%9A%9D%EB%94%B1-tuktalk/id1598319949)<br>(서비스 운영을 하지 않기 때문에 서버는 닫아놓은 상태입니다)
 
 <img src="https://user-images.githubusercontent.com/70688424/146688898-0d1b1012-7ddd-4ae1-a214-1e03a9bca3e1.png" width="300"> <img src="https://user-images.githubusercontent.com/70688424/146688914-30479faa-8b47-4c21-a52c-c7cbdad76fec.png" width="300">
 
