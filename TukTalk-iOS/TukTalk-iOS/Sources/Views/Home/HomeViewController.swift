@@ -341,7 +341,7 @@ class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
         
         bannerCV.rx.itemSelected
-            .bind { _ in
+            .bind {
                 self.navigationController?.pushViewController(MentorGuideViewController(), animated: true)
             }
             .disposed(by: disposeBag)
